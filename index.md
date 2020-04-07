@@ -21,6 +21,7 @@ The PokEngine is a school's project mainly focus around making a game for Switch
     2. [Particle System](2020-04-07-Particle-systems.md)
     2. [Particle System](https://surue.github.io/posts/2020-04-07-Particle-systems.md)
     2. [Particle System](https://surue.github.io/posts_/2020-04-07-Particle-systems.md)
+    2. [Particle System]({% post_url 2020-04-07-Particle-systems %})
     3. [test](test.md) (Works)
     4. Showing more by showing less
 3. ECS implementation
