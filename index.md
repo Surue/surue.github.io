@@ -1,8 +1,8 @@
-#Blog post surue
+# Blog post surue
 
-##Particles
+## Particles
 
-##How to survives a six months school project?
+## How to survives a six months school project?
 
-##GraphicsEngine
+## GraphicsEngine
 
