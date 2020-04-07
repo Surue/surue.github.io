@@ -8,7 +8,7 @@ The PokEngine is a school's project mainly focus around making a game for Switch
 1. Pre-production
     1. Where to look at?
 2. Graphics Engine
-    1. [Particle System](https://surue.github.io/_post/particles.md)
+    1. [Particle System](https://surue.github.io/test/particles.md)
     2. Showing more by showing less
 3. ECS implementation
 4. Post mortem
