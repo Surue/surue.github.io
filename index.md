@@ -6,7 +6,7 @@ I'm an indi game develop passing more time writing engine than make game and I l
 
 The PokEngine is a school's project mainly focus around making a game for Switch tm with a custom game engine. As the main engine programmer I visits some of the darkest secrets around the cheats used in the engin mixed with some optimization stuff.
 1. Pre-production
-  1.1 Where to look at?
+  1.1. Where to look at?
 2. Graphics Engine
   2.1. Particle System
   2.2. Showing more by showing less
