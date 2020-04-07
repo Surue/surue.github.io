@@ -6,3 +6,5 @@ url : "https://surue.github.io"
 # Build settings
 theme : minima
  
+
+theme: jekyll-theme-minimal
