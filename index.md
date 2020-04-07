@@ -1,3 +1,8 @@
+---
+layout: home
+---
+
+
 # Blog post surue
 
 I came to make games and I ended up doing engines.
@@ -8,7 +13,7 @@ The PokEngine is a school's project mainly focus around making a game for Switch
 1. Pre-production
     1. Where to look at?
 2. Graphics Engine
-    1. [Particle System](2020-04-07-Particle-systems.html)
+    1. [Particle System](posts_/2020-04-07-Particle-systems.html)
     2. Showing more by showing less
 3. ECS implementation
 4. Post mortem
