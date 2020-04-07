@@ -1,6 +1,6 @@
 # Blog post surue
 
-I'm an indi game develop passing more time writing engine than make game and I love it.
+I came to make games, I came out doing engines.
 
 ## PokEngine
 
