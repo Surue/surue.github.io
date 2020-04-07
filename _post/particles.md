@@ -1,6 +1,6 @@
 layout: page
 title: "Particles"
-permalink: /URL-PATH/
+permalink: /test/
 
 #Particles
 
