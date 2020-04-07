@@ -13,17 +13,9 @@ The PokEngine is a school's project mainly focus around making a game for Switch
 1. Pre-production
     1. Where to look at?
 2. Graphics Engine
-    1. [posts_/Particle System](/posts/2020-04-07-Particle-systems.md)
-    1. [posts_/Particle System](posts/2020-04-07-Particle-systems.md)
-    1. [posts_/Particle System](/posts_/2020-04-07-Particle-systems.md)
-    1. [posts_/Particle System](posts_/2020-04-07-Particle-systems.md)
-    2. [Particle System](/2020-04-07-Particle-systems.md)
-    2. [Particle System](2020-04-07-Particle-systems.md)
-    2. [Particle System](https://surue.github.io/posts/2020-04-07-Particle-systems.md)
-    2. [Particle System](https://surue.github.io/posts_/2020-04-07-Particle-systems.md)
-    2. [Particle System]({% post_url 2020-04-07-Particle-systems %})
-    3. [test](test.md) (Works)
-    4. Showing more by showing less
+    1. [Particle System]({% post_url 2020-04-07-Particle-systems %}) (Works)
+    2. [test](test.md) (Works)
+    3. Showing more by showing less
 3. ECS implementation
 4. Post mortem
     1. How to survive a 6 months school project
