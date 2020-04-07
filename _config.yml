@@ -1,0 +1,11 @@
+# Site wide configuration
+
+title: Surue Blog Post
+locale: en_US
+
+# Enter the following platform usernames if you would like for them to appear on your site.
+owner:
+  name: Nicolas Schneider
+  bio: "This is a sa blog post of Nicolas."
+  github: surue
+ 
