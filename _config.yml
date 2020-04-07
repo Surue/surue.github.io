@@ -1,6 +1,5 @@
 # Jekyll configuration
 name : Surue's Blog Post
-baseurl: "/Surue" # the subpath of your site, e.g. /blog
 url : "https://surue.github.io"
 
 # Build settings
