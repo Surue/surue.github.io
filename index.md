@@ -13,7 +13,7 @@ The PokEngine is a school's project mainly focus around making a game for Switch
 1. Pre-production
     1. [Overview of the engine in its current state]
 2. Core Engine
-    1. [Multithreading the engine]({% post_url 2020-04-13-How-to-make-more-in-the-same-time})
+    1. [Multithreading the engine]({% post_url 2020-04-13-How-to-make-more-in-the-same-time %})
 2. Graphics Engine
     1. [Particle System]({% post_url 2020-04-07-Particle-systems %}) 
 4. Post mortem
