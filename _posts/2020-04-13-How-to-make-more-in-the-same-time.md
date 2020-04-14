@@ -1,3 +1,8 @@
+---
+layout: post
+title: "How to make more in the same time?"
+date: 2020-04-13 22:21:00 +0100
+---
 # How to make more in the same time?
 
 In video games player always wants more, they want to see more stuff happening on the screen with high quality of graphics. They want to have more interaction with the world like the ability to destroy everything they see while not having objects passing through each other.  \
