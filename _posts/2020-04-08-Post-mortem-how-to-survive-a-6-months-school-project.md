@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Post morter"
+date: 2020-04-08 22:21:00 +0100
+---
+
 # Recap of the project
 
 If throughout all those posts I've been mostly speaking about the engine itself, it's important to replace it into the scope of the full project. At the end of September 3 of my comrades, our teacher and myself started talking about our specialization project. To sum it up it must be a 6 month project where everyone of us had the opportunity to go further it its favorite programming domains while doing a game with a custom engine.
