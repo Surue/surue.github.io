@@ -9,9 +9,9 @@ I came to make games and I ended up doing engines.
 
 ## PokEngine
 
-The PokEngine is a school's project mainly focus around making a game for Switch tm with a custom game engine. As the main engine programmer I visits some of the darkest secrets around the cheats used in the engin mixed with some optimization stuff.
+The PokEngine is a school's project mainly focus around making a game for Switch with a custom game engine. As the main engine programmer I visits some of the darkest secrets around the cheats used in the engin mixed with some optimization stuff. 
 1. Pre-production
-    1. Where to look at?
+    1. [Overview of the engine in its current state]
 2. Core Engine
     1. [Multithreading the engine]({% post_url 2020-04-13-How-to-make-more-in-the-same-time})
 2. Graphics Engine
