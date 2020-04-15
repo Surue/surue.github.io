@@ -88,7 +88,7 @@ The whole project used sprints of two weeks, inspired by agile method and for th
 
 Even though we’re all students, we have our own strength and weakness, to make to most of it wi implemented vode review validation for every task. Core review implies to look at some else code, understand how it work and to give constructive feedback on the implementation. Some people had to redo their task four to five times before their code was validated. Using code review make the programming’s level of every one quickly increase and helped keep an overall style.
 
-| SCHEMA AVEC LES 4 ETAPES LIÉES AUX TÂCHES |
+<img src="https://github.com/Surue/surue.github.io/blob/master/_posts/_img/task_steps.JPG">
 
 
 ### The game
