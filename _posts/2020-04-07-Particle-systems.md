@@ -13,7 +13,7 @@ This post focus mainly on the implementation of a particle system and the optimi
 ### Definition
 
 Particle are light weighted object that are drawn on the screen with a unique texture on it. In video games they can be found to symbolize impact with object or explosion. You're seeing blood splashing everywhere when shooting at someone? Those are most certainly particles. If a particle is a simple object with a lifetime and a speed behind it their is a particle system, in charge of spawning particle, retaining information about the numbers of active particle, it can also hold information about how the particles will be instantiated in the world and starting speed. More often you see particle system using particle emitter than contain the shape that emits particles.
-![simple red particle](../assets/images/simple_particle.gif)
+![simple red particle](../assets/images/particle_simple.gif)
 
 
 ### Needs of the game
@@ -43,12 +43,33 @@ It was also useful to use Unity because the prototype of the game was made on it
 The most basic implementation is to have a data structure to represent any particles. A particles system that holds the information of how each of its particle behave and looks like. Finally there is an emitter that contain the shape from which the particles is emitted.
 ```c
 struct Particle {
+	uint32_t numberOfRows = 1;
+	Color originalColor;
+	Color colorOffset;
 
+	ColorGradient colorOverLifetime;
+
+ math::Vec3 position;
+ math::Vec3 velocity;
+ math::Vec3 change;
+
+ math::Vec2 imageOffset1;
+ math::Vec2 imageOffset2;
+
+ float lifetime;
+ float scale;
+ float gravityEffect;
+
+ float elapsedTime = 0.0f;
+ float transparency = 1.0f;
+ float imageBlendFactor = 0.0f;
+ float distanceToCamera = 0.0f;
 }
 ```
 
 This implementation is what could be called human readable, it’s easy to implement and to read the code, for example moving a particle only needs
-´´´c
+
+```c
 for(auto& particle : particles){
 // Code to check life time of a particle
 
@@ -59,7 +80,7 @@ for(auto& particle : particles){
  
  //Code to change the sprite drawn if there is multiple sprite
 }
-´´´
+```
 
 But for a code being human readable mean most of the time that it’s not friendly readable for the machine. Every computer like to have aligned data and doing the same operation over the same type of data because it can do its own optimisation while doing its calculation.
 
@@ -71,7 +92,7 @@ To align data and to make it efficient every programmer should stop thinking wit
 
 This allignement allow to have loop for each type of _action_ that are applied to every particles.
 
-´´´c
+```c
 // Code to check life time of a particle
 
 for(auto& velocity : velocities){
@@ -85,7 +106,7 @@ for(int i = 0; i < velocities.size; i++){
  //Code to change the color
  
  //Code to change the sprite drawn if there is multiple sprite
-´´´
+```
 
 ### Lifetime
 
@@ -95,7 +116,7 @@ Adding a condition in every loop to check if a particle is still alive would wor
 
 An simpler way is to swap a living entities with a dead one. It means that every dead entities are at the end of the array, and every alives particles are at the beginning of the array. By doing this little trick, there is no need of any condition in the used loop.
 
-![Swap of dead particle](../assets/images/particles_swap.png)
+![Swap of dead particle](../assets/images/particle_swap.png)
 
 ### Sorting
 
@@ -112,7 +133,7 @@ To avoid the square root, in place of using the correct function it’s possible
 The last part that need to be optimized is on the GPU side. GPU are good at drawing the same thing multiple time. What cost time is to change shader - programmes on the gpu to define how something is drawn on the screen - and if for every particles the shader is reset, even to the same one, it will cost time to the gpu.  
 
 One solution is to use GPU Instancing, it a way of forcing the GPU to draw the same object a certain amount of time. For particles this is easy to implement as every particle need the same image drawn on a quad - 3d square -. 
-|GIF FONTAINE DE PARTICULES|
+![Particles fountain](../assets/images/particles_confetti.gif)
 
 ## After thoughts
 
