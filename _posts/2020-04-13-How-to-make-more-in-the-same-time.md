@@ -197,4 +197,6 @@ This is an easy implementation and easy to maintain and it perfectly fit our nee
 There are a few other solution that can fix this problem but that way are more complex like a job system. In the current states of the engine, optimization on the multithreading are not required and as it doesn't need a lot of maintenance this implementation will certain last until the end of the project.
 
 ### Good resources
-
+* Fleury, R., 2020. Entity Memory Contiguity: A Tale About Simplicity. Ryan Fleury. Available [here](https://ryanfleury.net/blog_entity_memory_contiguity). An interesting blog about data alignment and hwo to deal 
+* Gameprogrammingpatterns.com. 2020. Table Of Contents · Game Programming Patterns. Available [here](http://gameprogrammingpatterns.com/contents.html). This is a collection of programming pattern that can be solved a lot of differents architecture problem when designing the architecture.
+* Schott, M., 2020. Developer.nvidia.com. Available [here](https://developer.nvidia.com/sites/default/files/akamai/gameworks/blog/munich/mschott_vulkan_multi_threading.pdf). This is a complete presentation on how to use Vulkan obejct to help multithreading the graphics engine
