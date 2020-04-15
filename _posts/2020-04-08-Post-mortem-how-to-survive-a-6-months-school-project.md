@@ -40,8 +40,7 @@ The first task was to take every available roles. We had :
 - A **lead programmer** who is also the lead engine programer (me)
 
 Through the course of six months the team changed a lot and the number keep increasing up to fifteen developers in total, mainly in the tool team. As I'm writing those line the team is counting three more members, two gameplay programmers and a tool programmer bringing up the total of developer to eight.
-
-![alt text](https://github.com/Surue/surue.github.io/blob/master/assets/images/programmer_team_evolution.png "Evolution of the programmer team over six months")
+![Evolution of the team over 6 months](../assets/images/assets/images/programmer_team_evolution.png)
 
 
 #### Lead Programmer
@@ -76,17 +75,17 @@ The whole project used sprints of two weeks, inspired by agile method and for th
 - **Pre game** : 2 months where the focus was on tools
 - **Game Critical** : 2 months where every game’s core feature needed to be doable
 - **Game Plus** : The final month allocated to do some enhancement on the game.
-<img src="https://github.com/Surue/surue.github.io/blob/master/assets/images/milestones.png" >  
+<img src="../assets/images/milestones.png" >  
 
 #### Code review
 
 Even though we’re all students, we have our own strength and weakness, to make to most of it wi implemented vode review validation for every task. Core review implies to look at some else code, understand how it work and to give constructive feedback on the implementation. Some people had to redo their task four to five times before their code was validated. Using code review make the programming’s level of every one quickly increase and helped keep an overall style.
-<img src="https://github.com/Surue/surue.github.io/blob/master/assets/images/task_steps.JPG">
+<img src="/assets/images/task_steps.JPG">
 
 ### The game
 
 It was important for us to have the basics idea of the game because this would shape the engine and every tool needed. It would also design the allocation of every human's resource we had. Or design team settle down on Star Of Anarchy, a 3D rail shooter set up is space. 
-<img src="../assets/images/stars_of_anarchy_key_image.JPG" alt="">
+<img src="/assets/images/stars_of_anarchy_key_image.JPG" alt="">
 
 ## Production 
 
