@@ -11,7 +11,7 @@ date: 2020-04-08 22:21:00 +0100
 
 If throughout all those posts the main subject has been the engine itself, it's important to replace it into the scope of the full project. At the end of September, 3 of my comrades, our teacher and myself started talking about our specialization project. To sum it up it must be a 6 month project where everyone of us had the opportunity to go further it its favorite programming domains while doing a game for the switch with a custom engine.
 
-![Image of the game in switch](https://github.com/Surue/surue.github.io/blob/master/_images/switch_game.png)
+![alt text](https://github.com/Surue/surue.github.io/blob/master/_images/switch_game.png "Image of the game on the switch")
 
 ## Pre - production
 
@@ -41,7 +41,7 @@ The first task was to take every available roles. We had :
 
 Through the course of six months the team changed a lot and the number keep increasing up to fifteen developers in total, mainly in the tool team. As I'm writing those line the team is counting three more members, two gameplay programmers and a tool programmer bringing up the total of developer to eight.
 
-![Evolution of the programmer team over six months](https://github.com/Surue/surue.github.io/blob/master/_images/programmer_team_evolution.png)
+![alt text](https://github.com/Surue/surue.github.io/blob/master/_images/programmer_team_evolution.png "Evolution of the programmer team over six months")
 
 
 #### Lead Programmer
