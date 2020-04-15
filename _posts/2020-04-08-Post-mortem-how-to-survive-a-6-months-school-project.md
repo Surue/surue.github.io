@@ -127,7 +127,7 @@ To lower the number of clashes we introduce in the programmer team :
 - A better separation of tasks depending on who wanted to go further with the project
 - Discussion with the whole team to settle things down on what we want the project to be
 
-![Daily images on slack](../assets/images/slack_iamge.png)
+![Daily images on slack](../assets/images/slack_images.png)
 
 As today not everything is cleared up, but we all agree to at least use this project as a showroom of our capabilities.
 
