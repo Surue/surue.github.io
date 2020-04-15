@@ -44,11 +44,11 @@ It was also useful to use Unity because the prototype of the game was made on it
 The most basic implementation is to have a data structure to represent any particles. A particles system that holds the information of how each of its particle behave and looks like. Finally there is an emitter that contain the shape from which the particles is emitted.
 ```c
 struct Particle {
-	uint32_t numberOfRows = 1;
-	Color originalColor;
-	Color colorOffset;
+ uint32_t numberOfRows = 1;
+ Color originalColor;
+ Color colorOffset;
 
-	ColorGradient colorOverLifetime;
+ ColorGradient colorOverLifetime;
 
  math::Vec3 position;
  math::Vec3 velocity;
@@ -124,8 +124,7 @@ An simpler way is to swap a living entities with a dead one. It means that every
 One of the most common problem in programming is sorting arrays of elements. Particles needs to be sorted from the farest to the closest of the camera. This is done to be sure to render particles and not having particle behind other being drawn in front of them. And to sort them we need to compute the distance from the camera to the particle, the distance between two points needs a square root to be done, one of the worst performance function you can make a computer do.
 
 To solve the issue with the needs to sort every array of every data needed to draw a particle, first of all, to drawn a particle, the gpu - Graphics Processing Unit, it’s in charge of rendering everything to the screen - doesn’t need to know about the lifetime of a particle.  So less data need to be sorted. Secondly not every arrays of data need to be sorted, one trick is to sort only the positions and keeping an array of sorted index, to then take the needed info in a sorted order.
-
-|SCHÉMA AVEC MISE EN AVANT DES SORTED INDEX|
+![Sorted particles array](../assets/images/particles_sorted.png)
 
 To avoid the square root, in place of using the correct function it’s possible to use the Manhattan distance. This function remove the need of the square root, and even thought the values of the distance are incorrecte, their are consistently incorrect, it means that object can be sorted using this function.
 
