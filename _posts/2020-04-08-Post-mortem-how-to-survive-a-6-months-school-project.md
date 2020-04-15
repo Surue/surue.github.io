@@ -11,7 +11,7 @@ date: 2020-04-08 22:21:00 +0100
 
 If throughout all those posts the main subject has been the engine itself, it's important to replace it into the scope of the full project. At the end of September, 3 of my comrades, our teacher and myself started talking about our specialization project. To sum it up it must be a 6 month project where everyone of us had the opportunity to go further it its favorite programming domains while doing a game for the switch with a custom engine.
 
-![Image of the game on the switch](assets/images/switch_game.png)
+![Image of the game on the switch](/assets/images/switch_game.png)
 
 ## Pre - production
 
