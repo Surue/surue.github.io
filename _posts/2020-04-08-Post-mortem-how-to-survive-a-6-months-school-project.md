@@ -143,8 +143,8 @@ For the game all main mechanics are implemented and can be tested. Some work sti
 
 As said earlier, working six months on a project this size, with all those part coming together with a team this big represents a fair amount of knowledge.  They cover differents area:
 *   **Team management**, during 6 months we tried differents type of organization, we had intern conflict and we setup complete workflow 
-*   For the engine it was important to create custom **data structure **to answer each problem with its own solution
-*   For this project to work, a huge part of the work was designing an **architecture **that would work for the game and the editor
+*   For the engine it was important to create custom **data structure** to answer each problem with its own solution
+*   For this project to work, a huge part of the work was designing an **architecture** that would work for the game and the editor
 *   In generals **c++** as this is the main programming language used in this project
 
 
