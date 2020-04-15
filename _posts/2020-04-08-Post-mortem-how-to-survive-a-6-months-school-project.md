@@ -151,3 +151,17 @@ As said earlier, working six months on a project this size, with all those part 
 ### Where to go now?
 
 Programmer are never satisfied with their work, there is still work to do, new features to implement, optimize some systems. For now the engine will keep working the six coming months. Tasks will be to maintain and updated the current systems. The goal is to keep it workable, follow demands from the game team and make sure that the game is playable in the best condition possible.
+
+### Good resources
+* Gregory, J., n.d. Game Engine Architecture. 2nd ed. Is an excelent book about engine programming, anyone who desire to make its own engine should read this. The book can be found [here](http://ce.eng.usc.ac.ir/files/1511334027376.pdf)
+* Unity is a good engine for quickly trying something, but also to take some inspiration from their user interface or how they tackle modern problem. Their [blog](https://blogs.unity3d.com/) is full of informations.
+* Sonmez, J., 2020. Some Advice On Becoming A Lead Developer - Simple Programmer. Simple Programmer. Available [here] (https://simpleprogrammer.com/some-advice-on-becoming-a-lead-developer). Is a good starting article to be a Lead programmer
+* Stroutsrup, B. and Sutter, H., 2020. C++ Core Guidelines. Isocpp.github.io. Available [here](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines). You can find here a lot of modern C++ (which is sometimes hard to find) and a real philosophy of programming.
+* The [C++ coding style of google](https://google.github.io/styleguide/cppguide.html) is full of information on hidden C++ feature and contains golden rules to apply when programming ini C++.
+
+# Thanks 
+First to all my coworker for their amazing job thought all the project and doing all this project with me. I'm the kind of guy who tries to be honest and sometimes being honest also means not being nice to everyone, so thank you all for bearing that. You can check their own blog at those address:
+
+Then through the course of the project we had multiple externals people having a look in the project. Special Sylvain and [Anirul](https://github.com/anirul) who both helped the whole programmer's team developing  a solid project by giving us feedback on our idea or implementation.
+
+Finally [Elias Farhan](https://github.com/EliasFarhan) our teacher who played the role of the stakeholder. He also invited other game developer to which we had pitched the game and received advice on how to orient our work.  
