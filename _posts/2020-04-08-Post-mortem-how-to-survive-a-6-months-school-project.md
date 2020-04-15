@@ -31,9 +31,9 @@ Even thought we were all eager to start programming as soon as possible, we had 
 
 The first task was to take every available roles. We had :
 
--** **A **lead project** that is also an engine programme. He then became latter a game programmer.
+- A **lead project** that is also an engine programme. He then became latter a game programmer.
 
-- A** lead design**, in charge of designing the game from the mechanics to the visual look of it. He is also a gameplay programmer
+- A **lead design**, in charge of designing the game from the mechanics to the visual look of it. He is also a gameplay programmer
 
 - A **lead tool** programmer/devops, working on tools and maintaining our repository
 
@@ -73,15 +73,15 @@ It was my main role during the whole project and the most stressing one because 
 
 The whole project used sprints of two weeks, inspired by agile method and for the progrogrammers’s team is devised if four main steps
 
-- **Pre tool **: A short period where the main focus was on the engine
+- **Pre tool** : A short period where the main focus was on the engine
 
-- **Pre game **: 2 months where the focus was on tools
+- **Pre game** : 2 months where the focus was on tools
 
 - **Game Critical** : 2 months where every game’s core feature needed to be doable
 
 - **Game Plus** : The final month allocated to do some enhancement on the game.
 
-| SCHEMA AVEC LES 4 MILESTONES |
+<img src="https://github.com/Surue/surue.github.io/blob/master/_posts/_img/milestones.png" >  
 
 
 #### Code review
