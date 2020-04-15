@@ -175,16 +175,10 @@ The main point is the size of the struct which is way smaller and thus fixing th
 
 #### Time to allocate memory
 
-Allocation of memory is one of the worst part in modern cpu. Here is an example where their is an already created array and then a new element is added to this array
-|32|12|146|1|457|?|-|-|-|-|-|
-|4|34|-|2346|24|?|-|-|-|12|-|
-
-->
-
-|32|12|146|1|457|-|-|-|-|-|-|
+Allocation of memory is one of the worst part in modern cpu. Here is an example where their is an already created array and then a new element is added to this array.
 
 The problem here is that the computer doesn’t know what come after the existing array so it will need to look over the memory to find a new spot, it does means to copy all memory somewhere else in memory
-|DEPLACEMENT D’UN TABLEAU EN MEMOIR|
+![Memory allocation without doing .reserve() before](../assets/images/memory_allocation.png)
 
 It easy to imagine what would happen when copying data from one array to the other. Fortunately there is solutions to avoid allocation during the game is running. One of them is knowing the number of element that can be drawn at the same time.  
  
