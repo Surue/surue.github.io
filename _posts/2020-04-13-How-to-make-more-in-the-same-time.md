@@ -43,6 +43,7 @@ Using this technique have one other benefits, the other programmers just need to
 ### Using 4 threads simultaneously 
 
 For the implementation we went with 4 differents thread active at the same time, it matched the available number of thread on the switch.
+
 ![threads in on frame](../assets/images/1_frame_threads.png)
 
 #### App Thread
