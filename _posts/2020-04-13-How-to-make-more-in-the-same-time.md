@@ -139,36 +139,36 @@ By having copies of data, the size of the engine can easily double if everything
 To calculate the movement, next position, how the mesh will be created the trail renderer needs a lot of data
 ```c
 struct TrailRenderer{
-	   ResourceID materialID; // size_t
-	   float lifetime = 1.0f;
-	   float changeTime = 0.5f;
-	   float widthStart = 1.0f;
-	   float widthEnd = 1.0f;
-	   float vertexDistanceMin = 0.1f;
-	   math::Vec3 renderDirection = {0, 1, 0};
-    bool isPaused = false;
+	ResourceID materialID; // size_t
+	float lifetime = 1.0f;
+	float changeTime = 0.5f;
+	float widthStart = 1.0f;
+	float widthEnd = 1.0f;
+	float vertexDistanceMin = 0.1f;
+	math::Vec3 renderDirection = {0, 1, 0};
+	bool isPaused = false;
    
 private:
-   	std::vector<math::Vec3> centerPositions_;
-	   std::vector<TrailRendererVertex> leftVertices_;
-	   std::vector<TrailRendererVertex> rightVertices_;
+	std::vector<math::Vec3> centerPositions_;
+	std::vector<TrailRendererVertex> leftVertices_;
+	std::vector<TrailRendererVertex> rightVertices_;
 };
 
 struct TrailRendererVertex{
-    math::Vec3 centerPosition; 
-	   math::Vec3 derivedDirection;
-	   math::Vec3 position;
-	   float creationTime;
-	   float timeAlive;
+	math::Vec3 centerPosition; 
+	math::Vec3 derivedDirection;
+	math::Vec3 position;
+	float creationTime;
+	float timeAlive;
 };
 ```
 
 But to be drawn the trail renderer need less data, only the index of the materials that is already in the gpu when the engine is launched, the mesh who is also the gpu and an index to be drawn in the forward pass (a forwad pass is a special type of passe where every object is drawn alone on the screen).
 ```c
 struct TrailRenderDrawData{
-   ResourceID materialID;
-		 ResourceID meshID;
-		 ModelForwardIndex forwardIndex; //size_t
+	ResourceID materialID;
+	ResourceID meshID;
+	ModelForwardIndex forwardIndex; //size_t
 };
 ```
 The main point is the size of the struct which is way smaller and thus fixing this issue when copying datas from the logical thread to the render thread.
