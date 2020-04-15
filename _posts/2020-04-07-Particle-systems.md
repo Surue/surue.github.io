@@ -133,7 +133,7 @@ To avoid the square root, in place of using the correct function it’s possible
 The last part that need to be optimized is on the GPU side. GPU are good at drawing the same thing multiple time. What cost time is to change shader - programmes on the gpu to define how something is drawn on the screen - and if for every particles the shader is reset, even to the same one, it will cost time to the gpu.  
 
 One solution is to use GPU Instancing, it a way of forcing the GPU to draw the same object a certain amount of time. For particles this is easy to implement as every particle need the same image drawn on a quad - 3d square -. 
-![Particles fountain](../assets/images/particles_confetti.gif)
+![Particles fountain](../assets/images/particle_confetti.gif)
 
 ## After thoughts
 
