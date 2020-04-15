@@ -13,6 +13,7 @@ This post focus mainly on the implementation of a particle system and the optimi
 ### Definition
 
 Particle are light weighted object that are drawn on the screen with a unique texture on it. In video games they can be found to symbolize impact with object or explosion. You're seeing blood splashing everywhere when shooting at someone? Those are most certainly particles. If a particle is a simple object with a lifetime and a speed behind it their is a particle system, in charge of spawning particle, retaining information about the numbers of active particle, it can also hold information about how the particles will be instantiated in the world and starting speed. More often you see particle system using particle emitter than contain the shape that emits particles.
+
 ![simple red particle](../assets/images/particle_simple.gif)
 
 
