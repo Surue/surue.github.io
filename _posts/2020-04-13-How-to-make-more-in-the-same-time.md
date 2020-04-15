@@ -76,10 +76,9 @@ The Render Thread will always be one frame behind and for our game this is not a
 
 To have a _safe_ moment where data can be access without having to be bother with race condition, the execution loop - in which order the main function of the engine will be executed - has to be a priority when designing the engine.
 
-|BOUCLE D’EXECUTION|
+![execution loop](../assets/images/execution_loop.png)
 
 Each of those name can be seen as a set of function that are created anywhere in the engine and that will be executed following the order of the diagram.
-
 
 #### Logic Thread
 
@@ -88,7 +87,6 @@ Each of those name can be seen as a set of function that are created anywhere in
 The first function to occur are related to physics. It assure that the elapsed time between each physical update is as close as possible. This has been made possible because the engine force a frame to be as least 16.66ms. In this pass every physical object is moved according to their speed and if two objects touch each other then message are sent to system that are listening in case two objects are touching each other.  
  
 We made the choice to don’t resolve position by updating position and velocities of objects. It was made because the game simply doesn't need it. When two object enter with each other it will end up in one of them being destroyed.
-
 
 ##### Input
 
@@ -118,7 +116,6 @@ This part works directly with the data created in the Draw pass. It will check i
 
 Currently the engine only implement frustum culling but also use a custom type culling, the world is divided in chunks - rectangle- taht contains all static object that are update from the player's position.
 |Gif frustum culling|
-
 
 ##### Render
 
