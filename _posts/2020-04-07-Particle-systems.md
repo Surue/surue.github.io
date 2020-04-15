@@ -95,7 +95,7 @@ Adding a condition in every loop to check if a particle is still alive would wor
 
 An simpler way is to swap a living entities with a dead one. It means that every dead entities are at the end of the array, and every alives particles are at the beginning of the array. By doing this little trick, there is no need of any condition in the used loop.
 
-|SCHÉMA POUR REPRÉSENTER LE SWAP DE PARTICULES|
+![Swap of dead particle](../assets/images/particles_swap.png)
 
 ### Sorting
 
@@ -112,6 +112,7 @@ To avoid the square root, in place of using the correct function it’s possible
 The last part that need to be optimized is on the GPU side. GPU are good at drawing the same thing multiple time. What cost time is to change shader - programmes on the gpu to define how something is drawn on the screen - and if for every particles the shader is reset, even to the same one, it will cost time to the gpu.  
 
 One solution is to use GPU Instancing, it a way of forcing the GPU to draw the same object a certain amount of time. For particles this is easy to implement as every particle need the same image drawn on a quad - 3d square -. 
+|GIF FONTAINE DE PARTICULES|
 
 ## After thoughts
 
@@ -126,5 +127,6 @@ where time constraints are less pressing. Optimization needs to be stop when the
 The same problem can easily appear when adding features. Yet again particles are a good example, it’s easy to add new effect on particles like physics, changing size over time, changing speed over time and so on. But as for optimization, a programmer need to stop when he can use it’s features to accomplished to most basics implementation.
 
 ### Good resources
-* * Schiffman, D., 2020. The Nature Of Code. Natureofcode.com. Available [here](https://natureofcode.com/book/chapter-4-particle-systems). This is a realy complete blog about the implementation of a particle system with many features.
+* Schiffman, D., 2020. The Nature Of Code. Natureofcode.com. Available [here](https://natureofcode.com/book/chapter-4-particle-systems). This is a realy complete blog about the implementation of a particle system with many features.
+* Lorach, T., 2020.  Developer.download.nvidia.com. Available [here](https://developer.download.nvidia.com/whitepapers/2007/SDK10/SoftParticles_hi.pdf) Here is presentation on how at nvidia they handle soft particles.
 
