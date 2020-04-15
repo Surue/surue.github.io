@@ -11,7 +11,7 @@ date: 2020-04-08 22:21:00 +0100
 
 If throughout all those posts the main subject has been the engine itself, it's important to replace it into the scope of the full project. At the end of September, 3 of my comrades, our teacher and myself started talking about our specialization project. To sum it up it must be a 6 month project where everyone of us had the opportunity to go further it its favorite programming domains while doing a game for the switch with a custom engine.
 
-![Image of the game on the switch](_img/switch_game.png)
+![Image of the game on the switch](assets/images/switch_game.png)
 
 ## Pre - production
 
@@ -41,7 +41,7 @@ The first task was to take every available roles. We had :
 
 Through the course of six months the team changed a lot and the number keep increasing up to fifteen developers in total, mainly in the tool team. As I'm writing those line the team is counting three more members, two gameplay programmers and a tool programmer bringing up the total of developer to eight.
 
-![alt text](https://github.com/Surue/surue.github.io/blob/master/_images/programmer_team_evolution.png "Evolution of the programmer team over six months")
+![alt text](https://github.com/Surue/surue.github.io/blob/master/assets/images/programmer_team_evolution.png "Evolution of the programmer team over six months")
 
 
 #### Lead Programmer
@@ -81,14 +81,14 @@ The whole project used sprints of two weeks, inspired by agile method and for th
 
 - **Game Plus** : The final month allocated to do some enhancement on the game.
 
-<img src="https://github.com/Surue/surue.github.io/blob/master/_posts/_img/milestones.png" >  
+<img src="https://github.com/Surue/surue.github.io/blob/master/assets/images/milestones.png" >  
 
 
 #### Code review
 
 Even though we’re all students, we have our own strength and weakness, to make to most of it wi implemented vode review validation for every task. Core review implies to look at some else code, understand how it work and to give constructive feedback on the implementation. Some people had to redo their task four to five times before their code was validated. Using code review make the programming’s level of every one quickly increase and helped keep an overall style.
 
-<img src="https://github.com/Surue/surue.github.io/blob/master/_posts/_img/task_steps.JPG">
+<img src="https://github.com/Surue/surue.github.io/blob/master/assets/images/task_steps.JPG">
 
 
 ### The game
