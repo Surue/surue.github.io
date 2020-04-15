@@ -95,7 +95,7 @@ Even though we’re all students, we have our own strength and weakness, to make
 
 It was important for us to have the basics idea of the game because this would shape the engine and every tool needed. It would also design the allocation of every human's resource we had. Or design team settle down on Star Of Anarchy, a 3D rail shooter set up is space. 
 
-| IMAGE DU JEU |
+<img src="/assets/images/stars_of_anarchy_key_image.JPG" alt="">
 
 
 ## Production 
@@ -104,9 +104,9 @@ Now that all basics documents, idea, objectives where done it was time to start 
 
 
 
-*   **Engine **: in charge of programming every core system of the engine, named the POK Engine 
-*   **Game **: with the main objective to make firstly a prototype with Unity then making the game in our custom engine
-*   **Tool **: that is making all needed tools for the everyone in the project in Unity or POK
+*   **Engine** : in charge of programming every core system of the engine, named the POK Engine 
+*   **Game** : with the main objective to make firstly a prototype with Unity then making the game in our custom engine
+*   **Tool** : that is making all needed tools for the everyone in the project in Unity or POK
 
 
 ### Working at full speed with three differents teams
@@ -120,7 +120,7 @@ A lot of core systems have two layers:
 *   The visible one that we called “the interface part”. This part was created as soon as possible because those functions are possibly used by anyone on the team. 
 *   The hidden one which is all the codes behind the function that user don’t need. 
 
-|SCHEMA SEPARATION DES COUCHES|
+<img src="/assets/images/interface_hidden.JPG" alt="">
 
 This separation allowed us to have working but not optimized code and to later come back on some part and do the needed optimization. In some case it allowed to deploy version of the engine with accessible interface but no code behind, doing so made that no one was waiting on the code and could already implement the logic in their system without it working. 
 
