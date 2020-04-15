@@ -162,6 +162,6 @@ Programmer are never satisfied with their work, there is still work to do, new f
 # Thanks 
 First to all my coworker for their amazing job thought all the project and doing all this project with me. I'm the kind of guy who tries to be honest and sometimes being honest also means not being nice to everyone, so thank you all for bearing that. You can check their own blog at those address:
 
-Then through the course of the project we had multiple externals people having a look in the project. Special Sylvain and [Anirul](https://github.com/anirul) who both helped the whole programmer's team developing  a solid project by giving us feedback on our idea or implementation.
+Then through the course of the project we had multiple externals people having a look in the project. In particular Sylvain and [Anirul](https://github.com/anirul) who both helped the whole programmer's team developing  a solid project by giving us feedback on our idea or implementation.
 
 Finally [Elias Farhan](https://github.com/EliasFarhan) our teacher who played the role of the stakeholder. He also invited other game developer to which we had pitched the game and received advice on how to orient our work.  
