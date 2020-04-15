@@ -11,7 +11,7 @@ date: 2020-04-08 22:21:00 +0100
 
 If throughout all those posts the main subject has been the engine itself, it's important to replace it into the scope of the full project. At the end of September, 3 of my comrades, our teacher and myself started talking about our specialization project. To sum it up it must be a 6 month project where everyone of us had the opportunity to go further it its favorite programming domains while doing a game for the switch with a custom engine.
 
-![Image of the game on the switch](/assets/images/switch_game.png)
+![Image of the game on the switch](../assets/images/switch_game.png)
 
 ## Pre - production
 
@@ -86,7 +86,7 @@ Even though we’re all students, we have our own strength and weakness, to make
 ### The game
 
 It was important for us to have the basics idea of the game because this would shape the engine and every tool needed. It would also design the allocation of every human's resource we had. Or design team settle down on Star Of Anarchy, a 3D rail shooter set up is space. 
-<img src="/assets/images/stars_of_anarchy_key_image.JPG" alt="">
+<img src="../assets/images/stars_of_anarchy_key_image.JPG" alt="">
 
 ## Production 
 
@@ -102,7 +102,7 @@ To be the most efficient during the six months we had, every team must be able t
 A lot of core systems have two layers:
 *   The visible one that we called “the interface part”. This part was created as soon as possible because those functions are possibly used by anyone on the team. 
 *   The hidden one which is all the codes behind the function that user don’t need. 
-<img src="/assets/images/interface_hidden.JPG" alt="">
+<img src="../assets/images/interface_hidden.JPG" alt="">
 
 This separation allowed us to have working but not optimized code and to later come back on some part and do the needed optimization. In some case it allowed to deploy version of the engine with accessible interface but no code behind, doing so made that no one was waiting on the code and could already implement the logic in their system without it working. 
 
