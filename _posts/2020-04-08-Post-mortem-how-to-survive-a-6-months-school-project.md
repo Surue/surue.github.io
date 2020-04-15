@@ -40,7 +40,7 @@ The first task was to take every available roles. We had :
 - A **lead programmer** who is also the lead engine programer (me)
 
 Through the course of six months the team changed a lot and the number keep increasing up to fifteen developers in total, mainly in the tool team. As I'm writing those line the team is counting three more members, two gameplay programmers and a tool programmer bringing up the total of developer to eight.
-![Evolution of the team over 6 months](../assets/images/assets/images/programmer_team_evolution.png)
+![Evolution of the team over 6 months](../assets/images/programmer_team_evolution.png)
 
 
 #### Lead Programmer
@@ -75,7 +75,7 @@ The whole project used sprints of two weeks, inspired by agile method and for th
 - **Pre game** : 2 months where the focus was on tools
 - **Game Critical** : 2 months where every game’s core feature needed to be doable
 - **Game Plus** : The final month allocated to do some enhancement on the game.
-<img src="../assets/images/milestones.png" >  
+<img src="../assets/images/milestones.png">  
 
 #### Code review
 
@@ -143,7 +143,6 @@ For the game all main mechanics are implemented and can be tested. Some work sti
 ### New knowledge acquired
 
 As said earlier, working six months on a project this size, with all those part coming together with a team this big represents a fair amount of knowledge.  They cover differents area:
-
 *   **Team management**, during 6 months we tried differents type of organization, we had intern conflict and we setup complete workflow 
 *   For the engine it was important to create custom **data structure **to answer each problem with its own solution
 *   For this project to work, a huge part of the work was designing an **architecture **that would work for the game and the editor
