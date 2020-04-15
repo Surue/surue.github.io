@@ -192,8 +192,8 @@ This imply to reserve space in memory in advance
 ### Pro and cons of the implementation
 
 This is an easy implementation and easy to maintain and it perfectly fit our needs. But for bigger games that need even more stuff to happen there is a major drawback with this implementation. If the logic thread has finished all it’s work, it will just wait. 
-|SCHÉMA DE THREAD QUI ATTEND|
+![Thread doing nothing while waiting the next one](../assets/images/thread_doing_nothing.png)
 
-There are a few other solution that can fix this problem but that are more complex like a job system.
+There are a few other solution that can fix this problem but that way are more complex like a job system. In the current states of the engine, optimization on the multithreading are not required and as it doesn't need a lot of maintenance this implementation will certain last until the end of the project.
 
 ### Good resources
