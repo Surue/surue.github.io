@@ -185,7 +185,7 @@ It easy to imagine what would happen when copying data from one array to the oth
 Let’s take an actual situation in the engine, due to gpu performance the number of light drawn at the same time has been limited to 256. It does means also that the size of an array can be know exactly from the moment the engine start to the moment it’s shut down.  
  
 This imply to reserve space in memory in advance 
-|SCHEMA TABLEAU RESERVÉ| 
+![Memory allocation with doing .reserve() before](../assets/images/memory_reservation.png)
 
 ## After thoughts
 
