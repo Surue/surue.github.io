@@ -134,7 +134,7 @@ One critical part when using this type gameplay loop is when you copy datas for 
 #### Size of the datas
 
 By having copies of data, the size of the engine can easily double if everything is copied from the logic thread to the render thread. But an important part is to know what is needed to draw something. By example the trails renderer :
-|IMAGE D’UN TRAIL RENDERER|
+![Trail renderer animated image](../assets/images/trail_renderer.gif)
 
 To calculate the movement, next position, how the mesh will be created the trail renderer needs a lot of data
 |IMAGE DE LA STRUCT D’UN TRAIL RENDERER|
