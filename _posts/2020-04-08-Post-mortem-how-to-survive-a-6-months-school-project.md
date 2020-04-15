@@ -1,11 +1,8 @@
 ---
 layout: post
-title: "Post morter"
+title: "Post mortem"
 date: 2020-04-08 22:21:00 +0100
 ---
-
-# Post-Mortem
-
 
 ## Recap of the project
 
