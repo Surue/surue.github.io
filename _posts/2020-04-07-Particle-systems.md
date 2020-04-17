@@ -111,11 +111,11 @@ for(int i = 0; i < velocities.size; i++){
 
 ### Lifetime
 
-An another problem is what happen when a particle is supposed to die? Every particle has its own minimum and maximum lifetime, which is updated every frame. But then as we loop through each particle, it means that does not alive, will be updated as any other particle.
+An other problem is what happen when a particle is supposed to die? Every particle has its own minimum and maximum lifetime, which is updated every frame. But then as we loop through each particle, it means that does not alive, will be updated as any other particle.
 
 Adding a condition in every loop to check if a particle is still alive would work but be horrible. The compiler - the program in charge of turning our code in readable code for the machine - is able to optimize some code on its own when it can see some sorts of pattern. Looping through each velocity and adding the current gravity is a pattern easy for the compiler to understand. But if there is a condition in the loop, it creates a different branch each representing a different outcome. Doing so, the compiler is unable to find a pattern and cannot do any optimization.
 
-A simpler way is to swap a living entity with a dead one. It means that every dead entity is at the end of the array, and every alives particle is at the beginning of the array. By doing this little trick, there is no need of any condition in the used loop.
+A simpler way is to swap a living entity with a dead one. It means that every _dead_ particles is at the end of the array, and every _alive_ particle is at the beginning of the array. By doing this little trick, there is no need of any condition in the used loop.
 
 ![Swap of dead particle](../assets/images/particle_swap.png)
 
@@ -123,7 +123,7 @@ A simpler way is to swap a living entity with a dead one. It means that every de
 
 One of the most common problems in programming is sorting arrays of elements. Particle needs to be sorted from the farthest to the closest of the camera. This is done to be sure to render particles and not having a particle behind other being drawn in front of them. And to sort them, we need to compute the distance from the camera to the particle, the distance between two points needs a square root to be done, one of the worst performance functions you can make a computer do.
 
-To solve the issue with the needs to sort every array of every data needed to draw a particle, first of all, to draw a particle, the gpu - Graphics Processing Unit, it’s in charge of rendering everything to the screen - doesn’t need to know about the lifetime of a particle.  So less data need to be sorted. Secondly not every array of data need to be sorted, one trick is to sort only the positions and keeping an array of sorted index, to then take the needed info in a sorted order.
+To solve the issue with the needs to sort every array of every data needed to draw a particle, first of all, to draw a particle, the gpu - Graphics Processing Unit, it’s in charge of rendering everything to the screen - doesn’t need to know about the lifetime of a particle.  So less data need to be sorted. Secondly, not every array of data needs to be sorted, one trick is to sort only the positions and keeping an array of sorts index, to then take the needed info in a sorted order.
 ![Sorted particles array](../assets/images/particles_sorted.png)
 
 To avoid the square root, in place of using the correct function it’s possible to use the Manhattan distance. This function removes the need of the square root, and even though the values of the distance are incorrect, there are consistently incorrect, it means that object can be sorted using this function.
@@ -132,7 +132,7 @@ To avoid the square root, in place of using the correct function it’s possible
 
 The last part that needs to be optimized is on the GPU side. GPUs are good at drawing the same thing multiple time. What cost time is to change shutter - programs on the gpu to define how something is drawn on the screen - and if for every particle in the shoulder is reset, even to the same one, it will cost them to the gpu.  
 
-One solution is to use GPU Instancing, it a way of forcing the GPU to draw the same object a certain amount of time. For particles this is easy to implement as every particle need the same image drawn on a quad - 3d square -. 
+One solution is to use GPU Instancing, it's a way of forcing the GPU to draw the same object a certain amount of time. For particles this is easy to implement as every particle needs the same image drawn on a quad - 3d square-.
 ![Particles fountain](../assets/images/particle_confetti.gif)
 
 ## After thoughts
@@ -141,9 +141,7 @@ One solution is to use GPU Instancing, it a way of forcing the GPU to draw the s
 
 One defect that can be easily found in most programmers is to never be satisfied with their work. There is always enough place to go deeper, to keep optimizing systems implemented, to tweak some function. Particle are a good trap, handling thousand and thousands of objects in some tight arrays are easy to monitor and to optimize.
 
-But programmers needs to know when to stopp, especially when working on indi/solo project 
-
-Where time constraints are less pressing. Optimization needs to be stopped when the game can run with a smooth framerate and that those parts are not causing problems.  
+But programmers need to know when to stop, especially when working on the indie / solo project. Where time constraints are less pressing. Optimization needs to be stopped when the game can run with a smooth framerate and that those parts are not causing problems. 
 
 The same problem can easily appear when adding features. Yet again particles are a good example, it’s easy to add new effects on particles like physics, changing size over time, changing speed over time and so on. But as for optimization, a programmer need to stop when he can use its features to accomplish most basic implementations.
 
