@@ -34,7 +34,7 @@ The first task was to take every available roles. We had :
 
 - A **lead tool** programmer/devops, working on tools and maintaining our repository
 
-- A **lead programmer** who is also the lead engine programer (me)
+- A **lead programmer** who is also the lead engine programmer (me)
 
 Through the course of six months the team changed a lot and the number keep increasing up to fifteen developers in total, mainly in the tool team. As I'm writing those line the team is counting three more members, two gameplay programmers and a tool programmer bringing up the total of developer to eight.
 ![Evolution of the team over 6 months](../assets/images/programmer_team_evolution.png)
@@ -57,7 +57,7 @@ In the end this role took around 10% of my overall work and it was the most time
 
 #### Lead Engine
 
-The second role was the real one. Being the _Lead Engine_ meant that the whole architecture of every system, every tool, every object depend directly on how the engine's implementation is being made. It also had a hidden task, to be fast enough to deliver something that could be used to make tools and a game without making anyone lose time.. 
+The second role was the real one. Being the _Lead Engine_ meant that the whole architecture of every system, every tool, every object depend directly on how the engine's implementation is being made. It also had a hidden task, to be fast enough to deliver something that could be used to make tools and a game without making anyone lose time.
 
 It was my main role during the whole project and the most stressing one because is something went wrong with it, it would trouble the rest of the team. It means that the absolute priority was to make sure the engine was working at any time and if a bug/error was found by someone it had to be fixed as soon as possible. 
 
@@ -67,7 +67,7 @@ It was my main role during the whole project and the most stressing one because 
 
 #### Milestones
 
-The whole project used sprints of two weeks, inspired by agile method and for the progrogrammers’s team is devised if four main steps
+The whole project used sprints of two weeks, inspired by agile method and for the programmers’s team is devised if four main steps
 - **Pre tool** : A short period where the main focus was on the engine
 - **Pre game** : 2 months where the focus was on tools
 - **Game Critical** : 2 months where every game’s core feature needed to be doable
@@ -76,7 +76,7 @@ The whole project used sprints of two weeks, inspired by agile method and for th
 
 #### Code review
 
-Even though we’re all students, we have our own strength and weakness, to make to most of it we implemented code review validation for every task. Core review implies to look at some else code, understand how it works and to give constructive feedback on the implementation. Some people had to redo their task four to five times before their code was validated. Using code review makes the programming’s level of every one quickly increase and helped keep an overall style.
+Even though we’re all students, we have our own strength and weakness, to make to most of it we implemented code review validation for every task. Core review implies to look at some else code, understand how it works and to give constructive feedback on the implementation. Some people had to redo their task four to five times before their code was validated. Using code review makes the programming’s level of everyone quickly increase and helped keep an overall style.
 <img src="/assets/images/task_steps.JPG">
 
 ### The game
@@ -86,7 +86,7 @@ It was important for us to have the basic idea of the game because this would sh
 
 ## Production 
 
-Now that all basic documents, idea, objectives where done it was time to start working on the actual project. The programmers team was divided in three main production team:
+Now that all basic documents, idea, objectives were done it was time to start working on the actual project. The programmers team was divided in three main production team:
 *   **Engine** : in charge of programming every core system of the engine, named the POK Engine 
 *   **Game** : with the main objective to make firstly a prototype with Unity then making the game in our custom engine
 *   **Tool** : that is making all needed tools for the everyone in the project in Unity or POK
@@ -100,11 +100,11 @@ A lot of core systems have two layers:
 *   The hidden one which is all the codes behind the function that user don’t need. 
 <img src="../assets/images/interface_hidden.JPG" alt="">
 
-This separation allowed us to have working but not optimized code and to later come back on some part and do the needed optimization. In some case it allowed to deploy version of the engine with accessible interface but no code behind, doing so made that no one was waiting on the code and could already implement the logic in their system without it working. 
+This separation allowed us to have worked, but not optimized code and to later come back on some part and do the needed optimization. In some case it allowed to deploy version of the engine with accessible interface but no code behind, doing so made that no one was waiting on the code and could already implement the logic in their system without it working. 
 
 ### Remote works
 
-As these lines are written, our team is in full isolation due to the Covid-19, a coronavirus that strike during the development of the project. It involved finding a solution to working from home and we’re not all equal while facing this situation.
+As these lines are written, our team is in full isolation due to the SARS-CoV-2, a coronavirus that strike during the development of the project. It involved finding a solution to working from home and we’re not all equal while facing this situation.
  
 Some live with their families, others have difficulties to stay concentrated while being in the same seat where they usually play. To fight all those problems we decided to implement three day meetings, 9am, 1pm and 5pm. We also all stays on a vocal channel and are constantly available for the other.  
 
@@ -114,7 +114,7 @@ Some lesson that we learnt was to have fixed hours of work, stay connected to ea
 
 There is different style of team leading, but being both the lead programmer and lead engine implies that the code produced as those roles had to be on a top notch level because it would be look and copy be everyone else. It means that every bad practice would be automatically reproduced and would take time to get rid of.
 
-The biggest problem was that in the course of 6 months only working with the same language, c++ in this case, the level of any one would rapidly increase. It meant that something that was _okayish_ at the start of the project was a _big no no_ at the end. It grew frustrated in some people that had done something at the start of the project and that couldn't do it anymore at the end. Still, it was amazing to see the level of everyone increasing at a very fast pace.
+The biggest problem was that in the course of 6 months only working with the same language, c++ in this case, the level of any one would rapidly increase. It meant that something that was _okayish_ at the start of the project was a _big no no_ at the end. It grew frustrated with some people that had done something at the start of the project and that couldn't do it anymore at the end. Still, it was amazing to see the level of everyone increasing at a very fast pace.
 
 ### Keeping everyone happy
 
@@ -150,7 +150,7 @@ As said earlier, working six months on a project this size, with all those parts
 
 ### Where to go now?
 
-The programmer is never satisfied with their work, there is still work to do, new features to implement, optimize some systems. For now the engine will keep working the six coming months. Tasks will be to maintain and updated the current systems. The goal is to keep it workable, follow the demands from the game team and make sure that the game is playable in the best condition possible.
+The programmer is never satisfied with their work, there is still work to do, new features to implement, optimize some systems. For now the engine will keep working the six coming months. Tasks will be to maintain and updated the current systems. The goal is to keep it workable, follow the demands of the game team and make sure that the game is playable in the best condition possible.
 
 ### Good resources
 * Gregory, J., n.d. Game Engine Architecture. 2nd ed. Is an excelent book about engine programming, anyone who desire to make its own engine should read this. The book can be found [here](http://ce.eng.usc.ac.ir/files/1511334027376.pdf)
@@ -162,6 +162,6 @@ The programmer is never satisfied with their work, there is still work to do, ne
 # Thanks 
 First to all my coworker for their amazing job thought all the project and doing all this project with me. I'm the kind of guy who tries to be honest and sometimes being honest also means not being nice to everyone, so thank you all for bearing that. You can check their own blog at those addresses:
 
-Then through the course of the project we had multiple externals people having a look in the project. In particular Sylvain and [Anirul](https://github.com/anirul) who both helped the whole programmer's team developing  a solid project by giving us feedback on our idea or implementation.
+Then through the course of the project we had multiple externals people having a look at the project. In particular Sylvain and [Anirul](https://github.com/anirul) who both helped the whole programmer's team developing  a solid project by giving us feedback on our idea or implementation.
 
 Finally [Elias Farhan](https://github.com/EliasFarhan) our teacher, who played the role of the stakeholder. He also invited other game developer to which we had pitched the game and received advice on how to orient our work.  
