@@ -3,9 +3,9 @@ layout: default
 ---
 
 
-# Blog post surue
+# Self Introduction
 
-I came to make games and I ended up doing engines.
+I'm Nicolas Schneider, passionated about custom game engine and video games in generals. With those posts I'm presenting some aspects of the many projects I've been working. 
 
 ## PokEngine
 
@@ -21,5 +21,5 @@ The PokEngine is a school's project mainly focus around making a game for Switch
 
 ## Nàstrond
 
-A small dwarf city builder made for a school project, the main focus was to get a maximum of dwarf moving resources around at the same time with a full behavior tree.
+A small dwarf city builder made for a school project, the main focus was to get a maximum of dwarf moving resources around at the same time with a full behavior tree. I'm made an in-depth [study]({% post_url 2020-04-18-AI-in-an-ECS-environment %}) of how to optimized the pathinding and decision making of multiple dwarfs.
 
