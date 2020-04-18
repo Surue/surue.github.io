@@ -19,6 +19,7 @@ The PokEngine is a school's project mainly focus around making a game for Switch
 4. Post mortem
     1. [How to survive a 6 months school project]({% post_url 2020-04-08-Post-mortem-how-to-survive-a-6-months-school-project %}) 
 
+
 ## Nàstrond
 
 A small dwarf city builder made for a school project, the main focus was to get a maximum of dwarf moving resources around at the same time with a full behavior tree. I'm made an in-depth [study]({% post_url 2020-04-18-AI-in-an-ECS-environment %}) of how to optimized the pathinding and decision making of multiple dwarfs.
