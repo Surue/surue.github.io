@@ -18,6 +18,7 @@ The PokEngine is a school's project mainly focus around making a game for Switch
     1. [Particle System]({% post_url 2020-04-07-Particle-systems %}) 
 4. Post mortem
     1. [How to survive a 6 months school project]({% post_url 2020-04-08-Post-mortem-how-to-survive-a-6-months-school-project %}) 
+    2. [One week later]({% post_url 2020-04-29-One-week-later %})
 
 
 ## Nàstrond
