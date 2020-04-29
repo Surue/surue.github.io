@@ -1,6 +1,6 @@
 # One week later
 
-One week has passed since this post and a lot of things happened the last week. To sum it up, there was no game. Instead of looking at what I’ve been working the past week I’ll be looking at what led to this situation.
+One week has passed since [this post]({% post_url 2020-04-08-Post-mortem-how-to-survive-a-6-months-school-project %}) and a lot of things happened the last week. To sum it up, there was no game. Instead of looking at what I’ve been working the past week I’ll be looking at what led to this situation.
 
 
 ## Unity to Pok
@@ -12,8 +12,6 @@ In Unity you have this component approach where you build objects with different
 The problem came when the game programmers came to work with Polk, because every system, the script had to be rethought. We were using hard ECS, where each system works on component, but every entity were treated only looking at their components and not the entire object. 
  
 We had some discussion about this issue and some solutions that came up
-
-
 
 *   Using Unity only to build the level and nothing else. It would also have led every gameplay programmer to work earlier on the engine and to imagine their system in a data oriented way.
 *   Using DOTS right from the start on Unity you at least simulate an ECS approach on Unity. Once again the goal is to have the system on the prototype and the scene built in an ECS way.
@@ -28,8 +26,6 @@ The engine team had to create a new pipeline just to render those new objects, w
 
 
 This problem came up a lot during the project, as the priority was to have a working version of our custom engine the demo was left aside. Doing so was a mistake that causes problem to every other team :
-
-
 
 *   Sounds were spatialized where for example a moving object had a sound that was moving, instead of only having a unique sound.
 *   3D meshes had to much detail when they were far from the camera. The player was one of the most detailed object, but it was quite far from the camera.
