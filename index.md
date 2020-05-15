@@ -7,6 +7,12 @@ layout: default
 
 I'm Nicolas Schneider, passionated about custom game engine and video games in generals. With those posts I'm presenting some aspects of the many projects I've been working. 
 
+## AI groups movements and Pathfinding
+
+During my last school year I've been working on a project that aim to use the new Unity burst compiler to its full potential by managing large group of agents and making them navigate in a large scale world. 
+1. State of the art and existing solution
+2. The game to test the project
+
 ## PokEngine
 
 The PokEngine is a school's project mainly focus around making a game for Switch with a custom game engine. As the main engine programmer I visits some of the darkest secrets around the cheats used in the engin mixed with some optimization stuff. 
