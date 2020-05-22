@@ -36,6 +36,20 @@ The PokEngine is a school's project mainly focus around making a game for Switch
 
 A small dwarf city builder made for a school project, the main focus was to get a maximum of dwarf moving resources around at the same time with a full behavior tree. I'm made an in-depth [study]({% post_url 2020-04-18-AI-in-an-ECS-environment %}) of how to optimized the pathinding and decision making of multiple dwarfs.
 
+## School projects
+
+### Space Infestation
+"As an vicious Alien, infest a spaceship to turn it into your new nest, fight robots and get acces to the main generator."\ 
+I worked with 3D procedural generation, meaning all problems going with it (AI navigation, Lights, Collider, optimisation). I also implemented a texture painter, allowing the player to paint a texture on top of a another one.
+
+### [Nightmare Pop!](https://store.steampowered.com/app/808020/Nightmare_Pop/)
+"Play as Clementine, a little girl trapped in her own nightmare, but don't forget that all those monster are played by twitch viewers"\
+I mainly work with the core gameplay, implementing twitch and adding AI
+
+### [Space Dwarf](https://github.com/Surue/SpaceDwarfs)
+"As a dwarf for deep space, explore planet to mine their ressource. But your old nemesis is back, the goblin space"\
+Working with the procedural generation for all levels(BFS, Cellular Automata). AI: pathfinding (A*)
+
 ## Jam projects
 
 ### [Ultigami](https://randomtherapy.itch.io/ultigami.html)
@@ -57,4 +71,5 @@ First game ever finished, it was my first experience working with a team, import
 ![WYWB](../assets/images/wish_you_were_beer.png)
 
 ## About
-You can find my full resume [here](../assets/pdfs/CV_2.pdf)
+You can find my full resume [here](../assets/pdfs/CV_2.pdf)\
+My [github](https://github.com/Surue)
