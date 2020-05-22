@@ -57,4 +57,4 @@ First game ever finished, it was my first experience working with a team, import
 ![WYWB](../assets/images/wish_you_were_beer.png)
 
 ## About
-You can find my full resume [here](../assets/pdfs/CV_V2.pdf)
+You can find my full resume [here](../assets/pdfs/CV_2.pdf)
