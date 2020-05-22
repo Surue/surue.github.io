@@ -35,3 +35,15 @@ The PokEngine is a school's project mainly focus around making a game for Switch
 A small dwarf city builder made for a school project, the main focus was to get a maximum of dwarf moving resources around at the same time with a full behavior tree. I'm made an in-depth [study]({% post_url 2020-04-18-AI-in-an-ECS-environment %}) of how to optimized the pathinding and decision making of multiple dwarfs.
 
 ## Jam projects
+
+### Ultigami
+"Play as an origami's cat made from paper's pages. Transform into bird or fish to avoid danger and go as far as possible."\
+Made during the Game Jam Du Temps in switzerland with the team Random Therapy. Our goal was to do a game together to see if we could work as a team. I was the only programmer and work to procedurally generate the level and the gameplay.
+
+### Don't Forget
+"A Die a Retry mixed with a 3D visual Novel game ! Play as Mamy, and discover what’s remains of your world. Interact with many things in your home, but don’t forget what’s important !"\ 
+Made during the LD 41, our objectiv for the prog team was to get used to the scriptable object of unity. Implementing a whole system of event only based on them.
+
+### Wish You Were Beer
+"You're broke but thirsty, what a better solution than to steel beer from those who went to the bathroom."\
+First game ever finished, it was my first experience working with a team, importing 3D models, applying materials, playing with lights and implementing the QTE system.
