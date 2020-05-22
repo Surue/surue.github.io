@@ -1,11 +1,15 @@
 ---
-layout: default
+layout: home
 ---
 
 
-# Self Introduction
+# Nicolas Schneider
 
-I'm Nicolas Schneider, passionated about custom game engine and video games in generals. With those posts I'm presenting some aspects of the many projects I've been working. 
+Hi, I'm Nicolas Schneider, passionated about custom game engine and video games in generals. You can see wat's following either as a showreel of my differents project or as a tutorial web pages containing differents works I'm breaking down.
+
+If doing AI and PCG is my hobby I'm more of a core programmer.
+
+# Majors projects
 
 ## AI groups movements and Pathfinding
 
@@ -31,3 +35,4 @@ The PokEngine is a school's project mainly focus around making a game for Switch
 
 A small dwarf city builder made for a school project, the main focus was to get a maximum of dwarf moving resources around at the same time with a full behavior tree. I'm made an in-depth [study]({% post_url 2020-04-18-AI-in-an-ECS-environment %}) of how to optimized the pathinding and decision making of multiple dwarfs.
 
+## Jam projects
