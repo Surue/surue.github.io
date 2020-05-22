@@ -1,3 +1,10 @@
+---
+layout: post
+title: "One week later"
+date: 2020-04-13 22:21:00 +0100
+excerpt: A post mortem of a post mortem
+---
+
 # One week later
 
 One week has passed since [this post]({% post_url 2020-04-08-Post-mortem-how-to-survive-a-6-months-school-project %}) and a lot of things happened the last week. To sum it up, there was no game. Instead of looking at what I’ve been working the past week I’ll be looking at what led to this situation.
