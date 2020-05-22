@@ -46,12 +46,12 @@ I worked with 3D procedural generation, meaning all problems going with it (AI n
 ### [Nightmare Pop!](https://store.steampowered.com/app/808020/Nightmare_Pop/)
 "Play as Clementine, a little girl trapped in her own nightmare, but don't forget that all those monster are played by twitch viewers"
 I mainly work with the core gameplay, implementing twitch and adding AI
-![[NightmarePop](../assets/images/nightmare_pop.png)
+![NightmarePop](../assets/images/nightmare_pop.png)
 
 ### [Space Dwarf](https://github.com/Surue/SpaceDwarfs)
 "As a dwarf for deep space, explore planet to mine their ressource. But your old nemesis is back, the goblin space"
 Working with the procedural generation for all levels(BFS, Cellular Automata). AI: pathfinding (A*)
-![[SpaceDwarf](../assets/images/space_dwarf.png)
+![SpaceDwarf](../assets/images/space_dwarf.png)
 
 ## Jam projects
 
