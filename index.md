@@ -36,7 +36,7 @@ A small dwarf city builder made for a school project, the main focus was to get 
 
 ## Jam projects
 
-### [Ultigami]({ https://randomtherapy.itch.io/ultigami.html })
+### [Ultigami](https://randomtherapy.itch.io/ultigami.html)
 "Play as an origami's cat made from paper's pages. Transform into bird or fish to avoid danger and go as far as possible."\
 Made during the Game Jam Du Temps in switzerland with the team Random Therapy. Our goal was to do a game together to see if we could work as a team. I was the only programmer and work to procedurally generate the level and the gameplay.
 
