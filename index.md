@@ -1,9 +1,8 @@
 ---
 layout: home
+title: Nicolas Schneider's Blog Post
 ---
 
-
-# Nicolas Schneider
 
 Hi, I'm Nicolas Schneider, passionated about custom game engine and video games in generals. You can see wat's following either as a showreel of my differents project or as a tutorial web pages containing differents works I'm breaking down.
 
