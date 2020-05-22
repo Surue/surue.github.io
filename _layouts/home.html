@@ -7,12 +7,12 @@ layout: default
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
   
-  <div style="display: flex">
-  <div style="flex = 50%">
+  <div style="display: flex; box-sizing: border-box">
+  <div style="flex = 50%, box-sizing: border-box; padding: 10px">
   {{ content }}
 
   </div>
-  <div style="flex = 50%">
+  <div style="flex = 50%, box-sizing: border-box; padding: 10px">
   {% if site.paginate %}
     {% assign posts = paginator.posts %}
   {% else %}
