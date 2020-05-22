@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "One week later"
-date: 2020-04-13 22:21:00 +0100
+date: 2020-04-29 22:21:00 +0100
 excerpt: A post mortem of a post mortem
 ---
 
