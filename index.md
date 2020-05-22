@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Nicolas Schneider's Blog Post
+title: Nicolas Schneider - Engine Programmer
 ---
 
 
