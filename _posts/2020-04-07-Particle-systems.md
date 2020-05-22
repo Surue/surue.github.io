@@ -2,11 +2,8 @@
 layout: post
 title: "Particles System"
 date: 2020-04-07 22:21:00 +0100
-excerpt_separator: <!--more-->
+excerpt: Overview of an implementation of a particle system.
 ---
-
-Overview of an implementation of a particle system.
-<!--more-->
 
 # Particles System
 
