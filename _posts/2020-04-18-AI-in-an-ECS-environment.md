@@ -1,3 +1,10 @@
+---
+layout: post
+title: "AI in an ECS environnement"
+date: 2020-04-18 22:21:00 +0100
+excerpt: Optimization of pathfinding and behahior tree.
+---
+
 # Project recap
 Nâstrond is a school project where me made a 2D dwarf city builder using a custom c++ engine made by our teacher. There was tasks:
 - Simulating every building and their resources
