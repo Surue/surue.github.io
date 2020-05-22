@@ -41,14 +41,17 @@ A small dwarf city builder made for a school project, the main focus was to get 
 ### Space Infestation
 "As an vicious Alien, infest a spaceship to turn it into your new nest, fight robots and get acces to the main generator."\ 
 I worked with 3D procedural generation, meaning all problems going with it (AI navigation, Lights, Collider, optimisation). I also implemented a texture painter, allowing the player to paint a texture on top of a another one.
+![Space Infestation](../assets/images/space_infestation.png)
 
 ### [Nightmare Pop!](https://store.steampowered.com/app/808020/Nightmare_Pop/)
 "Play as Clementine, a little girl trapped in her own nightmare, but don't forget that all those monster are played by twitch viewers"\
 I mainly work with the core gameplay, implementing twitch and adding AI
+![[Nightmare Pop](../assets/images/nightmare_pop.png)
 
 ### [Space Dwarf](https://github.com/Surue/SpaceDwarfs)
 "As a dwarf for deep space, explore planet to mine their ressource. But your old nemesis is back, the goblin space"\
 Working with the procedural generation for all levels(BFS, Cellular Automata). AI: pathfinding (A*)
+![[Space Dwarf](../assets/images/space_dwarf.png)
 
 ## Jam projects
 
