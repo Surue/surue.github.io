@@ -4,9 +4,11 @@ title: Nicolas Schneider's Blog Post
 ---
 
 
-Hi, I'm Nicolas Schneider, passionated about custom game engine and video games in generals. You can see wat's following either as a showreel of my differents project or as a tutorial web pages containing differents works I'm breaking down.
+I'm Nicolas Schneider, a game lover who love to understand how they're made. Currently a student at the SAE Institute of Genveva, I'm the king of guy who love doing technical stuff, the one working with AI, procedural generation.
 
-If doing AI and PCG is my hobby I'm more of a core programmer.
+Younger I've always dreamt of doing my own video game, but I find it too difficulty and I had no process to do them. So I started working with HTML & CSS when I was 10. Bit by bit I began to use PHP and thus begin a more complexe programmation style. Year laters I went to the EPFL, I stayed one year then left. It was not suiting me, I wanted to do someting more visual. I Found the SAE Institute Geneva the following year and became a gameplay programmer.
+
+Since then I fall in love with the indi part of video game making and started to do as much as possible game jams. I also start working on different projects aside to the school. Then finnaly I shifted to being more a core programmer, loving all
 
 # Majors projects
 
@@ -53,3 +55,6 @@ Made during the LD 41, our objectiv for the prog team was to get used to the scr
 First game ever finished, it was my first experience working with a team, importing 3D models, applying materials, playing with lights and implementing the QTE system.
 
 ![WYWB](../assets/images/wish_you_were_beer.png)
+
+## About
+You can find my full resume here
