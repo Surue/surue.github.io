@@ -39,36 +39,36 @@ A small dwarf city builder made for a school project, the main focus was to get 
 ## School projects
 
 ### Space Infestation
-"As an vicious Alien, infest a spaceship to turn it into your new nest, fight robots and get acces to the main generator."\ 
+"As an vicious Alien, infest a spaceship to turn it into your new nest, fight robots and get acces to the main generator."
 I worked with 3D procedural generation, meaning all problems going with it (AI navigation, Lights, Collider, optimisation). I also implemented a texture painter, allowing the player to paint a texture on top of a another one.
 ![SpaceInfestation](../assets/images/space_infestation.png)
 
 ### [Nightmare Pop!](https://store.steampowered.com/app/808020/Nightmare_Pop/)
-"Play as Clementine, a little girl trapped in her own nightmare, but don't forget that all those monster are played by twitch viewers"\
+"Play as Clementine, a little girl trapped in her own nightmare, but don't forget that all those monster are played by twitch viewers"
 I mainly work with the core gameplay, implementing twitch and adding AI
 ![[NightmarePop](../assets/images/nightmare_pop.png)
 
 ### [Space Dwarf](https://github.com/Surue/SpaceDwarfs)
-"As a dwarf for deep space, explore planet to mine their ressource. But your old nemesis is back, the goblin space"\
+"As a dwarf for deep space, explore planet to mine their ressource. But your old nemesis is back, the goblin space"
 Working with the procedural generation for all levels(BFS, Cellular Automata). AI: pathfinding (A*)
 ![[SpaceDwarf](../assets/images/space_dwarf.png)
 
 ## Jam projects
 
 ### [Ultigami](https://randomtherapy.itch.io/ultigami.html)
-"Play as an origami's cat made from paper's pages. Transform into bird or fish to avoid danger and go as far as possible."\
+"Play as an origami's cat made from paper's pages. Transform into bird or fish to avoid danger and go as far as possible."
 Made during the Game Jam Du Temps in switzerland with the team Random Therapy. Our goal was to do a game together to see if we could work as a team. I was the only programmer and work to procedurally generate the level and the gameplay.
 
 ![Ultigami](../assets/images/ultigami.png)
 
 ### [Don't Forget](https://ldjam.com/events/ludum-dare/41/dont-forget)
-"A Die a Retry mixed with a 3D visual Novel game ! Play as Mamy, and discover what’s remains of your world. Interact with many things in your home, but don’t forget what’s important !"\ 
+"A Die a Retry mixed with a 3D visual Novel game ! Play as Mamy, and discover what’s remains of your world. Interact with many things in your home, but don’t forget what’s important !"
 Made during the LD 41, our objectiv for the prog team was to get used to the scriptable object of unity. Implementing a whole system of event only based on them.
 
 ![DontForget](../assets/images/dont_forget.png)
 
 ### Wish You Were Beer
-"You're broke but thirsty, what a better solution than to steel beer from those who went to the bathroom."\
+"You're broke but thirsty, what a better solution than to steel beer from those who went to the bathroom."
 First game ever finished, it was my first experience working with a team, importing 3D models, applying materials, playing with lights and implementing the QTE system.
 
 ![WYWB](../assets/images/wish_you_were_beer.png)
