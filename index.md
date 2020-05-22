@@ -40,10 +40,16 @@ A small dwarf city builder made for a school project, the main focus was to get 
 "Play as an origami's cat made from paper's pages. Transform into bird or fish to avoid danger and go as far as possible."\
 Made during the Game Jam Du Temps in switzerland with the team Random Therapy. Our goal was to do a game together to see if we could work as a team. I was the only programmer and work to procedurally generate the level and the gameplay.
 
+![Ultigami](../assets/images/ultigami.png)
+
 ### Don't Forget
 "A Die a Retry mixed with a 3D visual Novel game ! Play as Mamy, and discover what’s remains of your world. Interact with many things in your home, but don’t forget what’s important !"\ 
 Made during the LD 41, our objectiv for the prog team was to get used to the scriptable object of unity. Implementing a whole system of event only based on them.
 
+![DontForget](../assets/images/dont_forget.png)
+
 ### Wish You Were Beer
 "You're broke but thirsty, what a better solution than to steel beer from those who went to the bathroom."\
 First game ever finished, it was my first experience working with a team, importing 3D models, applying materials, playing with lights and implementing the QTE system.
+
+![WYWB](../assets/images/wish_you_were_beer.png)
