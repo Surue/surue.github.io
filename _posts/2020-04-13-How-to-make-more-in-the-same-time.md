@@ -3,6 +3,7 @@ layout: post
 title: "How to make more in the same time?"
 date: 2020-04-13 22:21:00 +0100
 excerpt: Introduction to multhithreading in c++
+tag: Game Engine, Multithreading, c++
 ---
 # How to make more in the same time?
 

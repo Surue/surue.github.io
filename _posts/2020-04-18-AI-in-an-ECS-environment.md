@@ -3,6 +3,7 @@ layout: post
 title: "AI in an ECS environnement"
 date: 2020-04-18 22:21:00 +0100
 excerpt: Optimization of pathfinding and behahior tree.
+tag: AI, c++
 ---
 
 # Project recap

@@ -3,6 +3,7 @@ layout: post
 title: "One week later"
 date: 2020-04-29 22:21:00 +0100
 excerpt: A post mortem of a post mortem
+tag: Post mortem
 ---
 
 # One week later

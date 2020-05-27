@@ -3,6 +3,7 @@ layout: post
 title: "Particles System"
 date: 2020-04-07 22:21:00 +0100
 excerpt: Overview of an implementation of a particle system.
+tag: Game engine, Graphics, Optimization, c++	
 ---
 
 # Particles System

@@ -1,12 +1,27 @@
-# Jekyll configuration
-name : Surue's Blog Post
+# To launch the server : bundle exec jekyll serve
+
+title: Nicolas Schneider's Blog
 url : "https://surue.github.io"
+
+description: > # this means to ignore newlines until "show_excerpts:"
+  I'm currently looking to work as an Engine programmer
+show_excerpts: false # set to true to show excerpts on the homepage
+
+# generate social links in footer
+
+twitter_username: n_surue
+github_username: surue
 
 # Build settings
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-relative-links
+  - jekyll-feed
 relative_links:
   enabled: true
   collections: true
+  
+collections:
+    projects:
+        output: true
