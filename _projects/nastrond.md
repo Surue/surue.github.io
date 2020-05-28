@@ -6,7 +6,7 @@ team: 7 programmers
 priority: 2
 tags: AI c++
 type: School Project
-time: 12 weeks
+time: 12 weeks during my second year
 thumbnail: nastrond.gif
 last_update: 2019-07-27
 excerpt_separator: <!--more-->

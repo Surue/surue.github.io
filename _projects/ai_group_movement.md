@@ -7,7 +7,7 @@ tags: AI unity
 thumbnail: first_ai_movement.gif
 type: School Project
 #specific school project
-time: 18 weeks
+time: 18 weeks for my bachelor project
 last_update: 2020-05-27
 excerpt_separator: <!--more-->
 ---

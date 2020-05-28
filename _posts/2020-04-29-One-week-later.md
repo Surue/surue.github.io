@@ -3,6 +3,7 @@ layout: post
 title: "One week later"
 date: 2020-04-29 22:21:00 +0100
 excerpt: A post mortem of a post mortem
+description: This article is a following of the previous post mortem which take place one week later. Some more works has been done during this week and I try to sum up the good and the bad.
 tags: post-mortem
 ---
 

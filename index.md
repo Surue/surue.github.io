@@ -1,6 +1,5 @@
 ---
 layout: home
-title: Nicolas Schneider - Engine Programmer
 list_title: Latest posts
 ---
 

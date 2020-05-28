@@ -8,7 +8,7 @@ tags: procedural unity
 thumbnail: space_infestation.png
 type: School Project
 #specific school project
-time: 4 weeks
+time: 4 weeks during my first year
 last_update: 2019-09-15
 excerpt_separator: <!--more-->
 ---

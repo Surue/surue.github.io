@@ -7,7 +7,7 @@ tags: procedural AI unity
 thumbnail: space_dwarf.png
 type: School Project
 #specific school project
-time: 4 weeks
+time: 4 weeks at the end of my first year
 last_update: 2019-04-20
 excerpt_separator: <!--more-->
 ---

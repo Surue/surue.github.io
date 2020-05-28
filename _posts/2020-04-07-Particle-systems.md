@@ -3,6 +3,7 @@ layout: post
 title: "Particles System"
 date: 2020-04-07 22:21:00 +0100
 excerpt: Overview of an implementation of a particle system.
+description: This post take a look at how a particles system has been implemented inside a custom c++ engine. It also take a deeper look into somes basics optimization to do with a particle system.
 tags: game-engine graphics optimization c++	
 ---
 
