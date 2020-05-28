@@ -6,6 +6,7 @@ team: 2 programmers, 1 artists, 1 designer, 1 sound
 priority: 3
 tags: unity
 thumbnail: dont_forget.png
+gitlab: https://gitlab.com/piller.yann/LD41/-/tree/develop
 type: Jam
 #jam specific
 jam-name: Ludum dare 41

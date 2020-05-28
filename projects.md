@@ -70,7 +70,7 @@ title: Projects
 <div style="float: left; width: 50%; padding-left: 10px; padding-top: 10px; box-sizing:border-box; ">
 	<div class="box">
 	<h2>School projects</h2>
-	{% assign projects = site.projects | sort: 'priority' | where: 'type', "School Project" %}
+	{% assign projects = site.projects | sort: 'priority' | where: 'type', "school-project" %}
 	{%- for project in projects -%}
 		<div style="margin-bottom: 10px;">
 			<a href="{{ project.url | relative_url }}"><img src="/assets/images/{{project.thumbnail}}" style="float: left;max-width: 40%; padding-right: 10px"></a>

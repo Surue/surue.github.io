@@ -6,6 +6,7 @@ team: 2 programmers, 2 artists
 priority: 3
 tags: unity
 thumbnail: wish_you_were_beer.png
+github: https://github.com/Surue/Wish_You_Were_Beer
 type: Jam
 jam-name: Improvised school jam 
 last_update: 2017-09-15

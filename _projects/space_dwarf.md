@@ -5,7 +5,8 @@ role: Programmer
 priority: 3
 tags: procedural AI unity
 thumbnail: space_dwarf.png
-type: School Project
+github: https://github.com/Surue/SpaceDwarfs
+type: school-project
 #specific school project
 time: 4 weeks at the end of my first year
 last_update: 2019-04-20

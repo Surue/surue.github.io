@@ -6,7 +6,7 @@ team: 3 programmers, 2 artists
 priority: 5
 tags: procedural unity
 thumbnail: space_infestation.png
-type: School Project
+type: school-project
 #specific school project
 time: 4 weeks during my first year
 last_update: 2019-09-15
