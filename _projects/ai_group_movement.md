@@ -3,7 +3,7 @@ layout: project
 title: Group movement and avoidance
 role: Programmer
 priority: 2
-tag: AI, Unity
+tags: AI unity
 thumbnail: first_ai_movement.gif
 type: School Project
 #specific school project

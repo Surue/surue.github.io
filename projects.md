@@ -6,7 +6,12 @@ title: Projects
 <div class="box" style="margin-bottom: 20px;">
 <h2><a href="{{ mainProject.url | relative_url }}">{{mainProject.title}}</a></h2>
 <a href="{{ mainProject.url | relative_url }}"><img src="/assets/images/{{mainProject.thumbnail}}"></a>
-<span class="post-meta">{{ mainProject.tag }}</span>
+<span class="post-meta">
+{% for tag in mainProject.tags %}
+{% capture tag_name %}{{ tag }}{% endcapture %}
+	<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
+{% endfor %} <br/>
+</span>
 {{mainProject.excerpt}}
 </div>
 
@@ -24,23 +29,17 @@ title: Projects
 	{% endif %}
 		<a class="post-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}</a>
 		<a href="{{ project.url | relative_url }}"><img src="/assets/images/{{project.thumbnail}}"></a>
-		<span class="post-meta">{{ project.tag }}</span>
+		<span class="post-meta">
+		{% for tag in project.tags %}
+		{% capture tag_name %}{{ tag }}{% endcapture %}
+			<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
+		{% endfor %}
+		</span>
 		{{project.excerpt }}
-		<ul>
-			<li>Role {{ project.role | escape }} </li>
-			<li>
-			{% if project.team %}
-				Team size = {{ project.team | escape }}
-			{% else %}
-				Solo Project
-			{% endif %}
-			</li>
-			<br/>
-		</ul>
 	</div>
 	{% assign count = count | plus: 1 %}
 {%- endfor -%}
-<div style="color:white">emtpy</div>
+<div style="color:white;">emtpy</div>
 </div>
 
 <div style="clear:both;"></div>
@@ -50,9 +49,14 @@ title: Projects
 		{% assign projects = site.projects | sort: 'priority' | where: 'type', "Jam" %}
 		{%- for project in projects -%}
 		<div style="margin-bottom: 10px;">
-			<a href="{{ project.url | relative_url }}"><img src="/assets/images/{{project.thumbnail}}" style="float: left; max-width: 40%; padding-right: 5px"></a>
+			<a href="{{ project.url | relative_url }}"><img src="/assets/images/{{project.thumbnail}}" style="float: left; max-width: 40%; padding-right: 10px"></a>
 			<a style="font-size:16px;" class="post-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}</a>
-			<span class="post-meta">{{ project.jam-name }}</span>
+			<span class="post-meta">
+			{% for tag in project.tags %}
+			{% capture tag_name %}{{ tag }}{% endcapture %}
+				<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
+			{% endfor %} <br/>
+			{{ project.jam-name }}</span>
 			<p style="clear:both;">{{project.excerpt | strip_html| truncatewords: 30}} <a href="{{ project.url | relative_url }}">read more</a></p>
 			
 		</div>
@@ -65,13 +69,18 @@ title: Projects
 </div>
 <div style="float: left; width: 50%; padding-left: 10px; padding-top: 10px; box-sizing:border-box; ">
 	<div class="box">
-	<h2>Schools project</h2>
+	<h2>School projects</h2>
 	{% assign projects = site.projects | sort: 'priority' | where: 'type', "School Project" %}
 	{%- for project in projects -%}
 		<div style="margin-bottom: 10px;">
-			<a href="{{ project.url | relative_url }}"><img src="/assets/images/{{project.thumbnail}}" style="float: left;max-width: 40%; padding-right: 5px"></a>
+			<a href="{{ project.url | relative_url }}"><img src="/assets/images/{{project.thumbnail}}" style="float: left;max-width: 40%; padding-right: 10px"></a>
 			<a style="font-size:16px;" class="post-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}</a>
-			<p class="post-meta">{{ project.tag }}</p>
+			<p class="post-meta">
+			{% for tag in project.tags %}
+			{% capture tag_name %}{{ tag }}{% endcapture %}
+				<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
+			{% endfor %} <br/>
+			</p>
 			<p style="clear:both;">{{project.excerpt | strip_html| truncatewords: 30}} <a href="{{ project.url | relative_url }}">read more</a></p>
 			<span class="post-meta">Summary:</span>
 			<ul class="post-meta" style="clear:both; margin-top: 0px;">

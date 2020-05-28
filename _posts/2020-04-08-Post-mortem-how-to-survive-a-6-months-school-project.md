@@ -3,7 +3,7 @@ layout: post
 title: "Post mortem"
 date: 2020-04-08 22:21:00 +0100
 excerpt: Post mortem on this 6 months projet
-tag: Post mortem, Management
+tags: post-mortem management
 ---
 
 ## Recap of the project

@@ -21,7 +21,12 @@ list_title: Latest posts
 		<div>
 		{% endif %}
 			<a class="post-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}</a>
-			<div class="post-meta">{{ project.tag }}</div>
+			<div class="post-meta">
+			{% for tag in project.tags %}
+			{% capture tag_name %}{{ tag }}{% endcapture %}
+				<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
+			{% endfor %}
+			</div>
 			<a href="{{ project.url | relative_url }}">
 				{% assign value = forloop.index | modulo:2 %}
 				{% if value == 0 %}
@@ -30,8 +35,7 @@ list_title: Latest posts
 				<img src="/assets/images/{{project.thumbnail}}" align="right" style="width: 30%; margin-left: 10px;">
 				{% endif %}
 			</a>
-			<p style="text-align: justify;
-  text-justify: inter-word;">
+			<p style="text-align: justify; text-justify: inter-word;">
 			{{project.excerpt | strip_html }}
 			</p>
 			<div style="clear: both;"></div>
@@ -63,10 +67,11 @@ list_title: Latest posts
 			  </a>
 			</h4>
 			<div class="post-meta">
-				{{ post.date | date: date_format }} 
-				{%- if post.tag -%}
-					 &nbsp;| {{ post.tags}}
-				{%- endif -%}
+				{{ post.date | date: date_format }} <br />
+				{% for tag in post.tags %}
+				{% capture tag_name %}{{ tag }}{% endcapture %}
+					<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
+				{% endfor %}
 			
 			</div>
 			{% if forloop.index < posts.size %}

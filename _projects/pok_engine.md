@@ -4,7 +4,7 @@ title: Pok Project
 role: Lead Programmer/Engine
 team: Up to 15
 priority: 1
-tag: Game engine, c++
+tags: game-engine c++
 thumbnail: stars_of_anarchy_key_image.jpg
 type: School Project
 time: 6 months

@@ -3,7 +3,7 @@ layout: project
 title: Space Dwarf
 role: Programmer
 priority: 3
-tag: Procedural, AI, Unity
+tags: procedural AI unity
 thumbnail: space_dwarf.png
 type: School Project
 #specific school project

@@ -4,7 +4,7 @@ title: Nàstrond
 role: AI Programmer
 team: 7 programmers
 priority: 2
-tag: AI, c++
+tags: AI c++
 type: School Project
 time: 12 weeks
 thumbnail: nastrond.gif

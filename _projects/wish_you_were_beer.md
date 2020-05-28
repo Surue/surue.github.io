@@ -4,7 +4,7 @@ title: Wish You Were beer
 role: Programmer
 team: 2 programmers, 2 artists
 priority: 3
-tag: Unity
+tags: unity
 thumbnail: wish_you_were_beer.png
 type: Jam
 jam-name: Improvised school jam 

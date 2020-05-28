@@ -4,7 +4,7 @@ title: Space Infestation
 role: Programmer
 team: 3 programmers, 2 artists
 priority: 5
-tag: Procedural, Unity
+tags: procedural unity
 thumbnail: space_infestation.png
 type: School Project
 #specific school project
