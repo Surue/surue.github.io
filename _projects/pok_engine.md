@@ -17,4 +17,5 @@ The Pok's project is a 6 months school project were my and other students had to
 
 1. [My first article]({% post_url 2020-04-13-How-to-make-more-in-the-same-time %}) is about the overall multithreading of the engine. 
 2. You can also read [here]({% post_url 2020-04-07-Particle-systems %}) how I approach the implementation of a particle system.
-3. Finally I wrote a [first post mortem] ({% post_url 2020-04-08-Post-mortem-how-to-survive-a-6-months-school-project %}) mainly focused around different solution to have a professional environnment while still being in school. I also write a [second post mortem]({% post_url 2020-04-08-Post-mortem-how-to-survive-a-6-months-school-project %}) which focus more around our main mistake and what I would do differently.
+3. Finally I wrote a [first post mortem] ({% post_url 2020-04-08-Post-mortem-how-to-survive-a-6-months-school-project %}) mainly focused around different solution to have a professional environnment while still being in school. 
+4. I also write a [second post mortem]({% post_url 2020-04-08-Post-mortem-how-to-survive-a-6-months-school-project %}) which focus more around our main mistake and what I would do differently.
