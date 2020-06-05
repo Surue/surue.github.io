@@ -15,8 +15,8 @@ title: Projects
 {{mainProject.excerpt}}
 </div>
 
-<div class="box">
-<h2>Interesting projects</h2>
+<div class="box" style="margin-bottom: 10px">
+<h2>Relevants projects</h2>
 
 {% assign count = 0 %}
 {%- assign interestingProject = site.projects | where: 'priority', 2 -%}
@@ -46,9 +46,13 @@ title: Projects
 <div style="float: left; width: 50%; padding-right: 10px; padding-top: 10px; box-sizing:border-box; ">
 	<div class="box">
 		<h2>Jams</h2>
-		{% assign projects = site.projects | sort: 'priority' | where: 'type', "jam" %}
-		{%- for project in projects -%}
-		<div style="margin-bottom: 10px;">
+		{% assign projectsJam = site.projects | sort: 'priority' | where: 'type', "jam" %}
+		{%- for project in projectsJam -%}
+		{% if forloop.index < projectsJam.size %}
+			<div style="margin-bottom: 10px; border-bottom: 1px solid rgb(220,220,220);">
+		{% else %}
+			<div style="margin-bottom: 10px;">
+		{% endif %}
 			<a href="{{ project.url | relative_url }}"><img src="/assets/images/{{project.thumbnail}}" style="float: left; max-width: 40%; padding-right: 10px"></a>
 			<a style="font-size:16px;" class="post-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}</a>
 			<span class="post-meta">
@@ -72,7 +76,11 @@ title: Projects
 	<h2>School projects</h2>
 	{% assign projects = site.projects | sort: 'priority' | where: 'type', "school-project" %}
 	{%- for project in projects -%}
+	{% if forloop.index < projects.size %}
+		<div style="margin-bottom: 10px; border-bottom: 1px solid rgb(220,220,220);">
+	{% else %}
 		<div style="margin-bottom: 10px;">
+	{% endif %}
 			<a href="{{ project.url | relative_url }}"><img src="/assets/images/{{project.thumbnail}}" style="float: left;max-width: 40%; padding-right: 10px"></a>
 			<a style="font-size:16px;" class="post-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}</a>
 			<p class="post-meta">
@@ -103,7 +111,7 @@ title: Projects
 			
 		</div>
 		{% if forloop.index < projects.size %}
-		<hr/><br/>
+		<br/>
 		{% endif %}
 		<div style="clear:both;"></div>
 		{%- endfor -%}
