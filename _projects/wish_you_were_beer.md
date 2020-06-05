@@ -10,11 +10,8 @@ github: https://github.com/Surue/Wish_You_Were_Beer
 type: Jam
 jam-name: Improvised school jam 
 last_update: 2017-09-15
-excerpt_separator: <!--more-->
+excerpt: "You're broke but thirsty, what a better solution than to steel beer from those who went to the bathroom." First game ever finished, it was my first experience working with a team, importing 3D models, applying materials, playing with lights and implementing the QTE system.
 ---
-"You're broke but thirsty, what a better solution than to steel beer from those who went to the bathroom."
-First game ever finished, it was my first experience working with a team, importing 3D models, applying materials, playing with lights and implementing the QTE system.
-<!--more-->
 
 ## Overview
-This is my bachelor's project about AI.
+My first finished game. It has been made during a convention that my schoold attended byck during my first year of game programming studies. 
