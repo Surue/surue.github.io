@@ -1,6 +1,6 @@
 <header class="site-header">
-
-  <div class="wrapper">
+  
+  <div class="wrapper" style="background-color: #4F5D75">
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
@@ -27,5 +27,8 @@
         </div>
       </nav>
     {%- endif -%}
+  </div>
+  <div class="height: 200px; color: yellow">
+    COUCOU
   </div>
 </header>

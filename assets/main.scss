@@ -2,10 +2,33 @@
 # Front matter comment to ensure Jekyll properly reads file.
 ---
 
-$content-width:    960px !default;
+$content-width:    1400px !default;
+
+$color-dark-blue: #2D3142;
+$color-light-blue: #4F5D75;
+$color-dark-grey: #BFC0C0;
+$color-text: #525252;
+$color-light-grey: #F5F5F5;
+$color-white: #FFFFFF;
+$color-light-orange: #E05215;
+$color-dark-orange: #CD4B13;
 
 @import "minima/skins/{{ site.minima.skin | default: 'classic' }}";
 @import "minima/initialize";
+
+/**
+ * Site header
+ */
+.site-header {
+  border-top: 5px solid $border-color-03;
+  border-bottom: 1px solid $border-color-01;
+  min-height: $spacing-unit * 1.865;
+  line-height: $base-line-height * $base-font-size * 2.25;
+  background-color: #4F5D75;
+
+  // Positioning context for the mobile navigation icon
+  position: relative;
+}
 
 .box {
 	width: 100%; 
@@ -45,14 +68,6 @@ $content-width:    960px !default;
   @include relative-font-size(1.35);
 }
 
-.post-list h4{
-	margin-bottom: 0;
-	padding-bottom: 0;
-}
-
-.post-list p{
-	font-size: 14px;
-}
 
 /* Container holding the image and the text */
 .image-container {
@@ -100,3 +115,55 @@ $content-width:    960px !default;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* Post */
+.post-card {
+  box-shadow: 0px 16px 19px 0px rgba(204,204,204,1); 
+  margin-bottom: 60px;
+}
+
+.post-card-content {
+  padding: 15px;
+}
+
+.post-card-content p {
+  color: $color-text;
+}
+
+.post-card-content h4 {
+  color: black;
+  font-weight: b200;
+  font-size: 22px;
+  border-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.post-card-footer {
+  border-top: 1px solid $color-light-grey;
+  padding: 15px;
+  text-align: center;
+  color: $color-dark-grey;
+}
+
+.has-text-centered {
+  text-align: center;
+}
+
+.read-more-button {
+  border-radius: 5px;
+  background: $color-light-orange;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 7px 16px;
+}
+
+.read-more-button:hover {
+  background: $color-dark-orange;
+  color: #BFC0C0;
+  text-decoration: none;
+}
+
+.read-more-button:visited {
+  color: $color-white;
+}
+

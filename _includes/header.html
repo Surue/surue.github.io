@@ -18,9 +18,9 @@
         </label>
 
         <div class="trigger">
-		{% for item in site.data.navigation.main-link %}
-			<a class="page-link" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
-		{% endfor %}
+      		{% for item in site.data.navigation.main-link %}
+      			<a class="page-link" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
+      		{% endfor %}
         </div>
       </nav>
     {%- endif -%}

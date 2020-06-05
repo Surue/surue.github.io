@@ -1,6 +1,6 @@
 # To launch the server : bundle exec jekyll serve
 
-title: Nicolas Schneider's Blog
+title: Nicolas Schneider - Engine Programer
 url : "https://surue.github.io"
 
 description: > # this means to ignore newlines until "show_excerpts:"

@@ -5,6 +5,7 @@ list_title: Latest posts
 
 <div style="float: left; box-sizing:border-box; width: 70%; padding-right: 20px;">
 	<div class="box">
+		<p>Ceocrebv</p>
 		<p>
 		Hi, I'm Nicolas Schneider and this is my blog. You can find here my projects and articles mostly about AI, procedural content generation and custom game engine.
 		</p>
@@ -44,7 +45,6 @@ list_title: Latest posts
 	</div>
 </div>
 <div style="float: left; box-sizing:border-box; width: 30%;">
-	<div class="box">
 	{% if site.paginate %}
 		{% assign posts = paginator.posts %}
 	  {% else %}
@@ -56,51 +56,36 @@ list_title: Latest posts
 		{%- if page.list_title -%}
 		  <h2 class="post-list-heading">{{ page.list_title }}</h2>
 		{%- endif -%}
-		<ul class="post-list">
 		  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 		  {%- for post in posts -%}
-		  <li>
-			<h4>
-			  <a class="post-link" href="{{ post.url | relative_url }}">
-				{{ post.title | escape }}
-			  </a>
-			</h4>
-			<div class="post-meta">
-				{{ post.date | date: date_format }} <br />
-				{% for tag in post.tags %}
-				{% capture tag_name %}{{ tag }}{% endcapture %}
-					<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
-				{% endfor %}
-			
-			</div>
-			{% if forloop.index < posts.size %}
-			<p style="padding-bottom: 20px; border-bottom: 1px solid rgb(220,220,220);">{{ post.excerpt }}</p>
-			{% else %}
-			<p>{{ post.excerpt }}</p>
-			{% endif %}
-		  </li>
+			  <div class="post-card">
+			  	{% if post.thumbnail %}
+			  		img src="/assets/images/{{ post.thumbnail }}">
+			  	{% else %}
+			  		<img src="/assets/images/missing-image-placeholder.jpg">
+			  	{% endif %}
+			  	<div class="post-card-content">
+					<h4>
+						{{ post.title | escape }}
+					</h4>
+					<div class="post-meta">
+						{% for tag in post.tags %}
+						{% capture tag_name %}{{ tag }}{% endcapture %}
+							<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
+						{% endfor %}
+					
+					</div>
+					<p>{{ post.excerpt }}</p>
+					<div class="has-text-centered">
+						<a class="read-more-button" href="{{ post.url | relative_url }}">Read More</a>
+					</div>
+				</div>
+				<div class="post-card-footer">
+					Published: {{ post.date | date: date_format }}
+				</div>
+			  </div>
 		  {%- endfor -%}
-		</ul>
-
-		{% if site.paginate %}
-		  <div class="pager">
-			<ul class="pagination">
-			{%- if paginator.previous_page %}
-			  <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page }}</a></li>
-			{%- else %}
-			  <li><div class="pager-edge">•</div></li>
-			{%- endif %}
-			  <li><div class="current-page">{{ paginator.page }}</div></li>
-			{%- if paginator.next_page %}
-			  <li><a href="{{ paginator.next_page_path | relative_url }}" class="next-page">{{ paginator.next_page }}</a></li>
-			{%- else %}
-			  <li><div class="pager-edge">•</div></li>
-			{%- endif %}
-			</ul>
-		  </div>
-		{%- endif %}
 
 	  {%- endif -%}
-	</div>
 </div>
 <div style="clear:both"></div>
