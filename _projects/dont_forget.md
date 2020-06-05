@@ -7,7 +7,7 @@ priority: 3
 tags: unity
 thumbnail: dont_forget.png
 gitlab: https://gitlab.com/piller.yann/LD41/-/tree/develop
-type: Jam
+type: jam
 #jam specific
 jam-name: Ludum dare 41
 last_update: 2019-05-27

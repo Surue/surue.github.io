@@ -46,7 +46,7 @@ title: Projects
 <div style="float: left; width: 50%; padding-right: 10px; padding-top: 10px; box-sizing:border-box; ">
 	<div class="box">
 		<h2>Jams</h2>
-		{% assign projects = site.projects | sort: 'priority' | where: 'type', "Jam" %}
+		{% assign projects = site.projects | sort: 'priority' | where: 'type', "jam" %}
 		{%- for project in projects -%}
 		<div style="margin-bottom: 10px;">
 			<a href="{{ project.url | relative_url }}"><img src="/assets/images/{{project.thumbnail}}" style="float: left; max-width: 40%; padding-right: 10px"></a>
