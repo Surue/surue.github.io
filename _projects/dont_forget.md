@@ -10,7 +10,7 @@ gitlab: https://gitlab.com/piller.yann/LD41/-/tree/develop
 type: jam
 jam-name: Ludum dare 41
 last_update: 2019-05-27
-excerpt: A Die a Retry mixed with a 3D visual Novel game ! Play as Mamy, and discover what’s remains of your world. Interact with many things in your home, but don’t forget what’s important ! Made during the LD 41, our objectiv for the prog team was to get used to the scriptable object of unity. Implementing a whole system of event only based on them.
+excerpt: <b>A Die a Retry mixed with a 3D visual Novel game</b> ! Play as Mamy, and discover what’s remains of your world. Interact with many things in your home, but don’t forget what’s important ! Made during the LD 41, our objectiv for the prog team was to get used to the <b>scriptable object of unity</b>. Implementing a whole system of event only based on them.
 ---
 
 ## Overview

@@ -2,17 +2,22 @@
 layout: post
 title: Projects
 ---
+{% assign postNames = '' | split: ''%}
 {%- assign mainProject = site.projects | where:"priority" ,1 | first-%}
 <div class="box" style="margin-bottom: 20px;">
 <h2><a href="{{ mainProject.url | relative_url }}">{{mainProject.title}}</a></h2>
+{% assign tmpName = mainProject.title | split: '_' | first | split: '-' %}
+{% assign postNames = postNames | concat: tmpName %}
 <a href="{{ mainProject.url | relative_url }}"><img src="/assets/images/{{mainProject.thumbnail}}"></a>
-<span class="post-meta">
+<p class="post-meta">
 {% for tag in mainProject.tags %}
 {% capture tag_name %}{{ tag }}{% endcapture %}
 	<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
 {% endfor %} <br/>
-</span>
+</p>
+<p>
 {{mainProject.excerpt}}
+</p>
 </div>
 
 <div class="box" style="margin-bottom: 10px">
@@ -21,6 +26,8 @@ title: Projects
 {% assign count = 0 %}
 {%- assign interestingProject = site.projects | where: 'priority', 2 -%}
 {%- for project in interestingProject -%}
+	{% assign tmpName = project.title | split: '_' | first | split: '-' %}
+	{% assign postNames = postNames | concat: tmpName %}
 	{% assign value = forloop.index | modulo:2 %}
 	{% if value == 0 %} <!-- right -->
 	<div style="float: left; width: 50%; padding:0px 0px 0px 10px; box-sizing:border-box;">
@@ -29,12 +36,12 @@ title: Projects
 	{% endif %}
 		<a class="post-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}</a>
 		<a href="{{ project.url | relative_url }}"><img src="/assets/images/{{project.thumbnail}}"></a>
-		<span class="post-meta">
+		<p class="post-meta">
 		{% for tag in project.tags %}
 		{% capture tag_name %}{{ tag }}{% endcapture %}
 			<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
 		{% endfor %}
-		</span>
+		</p>
 		{{project.excerpt }}
 	</div>
 	{% assign count = count | plus: 1 %}
@@ -61,7 +68,7 @@ title: Projects
 				<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
 			{% endfor %} <br/>
 			{{ project.jam-name }}</span>
-			<p style="clear:both;">{{project.excerpt | strip_html| truncatewords: 30}} <a href="{{ project.url | relative_url }}">read more</a></p>
+			<p style="clear:both;">{{project.excerpt | truncatewords: 30}} <a href="{{ project.url | relative_url }}">read more</a></p>
 			
 		</div>
 		{% if forloop.index < projects.size %}
@@ -75,7 +82,21 @@ title: Projects
 	<div class="box">
 	<h2>School projects</h2>
 	{% assign projects = site.projects | sort: 'priority' | where: 'type', "school-project" %}
+	
 	{%- for project in projects -%}
+	
+	{% assign found = false %}
+	{% for name in postNames %}
+		{% if name == project.title %}
+			{% assign found = true %}
+			{% break %}
+		{% endif %}
+	{% endfor %}
+	
+	{% if found %}
+		{% continue %}
+	{% endif %}
+	
 	{% if forloop.index < projects.size %}
 		<div style="margin-bottom: 10px; border-bottom: 1px solid rgb(220,220,220);">
 	{% else %}
@@ -89,7 +110,7 @@ title: Projects
 				<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
 			{% endfor %} <br/>
 			</p>
-			<p style="clear:both;">{{project.excerpt | strip_html| truncatewords: 30}} <a href="{{ project.url | relative_url }}">read more</a></p>
+			<p style="clear:both;">{{project.excerpt | truncatewords: 30}} <a href="{{ project.url | relative_url }}">read more</a></p>
 			<span class="post-meta">Summary:</span>
 			<ul class="post-meta" style="clear:both; margin-top: 0px;">
 				{% if project.team %}

@@ -35,7 +35,7 @@ list_title: Latest posts
 				{% endif %}
 			</a>
 			<p style="text-align: justify; text-justify: inter-word;">
-			{{project.excerpt | strip_html }}
+			{{project.excerpt}}
 			</p>
 			<div style="clear: both;"></div>
 		</div>

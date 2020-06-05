@@ -9,7 +9,7 @@ thumbnail: stars_of_anarchy_key_image.JPG
 type: school-project
 time: 6 months during my third year
 last_update: 2020-05-10
-excerpt: This is a 6 months school project we made in our third year. The objective was to do a game (Stars of Anarchy) running on the Nintendo Switch using a custom game engine (PokEngine). We separated the team in three main groups, Game, Tool and Engine. I was leading the overall team and also more specifically the engine's team. I implemented most of the core feature used in the engine as the graphic engine, physics engine, entity manager, resource manager, and so on.
+excerpt: This is a <b>6 months school project</b> we made in our third year. The objective was to do a game (Stars of Anarchy) running on the <b>Nintendo Switch</b> using a custom game engine (PokEngine). We separated the team in three main groups, Game, Tool and Engine. I was the <b>lead programmer and engine</b> on the project. I implemented most of the core feature used in the engine as the graphic engine, physics engine, entity manager, resource manager, and so on.
 ---
 
 ## Overview
