@@ -1,0 +1,26 @@
+<div class="post-card">
+	{% if include.post.thumbnail %}
+		<img src="/assets/images/{{ post.thumbnail }}">
+	{% else %}
+		<img src="/assets/images/missing-image-placeholder.jpg">
+	{% endif %}
+	<div class="post-card-content">
+		<h4>
+			{{ include.post.title | escape }}
+		</h4>
+		<div class="post-meta">
+			{% for tag in include.post.tags %}
+			{% capture tag_name %}{{ tag }}{% endcapture %}
+				<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
+			{% endfor %}
+		
+		</div>
+		<p>{{ include.post.description }}</p>
+		<div class="has-text-centered">
+			<a class="read-more-button" href="{{ post.url | relative_url }}">Read More</a>
+		</div>
+	</div>
+	<div class="post-card-footer">
+		Published: {{ include.post.date | date: date_format }}
+	</div>
+</div>

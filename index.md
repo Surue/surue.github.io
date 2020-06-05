@@ -5,7 +5,6 @@ list_title: Latest posts
 
 <div style="float: left; box-sizing:border-box; width: 70%; padding-right: 20px;">
 	<div class="box">
-		<p>Ceocrebv</p>
 		<p>
 		Hi, I'm Nicolas Schneider and this is my blog. You can find here my projects and articles mostly about AI, procedural content generation and custom game engine.
 		</p>
@@ -58,34 +57,8 @@ list_title: Latest posts
 		{%- endif -%}
 		  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 		  {%- for post in posts -%}
-			  <div class="post-card">
-			  	{% if post.thumbnail %}
-			  		img src="/assets/images/{{ post.thumbnail }}">
-			  	{% else %}
-			  		<img src="/assets/images/missing-image-placeholder.jpg">
-			  	{% endif %}
-			  	<div class="post-card-content">
-					<h4>
-						{{ post.title | escape }}
-					</h4>
-					<div class="post-meta">
-						{% for tag in post.tags %}
-						{% capture tag_name %}{{ tag }}{% endcapture %}
-							<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
-						{% endfor %}
-					
-					</div>
-					<p>{{ post.excerpt }}</p>
-					<div class="has-text-centered">
-						<a class="read-more-button" href="{{ post.url | relative_url }}">Read More</a>
-					</div>
-				</div>
-				<div class="post-card-footer">
-					Published: {{ post.date | date: date_format }}
-				</div>
-			  </div>
+			  {% include post.html post = post%}
 		  {%- endfor -%}
-
 	  {%- endif -%}
 </div>
 <div style="clear:both"></div>
