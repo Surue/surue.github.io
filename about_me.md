@@ -24,11 +24,10 @@ title: About Me
 <div style="float:left; width: 70%; box-sizing:border-box; padding: 10px;">
 	<div class="box">
 		<h2 class="box-title">About</h2>
-		<p>Hi, I'm Nicolas Schneider. I'm currently a student at the SAE Institute of Geneva in my last year in a game programming courses. I'm mostly doing school project and game jams. 
-		Most of my project are around AI and procedural content generation but my final goal is to be an engine programmer. <br /><br/>
+		<p>Hi, I'm Nicolas Schneider. I'm currently a student at the SAE Institute of Geneva in <b>my last year in a game programming</b> courses. I'm mostly doing school project and game jams. 
+		Most of my project are around <b>AI and procedural content generation</b> but my final goal is to be an engine programmer. <br /><br/>
 		I've already done some work in that area, the first one was a 2D physics engine at the end of my first year. Then at the end of the second I've made a 3D graphics 
-		small engine using Vulkan as the graphics API. Finally during my last year I've led a team and together we made a complete <a href="projects/pok_engine.html">3D engine</a> 
-		that runs on a pc and on the Nintendo Switch.</p>
+		small engine using Vulkan as the graphics API. Finally during my last year I've led a team and together we made a complete <a href="projects/pok_engine.html">3D engine</a> that runs on a pc and on the Nintendo Switch.</p>
 	</div>
 	<div class="box" style="margin-top: 20px;">
 		<h2 class="box-title">Work Experience</h2>

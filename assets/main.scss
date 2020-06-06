@@ -2,6 +2,7 @@
 # Front matter comment to ensure Jekyll properly reads file.
 ---
 
+$base-font-family: "Montserrat",sans-serif;
 $content-width:    1400px !default;
 
 $color-dark-blue: #2D3142;
@@ -52,6 +53,32 @@ $grid__cols: 12;
   }
 }
 
+/**
+ * Wrapper
+ */
+.wrapper {
+  max-width: calc(#{$content-width} - (#{$spacing-unit}));
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $spacing-unit / 2;
+  padding-left: $spacing-unit / 2;
+  @extend %clearfix;
+
+  @media screen and (min-width: $on-large) {
+    max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
+  }
+}
+
+/**
+* Page content
+*/
+.page-content {
+  padding: $spacing-unit 0;
+  flex: 1 0 auto;
+  background: white;
+}
 
 /**
  * Site header
@@ -61,10 +88,18 @@ $grid__cols: 12;
   border-bottom: 1px solid $border-color-01;
   min-height: $spacing-unit * 1.865;
   line-height: $base-line-height * $base-font-size * 2.25;
-  background-color: #4F5D75;
 
   // Positioning context for the mobile navigation icon
   position: relative;
+}
+
+/**
+ * Site footer
+ */
+.site-footer {
+  border-top: 1px solid $border-color-01;
+  padding: $spacing-unit 0;
+  background: $color-light-blue;
 }
 
 .post-meta {
