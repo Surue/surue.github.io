@@ -11,6 +11,7 @@ show_excerpts: false # set to true to show excerpts on the homepage
 
 twitter_username: n_surue
 github_username: surue
+linkedin-username: nicolas-schneider-14135a170
 
 # Build settings
 markdown: kramdown

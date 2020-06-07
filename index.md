@@ -10,12 +10,10 @@ list_title: Latest posts
 					<h1>About me</h1>
 					<img src="assets/images/Nico.png" align="left" style="width: 30%; margin-right: 10px;">
 					<p>Hi, I'm Nicolas, a game programmer from switzerland. I'm a student at the SAE Institute of Geneva in <b>my last year in a game programming</b> courses. I'm mostly doing school project and game jams. Most of my project are around <b>AI and procedural content generation</b> but my final goal is to be an <b>engine programmer</b>. <br /><br />
-					I've already done some work in that area, the first one was a 2D physics engine at the end of my first year. Then at the end of the second I've made a 3D graphics small engine using Vulkan as the graphics API. Finally during my last year I've led a team and together we made a complete <a href="projects/pok_engine.html">3D engine</a> that runs on a pc and on the Nintendo Switch.</p>
+					Here you can see most of my <a href="projects.html">projects</a> than can be separated in 3 categories; Schools project, jams and personnal. I also try to write some <a href="blog.html">articles</a> that wary between designing systems, implementation or even some post mortems. If you want to talk or have more precise information on some of my project, you can <a href="contact_me.html">contact me</a>.</p>
 				</div>
 			</div>
-			<div class="row" style="height: 30px">
-			</div>
-			<div class="row">
+			<div class="row" style="margin-top: 40px;">
 				<h1>Projects</h1>
 				{%- assign interestingProject = site.projects | sort: "last_update" | reverse -%}
 				{%- for project in interestingProject limit:5 -%}
