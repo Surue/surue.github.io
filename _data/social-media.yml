@@ -1,0 +1,27 @@
+email:
+  id: 'nicolas06062000@gmail.com'
+  href: 'mailto:'
+  title: 'Email'
+  fa-icon: 'fas fa-envelope-square'
+  color: rgb(212, 70, 56)
+
+linkedin:
+  id: 'nicolas-schneider-14135a170'
+  href: 'https://www.linkedin.com/in/'
+  title: 'Linkedin'
+  fa-icon: 'fab fa-linkedin'
+  color: rgb(0, 119, 181)
+
+twitter:
+  id: 'n_surue'
+  href: 'https://www.twitter.com/'
+  title: 'Twitter'
+  fa-icon: 'fab fa-twitter-square'
+  color: rgb(8, 160, 233)
+
+github:
+  id: 'surue'
+  href: 'https://github.com/'
+  title: 'GitHub'
+  fa-icon: 'fab fa-github-square'
+  color: rgb(33, 31, 31)

@@ -12,7 +12,7 @@ title: About Me
 					<h4>Nicolas Schneider</h4>
 					I'm a game engine enthusiastic who love doing new things from scratch.<br />
 					  
-					{%- include social.html -%}
+					{% include social-media.html %}
 
 					<h6><a href="../assets/pdfs/CV_2.pdf" target="_blank">My Resume</a></h6>
 				</div>
@@ -113,17 +113,18 @@ title: About Me
 				</div>
 				<div class="col-sm-12 col-md-3">
 					<span style="font-size: 20px">Game Programming</span><br />
-					<a href="https://www.sae.swiss/"><span style="font-size: 12px">SAE Institute Geneva</span></a><br />
+					<a href="https://www.sae.swiss/" target="_blank"><span style="font-size: 12px">SAE Institute Geneva</span></a><br />
 					Bachelor of Science
 				</div>
 				<div class="col-sm-12 col-md-5">
 					What I learnt
 					<ul>
 						<li>Languages: c++, c#, json</li>
-						<li>Engines: Unity (main engine), Unreal Engine 4</li>
+						<li>Engines: Unity, Unreal Engine 4</li>
 						<li>Custom game engines: Physics engine 2d, 3d renderer, complete 3d engine</li>
 						<li>Project: How to start from scratch and managing it</li>
 						<li>Team management: Socials skills and softwares</li>
+						<li>Game Design: Fundamentals of loops and feedback/signes</li>
 					</ul>
 				</div>
 			</div>

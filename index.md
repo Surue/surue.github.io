@@ -13,8 +13,8 @@ list_title: Latest posts
 					Here you can see most of my <a href="projects.html">projects</a> than can be separated in 3 categories; Schools project, jams and personnal. I also try to write some <a href="blog.html">articles</a> that wary between designing systems, implementation or even some post mortems. If you want to talk or have more precise information on some of my project, you can <a href="contact_me.html">contact me</a>.</p>
 				</div>
 			</div>
+			<h1 style="margin-top: 40px;">Projects</h1>
 			<div class="row" style="margin-top: 40px;">
-				<h1>Projects</h1>
 				{%- assign interestingProject = site.projects | sort: "last_update" | reverse -%}
 				{%- for project in interestingProject limit:5 -%}
 				<div style="margin-bottom: 20px;">
@@ -39,6 +39,18 @@ list_title: Latest posts
 					<div style="clear: both;"></div>
 				</div>
 				{%- endfor -%}
+			</div>
+			<h1 style="margin-top: 40px;">Contact me</h1>
+			<div class="row" style="font-size: 3vw">
+				{% assign sm = site.data.social-media %}
+				{% for entry in sm %}
+			        {% assign key = entry | first %}
+			        <div class="col-sm-3 col-md-3">
+			        {% if sm[key].id %}
+			            <a href="{{ sm[key].href }}{{ sm[key].id }}" title="{{ sm[key].title }}" target="_blank"><i class="{{ sm[key].fa-icon }} fa-3x" style="color: {{ sm[key].color }}"></i></a>
+			        {% endif %}
+			    	</div>
+			    {% endfor %}
 			</div>
 		</div>
 		<div class="col-sm-12 col-md-4">
