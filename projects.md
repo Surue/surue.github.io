@@ -1,141 +1,224 @@
 ---
-layout: post
+layout: default
 title: Projects
 ---
-{% assign postNames = '' | split: ''%}
-{%- assign mainProject = site.projects | where:"priority" ,1 | first-%}
-<div class="box" style="margin-bottom: 20px;">
-<h2><a href="{{ mainProject.url | relative_url }}">{{mainProject.title}}</a></h2>
-{% assign tmpName = mainProject.title | split: '_' | first | split: '-' %}
-{% assign postNames = postNames | concat: tmpName %}
-<a href="{{ mainProject.url | relative_url }}"><img src="/assets/images/{{mainProject.thumbnail}}"></a>
-<p class="post-meta">
-{% for tag in mainProject.tags %}
-{% capture tag_name %}{{ tag }}{% endcapture %}
-	<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
-{% endfor %} <br/>
-</p>
-<p>
-{{mainProject.excerpt}}
-</p>
-</div>
-
-<div class="box" style="margin-bottom: 10px">
-<h2>Relevants projects</h2>
-
-{% assign count = 0 %}
-{%- assign interestingProject = site.projects | where: 'priority', 2 -%}
-{%- for project in interestingProject -%}
-	{% assign tmpName = project.title | split: '_' | first | split: '-' %}
-	{% assign postNames = postNames | concat: tmpName %}
-	{% assign value = forloop.index | modulo:2 %}
-	{% if value == 0 %} <!-- right -->
-	<div style="float: left; width: 50%; padding:0px 0px 0px 10px; box-sizing:border-box;">
-	{% else %} <!-- left -->
-	<div style="float: left; width: 50%; padding:0px 10px 0px 0px; box-sizing:border-box;">
-	{% endif %}
-		<a class="post-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}</a>
-		<a href="{{ project.url | relative_url }}"><img src="/assets/images/{{project.thumbnail}}"></a>
-		<p class="post-meta">
-		{% for tag in project.tags %}
-		{% capture tag_name %}{{ tag }}{% endcapture %}
-			<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
-		{% endfor %}
-		</p>
-		{{project.excerpt }}
-	</div>
-	{% assign count = count | plus: 1 %}
-{%- endfor -%}
-<div style="color:white;">emtpy</div>
-</div>
-
-<div style="clear:both;"></div>
-<div style="float: left; width: 50%; padding-right: 10px; padding-top: 10px; box-sizing:border-box; ">
-	<div class="box">
-		<h2>Jams</h2>
-		{% assign projectsJam = site.projects | sort: 'priority' | where: 'type', "jam" %}
-		{%- for project in projectsJam -%}
-		{% if forloop.index < projectsJam.size %}
-			<div style="margin-bottom: 10px; border-bottom: 1px solid rgb(220,220,220);">
-		{% else %}
-			<div style="margin-bottom: 10px;">
-		{% endif %}
-			<a href="{{ project.url | relative_url }}"><img src="/assets/images/{{project.thumbnail}}" style="float: left; max-width: 40%; padding-right: 10px"></a>
-			<a style="font-size:16px;" class="post-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}</a>
-			<span class="post-meta">
-			{% for tag in project.tags %}
-			{% capture tag_name %}{{ tag }}{% endcapture %}
-				<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
-			{% endfor %} <br/>
-			{{ project.jam-name }}</span>
-			<p style="clear:both;">{{project.excerpt | truncatewords: 30}} <a href="{{ project.url | relative_url }}">read more</a></p>
-			
+<div class="container">
+	<h1>Relevants projects</h1>
+	<div class="row">
+		{% assign postNames = '' | split: ''%}
+		{% assign relevantsProjects = site.projects | sort:'priority' %}
+		{% for relevantProject in relevantsProjects limit: 3 %}
+		{% assign tmpName = relevantProject.title | split: '_' | first | split: '-' %}
+		{% assign postNames = postNames | concat: tmpName %}
+		<div class="col-sm-12 col-md-4">
+			<div class="post-card">
+				{% if relevantProject.thumbnail %}
+				<img src="/assets/images/{{ relevantProject.thumbnail }}">
+				{% else %}
+				<img src="/assets/images/missing-image-placeholder.jpg">
+				{% endif %}
+				<div class="post-card-content">
+					<h4>{{ relevantProject.title | escape }}</h4>
+					<p class="post-meta">
+						{% for tag in relevantProject.tags %}
+						{% capture tag_name %}{{ tag }}{% endcapture %}
+						<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
+						{% endfor %} <br/>
+					</p>
+					<p>
+						{{ relevantProject.description }}
+					</p>
+					{% if relevantProject.highlights %}
+					<h3>Highlights:</h3>
+					<ul>
+						{% for hl in relevantProject.highlights %}
+						<li>{{ hl }}</li>
+						{% endfor %}
+					</ul>
+					{% endif %}
+					<div class="has-text-centered">
+						<a class="read-more-button" href="{{ post.url | relative_url }}">Read More</a>
+					</div>
+				</div>
+			</div>
 		</div>
-		{% if forloop.index < projects.size %}
-		<hr/>
-		{% endif %}
-		<div style="clear:both;"></div>
-		{%- endfor -%}
+		{% endfor %}
 	</div>
-</div>
-<div style="float: left; width: 50%; padding-left: 10px; padding-top: 10px; box-sizing:border-box; ">
-	<div class="box">
-	<h2>School projects</h2>
-	{% assign projects = site.projects | sort: 'priority' | where: 'type', "school-project" %}
-	
-	{%- for project in projects -%}
-	
-	{% assign found = false %}
-	{% for name in postNames %}
-		{% if name == project.title %}
+	<h1>Professional projects</h1>
+	<div class="row">
+		{% assign postNames = '' | split: ''%}
+		{% assign professionalProjects = site.projects | where:'type', 'professional' %}
+		{% for relevantProject in professionalProjects limit: 3 %}
+		{% assign tmpName = relevantProject.title | split: '_' | first | split: '-' %}
+		{% assign postNames = postNames | concat: tmpName %}
+		<div class="col-sm-12 col-md-4">
+			<div class="post-card">
+				{% if relevantProject.thumbnail %}
+				<img src="/assets/images/{{ relevantProject.thumbnail }}">
+				{% else %}
+				<img src="/assets/images/missing-image-placeholder.jpg">
+				{% endif %}
+				<div class="post-card-content">
+					<h4>{{ relevantProject.title | escape }}</h4>
+					<p class="post-meta">
+						{% for tag in relevantProject.tags %}
+						{% capture tag_name %}{{ tag }}{% endcapture %}
+						<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
+						{% endfor %} <br/>
+					</p>
+					<p>
+						{{ relevantProject.description }}
+					</p>
+					{% if relevantProject.highlights %}
+					<h3>Highlights:</h3>
+					<ul>
+						{% for hl in relevantProject.highlights %}
+						<li>{{ hl }}</li>
+						{% endfor %}
+					</ul>
+					{% endif %}
+					<div class="has-text-centered">
+						<a class="read-more-button" href="{{ post.url | relative_url }}">Read More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<div class="row">
+		<div class="col-sm-12 col-md-4">
+			<h1>Jam projects</h1>
+			{% assign projectsJam = site.projects | sort: 'priority' | where: 'type', "jam" %}
+			{%- for project in projectsJam -%}
+			{% assign found = false %}
+			{% for name in postNames %}
+			{% if name == project.title %}
 			{% assign found = true %}
 			{% break %}
-		{% endif %}
-	{% endfor %}
-	
-	{% if found %}
-		{% continue %}
-	{% endif %}
-	
-	{% if forloop.index < projects.size %}
-		<div style="margin-bottom: 10px; border-bottom: 1px solid rgb(220,220,220);">
-	{% else %}
-		<div style="margin-bottom: 10px;">
-	{% endif %}
-			<a href="{{ project.url | relative_url }}"><img src="/assets/images/{{project.thumbnail}}" style="float: left;max-width: 40%; padding-right: 10px"></a>
-			<a style="font-size:16px;" class="post-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}</a>
-			<p class="post-meta">
-			{% for tag in project.tags %}
-			{% capture tag_name %}{{ tag }}{% endcapture %}
-				<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
-			{% endfor %} <br/>
-			</p>
-			<p style="clear:both;">{{project.excerpt | truncatewords: 30}} <a href="{{ project.url | relative_url }}">read more</a></p>
-			<span class="post-meta">Summary:</span>
-			<ul class="post-meta" style="clear:both; margin-top: 0px;">
-				{% if project.team %}
-				{% if project.role %}
-				<li>Role : {{ project.role | escape }} </li>
-				{% endif %}
-				{% endif %}
-				<li>
-				{% if project.team %}
-					Team : {{ project.team | escape }}
+			{% endif %}
+			{% endfor %}
+			{% if found %}
+			{% continue %}
+			{% endif %}
+			<div class="post-card">
+				{% if project.thumbnail %}
+				<img src="/assets/images/{{ project.thumbnail }}">
 				{% else %}
-					Solo Project
+				<img src="/assets/images/missing-image-placeholder.jpg">
 				{% endif %}
-				</li>
-				{% if project.time %}
-				<li>Time : {{ project.time | escape }}</li>
-				{% endif %}
-			</ul>
-			
+				<div class="post-card-content">
+					<h4>{{ project.title | escape }}</h4>
+					<p class="post-meta">
+						{% for tag in project.tags %}
+						{% capture tag_name %}{{ tag }}{% endcapture %}
+						<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>
+						{% endfor %} <br/>
+					{{ project.jam-name }}</p>
+					<p>{{ project.excerpt }}</p>
+					{% if project.highlights %}
+					<h3>Highlights:</h3>
+					<ul>
+						{% for hl in project.highlights %}
+						<li>{{ hl }}</li>
+						{% endfor %}
+					</ul>
+					{% endif %}
+					<div class="has-text-centered">
+						<a class="read-more-button" href="{{ post.url | relative_url }}">Read More</a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
 		</div>
-		{% if forloop.index < projects.size %}
-		<br/>
-		{% endif %}
-		<div style="clear:both;"></div>
-		{%- endfor -%}
+		<div class="col-sm-12 col-md-4">
+			<h1>School projects</h1>
+			{% assign projects = site.projects | sort: 'priority' | where: 'type', "school-project" %}
+			{% for project in projects %}
+			{% assign found = false %}
+			{% for name in postNames %}
+			{% if name == project.title %}
+			{% assign found = true %}
+			{% break %}
+			{% endif %}
+			{% endfor %}
+			{% if found %}
+			{% continue %}
+			{% endif %}
+			<div class="post-card">
+				{% if project.thumbnail %}
+				<img src="/assets/images/{{ project.thumbnail }}">
+				{% else %}
+				<img src="/assets/images/missing-image-placeholder.jpg">
+				{% endif %}
+				<div class="post-card-content">
+					<h4>{{ project.title | escape }}</h4>
+					<p class="post-meta">
+						{% for tag in project.tags %}
+						{% capture tag_name %}{{ tag }}{% endcapture %}
+						<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
+						{% endfor %} <br/>
+					</p>
+					<p>{{ project.excerpt }}</p>
+					<span class="post-meta">Summary:</span>
+					<ul class="post-meta">
+						{% if project.team %}
+						{% if project.role %}
+						<li>Role : {{ project.role | escape }} </li>
+						{% endif %}
+						{% endif %}
+						<li>
+							{% if project.team %}
+							Team : {{ project.team | escape }}
+							{% else %}
+							Solo Project
+							{% endif %}
+						</li>
+						{% if project.time %}
+						<li>Time : {{ project.time | escape }}</li>
+						{% endif %}
+					</ul>
+					<div class="has-text-centered">
+						<a class="read-more-button" href="{{ post.url | relative_url }}">Read More</a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<h1>Personnal projects</h1>
+			{% assign projects = site.projects | sort: 'priority' | where: 'type', "personnal" %}
+			{% for project in projects %}
+			{% assign found = false %}
+			{% for name in postNames %}
+			{% if name == project.title %}
+			{% assign found = true %}
+			{% break %}
+			{% endif %}
+			{% endfor %}
+			{% if found %}
+			{% continue %}
+			{% endif %}
+			<div class="post-card">
+				{% if project.thumbnail %}
+				<img src="/assets/images/{{ project.thumbnail }}">
+				{% else %}
+				<img src="/assets/images/missing-image-placeholder.jpg">
+				{% endif %}
+				<div class="post-card-content">
+					<h4>{{ project.title | escape }}</h4>
+					<p class="post-meta">
+						{% for tag in project.tags %}
+						{% capture tag_name %}{{ tag }}{% endcapture %}
+						<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
+						{% endfor %} <br/>
+					</p>
+					<p>{{ project.excerpt }}</p>
+					<div class="has-text-centered">
+						<a class="read-more-button" href="{{ post.url | relative_url }}">Read More</a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
 	</div>
 </div>
-<div style="clear:both;"></div>

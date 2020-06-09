@@ -16,93 +16,92 @@ list_title: Latest posts
 			<h1 style="margin-top: 40px;">Projects</h1>
 			{%- assign interestingProject = site.projects | sort: "last_update" | reverse -%}
 			{%- for project in interestingProject limit:6 -%}
-			<div class="row" style="margin-top: 40px;">
-			{% assign value = forloop.index | modulo:2 %}
-			{% if value == 0 %}
-			<div class="col-sm-12 col-md-5" style="padding-left: 0px; display: flex; justify-content: center; align-items: center;">
-				<a href="{{ project.url | relative_url }}">
-					<img src="/assets/images/{{project.thumbnail}}">
-				</a>
-			</div>
-			<div class="col-sm-12 col-md-7" style="padding-left: 0px;">
-				<a class="post-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}</a>
-				<div class="post-meta">
-					{% for tag in project.tags %}
-					{% capture tag_name %}{{ tag }}{% endcapture %}
+			<div class="row" style="margin-top: 40px; border-bottom: 1px solid rgb(240, 240, 240);">
+				{% assign value = forloop.index | modulo:2 %}
+				{% if value == 0 %}
+				<div class="col-sm-12 col-md-5" style="padding-left: 0px;">
+					<a href="{{ project.url | relative_url }}">
+						<img src="/assets/images/{{project.thumbnail}}">
+					</a>
+					{% if project.excerpt %}
+					<p style="text-align: center; margin-top: 7px;">{{ project.excerpt }}</p>
+					{% endif %}
+				</div>
+				<div class="col-sm-12 col-md-7" style="padding-left: 0px;">
+					<h2 style="padding-bottom: 0px; margin-bottom: 0px;"><a href="{{ project.url | relative_url }}">{{ project.title | escape }}</a></h2>
+					<div class="post-meta">
+						{% for tag in project.tags %}
+						{% capture tag_name %}{{ tag }}{% endcapture %}
 						<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
+						{% endfor %}
+					</div>
+					{% if project.highlights %}
+					<h3>Highlights:</h3>
+					<ul>
+						{% for hl in project.highlights %}
+						<li>{{ hl }}</li>
+						{% endfor %}
+					</ul>
+					{% endif %}
+				</div>
+				{% else %}
+				<div class="col-sm-12 col-md-7" style="padding-left: 0px;">
+					<h2 style="padding-bottom: 0px; margin-bottom: 0px;"><a href="{{ project.url | relative_url }}">{{ project.title | escape }}</a></h2>
+					<div class="post-meta">
+						{% for tag in project.tags %}
+						{% capture tag_name %}{{ tag }}{% endcapture %}
+						<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
+						{% endfor %}
+					</div>
+					{% if project.highlights %}
+					<h3>Highlights:</h3>
+					<ul>
+						{% for hl in project.highlights %}
+						<li>{{ hl }}</li>
+						{% endfor %}
+					</ul>
+					{% endif %}
+				</div>
+				<!--<div class="col-sm-12 col-md-5" style="padding-left: 0px; display: flex; justify-content: center; align-items: center;">-->
+					<div class="col-sm-12 col-md-5" style="padding-left: 0px;">
+						<a href="{{ project.url | relative_url }}">
+							<img src="/assets/images/{{project.thumbnail}}">
+						</a>
+						{% if project.excerpt %}
+						<p style="text-align: center; margin-top: 7px;">{{ project.excerpt }}</p>
+						{% endif %}
+					</div>
+					{% endif %}
+				</div>
+				{%- endfor -%}
+				<h1 style="margin-top: 40px;">Contact me</h1>
+				<div class="row" style="font-size: 3vw">
+					{% assign sm = site.data.social-media %}
+					{% for entry in sm %}
+					{% assign key = entry | first %}
+					<div class="col-sm-3 col-md-3">
+						{% if sm[key].id %}
+						<a href="{{ sm[key].href }}{{ sm[key].id }}" title="{{ sm[key].title }}" target="_blank"><i class="{{ sm[key].fa-icon }} fa-3x" style="color: {{ sm[key].color }}"></i></a>
+						{% endif %}
+					</div>
 					{% endfor %}
 				</div>
-				{% if project.excerpt %}
-					<p>{{ project.excerpt }}</p>
-				{% endif %}
-				{% if project.highlights %}
-				<h3>Highlights:</h3>
-				<ul>
-				{% for hl in project.highlights %}
-					<li>{{ hl }}</li>
-				{% endfor %}
-				</ul>
-				{% endif %}
 			</div>
-			{% else %}
-			<div class="col-sm-12 col-md-7" style="padding-left: 0px;">
-				<a class="post-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}</a>
-				<div class="post-meta">
-					{% for tag in project.tags %}
-					{% capture tag_name %}{{ tag }}{% endcapture %}
-						<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
-					{% endfor %}
-				</div>
-				{% if project.excerpt %}
-					<p>{{ project.excerpt }}</p>
-				{% endif %}
-				{% if project.highlights %}
-				<h3>Highlights:</h3>
-				<ul>
-				{% for hl in project.highlights %}
-					<li>{{ hl }}</li>
-				{% endfor %}
-				</ul>
-				{% endif %}
-			</div>
-			<div class="col-sm-12 col-md-5" style="padding-left: 0px; display: flex; justify-content: center; align-items: center;">
-				<a href="{{ project.url | relative_url }}">
-					<img src="/assets/images/{{project.thumbnail}}">
-				</a>
-			</div>
-			{% endif %}
-			</div>
-			{%- endfor -%}
-			<h1 style="margin-top: 40px;">Contact me</h1>
-			<div class="row" style="font-size: 3vw">
-				{% assign sm = site.data.social-media %}
-				{% for entry in sm %}
-			        {% assign key = entry | first %}
-			        <div class="col-sm-3 col-md-3">
-			        {% if sm[key].id %}
-			            <a href="{{ sm[key].href }}{{ sm[key].id }}" title="{{ sm[key].title }}" target="_blank"><i class="{{ sm[key].fa-icon }} fa-3x" style="color: {{ sm[key].color }}"></i></a>
-			        {% endif %}
-			    	</div>
-			    {% endfor %}
-			</div>
-		</div>
-		<div class="col-sm-12 col-md-4">
-			{% if site.paginate %}
+			<div class="col-sm-12 col-md-4">
+				{% if site.paginate %}
 				{% assign posts = paginator.posts %}
-			  {% else %}
+				{% else %}
 				{% assign posts = site.posts %}
-			  {% endif %}
-
-
-			  {%- if posts.size > 0 -%}
+				{% endif %}
+				{%- if posts.size > 0 -%}
 				{%- if page.list_title -%}
-				  <h2 class="post-list-heading">{{ page.list_title }}</h2>
+				<h2 class="post-list-heading">{{ page.list_title }}</h2>
 				{%- endif -%}
-				  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-				  {%- for post in posts -%}
-					  {% include post.html post = post%}
-				  {%- endfor -%}
-			  {%- endif -%}
+				{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+				{%- for post in posts -%}
+				{% include post.html post = post%}
+				{%- endfor -%}
+				{%- endif -%}
+			</div>
 		</div>
 	</div>
-</div>

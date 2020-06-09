@@ -28,6 +28,12 @@
     </div>
   </div>
   <div style="height: 500px;">
-      <img src="assets/images/missing-image-placeholder.jpg" style="width: 100%; z-index: -1; position: absolute; top: 0px;">
+    {% if page.showreel %}
+    ICI
+    {% elsif page.thumbnail %}
+      <img src="/assets/images/{{page.thumbnail}}" style="width: 100%; z-index: -1; position: absolute; top: 0px;">
+    {% else %}
+      <img src="/assets/images/missing-image-placeholder.jpg" style="width: 100%; z-index: -1; position: absolute; top: 0px;">
+    {% endif %}
   </div>
 </header>
