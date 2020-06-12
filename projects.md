@@ -37,7 +37,7 @@ title: Projects
 					</ul>
 					{% endif %}
 					<div class="has-text-centered">
-						<a class="read-more-button" href="{{ post.url | relative_url }}">Read More</a>
+						<a class="read-more-button" href="{{ relevantProject.url | relative_url }}">Read More</a>
 					</div>
 				</div>
 			</div>
@@ -47,7 +47,7 @@ title: Projects
 	<h1>Professional projects</h1>
 	<div class="row">
 		{% assign postNames = '' | split: ''%}
-		{% assign professionalProjects = site.projects | where:'type', 'professional' %}
+		{% assign professionalProjects = site.projects | where:'type', 'professional' | sort:'priority' %}
 		{% for relevantProject in professionalProjects limit: 3 %}
 		{% assign tmpName = relevantProject.title | split: '_' | first | split: '-' %}
 		{% assign postNames = postNames | concat: tmpName %}
@@ -78,7 +78,7 @@ title: Projects
 					</ul>
 					{% endif %}
 					<div class="has-text-centered">
-						<a class="read-more-button" href="{{ post.url | relative_url }}">Read More</a>
+						<a class="read-more-button" href="{{ relevantProject.url | relative_url }}">Read More</a>
 					</div>
 				</div>
 			</div>
@@ -124,7 +124,7 @@ title: Projects
 					</ul>
 					{% endif %}
 					<div class="has-text-centered">
-						<a class="read-more-button" href="{{ post.url | relative_url }}">Read More</a>
+						<a class="read-more-button" href="{{ project.url | relative_url }}">Read More</a>
 					</div>
 				</div>
 			</div>
@@ -178,7 +178,7 @@ title: Projects
 						{% endif %}
 					</ul>
 					<div class="has-text-centered">
-						<a class="read-more-button" href="{{ post.url | relative_url }}">Read More</a>
+						<a class="read-more-button" href="{{ project.url | relative_url }}">Read More</a>
 					</div>
 				</div>
 			</div>
@@ -214,7 +214,7 @@ title: Projects
 					</p>
 					<p>{{ project.excerpt }}</p>
 					<div class="has-text-centered">
-						<a class="read-more-button" href="{{ post.url | relative_url }}">Read More</a>
+						<a class="read-more-button" href="{{ project.url | relative_url }}">Read More</a>
 					</div>
 				</div>
 			</div>

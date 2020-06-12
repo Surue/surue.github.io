@@ -61,7 +61,7 @@ title: About Me
 					My Contributions:
 					<ul>
 						<li>Procedural generation of the open world</li>
-						<li>Basics AI pathfinding and pathfinding</li>  
+						<li>Basics AI pathfinding and decision making</li>  
 						<li>Participation on some event to showcase the game</li>
 					</ul>
 				</div>
