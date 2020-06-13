@@ -12,11 +12,13 @@ title: Projects
 		{% assign postNames = postNames | concat: tmpName %}
 		<div class="col-sm-12 col-md-4">
 			<div class="post-card">
-				{% if relevantProject.thumbnail %}
-				<img src="/assets/images/{{ relevantProject.thumbnail }}">
-				{% else %}
-				<img src="/assets/images/missing-image-placeholder.jpg">
-				{% endif %}
+				<a href="{{ relevantProject.url | relative_url }}">
+					{% if relevantProject.thumbnail %}
+					<img src="/assets/images/{{ relevantProject.thumbnail }}">
+					{% else %}
+					<img src="/assets/images/missing-image-placeholder.jpg">
+					{% endif %}
+				</a>
 				<div class="post-card-content">
 					<h4>{{ relevantProject.title | escape }}</h4>
 					<p class="post-meta">
@@ -45,19 +47,19 @@ title: Projects
 		{% endfor %}
 	</div>
 	<h1>Professional projects</h1>
+	<p>During my time at school I had the opportunity to take part in three professionnal project. Each were differents and I learnt differents skills from them.	
 	<div class="row">
-		{% assign postNames = '' | split: ''%}
 		{% assign professionalProjects = site.projects | where:'type', 'professional' | sort:'priority' %}
 		{% for relevantProject in professionalProjects limit: 3 %}
-		{% assign tmpName = relevantProject.title | split: '_' | first | split: '-' %}
-		{% assign postNames = postNames | concat: tmpName %}
 		<div class="col-sm-12 col-md-4">
 			<div class="post-card">
-				{% if relevantProject.thumbnail %}
-				<img src="/assets/images/{{ relevantProject.thumbnail }}">
-				{% else %}
-				<img src="/assets/images/missing-image-placeholder.jpg">
-				{% endif %}
+				<a href="{{ relevantProject.url | relative_url }}">
+					{% if relevantProject.thumbnail %}
+					<img src="/assets/images/{{ relevantProject.thumbnail }}">
+					{% else %}
+					<img src="/assets/images/missing-image-placeholder.jpg">
+					{% endif %}
+				</a>
 				<div class="post-card-content">
 					<h4>{{ relevantProject.title | escape }}</h4>
 					<p class="post-meta">
@@ -88,6 +90,7 @@ title: Projects
 	<div class="row">
 		<div class="col-sm-12 col-md-4">
 			<h1>Jam projects</h1>
+			<p>I've participated in 15 jams since 2017. Here are some of the most intersesting ones.</p>
 			{% assign projectsJam = site.projects | sort: 'priority' | where: 'type', "jam" %}
 			{%- for project in projectsJam -%}
 			{% assign found = false %}
@@ -101,11 +104,13 @@ title: Projects
 			{% continue %}
 			{% endif %}
 			<div class="post-card">
-				{% if project.thumbnail %}
-				<img src="/assets/images/{{ project.thumbnail }}">
-				{% else %}
-				<img src="/assets/images/missing-image-placeholder.jpg">
-				{% endif %}
+				<a href="{{ project.url | relative_url }}">
+					{% if project.thumbnail %}
+					<img src="/assets/images/{{ project.thumbnail }}">
+					{% else %}
+					<img src="/assets/images/missing-image-placeholder.jpg">
+					{% endif %}
+				</a>
 				<div class="post-card-content">
 					<h4>{{ project.title | escape }}</h4>
 					<p class="post-meta">
@@ -132,6 +137,7 @@ title: Projects
 		</div>
 		<div class="col-sm-12 col-md-4">
 			<h1>School projects</h1>
+			<p>Most of my school projects are oriented towards AI and PGC as I've always been interested in those areas.</p>
 			{% assign projects = site.projects | sort: 'priority' | where: 'type', "school-project" %}
 			{% for project in projects %}
 			{% assign found = false %}
@@ -145,11 +151,13 @@ title: Projects
 			{% continue %}
 			{% endif %}
 			<div class="post-card">
-				{% if project.thumbnail %}
-				<img src="/assets/images/{{ project.thumbnail }}">
-				{% else %}
-				<img src="/assets/images/missing-image-placeholder.jpg">
-				{% endif %}
+				<a href="{{ project.url | relative_url }}">
+					{% if project.thumbnail %}
+					<img src="/assets/images/{{ project.thumbnail }}">
+					{% else %}
+					<img src="/assets/images/missing-image-placeholder.jpg">
+					{% endif %}
+				</a>
 				<div class="post-card-content">
 					<h4>{{ project.title | escape }}</h4>
 					<p class="post-meta">
@@ -159,24 +167,14 @@ title: Projects
 						{% endfor %} <br/>
 					</p>
 					<p>{{ project.excerpt }}</p>
-					<span class="post-meta">Summary:</span>
-					<ul class="post-meta">
-						{% if project.team %}
-						{% if project.role %}
-						<li>Role : {{ project.role | escape }} </li>
-						{% endif %}
-						{% endif %}
-						<li>
-							{% if project.team %}
-							Team : {{ project.team | escape }}
-							{% else %}
-							Solo Project
-							{% endif %}
-						</li>
-						{% if project.time %}
-						<li>Time : {{ project.time | escape }}</li>
-						{% endif %}
+					{% if project.highlights %}
+					<h3>Highlights:</h3>
+					<ul>
+						{% for hl in project.highlights %}
+						<li>{{ hl }}</li>
+						{% endfor %}
 					</ul>
+					{% endif %}
 					<div class="has-text-centered">
 						<a class="read-more-button" href="{{ project.url | relative_url }}">Read More</a>
 					</div>
@@ -199,11 +197,13 @@ title: Projects
 			{% continue %}
 			{% endif %}
 			<div class="post-card">
-				{% if project.thumbnail %}
-				<img src="/assets/images/{{ project.thumbnail }}">
-				{% else %}
-				<img src="/assets/images/missing-image-placeholder.jpg">
-				{% endif %}
+				<a href="{{ project.url | relative_url }}">
+					{% if project.thumbnail %}
+					<img src="/assets/images/{{ project.thumbnail }}">
+					{% else %}
+					<img src="/assets/images/missing-image-placeholder.jpg">
+					{% endif %}
+				</a>
 				<div class="post-card-content">
 					<h4>{{ project.title | escape }}</h4>
 					<p class="post-meta">

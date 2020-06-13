@@ -27,13 +27,18 @@
       {%- endif -%}
     </div>
   </div>
+  {% if page.showreel %}
   <div style="height: 500px;">
-    {% if page.showreel %}
-    ICI
-    {% elsif page.thumbnail %}
-      <img src="/assets/images/{{page.thumbnail}}" style="width: 100%; z-index: -1; position: absolute; top: 0px;">
-    {% else %}
-      <img src="/assets/images/missing-image-placeholder.jpg" style="width: 100%; z-index: -1; position: absolute; top: 0px;">
-    {% endif %}
+  ICI
+  {% elsif page.thumbnail %}
+  <div style="height: 500px; background: url(/assets/images/{{page.thumbnail}}); background-size: cover; position: relative; width: 100%; z-index: -1;">
+  {% else %}
+  <div style="height: 500px; background: url(/assets/images/missing-image-placeholder.jpg); background-size: cover; position: relative; width: 100%; z-index: -1;">
+  {% endif %}
+    <div class="wrapper">
+      {% if page.title %}
+      <h1 style="position: absolute; bottom: 50px; padding: 4px 16px; background: rgba(0, 0, 0, 0.75); color: white; ">{{ page.title }}</h1>
+      {% endif %}
+    </div>
   </div>
 </header>
