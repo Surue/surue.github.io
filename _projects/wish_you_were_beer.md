@@ -18,5 +18,5 @@ excerpt: First game ever made during an improvised game jam.
 description: You're broke but thirsty, what a better solution than to steel beer from those who went to the bathroom. <b>First game ever made</b>, it was my first experience working with a team, importing 3D models, applying materials, playing with lights and implementing the QTE system.
 ---
 
-## Overview
-My first finished game. It has been made during a convention that my schoold attended byck during my first year of game programming studies. 
+# Overview
+My first finished game. 
