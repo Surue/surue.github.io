@@ -47,7 +47,7 @@ title: Projects
 		{% endfor %}
 	</div>
 	<h1>Professional projects</h1>
-	<p>During my time at school I had the opportunity to take part in three professionnal project. Each were differents and I learnt differents skills from them.	
+	<p>During my time at school I had the opportunity to take part in three professionnal project. Each were differents and I learnt differents skills from them.</p>	
 	<div class="row">
 		{% assign professionalProjects = site.projects | where:'type', 'professional' | sort:'priority' %}
 		{% for relevantProject in professionalProjects limit: 3 %}
