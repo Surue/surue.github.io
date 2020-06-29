@@ -93,7 +93,9 @@ title: About Me
 					</ul>
 				</div>
 				<div class="col-sm-12 col-md-6">
-					<iframe src="https://www.youtube.com/embed/4IqqYseWubY" style="width: 100%;"></iframe>
+					<div class="video-wrapper">
+						<iframe src="https://www.youtube.com/embed/4IqqYseWubY" style="width: 100%;"></iframe>
+					</div>
 					<h3 style="margin-top: 10px;">Swiss Game Academy</h3>
 					<p>Since 2018</p>
 					<p>This is a one week <a href="https://gameacademy.ch/SGA/" target="_blank">event</a> where we teach the basics of video game development with around one hundred people doing their first game.</p>

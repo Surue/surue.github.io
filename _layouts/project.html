@@ -9,46 +9,68 @@ layout: default
 				{{ content }}
 			</div>
 			<div class="col-sm-12 col-md-4">
-				<h2>Infos</h2>
+				<h1>Infos</h1>
 				<div class="post-card">
 					<div class="post-card-content">
 						<ul style="font-size: 12px">
 							{% if page.type == "school-project" %}
-							{% if page.team %}
-							{% if page.role %}
-							<li>Role : {{ page.role | escape }}</li>
-							{% endif %}
-							{% endif %}
-							{% if page.team %}
-							<li>Team : {{ page.team | escape }}</li>
-							{% else %}
-							<li>Solo Project</li>
-							{% endif %}
+								{% if page.team %}
+									{% if page.role %}
+									<li>Role : {{ page.role | escape }}</li>
+									{% endif %}
+								{% endif %}
+								{% if page.team %}
+									li>Team : {{ page.team | escape }}</li>
+								{% else %}
+									<li>Solo Project</li>
+								{% endif %}
 							
-							{% if page.time %}
-							<li>Time : {{ page.time | escape }}</li>
-							{% endif %}
+								{% if page.time %}
+								<li>Time : {{ page.time | escape }}</li>
+								{% endif %}
+							{% else if page.type == "professional" %}
+								{% if page.company %}
+									<li>Company : {{ page.company }}</li>
+								{% endif %}
+								{% if page.time %}
+									<li>Time : {{ page.time | escape }}</li>
+								{% endif %}
 							{% endif %}
 							
 							{% if page.github %}
-							<li>Repo : <a href="{{ page.github | escape }}">link</a></li>
+								<li>Repo : <a href="{{ page.github | escape }}">link</a></li>
 							{% else if page.gitlab %}
-							<li>Repo : <a href="{{ page.gitlab | escape }}">link</a></li>
+								<li>Repo : <a href="{{ page.gitlab | escape }}">link</a></li>
 							{% endif %}
 						</ul>
 					</div>
 				</div>
-				<h2 class="post-list-heading">Related articles</h2>
+				{% assign post_exist = false %}
 				{% for post in site.posts %}
-				{% assign found = false %}
-				{% for tag in post.tags %}
-				{% if page.tags contains tag %}
-				{% assign found = true %}
-				{% include post.html post = post%}
-				{% break %}
+					{% for tag in post.tags %}
+						{% if page.tags contains tag %}
+							{% assign post_exist = true %}
+							{% break %}
+						{% endif %}
+					{% endfor %}
+					{% if post_exist %}
+						{% break %}
+					{% endif %}
+				{% endfor %}
+
+				{% if post_exist %}
+					<h1 class="post-list-heading">Related articles</h1>
+					{% for post in site.posts %}
+						{% assign found = false %}
+						{% for tag in post.tags %}
+							{% if page.tags contains tag %}
+								{% assign found = true %}
+								{% include post.html post = post%}
+								{% break %}
+							{% endif %}
+						{% endfor %}
+					{% endfor %}
 				{% endif %}
-				{% endfor %}
-				{% endfor %}
 			</div>
 		</div>
 	</div>
