@@ -20,7 +20,7 @@ layout: default
 									{% endif %}
 								{% endif %}
 								{% if page.team %}
-									li>Team : {{ page.team | escape }}</li>
+									<li>Team : {{ page.team | escape }}</li>
 								{% else %}
 									<li>Solo Project</li>
 								{% endif %}
@@ -28,20 +28,40 @@ layout: default
 								{% if page.time %}
 								<li>Time : {{ page.time | escape }}</li>
 								{% endif %}
-							{% else if page.type == "professional" %}
+							{% elsif page.type == "professional" %}
 								{% if page.company %}
 									<li>Company : {{ page.company }}</li>
 								{% endif %}
 								{% if page.time %}
 									<li>Time : {{ page.time | escape }}</li>
 								{% endif %}
+							{% elsif page.type == "jam" %}
+								{% if page.team %}
+									{% if page.role %}
+									<li>Role : {{ page.role | escape }}</li>
+									{% endif %}
+								{% endif %}
+								{% if page.team %}
+									<li>Team : {{ page.team | escape }}</li>
+								{% else %}
+									<li>Solo Project</li>
+								{% endif %}
+
+								{% if page.time %}
+									<li>Time : {{ page.time | escape }}</li>
+								{% endif %}
+
+								{% if page.jam_name %}
+									<li>At : {{ page.jam_name }}</li>
+								{% endif %}
+
 							{% endif %}
 							
-							<!--{% if page.github_repo %}
+							{% if page.github_repo %}
 								<li>Github : <a href="{{ page.github_repo | escape }}" target="_blank">link</a></li>
-							{% else if page.gitlab_repo %}
+							{% elsif page.gitlab_repo %}
 								<li>Gitlab : <a href="{{ page.gitlab_repo | escape }}" target="_blank">link</a></li>
-							{% endif %}-->
+							{% endif %}
 
 							{% if page.steam %}
 								<li>Buy : <a href="{{page.steam | escape }}" target="_blank">Steam</a></li>

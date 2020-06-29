@@ -3,6 +3,7 @@ layout: project
 title: Wish You Were beer
 role: Programmer
 team: 2 programmers, 2 artists
+time: 36 hours
 priority: 3
 tags: unity
 thumbnail: wish_you_were_beer.png
@@ -19,4 +20,10 @@ description: You're broke but thirsty, what a better solution than to steel beer
 ---
 
 # Overview
-My first finished game. 
+This project might not be the most interesting one, but this was my **first ever finshed game**. It's this project made with people I don't even know only 2 months after I started to learn coding and doing video game that show me what I could do with the few things I knew at the time.  
+
+Just with this game I learnt:
+- Importing 3D models
+- How materials works
+- Creating a QTE system 
+- Working with git with someone else
