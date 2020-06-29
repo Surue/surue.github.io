@@ -38,13 +38,13 @@ layout: default
 							{% endif %}
 							
 							{% if page.github %}
-								<li>Repo : <a href="{{ page.github | escape }}">link</a></li>
+								<li>Repo : <a href="{{ page.github | escape }}" target="_blank">link</a></li>
 							{% else if page.gitlab %}
-								<li>Repo : <a href="{{ page.gitlab | escape }}">link</a></li>
+								<li>Repo : <a href="{{ page.gitlab | escape }}" target="_blank">link</a></li>
 							{% endif %}
 
 							{% if page.steam %}
-								<li>Buy : <a href="{{page.steam | escape }}">Steam</a></li>
+								<li>Buy : <a href="{{page.steam | escape }}" target="_blank">Steam</a></li>
 							{% endif %}
 						</ul>
 					</div>

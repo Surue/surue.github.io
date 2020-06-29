@@ -1,6 +1,12 @@
 ---
 layout: page
 title: About Me
+thumbnails: 
+- about/about_01.png
+- about/about_02.jpg
+- about/about_03.jpg
+- about/about_04.jpg
+- about/about_05.jpg
 ---
 
 <div class="container">

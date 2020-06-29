@@ -1,6 +1,10 @@
 ---
 layout: home
 list_title: Latest posts
+thumbnails: 
+- home/home_01.gif
+- home/home_02.gif
+- home/home_03.gif
 ---
 <div class="container">
 	<div class="row">
