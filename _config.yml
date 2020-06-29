@@ -1,10 +1,10 @@
 # To launch the server : bundle exec jekyll serve
 
-title: Nicolas Schneider - Engine Programer
+title: Nicolas Schneider - AI Programer
 url : "https://surue.github.io"
 
 description: > # this means to ignore newlines until "show_excerpts:"
-  I'm currently looking to work as an Engine programmer
+  I'm currently looking to work as an AI programmer
 show_excerpts: false # set to true to show excerpts on the homepage
 
 # generate social links in footer
