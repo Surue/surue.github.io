@@ -37,11 +37,11 @@ layout: default
 								{% endif %}
 							{% endif %}
 							
-							{% if page.github %}
-								<li>Repo : <a href="{{ page.github | escape }}" target="_blank">link</a></li>
-							{% else if page.gitlab %}
-								<li>Repo : <a href="{{ page.gitlab | escape }}" target="_blank">link</a></li>
-							{% endif %}
+							<!--{% if page.github_repo %}
+								<li>Github : <a href="{{ page.github_repo | escape }}" target="_blank">link</a></li>
+							{% else if page.gitlab_repo %}
+								<li>Gitlab : <a href="{{ page.gitlab_repo | escape }}" target="_blank">link</a></li>
+							{% endif %}-->
 
 							{% if page.steam %}
 								<li>Buy : <a href="{{page.steam | escape }}" target="_blank">Steam</a></li>
