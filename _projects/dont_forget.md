@@ -18,5 +18,7 @@ excerpt: A game made with Unity during LD 41 where I implemented a event system 
 description: <b>A Die a Retry mixed with a 3D visual Novel game</b> ! Play as Mamy, and discover what’s remains of your world. Interact with many things in your home, but don’t forget what’s important ! Made during the LD 41, our objectiv for the prog team was to get used to the <b>scriptable object of unity</b>. Implementing a whole system of event only based on them.
 ---
 
-## Overview
-This is a game coming from the ludum dare 41.
+# Overview
+This is a *die and retry* game mixed with *visual novel* elements where you play as a grandmother that needs to remember her daily routines to don't forget anything. In this game I mainly focused on building the "quest" system and the differents events of the day. This system use scriptable object to have a generic manager that can handle any type of events. With this game I learnt:
+- Building an events system based on Scriptable Object
+- Implementation of a dialog system
