@@ -4,7 +4,7 @@ title: "How to make more in the same time?"
 date: 2020-04-13 22:21:00 +0100
 excerpt: Introduction to multhithreading in c++
 description: Although it's an outdated approach, this post describe of an engine has been divided into threads and what type of problems came out of it. This can be seen as an introduction to mutlithreading and a first step into going into more modern system as job system.
-tags: game-engine multithreading c++
+tags: game-engine c++
 thumbnail: 3_frames_threads.png
 ---
 # How to make more in the same time?

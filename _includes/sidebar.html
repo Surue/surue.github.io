@@ -30,6 +30,19 @@
     <a class="sidebar-nav-item" href="">Test</a>
   </nav>
 
+
+  <div class="sidebar-item" style="align-items: normal; display: flex;">
+    {% assign sm = site.data.social-media %}
+    {% for entry in sm %}
+    {% assign key = entry | first %}
+    <div style="">
+      {% if sm[key].id %}
+      <a href="{{ sm[key].href }}{{ sm[key].id }}" title="{{ sm[key].title }}" target="_blank"><i class="{{ sm[key].fa-icon }} fa-3x" style="color: {{ sm[key].color }}"></i></a>
+      {% endif %}
+    </div>
+  {% endfor %}
+  </div>
+
   <div class="sidebar-item">
     <p>
       &copy; {{ site.time | date: '%Y' }}. All rights reserved.

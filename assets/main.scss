@@ -75,7 +75,7 @@ $grid__cols: 12;
 * Page content
 */
 .page-content {
-  padding: $spacing-unit 0;
+  padding: 0 0;
   flex: 1 0 auto;
   background: white;
 }
@@ -84,11 +84,8 @@ $grid__cols: 12;
  * Site header
  */
 .site-header {
-  border-bottom: 1px solid $border-color-01;
-  min-height: $spacing-unit * 1.865;
+  min-height: 60;
   line-height: $base-line-height * $base-font-size * 2.25;
-
-  // Positioning context for the mobile navigation icon
   position: relative;
 }
 
@@ -322,7 +319,7 @@ a.sidebar-nav-item:focus {
 /* Style the `label` that we use to target the `.sidebar-checkbox` */
 .sidebar-toggle {
   position: absolute;
-  top:  .8rem;
+  top:  .45rem;
   left: 1rem;
   display: flex;
   align-items: center;

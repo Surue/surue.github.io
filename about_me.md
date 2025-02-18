@@ -17,9 +17,7 @@ thumbnails:
 				<div class="post-card-content">
 					<h4>Nicolas Schneider</h4>
 					I'm a game engine enthusiastic who love doing new things from scratch.<br />
-					  
 					{% include social-media.html %}
-
 					<h6><a href="../assets/pdfs/CV_2.pdf" target="_blank">My Resume</a></h6>
 				</div>
 			</div>
@@ -42,7 +40,6 @@ thumbnails:
 			Most of my project are around <b>AI and procedural content generation</b> but my final goal is to be an engine programmer. <br /><br/>
 			I've already done some work in that area, the first one was a 2D physics engine at the end of my first year. Then at the end of the second I've made a 3D graphics 
 			small engine using Vulkan as the graphics API. Finally during my last year I've led a team and together we made a complete <a href="projects/pok_engine.html">3D engine</a> that runs on a pc and on the Nintendo Switch.</p>
-		
 			<h1 style="margin-bottom: 20px;">Work Experiences</h1>
 			<div class="row">
 				<div class="col-sm-12 col-md-4">

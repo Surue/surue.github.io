@@ -1,31 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-
   {%- include head.html -%}
   <!-- Font awesome -->
   <script src="https://kit.fontawesome.com/08d0ae8754.js" crossorigin="anonymous"></script>
-
   <body>
-
     {% include sidebar.html %}
-
     <div class="wrap">
-
       {%- include header.html -%}
-
       <main class="page-content" aria-label="Content">
-        <div class="wrapper">
           {{ content }}
-        </div>
       </main>
-
-      {%- include footer.html -%}
     </div>
-
   <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-
   <script src='{{ site.baseurl }}/assets/js/script.js'></script>
-
   </body>
-
 </html>
