@@ -4,7 +4,7 @@ title: Nàstrond
 role: AI Programmer
 team: 7 programmers
 priority: 2
-tags: AI c++
+tags: ai c++
 github_repo: https://github.com/Toadsword/Nastrond/tree/develop
 type: school-project
 time: 12 weeks during my second year

@@ -1,18 +1,30 @@
 ai: 
   description: "TODO"
+  color: "#e74c3c"       # Red
 c++:
   description: "Even though I'm not working with c++ every day, it stays as one of my favorites language. I've worked on different projects throughout schools and some personnal projects later on."
+  color: "#3498db"       # Blue
 game-engine:
   description: "TODO"
+  color: "#e67e22"       # Orange
 graphics:
   description: "TODO"
+  color: "#e91e63"       # Pink
 management:
   description: "TODO"
+  color: "#f1c40f"       # Yellow  
 optimization:
   description: "TODO"
+  color: "#34495e"       # Bleu ardoise
 post-mortem:
   description: "TODO"
+  color: "#7f8c8d"       # Gray
 procedural:
   description: "TODO"
+  color: "#9b59b6"       # Violet
 unity:
   description: "TODO"
+  color: "#2ecc71"       # Green
+tools: 
+  description : "TODO"
+  color: "#1abc9c"       # Turquoise

@@ -3,7 +3,7 @@ layout: project
 title: Group movement and avoidance
 role: Programmer
 priority: 2
-tags: AI unity
+tags: ai unity
 thumbnail: first_ai_movement.gif
 github: https://github.com/Surue/WarEconomy
 type: school-project

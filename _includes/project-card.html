@@ -1,4 +1,6 @@
-<article class="post-card" style="height: 500px">
+{% assign main_tag = include.project.tags[0] %}
+{% assign bar_color = site.data.tags[main_tag].color | default: "#3498db" %}
+<article class="post-card" style="--card-bar: {{ bar_color }}; height: 500px">
 	{% if include.project.thumbnail %}
 		<img src="/assets/images/{{ project.thumbnail }}" class="card-img">
 	{% else %}

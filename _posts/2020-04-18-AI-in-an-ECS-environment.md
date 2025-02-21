@@ -5,7 +5,7 @@ date: 2020-04-18 22:21:00 +0100
 thumbnail: ai_in_an_ecs_environment/initial_state.gif
 excerpt: Optimization of pathfinding and behavior tree.
 description: This project show how an AI decision-making system and the patfinding algorithms has been optimized to go from a non playable with hundreds of agents to as game which can support 10'000 agents making decisions and moving inside a city.
-tags: AI c++
+tags: ai c++
 ---
 
 # Project recap
