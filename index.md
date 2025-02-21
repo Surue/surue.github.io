@@ -8,7 +8,7 @@ thumbnails:
 tag_highlight: c++
 ---
 <!-- ABOUT ME -->
-<div style="background: white;">
+<div>
 	<div class="wrapper">
 		<div class="container">
 			<!-- ABOUT ME -->
@@ -26,8 +26,8 @@ tag_highlight: c++
 	</div>
 </div>
 
-<!-- POSTS -->
-<div style="background: grey">
+<!-- POSTS --> 
+<div>
 	<div class="wrapper">
 		<div class="container">
 			{% if site.paginate %}
@@ -60,7 +60,7 @@ tag_highlight: c++
 </div>
 
 <!-- HIGHLIGHT SUBJECT -->
-<div style="background: white">
+<div style="background: #1c1c1c">
 	<div class="wrapper">
 		<div class="container">
 			{% assign all_tags = site.projects | map:"tags" | join:"," | split:"," | uniq | sort %}
@@ -117,7 +117,7 @@ tag_highlight: c++
 </div>
 
 <!-- PROJECTS -->
-<div style="background: grey;">
+<div>
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
@@ -129,32 +129,8 @@ tag_highlight: c++
 				</div>
 				{%- assign interestingProject = site.projects | sort: "last_update" | reverse -%}
 				{%- for project in interestingProject limit:3 -%}
-					<div class="col-sm-12 col-md-4" style="border: 1px solid rgb(240, 240, 240);">
-						<div >
-							<a href="{{ project.url | relative_url }}">
-								<img src="/assets/images/{{project.thumbnail}}">
-							</a>
-							{% if project.excerpt %}
-							<p style="text-align: center; margin-top: 7px;">{{ project.excerpt }}</p>
-							{% endif %}
-						</div>
-						<div>
-							<h2 style="padding-bottom: 0px; margin-bottom: 0px;"><a href="{{ project.url | relative_url }}">{{ project.title | escape }}</a></h2>
-							<div class="post-meta">
-								{% for tag in project.tags %}
-								{% capture tag_name %}{{ tag }}{% endcapture %}
-								<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
-								{% endfor %}
-							</div>
-							{% if project.highlights %}
-							<h3>Highlights:</h3>
-							<ul>
-								{% for hl in project.highlights %}
-								<li>{{ hl }}</li>
-								{% endfor %}
-							</ul>
-							{% endif %}
-						</div>
+					<div class="col-sm-12 col-md-4">
+						{% include project-card.html project = project%}
 					</div>
 				{%- endfor -%}
 			</div>
