@@ -63,53 +63,72 @@ tag_highlight: c++
 <div style="background: #1c1c1c">
 	<div class="wrapper">
 		<div class="container">
-			{% assign all_tags = site.projects | map:"tags" | join:"," | split:"," | uniq | sort %}
 			<div class="row">
-				<div class="col-md-12">
-					<h1 style="text-align: center;">Highlighted Subject</h1>
-				</div>
 				<div class="col-sm-12 col-md-6">
-			  		<a href="/tag/{{page.tag_highlight}}"><h1>{{ page.tag_highlight }}</h1></a>
+					<h2>Highlighted Suject : <a href="/tag/{{page.tag_highlight}}" style="color: {{site.data.tags[page.tag_highlight].color}};">{{ page.tag_highlight }}</a></h2>
 		  		  	<p>{{ site.data.tags[page.tag_highlight].description }}</p>
 			  	</div>
 				<div class="col-sm-12 col-md-6">
 					<!-- tag projects -->
-				{% assign foundProject = false %}
-				{% for project in site.projects %}
-					{% for tag in project.tags %}
-						{% if tag == page.tag_highlight %}
-							{% assign foundProject = true %}
+					{% assign foundProject = false %}
+					{% for project in site.projects %}
+						{% for tag in project.tags %}
+							{% if tag == page.tag_highlight %}
+								{% assign foundProject = true %}
+								{% break %}
+							{% endif %}
+						{% endfor %}
+						{% if foundProject %}
 							{% break %}
 						{% endif %}
 					{% endfor %}
 					{% if foundProject %}
-						{% break %}
-					{% endif %}
-				{% endfor %}
-				{% if foundProject %}
-					<h2>Projects</h2>
-					{% for project in site.projects %}
-						{% for tag in project.tags %}
-							{% if tag == page.tag_highlight %}
-								<div>
-									<a href="{{ post.url }}">{{ project.title }}</a>
-									{{ project.excerpt }}
-								</div>
-								{% break %}
-							{% endif %}
-						{% endfor %}
-					{% endfor %}
-				{% endif %}
-	  		  	<!-- tag posts -->
-	  		  	{% if site.tags[page.tag_highlight].size > 0 %}
-	  		  		<h2>Posts</h2>
-	  		  		{% for post in site.tags[page.tag_highlight] %}
-	  		  			<div>
-					  		<a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})<br>
-					  		{{ post.excerpt }}
+						<h2>Projects</h2>
+						<div class="minimal-grid">
+							{% assign project_count = 0 %} 
+							{% for project in site.projects %}
+								{% for tag in project.tags %}
+									{% if tag == page.tag_highlight %}
+										{% assign main_tag = project.tags[0] %}
+										{% assign bar_color = site.data.tags[main_tag].color | default: "#3498db" %}
+										<div class="minimal-card" style="--card-bar: {{ bar_color }};">
+					                		<div class="minimal-card-content">
+												<h4>{{ project.title }}</h4>
+												<p>{{ project.excerpt }}</p>
+												<div class="has-text-centered" style="padding-bottom: 10px; position: absolute; bottom: 0px;">
+													<a class="read-more-button" href="{{ project.url }}">Read More</a>
+												</div>
+											</div>
+						            	</div>
+										{% assign project_count = project_count | plus: 1  %}
+										{% break %}
+									{% endif %}
+								{% endfor %}
+								{% if project_count == 3 %}
+										{% break %}
+								{% endif %}
+							{% endfor %}
 						</div>
-					{% endfor %}
-	  		  	{% endif %}
+					{% endif %}
+		  		  	<!-- tag posts -->
+		  		  	{% if site.tags[page.tag_highlight].size > 0 %}
+		  		  		<h2>Posts</h2>
+		  		  		<div class="minimal-grid">
+			  		  		{% for post in site.tags[page.tag_highlight] limit:3%}
+			  		  		{% assign main_tag = post.tags[0] %}
+							{% assign bar_color = site.data.tags[main_tag].color | default: "#3498db" %}
+				              <div class="minimal-card" style="--card-bar: {{ bar_color }};">
+				                <div class="minimal-card-content">
+				                  	<h4>{{ post.title }}</h4>
+				                  	<p>{{ post.excerpt }}</p>
+				                  	<div class="has-text-centered" style="padding-bottom: 10px; position: absolute; bottom: 0px;">
+										<a class="read-more-button" href="{{ post.url }}">Read More</a>
+									</div>
+				                </div>
+				              </div>
+							{% endfor %}
+						</div>
+		  		  	{% endif %}
 				</div>
 			</div>
 		</div>
