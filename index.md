@@ -1,6 +1,5 @@
 ---
 layout: home
-list_title: Latest posts
 thumbnails: 
 - home/home_01.gif
 - home/home_02.gif
@@ -8,26 +7,26 @@ thumbnails:
 tag_highlight: c++
 ---
 <!-- ABOUT ME -->
-<div>
+<section style="padding-top: clamp(10px, 5vh, 20px); min-height: 100vh;">
 	<div class="wrapper">
 		<div class="container">
-			<!-- ABOUT ME -->
-			<div class="row">
-				<div class="col-sm-12 col-md-8">
-					<h1>About me</h1>
-					<p>Hi, I'm Nicolas, a game programmer from switzerland. I'm a student at the SAE Institute of Geneva in <b>my last year of game programming</b>. I'm mostly doing school project and game jams. Most of my project are around <b>AI and procedural content generation</b> but my final goal is to be an <b>engine programmer</b>. </p>
-					<p>Here you can see most of my <a href="projects.html">projects</a> than can be separated in 3 categories; Schools project, jams and personnal. I also try to write some <a href="blog.html">articles</a> that wary between designing systems, implementation or even some post mortems. If you want to talk or have more precise information on some of my project, you can <a href="contact_me.html">contact me</a>.</p>
+				<div class="row">
+					<div class="col-sm-12 col-md-8">
+							<h1>Nicolas Schneider</h1>
+							<h2> Associate Lead Programmer at Old Skull Games</h2>
+							<p>Hi, I'm Nicolas, a game programmer from switzerland. I'm a student at the SAE Institute of Geneva in <b>my last year of game programming</b>. I'm mostly doing school project and game jams. Most of my project are around <b>AI and procedural content generation</b> but my final goal is to be an <b>engine programmer</b>. </p>
+							<p>Here you can see most of my <a href="projects.html">projects</a> than can be separated in 3 categories; Schools project, jams and personnal. I also try to write some <a href="blog.html">articles</a> that wary between designing systems, implementation or even some post mortems. If you want to talk or have more precise information on some of my project, you can <a href="contact_me.html">contact me</a>.</p>
+					</div>
+					<div class="col-sm-12 col-md-4">
+						<img src="assets/images/Nico.png" style="width: 100%; margin-right: 10px;">
+					</div>
 				</div>
-				<div class="col-sm-12 col-md-4">
-					<img src="assets/images/Nico.png" style="width: 100%; margin-right: 10px;">
-				</div>
-			</div>
 		</div>
 	</div>
-</div>
+</section>
 
 <!-- POSTS --> 
-<div>
+<section style="padding-top: clamp(20px, 5vw, 60px); min-height: 100vh;">
 	<div class="wrapper">
 		<div class="container">
 			{% if site.paginate %}
@@ -36,16 +35,14 @@ tag_highlight: c++
 				{% assign posts = site.posts %}
 			{% endif %}
 			{%- if posts.size > 0 -%}
-				{%- if page.list_title -%}
 				<div class="row">
 					<div class="col-sm-6 col-md-6">
-						<h2 class="post-list-heading">{{ page.list_title }}</h2>
+						<h1>Posts</h1>
 					</div>
 					<div class="col-sm-6 col-md-6" style="display: flex; flex-direction: row-reverse;">
 						<a class="read-more-button" href="blog.html" style="align-self: center;">All Posts</a>
 					</div>
 				</div> 
-				{%- endif -%}
 				{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 				<div class="row">
 				{%- for post in posts limit:3-%}
@@ -57,15 +54,19 @@ tag_highlight: c++
 			{%- endif -%}
 		</div>
 	</div>
-</div>
+</section>
 
 <!-- HIGHLIGHT SUBJECT -->
-<div style="background: #1c1c1c">
+<section style="background: #1c1c1c; padding-top: clamp(20px, 5vw, 60px); min-height: 100vh;">
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
+				<div class="col-sm-12 col-md-12" style="text-align: center;">
+					<h1>Highlighted Suject : <a href="/tag/{{page.tag_highlight}}" style="color: {{site.data.tags[page.tag_highlight].color}};">{{ page.tag_highlight }}</a></h1>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-sm-12 col-md-6">
-					<h2>Highlighted Suject : <a href="/tag/{{page.tag_highlight}}" style="color: {{site.data.tags[page.tag_highlight].color}};">{{ page.tag_highlight }}</a></h2>
 		  		  	<p>{{ site.data.tags[page.tag_highlight].description }}</p>
 			  	</div>
 				<div class="col-sm-12 col-md-6">
@@ -133,10 +134,10 @@ tag_highlight: c++
 			</div>
 		</div>
 	</div>
-</div>
+</section>
 
 <!-- PROJECTS -->
-<div>
+<section style="padding-top: clamp(20px, 5vw, 60px); min-height: 100vh;">
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
@@ -146,6 +147,8 @@ tag_highlight: c++
 				<div class="col-sm-6 col-md-6" style="display: flex; flex-direction: row-reverse;">
 					<a class="read-more-button" href="projects.html" style="align-self: center;">All Projects</a>
 				</div>
+			</div>
+			<div class="row">
 				{%- assign interestingProject = site.projects | sort: "last_update" | reverse -%}
 				{%- for project in interestingProject limit:3 -%}
 					<div class="col-sm-12 col-md-4">
@@ -155,4 +158,4 @@ tag_highlight: c++
 			</div>
 		</div>
 	</div>
-</div>
+</section>

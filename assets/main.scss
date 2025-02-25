@@ -17,7 +17,7 @@ $color-dark-orange: #CD4B13;
 @import "minima/skins/{{ site.minima.skin | default: 'classic' }}";
 @import "minima/initialize";
 
-$body-bg-start: #001207;  /* Vert subtil */
+$body-bg-start: #010d04;  /* Vert subtil */
 $body-bg-end: #121212;
 $text-color: #e0e0e0;
 $link-color: #00ff99;
@@ -524,4 +524,12 @@ iframe {
   font-size: 0.8rem;
   margin-right: 5px;
   border-radius: 3px;
+}
+
+h1 {
+  font-size: 56px;
+}
+
+h2 {
+  font-size: 44px;
 }
