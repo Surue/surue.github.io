@@ -1,9 +1,6 @@
 ---
 layout: home
-thumbnails: 
-- home/home_01.gif
-- home/home_02.gif
-- home/home_03.gif
+title: Home
 tag_highlight: c++
 ---
 <!-- ABOUT ME -->

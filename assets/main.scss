@@ -124,7 +124,7 @@ $grid__cols: 12;
  * Site header
  */
 .site-header {
-  min-height: 60;
+  min-height: 54px;
   line-height: $base-line-height * $base-font-size * 2.25;
   position: relative;
 }
@@ -377,7 +377,6 @@ iframe {
   left: -14rem;
   width: 14rem;
   visibility: visible;
-  overflow-y: auto;
   font-size: .875rem; 
   background-color: #1a1a1a;
   -webkit-transition: all .3s ease-in-out;
@@ -398,14 +397,99 @@ iframe {
 
 /* Sidebar nav */
 .sidebar-nav {
-  border-bottom: 1px solid rgba(255,255,255,.1);
+  padding: 10px 0 0 0;
 }
+
+.sidebar-nav ul {
+  list-style: none;
+  margin-left: 23px;
+}
+
 .sidebar-nav-item {
   display: block;
   padding: .5rem 1rem;
-  border-top: 1px solid rgba(255,255,255,.1);
+  margin-bottom: 10px;
+  font-size: 1rem;
+  text-decoration: none; 
+  position: relative;
+  padding-left: 20px; 
+  display: inline-block;
+  color: $text-color;
+  transition: color 0.3s ease;
+}
+.sidebar-nav-item:visited {
+  color: $text-color;
 }
 
+.sidebar-nav-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;       
+  height: 10px;
+  border: 2px solid $link-color; 
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.sidebar-nav-item:hover {
+  color: $link-color;
+}
+
+.sidebar-nav-item.active::before,
+.sidebar-nav-item:hover::before {
+  background: $link-color;
+}
+
+.sidebar-divider {
+  border-bottom: 1px solid #222222;
+  margin: 0 10px;
+}
+
+.sidebar-profile {
+}
+
+.sidebar-profile-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #222222;
+  padding: 3px 6px;
+  margin: 5px 5px;
+}
+
+.sidebar-profile-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: $accent-green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: $body-bg-start;
+  margin-left: 4px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.sidebar-profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sidebar-profile-info h2 {
+  font-size: 0.78rem;
+  margin-bottom: 0px;
+}
+
+.sidebar-profile-info p {
+  font-size: 0.6rem;
+  margin: 0;
+}
 
 @media (min-width: 48em) {
   .sidebar-item {
@@ -415,6 +499,11 @@ iframe {
     padding-left:  1.5rem;
     padding-right: 1.5rem;
   }
+}
+
+.sidebar-socials {
+  padding: 1.5rem;
+  justify-content: space-evenly;
 }
 
 /* Hide the sidebar checkbox that we toggle with `.sidebar-toggle` */
