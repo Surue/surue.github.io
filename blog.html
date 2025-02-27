@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 thumbnails: 
 - blog/blog_01.png
 - blog/blog_02.png
@@ -15,55 +15,65 @@ thumbnails:
 {% endif %}
 
 {%- if posts.size > 0 -%}
-<div style="width: 80%; float: left; padding-right: 10px; box-sizing: border-box;">
-	<div class="box">
-	<h2>Posts</h2>
-	{%- if page.list_title -%}
-	<h2 class="post-list-heading">{{ page.list_title }}</h2>
-	{%- endif -%}
-	<ul class="post-list">
-	  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-	  {%- for post in posts -%}
-	  <li>
-		<h4>
-		  <a class="post-link" href="{{ post.url | relative_url }}">
-			{{ post.title | escape }}
-		  </a>
-		</h4>
-		<span class="post-meta">{{ post.date | date: date_format }} | 
-		{% for tag in post.tags %}
-		{% capture tag_name %}{{ tag }}{% endcapture %}
-			<a href="/tag/{{ tag_name }}"><code><span style="white-space: nowrap">{{ tag_name }}</span></code></a>&nbsp;
-		{% endfor %}
-		</span>
-		<p>
-		  {% if post.description %}
-			{{ post.description }}  
-		  {% else %}
-			{{ post.excerpt }}
-		  {% endif %}
-		</p>
-	  </li>
-	  {%- endfor -%}
-	</ul>
-	</div>
-</div>
-<div style="width: 20%; float: left; padding-left: 10px; box-sizing: border-box;">
-	<div class="box">
-	<h2>Tags</h2>
-	<div style="vertical-align: center">
-	{% capture temptags %}
-	  {% for tag in site.tags %}
-		{{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}
-	  {% endfor %}
-	{% endcapture %}
-	{% assign sortedtemptags = temptags | split:' ' | sort | reverse %}
-	{% for temptag in sortedtemptags %}
-	  {% assign tagitems = temptag | split: '#' %}
-	  {% capture tagname %}{{ tagitems[1] }}{% endcapture %}
-	  <a href="/tag/{{ tagname }}"><code><span style="white-space: nowrap">{{ tagname }}</span></code></a>
-	{% endfor %}
-	</div>
+<div class="wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10">
+				<div class="box">
+				<h2>Posts</h2>
+				{%- if page.list_title -%}
+				<h2 class="post-list-heading">{{ page.list_title }}</h2>
+				{%- endif -%}
+				<ul class="post-list">
+				  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+				  {%- for post in posts -%}
+				  <li>
+					<h4>
+					  <a class="post-link" href="{{ post.url | relative_url }}">
+						{{ post.title | escape }}
+					  </a>
+					</h4>
+					<span class="post-meta">{{ post.date | date: date_format }} | 
+
+					<span class="tags">
+						{% for tag in post.tags %}
+						{% capture tag_name %}{{ tag }}{% endcapture %}
+							<a href="/tag/{{ tag_name }}" class="tag">{{ tag_name }}</a>&nbsp;
+						{% endfor %}
+					
+					</span>
+					</span>
+					<p>
+					  {% if post.description %}
+						{{ post.description }}  
+					  {% else %}
+						{{ post.excerpt }}
+					  {% endif %}
+					</p>
+				  </li>
+				  {%- endfor -%}
+				</ul>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="box">
+				<h2>Tags</h2>
+				<div class="tags" style="vertical-align: center">
+				{% capture temptags %}
+				  {% for tag in site.tags %}
+					{{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}
+				  {% endfor %}
+				{% endcapture %}
+				{% assign sortedtemptags = temptags | split:' ' | sort | reverse %}
+				{% for temptag in sortedtemptags %}
+				  {% assign tagitems = temptag | split: '#' %}
+				  {% capture tag_name %}{{ tagitems[1] }}{% endcapture %}
+				  <a href="/tag/{{ tag_name }}" class="tag">{{ tag_name }}</a>
+				{% endfor %}
+				</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 {%- endif -%}
