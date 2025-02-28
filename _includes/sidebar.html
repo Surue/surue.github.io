@@ -29,7 +29,7 @@
     {% assign key = entry | first %}
     <div style="">
       {% if sm[key].id %}
-      <a href="{{ sm[key].href }}{{ sm[key].id }}" title="{{ sm[key].title }}" target="_blank"><i class="{{ sm[key].fa-icon }} fa-3x" style="color: {{ sm[key].color }}"></i></a>
+      <a href="{{ sm[key].href }}{{ sm[key].id }}" title="{{ sm[key].title }}" target="_blank"><i class="{{ sm[key].fa-icon }} fa-3x" style="color: {{ sm[key].color }}" aria-hidden="true"></i></a>
       {% endif %}
     </div>
   {% endfor %}
