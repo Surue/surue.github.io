@@ -1,64 +1,63 @@
 ---
 layout: default
 ---
-{% if site.tags[page.tag].size > 0 %}
-<div class="post-list">
-<h1>Posts about {{ page.tag }}</h1>
-<ul>
-{% for post in site.tags[page.tag] %}
-  <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})<br>
-    {{ post.excerpt }}
-  </li>
-{% endfor %}
-</ul>
-</div>
-{% endif %}
+<div class="wrapper">
+	<!-- Posts -->
+	{% if site.tags[page.tag].size > 0 %}
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="post-list">
+				<h1>Posts about {{ page.tag }}</h1>
+				<ul>
+				{% for post in site.tags[page.tag] %}
+				  <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})<br>
+				    {{ post.excerpt }}
+				  </li>
+				{% endfor %}
+				</ul>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
 
-{% assign found = false %}
-{% for project in site.projects %}
-	{% for tag in project.tags %}
-		{% if tag == page.tag %}
-			{% assign found = true %}
+	<!-- Projects -->
+	{% assign found = false %}
+	{% for project in site.projects %}
+		{% for tag in project.tags %}
+			{% if tag == page.tag %}
+				{% assign found = true %}
+				{% break %}
+			{% endif %}
+		{% endfor %}
+		{% if found %}
 			{% break %}
 		{% endif %}
 	{% endfor %}
+
 	{% if found %}
-		{% break %}
-	{% endif %}
-{% endfor %}
-
-{% if found %}
-<div>
-<h1>Project about {{ page.tag }}</h1>
-<ul>
-{% for project in site.projects %}
-	{% assign found = false %}
-	{% for tag in project.tags %}
-		{% if tag == page.tag %}
-		{% assign found = true %}
-		<li><a href="{{ post.url }}">{{ project.title }}</a><br>
-		{{ project.excerpt }}
-		{% break %}
-		</li>
-		{% endif %}
-	{% endfor %}
-{% endfor %}
-</ul>
-</div>
-{% endif %}
-<hr>
-
-<h2>Other tags</h2>
-<div style="vertical-align: center">
-{% capture temptags %}
-  {% for tag in site.tags %}
-    {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}
-  {% endfor %}
-{% endcapture %}
-{% assign sortedtemptags = temptags | split:' ' | sort | reverse %}
-{% for temptag in sortedtemptags %}
-  {% assign tagitems = temptag | split: '#' %}
-  {% capture tagname %}{{ tagitems[1] }}{% endcapture %}
-  <a href="/tag/{{ tagname }}"><code><span style="white-space: nowrap">{{ tagname }}</span></code></a>
-{% endfor %}
+	<section>
+		<div class="container">
+			<div class="row">
+				<h1>Project about {{ page.tag }}</h1>
+				<ul>
+				{% for project in site.projects %}
+					{% assign found = false %}
+					{% for tag in project.tags %}
+						{% if tag == page.tag %}
+						{% assign found = true %}
+						<li><a href="{{ post.url }}">{{ project.title }}</a><br>
+						{{ project.excerpt }}
+						{% break %}
+						</li>
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+				</ul>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
 </div>
