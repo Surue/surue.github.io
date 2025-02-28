@@ -22,7 +22,7 @@ tag_highlight: c++
 	</div>
 </section>
 
-<!-- POSTS --> 
+<!-- BLOG --> 
 <section style="padding-top: clamp(20px, 5vw, 60px); min-height: 100vh;">
 	<div class="wrapper">
 		<div class="container">
@@ -34,7 +34,7 @@ tag_highlight: c++
 			{%- if posts.size > 0 -%}
 				<div class="row">
 					<div class="col-sm-6 col-md-6">
-						<h1>Posts</h1>
+						<h1>Blog</h1>
 					</div>
 					<div class="col-sm-6 col-md-6" style="display: flex; flex-direction: row-reverse;">
 						<a class="read-more-button" href="blog.html" style="align-self: center;">All Posts</a>
