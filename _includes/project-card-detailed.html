@@ -1,22 +1,36 @@
 {% assign main_tag = include.project.tags[0] %}
 {% assign bar_color = site.data.tags[main_tag].color | default: "#3498db" %}
-<div class="post-card" style="--card-bar: {{ bar_color }}; height: 500px">
+<div class="post-card-detailed" style="--card-bar: {{ bar_color }};">
 	{% if include.project.thumbnail %}
 		<img src="/assets/images/{{ include.project.thumbnail }}" class="card-img">
 	{% else %}
 		<img src="/assets/images/missing-image-placeholder.jpg" class="card-img">
 	{% endif %}
 	<div class="post-card-content">
-		<h3>
-			{{ include.project.title | escape }}
-		</h3>
+		<div style="display: inline;">
+			<h3 style="display: inline;">
+				{{ include.project.title | escape }}
+			</h3>
+			{% if include.project.type == 'jam' %}
+				<p style="font-size: 10px; color: grey; display: inline;">at {{ include.project.jam-name }}</p>
+			{% endif %}
+		</div>
 		<div class="tags">
 			{% for tag in include.project.tags %}
 			{% capture tag_name %}{{ tag }}{% endcapture %}
 				<a href="/tag/{{ tag_name }}" class="tag">{{ tag_name }}</a>&nbsp;
 			{% endfor %}
+		
 		</div>
 		<p>{{ include.project.description }}</p>
+		{% if include.project.highlights %}
+			<h3>Highlights:</h3>
+			<ul>
+				{% for hl in include.project.highlights %}
+					<li>{{ hl }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
 		<div class="has-text-centered" style="padding-bottom: 10px; position: absolute; bottom: 0px;">
 			<a class="read-more-button" href="{{ project.url | relative_url }}">Read More</a>
 		</div>
