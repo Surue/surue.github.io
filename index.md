@@ -12,7 +12,7 @@ tag_highlight: c++
 							<h1>Nicolas Schneider</h1>
 							<h2> Associate Lead Programmer at Old Skull Games</h2>
 							<p>Hi, I'm Nicolas, a game programmer from switzerland. I'm a student at the SAE Institute of Geneva in <b>my last year of game programming</b>. I'm mostly doing school project and game jams. Most of my project are around <b>AI and procedural content generation</b> but my final goal is to be an <b>engine programmer</b>. </p>
-							<p>Here you can see most of my <a href="projects.html">projects</a> than can be separated in 3 categories; Schools project, jams and personnal. I also try to write some <a href="blog.html">articles</a> that wary between designing systems, implementation or even some post mortems. If you want to talk or have more precise information on some of my project, you can <a href="contact_me.html">contact me</a>.</p>
+							<p>Here you can see most of my <a href="projects.html">projects</a> than can be separated in 3 categories; Schools project, jams and personnal. I also try to write some <a href="blog.html">articles</a> that wary between designing systems, implementation or even some post mortems.</p>
 					</div>
 					<div class="col-sm-12 col-md-4">
 						<img src="assets/images/Nico.png" style="width: 100%; margin-right: 10px;">
@@ -44,7 +44,7 @@ tag_highlight: c++
 				<div class="row">
 				{%- for post in posts limit:3-%}
 					<div class="col-sm-12 col-md-4">
-					{% include post.html post = post%}
+						{% include post.html post = post%}
 					</div>
 				{%- endfor -%}
 				</div>

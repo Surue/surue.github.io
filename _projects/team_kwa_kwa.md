@@ -3,7 +3,7 @@ layout: project
 title: Team Kwa Kwa
 role: Programmer
 priority: 3
-tags: procedural ai unity
+tags: pcg ai unity
 time: 6 months
 company: Team kwa kwa
 type: professional

@@ -4,7 +4,7 @@ title: "Post mortem"
 date: 2020-04-08 22:21:00 +0100
 excerpt: Post mortem on this 6 months projet
 description: This is a post mortem of a 6 months school project with its ups and downs. I try to have a look from outside a purely programming point of viwe but more on a team view, taking into accounts every members and every difficulties encountered during the project.
-tags: post-mortem management
+tags: post-mortem
 thumbnail: switch_game.png
 ---
 

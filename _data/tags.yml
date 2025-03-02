@@ -7,19 +7,13 @@ c++:
 game-engine:
   description: "TODO"
   color: "#e67e22"       # Orange
-graphics:
-  description: "TODO"
-  color: "#e91e63"       # Pink
-management:
-  description: "TODO"
-  color: "#f1c40f"       # Yellow  
 optimization:
   description: "TODO"
   color: "#34495e"       # Bleu ardoise
 post-mortem:
   description: "TODO"
   color: "#7f8c8d"       # Gray
-procedural:
+pcg:
   description: "TODO"
   color: "#9b59b6"       # Violet
 unity:

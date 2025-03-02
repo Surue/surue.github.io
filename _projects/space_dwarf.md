@@ -3,7 +3,7 @@ layout: project
 title: Space Dwarf
 role: Programmer
 priority: 3
-tags: procedural ai unity
+tags: pcg ai unity
 thumbnail: space_dwarf.png
 github_repo: https://github.com/Surue/SpaceDwarfs
 type: school-project

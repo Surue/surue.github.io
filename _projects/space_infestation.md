@@ -4,7 +4,7 @@ title: Space Infestation
 role: Programmer
 team: 3 programmers, 4 artists
 priority: 5
-tags: procedural unity
+tags: pcg unity
 thumbnail: space_infestation.png
 type: school-project
 time: 4 weeks during my first year
