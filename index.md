@@ -7,17 +7,20 @@ tag_highlight: c++
 <section style="padding-top: clamp(10px, 5vh, 20px); min-height: 100vh;">
 	<div class="wrapper">
 		<div class="container">
-				<div class="row">
-					<div class="col-sm-12 col-md-8">
-							<h1>Nicolas Schneider</h1>
-							<h2> Associate Lead Programmer at Old Skull Games</h2>
-							<p>Hi, I'm Nicolas, a game programmer from switzerland. I'm a student at the SAE Institute of Geneva in <b>my last year of game programming</b>. I'm mostly doing school project and game jams. Most of my project are around <b>AI and procedural content generation</b> but my final goal is to be an <b>engine programmer</b>. </p>
-							<p>Here you can see most of my <a href="projects.html">projects</a> than can be separated in 3 categories; Schools project, jams and personnal. I also try to write some <a href="blog.html">articles</a> that wary between designing systems, implementation or even some post mortems.</p>
-					</div>
-					<div class="col-sm-12 col-md-4">
-						<img src="assets/images/Nico.png" style="width: 100%; margin-right: 10px;">
-					</div>
+			<div class="row">
+				<div class="col-sm-12 col-md-8">
+						<h1>Nicolas Schneider</h1>
+						<h2> Associate Lead Programmer at Old Skull Games</h2>
+						<p>Hi, I'm Nicolas, a game programmer from switzerland. I'm a student at the SAE Institute of Geneva in <b>my last year of game programming</b>. I'm mostly doing school project and game jams. Most of my project are around <b>AI and procedural content generation</b> but my final goal is to be an <b>engine programmer</b>. </p>
+						<p>Here you can see most of my <a href="projects.html">projects</a> than can be separated in 3 categories; Schools project, jams and personnal. I also try to write some <a href="blog.html">articles</a> that wary between designing systems, implementation or even some post mortems.</p>
 				</div>
+				<div class="col-sm-12 col-md-4">
+					<img src="assets/images/Nico.png" style="width: 100%; margin-right: 10px;">
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12">
+				<a class="arrow-link" href="about-me.html">Know more about me</a>
+			</div>
 		</div>
 	</div>
 </section>
@@ -33,11 +36,8 @@ tag_highlight: c++
 			{% endif %}
 			{%- if posts.size > 0 -%}
 				<div class="row">
-					<div class="col-sm-6 col-md-6">
-						<h1>Blog</h1>
-					</div>
-					<div class="col-sm-6 col-md-6" style="display: flex; flex-direction: row-reverse;">
-						<a class="read-more-button" href="blog.html" style="align-self: center;">All Posts</a>
+					<div class="col-sm-12 col-md-12" style="margin-bottom: 15px;">
+						<h1 style="margin-bottom: 0px;">Blog</h1><a class="arrow-link" href="blog.html" >Read all articles</a>
 					</div>
 				</div> 
 				{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
@@ -138,11 +138,8 @@ tag_highlight: c++
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6 col-md-6">
-					<h1>Projects</h1>
-				</div>
-				<div class="col-sm-6 col-md-6" style="display: flex; flex-direction: row-reverse;">
-					<a class="read-more-button" href="projects.html" style="align-self: center;">All Projects</a>
+				<div class="col-sm-12 col-md-12" style="margin-bottom: 15px;">
+					<h1 style="margin-bottom: 0px;">Projects</h1><a class="arrow-link" href="projects.html">Find more projects</a>
 				</div>
 			</div>
 			<div class="row">
