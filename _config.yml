@@ -1,10 +1,10 @@
 # To launch the server : bundle exec jekyll serve
 
-title: Nicolas Schneider
+title: Nicolas Schneider - Associate Lead Programmer at Old Skull Games
 url : "https://surue.github.io"
 
 description: > # this means to ignore newlines until "show_excerpts:"
-  I'm working at Old Skull Games as a Tools Programer
+  I'm working at Old Skull Games as an Associate Lead Programer
 show_excerpts: false # set to true to show excerpts on the homepage
 
 # generate social links in footer
