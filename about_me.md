@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: About Me
 thumbnails: 
 - about/about_01.png
