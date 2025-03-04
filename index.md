@@ -19,7 +19,7 @@ tag_highlight: c++
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-12">
-				<a class="arrow-link" href="about-me.html">Know more about me</a>
+				<a class="arrow-link" href="about_me.html">Learn more about me</a>
 			</div>
 		</div>
 	</div>
