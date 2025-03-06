@@ -11,128 +11,172 @@ thumbnails:
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm-12 col-md-4">
-			<div class="post-card">
-				<img src="assets/images/Nico.png"><br />
-				<div class="post-card-content">
-					<h4>Nicolas Schneider</h4>
-					I'm a game engine enthusiastic who love doing new things from scratch.<br />
-					{% include social-media.html %}
-					<h6><a href="../assets/pdfs/CV_2.pdf" target="_blank">My Resume</a></h6>
+		<div class="col-sm-12 col-md-4 fixed-col">
+			<div class="fixed-col">
+				<div>
+					<!-- Profile -->
+					<div>
+						<h2>Nicolas Schneider</h2>
+						<h3>Associate Lead Programmer <br>at Old Skull Games</h3>
+						<p>Empowering teams by deeply understanding their challenges and delivering tailored, innovative solutions.</p>
+					</div>
 				</div>
-			</div>
-			<div class="post-card">
-				<div class="post-card-content">
-					<h2 style="margin-top: 10px">Skills</h2>
+				<!-- Skills -->
+				<div>
+					<h3>Skills</h3>
 					<ul>
-						<li><u>Languages:</u> C++, C#, JSON</li>
-						<li><u>Version controle software:</u> Git</li>
-						<li><u>Project management tools:</u> Trello, GitKraken</li>
-						<li><u>Softwares:</u> Visual Studio, CLion, Rider, FMOD Studio</li>
-						<li><u>Engines:</u> Unity</li>
+						<li><u>Languages:</u> C#, C++, JS, Python</li>
+						<li><u>Game Engines:</u> Unity</li>
+						<li><u>External Softwares:</u> FMOD Studio</li>
+						<li><u>Team Management:</u> Agile</li>
 					</ul>
+				</div>
+				<!-- Education & Certifications -->
+				<div>
+					<h3>Education</h3>
+					<ul>
+						<li>Bachelor of science at SAE Institute Geneva</li>
+					</ul>
+				</div>
+				<!-- Socials -->
+				<div style="align-items: normal; display: flex;">
+					{% include social-media.html %}
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-12 col-md-8">
-			<h1 style="margin-top: 0px">About</h1>
-			<p>Hi, I'm Nicolas Schneider. I'm currently a student at the SAE Institute of Geneva in <b>my last year in a game programming</b> courses. I'm mostly doing school project and game jams. 
-			Most of my project are around <b>AI and procedural content generation</b> but my final goal is to be an engine programmer. <br /><br/>
-			I've already done some work in that area, the first one was a 2D physics engine at the end of my first year. Then at the end of the second I've made a 3D graphics 
-			small engine using Vulkan as the graphics API. Finally during my last year I've led a team and together we made a complete <a href="projects/pok_engine.html">3D engine</a> that runs on a pc and on the Nintendo Switch.</p>
-			<h1 style="margin-bottom: 20px;">Work Experiences</h1>
-			<div class="row">
-				<div class="col-sm-12 col-md-4">
-					<img src="assets/images/sae_logo.png">
-					<h3 style="margin-top: 10px">Lecturer & Supervisor</h3>
-					<p>Current job</p> 
-					<p>I'm currently a <b>teacher</b> at <a href="https://www.sae.swiss/" target="_blank">my school</a>. I'm in charge of most of the classes for the first year in game programming.</p>
-					My courses:
-					<ul>
-						<li>Basics of c++ and c#</li>
-						<li>Unity</li>
-						<li>AI : Pathfinding, decisions making</li>
-						<li>Procedural generation content</li>
-						<li>Math and Physics</li>
-					</ul>
-				</div>
-				<div class="col-sm-12 col-md-4"> 
-					<img src="assets/images/kwakwa.png">
-					<h3 style="margin-top: 10px">Internship at Team KwaKwa</h3>
-					<p>September 2018 - February 2019</p>
-					<p>I worked at <a href="https://team-kwakwa.com/" target="_blank">Team KwaKwa</a> on their yet non-announced game.</p>
-					My Contributions:
-					<ul>
-						<li>Procedural generation of the open world</li>
-						<li>Basics AI pathfinding and decision making</li>  
-						<li>Participation on some event to showcase the game</li>
-					</ul>
-				</div>
-				<div class="col-sm-12 col-md-4">
-					<img src="assets/images/oniroforge.png">
-					<h3 style="margin-top: 10px">Internship at Oniroforge</h3>
-					<p>May 2018</p>
-					<p>My first work experience was a Oniroforge on a <b>VR game</b> on the Occulus Rift and the Samsung Gear VR.</p>
-					My Contributions:
-					<ul>
-						<li>Construction of a level for the game</li>
-						<li>Implementation of 3 ennemies</li>
-						<li>Refactoring some UI to handle differents levels</li>
-					</ul>
-				</div>
-			</div>
-			<h1 style="margin-bottom: 20px;">Other stuff</h1>
-			<div class="row">
-				<div class="col-sm-12 col-md-6">
-					<img src="assets/images/lvlup_game_jam.jpg">
-					<h3 style="margin-top: 10px;">LvlUp Game Jam</h3>
-					<p>Since 2018</p>
-					<p>Since 2018 I'm in the committee of a <a href="https://lvlupgamejam.ch/" target="_blank">Game Jam</a> that take place every year.</p>
-					Tasks:
-					<ul>
-						<li>Finding new sponsors</li>
-						<li>Logistic during the event</li>
-						<li>The organization</li>
-					</ul>
-				</div>
-				<div class="col-sm-12 col-md-6">
-					<div class="video-wrapper">
-						<iframe src="https://www.youtube.com/embed/4IqqYseWubY" style="width: 100%;"></iframe>
+			<!-- About -->
+			<section style="padding-top: 30px;">
+				<p>I'm a passionate programmer who fell in love with coding early on, but I chose video games because they offer tangible results—you can see your work come to life on screen immediately. My specialization as a tool programmer allows me to constantly explore new technologies and collaborate with all departments, making every project a dynamic and innovative experience.</p>
+				<p>Currently, I work at <a href="https://oldskullgames.com/">Old Skull Games</a>, my first company with more than three employees and the one where I've stayed the longest. As an Associate Lead Programmer, I enjoy working closely with every team— from design to production—while also having a significant impact on the overall structure of our projects and the technical department.</p>
+				<p>Before joining Old Skull Games, I gained valuable experience in the video game industry by working in smaller indie studios, including collaborations with <a href="https://www.facebook.com/Oniroforge/">Onirofoge</a> and <a href="https://team-kwakwa.com/">Team Kwa Kwa</a>. Alongside my industry work, I've always maintained a connection to education: I spent two years teaching at <a href="https://www.sae.edu/ch-ge/">SAE Institute</a> and more recently have delivered modules at Game Sup, sharing my knowledge with the next generation of game developers.</p>
+				<p>In my free time, I continue to optimize my skills by diving into games like Factorio and Satisfactory, and I love challenging myself with titles such as Europa Universalis, Civilization, and Warhammer Total War III. When I'm not gaming, I enjoy unwinding in a jungle of green plants, surrounded by my trusty d20 dice for D&D and my collection of cookbooks—ever curious and always learning.</p>
+			</section>
+			<!-- Experiences -->
+			<section>
+				<!-- Associate Lead Programmer -->
+				<div class="experience">
+					<div class="experience-date">
+						<p>OCT 2024 - PRESENT</p>
 					</div>
-					<h3 style="margin-top: 10px;">Swiss Game Academy</h3>
-					<p>Since 2018</p>
-					<p>This is a one week <a href="https://gameacademy.ch/SGA/" target="_blank">event</a> where we teach the basics of video game development with around one hundred people doing their first game.</p>
-					Tasks:
-					<ul>
-						<li>Staff management</li>
-						<li>Coaching of participant</li>
-						<li>Logistic during the event</li>
-						<li>Advance lecture of programming</li>
-					</ul>
+					<div>
+						<h4 class="experience-title">Associate Lead Programmer - Old Skull Games</h4>
+						<p class="experience-description">I manage small teams of programmers through regular one-on-one meetings and oversee project management activities such as sprint planning, milestone prioritization, and client discussions to accurately understand their needs. Additionally, I contribute to organizing our programming team by establishing comprehensive guidelines and drafting a coding style guide. Alongside these leadership duties, I continue to practice tool programming and collaborate closely with various teams to ensure our solutions meet their evolving requirements.</p>
+						<div class="tags">
+							<a href="/tag/tools" class="tag">tools</a>
+							<a href="/tag/unity" class="tag">unity</a>
+						</div>
+					</div>
 				</div>
-			</div>
-			<h1 style="margin-bottom: 20px;">Education</h1>
-			<div class="row">
-				<div class="col-sm-12 col-md-4">
-					<img src="assets/images/sae_logo.png" style="vertical-align: middle">
+				<!-- Occasional Trainer -->
+				<div class="experience">
+					<div class="experience-date">
+						<p>2024 - PRESENT</p>
+					</div>
+					<div>
+						<h4 class="experience-title">Occasional Trainer - Game Sup</h4>
+						<p class="experience-description">I had the opportunity to deliver concise, focused modules on specialized topics. One module, in particular, centered on applying procedural generation techniques to Roguelike projects.</p>
+						<div class="tags">
+							<a href="/tag/unity" class="tag">unity</a>
+							<a href="/tag/pcg" class="tag">pcg</a>
+						</div>
+					</div>
 				</div>
-				<div class="col-sm-12 col-md-3">
-					<span style="font-size: 20px">Game Programming</span><br />
-					<a href="https://www.sae.swiss/" target="_blank"><span style="font-size: 12px">SAE Institute Geneva</span></a><br />
-					Bachelor of Science
+				<!-- Tools Programmer -->
+				<div class="experience">
+					<div class="experience-date">
+						<p>OCT 2021 - SEP 2024</p>
+					</div>
+					<div>
+						<h4 class="experience-title">Tools Programmer - Old Skull Games</h4>
+						<p class="experience-description">I continued to work closely with multidisciplinary teams. I focused on understanding their workflows to design and implement solutions that boosted productivity and allowed them to concentrate on adding value. For exemple, I developed a 2D level editor, implemented systems for audio integration within levels, and created several quality-of-life enhancements in Unity. Additionally, I built shared tools used across multiple projects, ensuring they were robust, stable, and compatible with various development pipelines</p>
+						<div class="tags">
+							<a href="/tag/tools" class="tag">tools</a>
+							<a href="/tag/unity" class="tag">unity</a>
+						</div>
+					</div>
 				</div>
-				<div class="col-sm-12 col-md-5">
-					What I learnt
-					<ul>
-						<li>Languages: c++, c#, json</li>
-						<li>Engines: Unity, Unreal Engine 4</li>
-						<li>Custom game engines: Physics engine 2d, 3d renderer, complete 3d engine</li>
-						<li>Project: How to start from scratch and managing it</li>
-						<li>Team management: Socials skills and softwares</li>
-						<li>Game Design: Fundamentals of loops and feedback/signes</li>
-					</ul>
+				<!-- Gameplay Programmer -->
+				<div class="experience">
+					<div class="experience-date">
+						<p>OCT 2020 - SEP 2021</p>
+					</div>
+					<div>
+						<h4 class="experience-title">Gameplay Programmer - Old Skull Games</h4>
+						<p class="experience-description">I collaborated closely with multidisciplinary teams to create engaging free-to-play mobile games using Unity. I contributed to the development of game modes, boss, and implemented enemy behaviors.</p>
+						<div class="tags">
+							<a href="/tag/ai" class="tag">ai</a>
+							<a href="/tag/unity" class="tag">unity</a>
+							<a href="/tag/pcg" class="tag">pcg</a>
+						</div>
+					</div>
 				</div>
-			</div>
+				<!-- Supervisor Game Programming Section -->
+				<div class="experience">
+					<div class="experience-date">
+						<p>SEP 2019 - SEP 2020</p>
+					</div>
+					<div>
+						<h4 class="experience-title">Supervisore Game Programming Section - SAE Institute Geneva</h4>
+						<p class="experience-description"> I continued delivering my advanced courses on procedural generation and artificial intelligence, while also introducing foundational training in Unity and C++. In this role, I closely mentored first-year students by preparing, administering, and grading their exams, ensuring they built a solid technical foundation alongside advanced concepts.</p>
+						<div class="tags">
+							<a href="/tag/ai" class="tag">ai</a>
+							<a href="/tag/unity" class="tag">unity</a>
+							<a href="/tag/pcg" class="tag">pcg</a>
+						</div>
+					</div>
+				</div>
+				<!-- Teacher Game Programming -->
+				<div class="experience">
+					<div class="experience-date">
+						<p>FEB 2019 - APR 2019</p>
+					</div>
+					<div>
+						<h4 class="experience-title">Teacher Game Programming - SAE Institute Geneva</h4>
+						<p class="experience-description">I taught two modules that allowed me to share my technical expertise with aspiring game developers. In one module, I focused on procedural generation and artificial intelligence in video games, guiding students to create a project that combined both techniques. In the other module, centered on mathematics and physics, the final assignment challenged them to build a 2D physics engine in C++.</p>
+						<div class="tags">
+							<a href="/tag/ai" class="tag">ai</a>
+							<a href="/tag/unity" class="tag">unity</a>
+							<a href="/tag/pcg" class="tag">pcg</a>
+						</div>
+					</div>
+				</div>
+				<!-- Gameplay Programmer -->
+				<div class="experience">
+					<div class="experience-date">
+						<p>SEP 2018 - FEB 2019</p>
+					</div>
+					<div>
+						<h4 class="experience-title">Gameplay Programmer - Team Kwa Kwa</h4>
+						<p class="experience-description">During this project, I build an open world by iterating on a mix of handcrafted design and procedural generation techniques. I also developed my first dialogue creation tool, which streamlined the narrative process. This work even allowed me to showcase the project at industry events such as Ludicious and Nordic Games.</p>
+						<div class="tags">
+							<a href="/tag/ai" class="tag">ai</a>
+							<a href="/tag/unity" class="tag">unity</a>
+							<a href="/tag/pcg" class="tag">pcg</a>
+						</div>
+					</div>
+				</div>
+				<!-- Gameplay Programmer -->
+				<div class="experience">
+					<div class="experience-date">
+						<p>MAI 2018</p>
+					</div>
+					<div>
+						<h4 class="experience-title">Gameplay Programmer - Oniro Forge</h4>
+						<p class="experience-description"> I began my career as a Gameplay Programmer on an innovative VR project. In a tight-knit team of four, I had the chance to be involved in every aspect of game development—from designing new features and building immersive scenes to implementing enemy behaviors.</p>
+						<div class="tags">
+							<a href="/tag/ai" class="tag">ai</a>
+							<a href="/tag/unity" class="tag">unity</a>
+						</div>
+					</div>
+				</div>
+				<div>
+					<a href="../assets/pdfs/CV_2.pdf" target="_blank" class="arrow-link">View My Full Resume</a>
+				</div>
+			</section>
+			<!-- Projects -->
+			<section>
+			</section>
 		</div>
 	</div>
 </div>
