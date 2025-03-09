@@ -19,6 +19,10 @@ tag_highlight: c++
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-12">
+				<p>Welcome to my digital portfolio—where I empower teams by deeply understanding their challenges and delivering tailored, innovative solutions. I’m a passionate game developer whose love for programming is matched only by the thrill of seeing code come to life in immersive, interactive worlds. My journey has been driven by a desire to support every facet of game development, from gameplay mechanics to the cutting-edge tools that make it all possible.</p>
+				<p>I began my career as a gameplay programmer, diving into projects that ranged from pioneering VR experiences to crafting expansive open worlds. Early on, I embraced every opportunity to learn—from building game features, designing levels with both handcrafted and procedural techniques, to developing my first dialogue creation tool. These experiences, even leading me to showcase projects at industry events, laid the groundwork for a versatile and dynamic approach to game development.</p>
+				<p>My commitment to sharing knowledge led me to teaching roles at SAE Institute and Game Sup, where I delivered focused modules on procedural generation, AI, and even the fundamentals of physics and C++. Alongside mentoring students and guiding first-year cohorts, I also took on leadership responsibilities as a supervisor, bridging advanced technical concepts with essential foundational skills.</p>
+				<p>Today, as an Associate Lead Programmer at Old Skull Games, I manage small, multidisciplinary teams and continue to push the boundaries of both gameplay and tool development. I’m involved in every stage of the process—from sprint planning and setting coding guidelines to directly collaborating with various departments to refine our projects. Through this website, I share my projects, articles, and insights, with the hope of inspiring fellow developers and providing potential recruiters a clear view of my expertise and passion for the game industry.</p>
 				<a class="arrow-link" href="about_me.html">Learn more about me</a>
 			</div>
 		</div>
