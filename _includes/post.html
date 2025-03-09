@@ -10,14 +10,14 @@
 		<h3>
 			{{ include.post.title | escape }}
 		</h3>
-		<p class="date">{{ include.post.date | date: date_format }}</p>
-		<div class="tags">
+		<span class="date">{{ include.post.date | date: date_format }} | </span>
+		<span class="tags">
 			{% for tag in include.post.tags %}
 			{% capture tag_name %}{{ tag }}{% endcapture %}
 				<a href="/tag/{{ tag_name }}" class="tag">{{ tag_name }}</a>&nbsp;
 			{% endfor %}
 		
-		</div>
+		</span>
 		<p>{{ include.post.description }}</p>
 		<div class="has-text-centered" style="padding-bottom: 10px; position: absolute; bottom: 0px;">
 			<a class="read-more-button" href="{{ post.url | relative_url }}">Read More</a>

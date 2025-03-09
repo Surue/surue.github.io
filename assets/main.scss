@@ -330,7 +330,6 @@ $grid__cols: 12;
 }
 
 .post-card-content h3 {
-  color: $accent-green;
   margin-bottom: 0px;
 }
 
@@ -368,6 +367,7 @@ $grid__cols: 12;
 
 .read-more-button:hover {
   background: $accent-green;
+  color: $body-bg-end;
 }
 
 .video-wrapper {
@@ -646,11 +646,17 @@ iframe {
 
 .tags .tag {
   display: inline-block;
-  background: #222;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.8rem;
-  margin-right: 5px;
+  background: #002a12;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.6rem;
+  margin-right: 0px;
   border-radius: 100px;
+  color: $accent-green;
+}
+
+.tag:hover {
+  background: #002a12;
+  color: $color-text-primary;
 }
 
 /* Arrow Link */
