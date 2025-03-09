@@ -1,11 +1,9 @@
 ---
 layout: project
 title: Hell'Eluja
-role: Programmer
-priority: 3
+role: Gameplay programmer
 tags: ai unity
-type: professional
-time: Mai 2018
+type: pro
 company : OniroForge
 highlights: 
 - Level building

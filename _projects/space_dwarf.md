@@ -1,13 +1,11 @@
 ---
 layout: project
 title: Space Dwarf
-role: Programmer
-priority: 3
+role: Gameplay programmer
 tags: pcg ai unity
 thumbnail: space_dwarf.png
 github_repo: https://github.com/Surue/SpaceDwarfs
-type: school-project
-time: 4 weeks at the end of my first year
+type: school
 last_update: 2019-04-20
 highlights: 
 - A* for the pathfinding

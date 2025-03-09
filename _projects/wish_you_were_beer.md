@@ -1,10 +1,7 @@
 ---
 layout: project
 title: Wish You Were beer
-role: Programmer
-team: 2 programmers, 2 artists
-time: 36 hours
-priority: 3
+role: Gameplay programmer
 tags: unity
 thumbnail: wish_you_were_beer.png
 github: https://github.com/Surue/Wish_You_Were_Beer

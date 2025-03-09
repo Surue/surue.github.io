@@ -3,98 +3,40 @@ layout: default
 ---
 
 <div class="post">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12 col-md-8">	
-				{{ content }}
-			</div>
-			<div class="col-sm-12 col-md-4">
-				<h1>Infos</h1>
-				<div class="post-card">
-					<div class="post-card-content">
-						<ul style="font-size: 12px">
-							{% if page.type == "school-project" %}
-								{% if page.team %}
-									{% if page.role %}
-									<li>Role : {{ page.role | escape }}</li>
-									{% endif %}
-								{% endif %}
-								{% if page.team %}
-									<li>Team : {{ page.team | escape }}</li>
-								{% else %}
-									<li>Solo Project</li>
-								{% endif %}
-							
-								{% if page.time %}
-								<li>Time : {{ page.time | escape }}</li>
-								{% endif %}
-							{% elsif page.type == "professional" %}
-								{% if page.company %}
-									<li>Company : {{ page.company }}</li>
-								{% endif %}
-								{% if page.time %}
-									<li>Time : {{ page.time | escape }}</li>
-								{% endif %}
-							{% elsif page.type == "jam" %}
-								{% if page.team %}
-									{% if page.role %}
-									<li>Role : {{ page.role | escape }}</li>
-									{% endif %}
-								{% endif %}
-								{% if page.team %}
-									<li>Team : {{ page.team | escape }}</li>
-								{% else %}
-									<li>Solo Project</li>
-								{% endif %}
-
-								{% if page.time %}
-									<li>Time : {{ page.time | escape }}</li>
-								{% endif %}
-
-								{% if page.jam_name %}
-									<li>At : {{ page.jam_name }}</li>
-								{% endif %}
-
-							{% endif %}
-							
-							{% if page.github_repo %}
-								<li>Github : <a href="{{ page.github_repo | escape }}" target="_blank">link</a></li>
-							{% elsif page.gitlab_repo %}
-								<li>Gitlab : <a href="{{ page.gitlab_repo | escape }}" target="_blank">link</a></li>
-							{% endif %}
-
-							{% if page.steam %}
-								<li>Buy : <a href="{{page.steam | escape }}" target="_blank">Steam</a></li>
-							{% endif %}
-						</ul>
-					</div>
+	<div class="wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-8">	
+					{{ content }}
 				</div>
-				{% assign post_exist = false %}
-				{% for post in site.posts %}
-					{% for tag in post.tags %}
-						{% if page.tags contains tag %}
-							{% assign post_exist = true %}
-							{% break %}
-						{% endif %}
-					{% endfor %}
-					{% if post_exist %}
-						{% break %}
-					{% endif %}
-				{% endfor %}
-
-				{% if post_exist %}
-					<h1 class="post-list-heading">Related articles</h1>
+				<div class="col-sm-12 col-md-4">
+					{% assign post_exist = false %}
 					{% for post in site.posts %}
-						{% assign found = false %}
 						{% for tag in post.tags %}
 							{% if page.tags contains tag %}
-								{% assign found = true %}
-								{% include post.html post = post%}
+								{% assign post_exist = true %}
 								{% break %}
 							{% endif %}
 						{% endfor %}
+						{% if post_exist %}
+							{% break %}
+						{% endif %}
 					{% endfor %}
-				{% endif %}
+
+					{% if post_exist %}
+						<h1 class="post-list-heading">Related articles</h1>
+						{% for post in site.posts %}
+							{% assign found = false %}
+							{% for tag in post.tags %}
+								{% if page.tags contains tag %}
+									{% assign found = true %}
+									{% include post.html post = post%}
+									{% break %}
+								{% endif %}
+							{% endfor %}
+						{% endfor %}
+					{% endif %}
+				</div>
 			</div>
 		</div>
 	</div>

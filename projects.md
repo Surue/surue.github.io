@@ -19,7 +19,7 @@ thumbnails:
 			</div>
 			<div class="row">
 				{% assign postNames = '' | split: ''%}
-				{% assign relevantsProjects = site.projects | sort:'priority' %}
+				{% assign relevantsProjects = site.projects | sort:'last_update' | sort:'priority' %}
 				{% for relevantProject in relevantsProjects limit: 3 %}
 				{% assign tmpName = relevantProject.title | split: '_' | first | split: '-' %}
 				{% assign postNames = postNames | concat: tmpName %}
@@ -38,7 +38,7 @@ thumbnails:
 				</div>
 			</div>
 			<div class="row">
-				{% assign professionalProjects = site.projects | where:'type', 'professional' | sort:'priority' %}
+				{% assign professionalProjects = site.projects | sort:'last_update' | where:'type', 'pro'%}
 				{% for relevantProject in professionalProjects limit: 3 %}
 				<div class="col-sm-12 col-md-4">
 					{% include project-card-detailed.html project = relevantProject %}
@@ -52,7 +52,7 @@ thumbnails:
 				<div class="col-sm-12 col-md-4">
 					<h1>Jam projects</h1>
 					<p>I've participated in 15 jams since 2017. Here are some of the most intersesting ones.</p>
-					{% assign projectsJams = site.projects | sort: 'priority' | where: 'type', "jam" %}
+					{% assign projectsJams = site.projects | sort:'last_update' | where: 'type', "jam" %}
 					{%- for projectJam in projectsJams -%}
 						{% assign found = false %}
 						{% for name in postNames %}
@@ -70,7 +70,7 @@ thumbnails:
 				<div class="col-sm-12 col-md-4">
 					<h1>School projects</h1>
 					<p>Most of my school projects are oriented towards AI and PGC as I've always been interested in those areas.</p>
-					{% assign projects = site.projects | sort: 'priority' | where: 'type', "school-project" %}
+					{% assign projects = site.projects | sort:'last_update' | where: 'type', "school" %}
 					{% for projectSchool in projects %}
 						{% assign found = false %}
 						{% for name in postNames %}
@@ -87,7 +87,7 @@ thumbnails:
 				</div>
 				<div class="col-sm-12 col-md-4">
 					<h1>Personnal projects</h1>
-					{% assign projects = site.projects | sort: 'priority' | where: 'type', "personnal" %}
+					{% assign projects = site.projects | sort:'last_update' | where: 'type', "perso" %}
 					{% for projectPerso in projects %}
 						{% assign found = false %}
 						{% for name in postNames %}

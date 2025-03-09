@@ -1,12 +1,10 @@
 ---
 layout: project
 title: Team Kwa Kwa
-role: Programmer
-priority: 3
+role: Gameplay programmer
 tags: pcg ai unity
-time: 6 months
 company: Team kwa kwa
-type: professional
+type: pro
 highlights: 
 - Proceduraly generated world
 - Implementataion of pathfinding and state machine

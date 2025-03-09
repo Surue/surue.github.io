@@ -1,9 +1,7 @@
 ---
 layout: project
 title: Don't forget
-role: Programmer
-team: 2 programmers, 1 artists, 1 designer, 1 sound
-priority: 3
+role: Gameplay programmer
 tags: unity
 thumbnail: dont_forget.png
 gitlab: https://gitlab.com/piller.yann/LD41/-/tree/develop

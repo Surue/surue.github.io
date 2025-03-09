@@ -1,13 +1,10 @@
 ---
 layout: project
 title: Nàstrond
-role: AI Programmer
-team: 7 programmers
-priority: 2
+role: Gameplay programmer
 tags: ai c++
 github_repo: https://github.com/Toadsword/Nastrond/tree/develop
-type: school-project
-time: 12 weeks during my second year
+type: school
 thumbnail: nastrond.gif
 last_update: 2019-07-27
 highlights: 

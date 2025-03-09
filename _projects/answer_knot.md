@@ -1,10 +1,9 @@
 ---
 layout: project
 title: Answer Knot
-role: Programmer
-priority: 4
+role: Gameplay programmer
 tags: unity
-type: professional
+type: pro
 company : Naraven Games
 steam: https://store.steampowered.com/app/1049400/Answer_Knot/
 highlights: 

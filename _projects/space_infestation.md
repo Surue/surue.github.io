@@ -1,13 +1,10 @@
 ---
 layout: project
 title: Space Infestation
-role: Programmer
-team: 3 programmers, 4 artists
-priority: 5
+role: Gameplay programmer
 tags: pcg unity
 thumbnail: space_infestation.png
-type: school-project
-time: 4 weeks during my first year
+type: school
 last_update: 2019-09-15
 highlights: 
 - 3D level generation using delaunay triangulation
