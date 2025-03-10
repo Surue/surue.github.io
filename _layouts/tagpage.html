@@ -52,15 +52,11 @@ layout: default
 				</div>
 			</div>
 			<div class="row">
-				{% for project in site.projects %}
-					{% for tag in project.tags %}
-						{% if tag == page.tag %}
-							<div class="col-md-4">
-								{% include project-card.html project = project %}
-							</div>
-							{% break %}
-						{% endif %}
-					{% endfor %}
+				{% assign interestingProjects = site.projects | sort:'last_update' | where: 'tags', page.tag | reverse %}
+				{% for project in interestingProjects %}
+					<div class="col-md-4">
+						{% include project-card.html project = project %}
+					</div> 
 				{% endfor %}
 			</div>
 		</div>

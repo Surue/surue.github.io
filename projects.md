@@ -19,7 +19,7 @@ thumbnails:
 			</div>
 			<div class="row">
 				{% assign postNames = '' | split: ''%}
-				{% assign relevantsProjects = site.projects | sort:'last_update' | sort:'priority' %}
+				{% assign relevantsProjects = site.projects | sort:'last_update' %}
 				{% for relevantProject in relevantsProjects limit: 3 %}
 				{% assign tmpName = relevantProject.title | split: '_' | first | split: '-' %}
 				{% assign postNames = postNames | concat: tmpName %}
