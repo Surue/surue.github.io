@@ -6,37 +6,41 @@ layout: default
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12 col-md-8">	
+				<div class="col-sm-12 col-md-12">	
 					{{ content }}
 				</div>
-				<div class="col-sm-12 col-md-4">
-					{% assign post_exist = false %}
-					{% for post in site.posts %}
-						{% for tag in post.tags %}
-							{% if page.tags contains tag %}
-								{% assign post_exist = true %}
-								{% break %}
-							{% endif %}
-						{% endfor %}
-						{% if post_exist %}
+			</div>
+			<div class="row">
+				{% assign post_exist = false %}
+				{% for post in site.posts %}
+					{% for tag in post.tags %}
+						{% if page.tags contains tag %}
+							{% assign post_exist = true %}
 							{% break %}
 						{% endif %}
 					{% endfor %}
-
 					{% if post_exist %}
-						<h1 class="post-list-heading">Related articles</h1>
-						{% for post in site.posts %}
-							{% assign found = false %}
-							{% for tag in post.tags %}
-								{% if page.tags contains tag %}
-									{% assign found = true %}
-									{% include post.html post = post%}
-									{% break %}
-								{% endif %}
-							{% endfor %}
-						{% endfor %}
+						{% break %}
 					{% endif %}
-				</div>
+				{% endfor %}
+
+				{% if post_exist %}
+					<div class="col-md-12">
+						<h1 class="post-list-heading">Related articles</h1>
+					</div>
+					{% for post in site.posts %}
+						{% assign found = false %}
+						{% for tag in post.tags %}
+							{% if page.tags contains tag %}
+								{% assign found = true %}
+								<div class="col-md-4">
+									{% include post.html post = post%}
+								</div>
+								{% break %}
+							{% endif %}
+						{% endfor %}
+					{% endfor %}
+				{% endif %}
 			</div>
 		</div>
 	</div>
