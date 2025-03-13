@@ -2,7 +2,7 @@
 layout: project
 title: "Valiant Hearts : Coming Home"
 role: Tools programmer
-tags: tools unity 
+tags: tools ai unity 
 thumbnail: projects/valiant_hearts/valiant_hearts_thumbnail.jpg
 type: pro
 last_update: 2023-01-01
