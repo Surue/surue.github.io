@@ -175,7 +175,20 @@ thumbnails:
 					</div>
 				</section>
 				<!-- Projects -->
-				<section>
+				<section style="padding-top: 120px">
+					{% assign selected_project = site.projects | where:"title", "Cryptical Path" | first %}
+					{% include project-card-horizontal.html project = selected_project %}
+					{% assign selected_project = site.projects | where:"title", "Valiant Hearts : Coming Home" | first %}
+					{% include project-card-horizontal.html project = selected_project %}
+					{% assign selected_project = site.projects | where:"title", "Tiny Worlds : Idle Dragon Game" | first %}
+					{% include project-card-horizontal.html project = selected_project %}
+					{% assign selected_project = site.projects | where:"title", "Spongebob : Patty Pursuit" | first %}
+					{% include project-card-horizontal.html project = selected_project %}
+					{% assign selected_project = site.projects | where:"title", "Raid Heroes" | first %}
+					{% include project-card-horizontal.html project = selected_project %}
+					<div>
+						<a href="projects.html" class="arrow-link">View All My Projects</a>
+					</div>
 				</section>
 			</div>
 		</div>

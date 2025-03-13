@@ -1,0 +1,17 @@
+<div class="experience">
+	<a href="{{ include.project.url | relative_url }}">
+		<div class="experience-date">
+			<img src="/assets/images/{{ include.project.thumbnail }}" class="experience-thumbnail" />
+		</div>
+		<div>
+			<h4 class="experience-title">{{ include.project.title }}</h4>
+			<p class="experience-description">{{ include.project.description }}</p>
+			<div class="tags">
+				{% for tag in include.project.tags %}
+				{% capture tag_name %}{{ tag }}{% endcapture %}
+					<a href="/tag/{{ tag_name }}" class="tag">{{ tag_name }}</a>&nbsp;
+				{% endfor %}
+			</div>
+		</div>
+	</a>
+</div>
