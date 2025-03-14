@@ -115,7 +115,7 @@ $grid__cols: 12;
 @media screen and (min-width: $grid__bp--md * 1px) {
 .fixed-col {
   position: sticky;
-  top: $header-height; 
+  top: 0; 
   overflow: visible; 
 }
 }
@@ -646,17 +646,17 @@ iframe {
 
 .tags .tag {
   display: inline-block;
-  background: #002a12;
+  background: #00331f;
   padding: 0.1rem 0.5rem;
   font-size: 0.6rem;
   margin-right: 0px;
   border-radius: 100px;
-  color: $accent-green;
+  color: $color-text-primary;
 }
 
 .tag:hover {
-  background: #002a12;
-  color: $color-text-primary;
+  background: #00331f;
+  color: $accent-green;
 }
 
 /* Arrow Link */
