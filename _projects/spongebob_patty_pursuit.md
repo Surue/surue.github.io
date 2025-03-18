@@ -3,6 +3,7 @@ layout: project
 title: "Spongebob : Patty Pursuit"
 role: Gameplay programmer
 tags: pcg unity
+languages: csharp
 thumbnail: projects/spongebob_patty_pursuit/spongebob_patty_pursuit_thumbnail.webp
 type: pro
 last_update: 2021-03-01

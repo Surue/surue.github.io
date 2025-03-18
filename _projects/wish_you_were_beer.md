@@ -3,6 +3,7 @@ layout: project
 title: Wish You Were beer
 role: Gameplay programmer
 tags: unity
+languages: csharp
 thumbnail: wish_you_were_beer.png
 github: https://github.com/Surue/Wish_You_Were_Beer
 type: jam

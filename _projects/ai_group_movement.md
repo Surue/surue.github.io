@@ -3,6 +3,7 @@ layout: project
 title: Group movement and avoidance
 role: Gameplay programmer
 tags: ai unity
+languages: csharp
 thumbnail: first_ai_movement.gif
 github: https://github.com/Surue/WarEconomy
 type: school

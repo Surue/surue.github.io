@@ -3,6 +3,7 @@ layout: project
 title: Raid Heroes
 role: Gameplay programmer
 tags: unity
+languages: csharp
 thumbnail: projects/raid_heroes/raid_heroes_thumbnail.webp
 type: pro
 last_update: 2020-11-01

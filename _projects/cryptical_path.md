@@ -3,6 +3,7 @@ layout: project
 title: Cryptical Path
 role: Tools programmer
 tags: tools pcg unity 
+languages: csharp
 thumbnail: projects/cryptical_path/cryptical_path_thumbnail.jpg
 type: pro
 last_update: 2023-12-01

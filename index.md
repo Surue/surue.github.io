@@ -1,7 +1,7 @@
 ---
 layout: home
 title: Home
-tag_highlight: c++
+tag_highlight: unity
 ---
 <!-- ABOUT ME -->
 <section style="padding-top: clamp(10px, 5vh, 20px); min-height: 100vh;">
@@ -128,6 +128,32 @@ tag_highlight: c++
 							{% endfor %}
 						</div>
 		  		  	{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Languages -->
+<section style="padding-top: clamp(20px, 5vw, 60px); min-height: 100vh;">
+	<div class="wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-6">
+					<h2>C#</h2>
+					<a href="/language/csharp" class="arrow-link" style="padding-left:20px;">More projects about C#</a>
+					{%- assign interestingProject = site.projects | sort: "last_update" | where: 'languages', csharp  | reverse -%}
+					{%- for project in interestingProject limit:3 -%}
+							{% include project-card-horizontal.html project = project%}
+					{%- endfor -%}
+				</div>
+				<div class="col-sm-12 col-md-6" style="border-left: 1px solid grey;">
+					<h2>C++</h2>
+					<a href="/language/cpp" class="arrow-link" style="padding-left:20px;">Read articles about C++</a>
+					{%- assign interestingProject = site.posts | sort: "last_update" | where: 'languages', cpp  | reverse -%}
+					{%- for project in interestingProject limit:3 -%}
+							{% include project-card-horizontal.html project = project%}
+					{%- endfor -%}
 				</div>
 			</div>
 		</div>

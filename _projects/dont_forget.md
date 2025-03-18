@@ -3,6 +3,7 @@ layout: project
 title: Don't forget
 role: Gameplay programmer
 tags: unity
+languages: csharp
 thumbnail: dont_forget.png
 gitlab: https://gitlab.com/piller.yann/LD41/-/tree/develop
 type: jam

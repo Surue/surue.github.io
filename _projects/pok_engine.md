@@ -2,7 +2,8 @@
 layout: project
 title: Pok Project
 role: Lead programmer/engine
-tags: game-engine c++
+tags: game-engine
+languages: cpp
 thumbnail: stars_of_anarchy_key_image.JPG
 type: school
 last_update: 2020-05-10

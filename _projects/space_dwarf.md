@@ -3,6 +3,7 @@ layout: project
 title: Space Dwarf
 role: Gameplay programmer
 tags: pcg ai unity
+languages: csharp
 thumbnail: space_dwarf.png
 github_repo: https://github.com/Surue/SpaceDwarfs
 type: school

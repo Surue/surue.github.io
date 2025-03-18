@@ -26,3 +26,5 @@ relative_links:
 collections:
     projects:
         output: true
+    language:
+      output: true

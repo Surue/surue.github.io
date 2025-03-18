@@ -3,6 +3,7 @@ layout: project
 title: Team Kwa Kwa
 role: Gameplay programmer
 tags: pcg ai unity
+languages: csharp
 company: Team kwa kwa
 type: pro
 highlights: 

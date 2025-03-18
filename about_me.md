@@ -25,8 +25,8 @@ thumbnails:
 					<div>
 						<h3>Skills</h3>
 						<ul>
-							<li><u>Languages:</u> C#, C++, JS, Python</li>
-							<li><u>Game Engines:</u> Unity</li>
+							<li><u>Languages:</u> <a href="/language/csharp">C#</a>, <a href="/language/cpp">C++</a>, JS, Python</li>
+							<li><u>Game Engines:</u> <a href="/tag/unity">Unity</a></li>
 							<li><u>External Softwares:</u> FMOD Studio. Houdini</li>
 							<li><u>Team Management:</u> Agile</li>
 						</ul>

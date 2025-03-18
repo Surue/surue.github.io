@@ -2,7 +2,8 @@
 layout: project
 title: Nàstrond
 role: Gameplay programmer
-tags: ai c++
+tags: ai
+languages: cpp
 github_repo: https://github.com/Toadsword/Nastrond/tree/develop
 type: school
 thumbnail: nastrond.gif

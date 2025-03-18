@@ -3,6 +3,7 @@ layout: project
 title: Hell'Eluja
 role: Gameplay programmer
 tags: ai unity
+languages: csharp
 type: pro
 company : OniroForge
 highlights: 

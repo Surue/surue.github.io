@@ -3,6 +3,7 @@ layout: project
 title: "Tiny Worlds : Idle Dragon Game"
 role: Gameplay programmer
 tags: unity
+languages: csharp
 thumbnail: projects/tiny_worlds/tiny_worlds_thumbnail.webp
 type: pro
 last_update: 2021-09-01
