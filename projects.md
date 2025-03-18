@@ -1,12 +1,6 @@
 ---
 layout: default
 title: Projects
-thumbnails:
-- projects/project_01.gif
-- projects/project_02.png
-- projects/project_03.gif
-- projects/project_04.png
-- projects/project_05.gif
 ---
 <div class="wrapper">
 	<div class="container">
