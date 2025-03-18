@@ -4,7 +4,7 @@ title: Home
 tag_highlight: unity
 ---
 <!-- ABOUT ME -->
-<section style="padding-top: clamp(10px, 5vh, 20px); min-height: 100vh;">
+<section style="padding-top: clamp(10px, 5vh, 20px); min-height: 100vh; background: linear-gradient(0deg, #0D0D0D 0%, #1A1A1A 100%);">
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
@@ -27,7 +27,7 @@ tag_highlight: unity
 </section>
 
 <!-- BLOG --> 
-<section style="padding-top: clamp(20px, 5vw, 60px); min-height: 100vh;">
+<section style="padding-top: clamp(20px, 5vw, 60px); min-height: 100vh; background: linear-gradient(0deg, #0D0D0D 0%, #1A1A1A 100%);">
 	<div class="wrapper">
 		<div class="container">
 			{% if site.paginate %}
@@ -55,7 +55,7 @@ tag_highlight: unity
 </section>
 
 <!-- HIGHLIGHT SUBJECT -->
-<section style="background: #1c1c1c; padding-top: clamp(20px, 5vw, 60px); min-height: 100vh;">
+<section style="background: #1c1c1c; padding-top: clamp(20px, 5vw, 60px); min-height: 100vh; background: #262626;">
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
@@ -135,7 +135,7 @@ tag_highlight: unity
 </section>
 
 <!-- Languages -->
-<section style="padding-top: clamp(20px, 5vw, 60px); min-height: 100vh;">
+<section style="padding-top: clamp(20px, 5vw, 60px); min-height: 100vh; background: linear-gradient(180deg, #1A1A1A 0%, #0D0D0D 100%);">
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
@@ -161,7 +161,7 @@ tag_highlight: unity
 </section>
 
 <!-- PROJECTS -->
-<section style="padding-top: clamp(20px, 5vw, 60px); min-height: 100vh;">
+<section style="padding-top: clamp(20px, 5vw, 60px); min-height: 100vh; background: linear-gradient(0deg, #0D0D0D 0%, #1A1A1A 65%, #1A1A1A 72%, #0D0D0D 100%);">
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
