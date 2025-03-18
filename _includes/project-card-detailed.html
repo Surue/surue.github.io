@@ -23,14 +23,6 @@
 		
 		</div>
 		<p>{{ include.project.description }}</p>
-		{% if include.project.highlights %}
-			<h3>Highlights:</h3>
-			<ul>
-				{% for hl in include.project.highlights %}
-					<li>{{ hl }}</li>
-				{% endfor %}
-			</ul>
-		{% endif %}
 		<div class="has-text-centered" style="padding-bottom: 10px; position: absolute; bottom: 0px;">
 			<a class="read-more-button" href="{{ include.project.url | relative_url }}">Read More</a>
 		</div>

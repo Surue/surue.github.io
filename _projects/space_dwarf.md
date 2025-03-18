@@ -8,10 +8,6 @@ thumbnail: space_dwarf.png
 github_repo: https://github.com/Surue/SpaceDwarfs
 type: school
 last_update: 2019-04-20
-highlights: 
-- A* for the pathfinding
-- Level procedural generated
-- Behavior tree using scriptable object
 excerpt: Game with a priority on procedural content generation and AI
 description: A 4 weeks solo school project where I had my first experience in <b>AI and procedural generated content</b>.
 ---

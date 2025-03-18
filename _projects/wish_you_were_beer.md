@@ -9,10 +9,6 @@ github: https://github.com/Surue/Wish_You_Were_Beer
 type: jam
 jam-name: Improvised school jam 
 last_update: 2017-09-15
-highlights: 
-- First bases with Unity
-- Simple QTE system
-- Integration of 3D models
 excerpt: First game ever made during an improvised game jam.
 description: You're broke but thirsty, what a better solution than to steel beer from those who went to the bathroom. <b>First game ever made</b>, it was my first experience working with a team, importing 3D models, applying materials, playing with lights and implementing the QTE system.
 ---

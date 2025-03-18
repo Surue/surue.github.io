@@ -7,10 +7,6 @@ languages: csharp
 type: pro
 company : Naraven Games
 steam: https://store.steampowered.com/app/1049400/Answer_Knot/
-highlights: 
-- Core gameplay implementation
-- Environment interaction
-- Event system using scriptable objects from Unity
 thumbnail: answer_knot.jpg
 last_update: 2019-02-12
 excerpt: It was a 2 months mandate where me and another programmer had to finish a game.

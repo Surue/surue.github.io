@@ -6,10 +6,6 @@ tags: ai unity
 languages: csharp
 type: pro
 company : OniroForge
-highlights: 
-- Level building
-- States machine for 3 ai
-- UI intégration
 thumbnail: hell_eluja.jpg
 last_update: 2018-06-12
 excerpt: A 1 month internship at Oniroforge to help them finishing their game on time.
