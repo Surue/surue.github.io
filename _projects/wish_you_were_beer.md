@@ -4,13 +4,14 @@ title: Wish You Were beer
 role: Gameplay programmer
 tags: unity
 languages: csharp
-thumbnail: wish_you_were_beer.png
+thumbnail: projects/wish_you_were_beer/wish_you_were_beer.png
 github: https://github.com/Surue/Wish_You_Were_Beer
 type: jam
 jam-name: Improvised school jam 
 last_update: 2017-09-15
 excerpt: First game ever made during an improvised game jam.
 description: You're broke but thirsty, what a better solution than to steel beer from those who went to the bathroom. <b>First game ever made</b>, it was my first experience working with a team, importing 3D models, applying materials, playing with lights and implementing the QTE system.
+image_base_url: /assets/images/projects/wish_you_were_beer/
 ---
 
 # Overview

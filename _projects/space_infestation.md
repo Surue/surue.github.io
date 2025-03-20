@@ -4,11 +4,12 @@ title: Space Infestation
 role: Gameplay programmer
 tags: pcg unity
 languages: csharp
-thumbnail: space_infestation.png
+thumbnail: projects/space_infestation/space_infestation.png
 type: school
 last_update: 2019-09-15
 excerpt: Group project where we made a 3D space ship procedural interior proceduraly generated.
 description: As an vicious Alien, infest a spaceship to turn it into your new nest, fight robots and get acces to the main generator. I worked with <b>3D procedural generation</b>, meaning all problems going with it (AI navigation, Lights, Collider, optimisation). I also implemented a <b>texture painter</b>, allowing the player to paint a texture on top of a another one.
+image_base_url: /assets/images/projects/space_infestation/
 ---
 
 # Overview

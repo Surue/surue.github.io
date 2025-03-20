@@ -6,14 +6,15 @@ excerpt: Post mortem on this 6 months projet
 description: This is a post mortem of a 6 months school project with its ups and downs. I try to have a look from outside a purely programming point of viwe but more on a team view, taking into accounts every members and every difficulties encountered during the project.
 tags: post-mortem
 languages: 
-thumbnail: switch_game.png
+thumbnail: posts/2020-04-08-Post-mortem-how-to-survive-a-6-months-school-project/switch_game.png
+image_base_url: /assets/images/posts/2020-04-08-Post-mortem-how-to-survive-a-6-months-school-project/
 ---
 
 ## Recap of the project
 
 If throughout all those posts the main subject has been the engine itself, it's important to replace it into the scope of the full project. At the end of September, 3 of my comrades, our teacher and myself started talking about our specialization project. To sum it up it must be a 6 month project where everyone of us had the opportunity to go further it its favorite programming domains while doing a game for the switch with a custom engine.
 
-![Image of the game on the switch](../assets/images/switch_game.png)
+![Image of the game on the switch]({{ page.image_base_url | relative_url }}/switch_game.png)
 
 ## Pre - production
 
@@ -42,7 +43,7 @@ The first task was to take every available roles. We had :
 - A **lead programmer** who is also the lead engine programmer (me)
 
 Through the course of six months the team changed a lot and the number keep increasing up to fifteen developers in total, mainly in the tool team. As I'm writing those line the team is counting three more members, two gameplay programmers and a tool programmer bringing up the total of developer to eight.
-![Evolution of the team over 6 months](../assets/images/programmer_team_evolution.png)
+![Evolution of the team over 6 months]({{ page.image_base_url | relative_url }}/programmer_team_evolution.png)
 
 
 #### Lead Programmer
@@ -77,17 +78,16 @@ The whole project used sprints of two weeks, inspired by agile method and for th
 - **Pre game** : 2 months where the focus was on tools
 - **Game Critical** : 2 months where every game’s core feature needed to be doable
 - **Game Plus** : The final month allocated to do some enhancement on the game.
-<img src="../assets/images/milestones.png">  
+![Evolution of the team over 6 months]({{ page.image_base_url | relative_url }}/milestones.png)
 
 #### Code review
 
 Even though we’re all students, we have our own strength and weakness, to make to most of it we implemented code review validation for every task. Core review implies to look at some else code, understand how it works and to give constructive feedback on the implementation. Some people had to redo their task four to five times before their code was validated. Using code review makes the programming’s level of everyone quickly increase and helped keep an overall style.
-<img src="/assets/images/task_steps.JPG">
+![Evolution of the team over 6 months]({{ page.image_base_url | relative_url }}/task_steps.JPG)
 
 ### The game
 
 It was important for us to have the basic idea of the game because this would shape the engine and every tool needed. It would also design the allocation of every human resource we had. Or design team settles down on Star Of Anarchy, a 3D rail shooter set up is space. 
-<img src="/assets/images/stars_of_anarchy_key_image.JPG" alt="">
 
 ## Production 
 
@@ -103,7 +103,7 @@ To be the most efficient during the six months we had, every team must be able t
 A lot of core systems have two layers:
 *   The visible one that we called “the interface part”. This part was created as soon as possible because those functions are possibly used by anyone on the team. 
 *   The hidden one which is all the codes behind the function that user don’t need. 
-<img src="../assets/images/interface_hidden.JPG" alt="">
+![Evolution of the team over 6 months]({{ page.image_base_url | relative_url }}/interface_hidden.JPG)
 
 This separation allowed us to have worked, but not optimized code and to later come back on some part and do the needed optimization. In some case it allowed to deploy version of the engine with accessible interface but no code behind, doing so made that no one was waiting on the code and could already implement the logic in their system without it working. 
 
@@ -132,7 +132,7 @@ To lower the number of clashes we introduce in the programmer team :
 - A better separation of tasks depending on who wanted to go further with the project
 - Discussion with the whole team to settle things down on what we want the project to be
 
-![Daily images on slack](../assets/images/slack_images.png)
+![Daily images on slack]({{ page.image_base_url | relative_url }}/slack_images.png)
 
 As today not everything is cleared up, but we all agree to at least use this project as a showroom of our capabilities.
 

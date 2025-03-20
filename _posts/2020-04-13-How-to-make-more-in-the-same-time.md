@@ -6,7 +6,8 @@ excerpt: Introduction to multhithreading in c++
 description: Although it's an outdated approach, this post describe of an engine has been divided into threads and what type of problems came out of it. This can be seen as an introduction to mutlithreading and a first step into going into more modern system as job system.
 tags: game-engine 
 languages: cpp
-thumbnail: 3_frames_threads.png
+thumbnail: posts/2020-04-13-How-to-make-more-in-the-same-time/3_frames_threads.png
+image_base_url: /assets/images/posts/2020-04-13-How-to-make-more-in-the-same-time/
 ---
 # How to make more in the same time?
 
@@ -47,7 +48,7 @@ Using this technique has one other benefits, the other programmers just need to 
 
 For the implementation, we went with 4 different threads active at the same time, it matched the available number of threads on the switch.
 
-![threads in on frame](../assets/images/1_frame_threads.png)
+![threads in on frame]({{ page.image_base_url | relative_url }}/1_frame_threads.png)
 
 #### App Thread
 
@@ -73,13 +74,13 @@ Using this technique has one drawback. If in the frame 1 the enemy is moving, it
  
 The Render Thread will always be one frame behind and in our game this is not a problem. When weighting between having twice as many objects or not being 16.66 ms seconds late, the choice was easy to make. Our game doesn’t rely on the player’s reflex, the accent is put on the number of explosion and object he can see at the same time. So the drawback is in fact not a drawback for us.
 
-![threads in on frame](../assets/images/3_frames_threads.png)
+![threads in on frame]({{ page.image_base_url | relative_url }}/3_frames_threads.png)
 
 ### Create an execution loop
 
 To have a _safe_ moment where data can be accessed without having to bother with race condition, the execution loop - in which order the main function of the engine will be executed - has to be a priority when designing the engine.
 
-![execution loop](../assets/images/execution_loop.png)
+![execution loop]({{ page.image_base_url | relative_url }}/execution_loop.png)
 
 Each of those names can be seen as a set of functionality that are created anywhere in the engine and that will be executed following the order of the diagram.
 
@@ -118,7 +119,7 @@ This part works directly with the data created in the Draw pass. It will check i
 |Gif frustum culling|
 
 Currently the engine only implements frustum culling, but also use a custom type culling, the world is divided in chunks - rectangle- that contains all static objects that are updated from the player's position.
-![Chunk animated image](../assets/images/chunks.gif)
+![Chunk animated image]({{ page.image_base_url | relative_url }}/chunks.gif)
 
 ##### Render
 
@@ -137,7 +138,7 @@ One critical part when using this type gameplay loop is when you copy data for s
 #### Size of the datas
 
 By having copies of data, the size of the engine can easily double if everything is copied from the logic thread to the render thread. But an important part is to know what is needed to draw something. By example the trails renderer :
-![Trail renderer animated image](../assets/images/trail_renderer.gif)
+![Trail renderer animated image]({{ page.image_base_url | relative_url }}/trail_renderer.gif)
 
 To calculate the movement, the next position, how the mesh will be created the trail renderer needs a lot of data.
 ```c
@@ -181,21 +182,21 @@ The main point is the size of the structure which is way smaller and thus fixing
 Allocation of memory is one of the worst parts in modern CPU. Here is an example where there is an already created array and then a new element is added to this array.
 
 The problem here is that the computer doesn’t know what come after the existing array so it will need to look over the memory to find a new spot, it does mean to copy all memory somewhere else in memory
-![Memory allocation without doing .reserve() before](../assets/images/memory_allocation.png)
+![Memory allocation without doing .reserve() before]({{ page.image_base_url | relative_url }}/memory_allocation.png)
 
 It's easy to imagine what would happen when copying data from one array to the other. Fortunately, there is solutions to avoid allocation during the game is running. One of them is knowing the number of elements that can be drawn at the same time.  
  
 Let’s take an actual situation in the engine, due to gpu performance the number of light drawn at the same time has been limited to 256. It does mean also that the size of an array can know exactly from the moment the engine start to the moment it’s shut down.  
  
 This imply to reserve space in memory in advance 
-![Memory allocation with doing .reserve() before](../assets/images/memory_reservation.png)
+![Memory allocation with doing .reserve() before]({{ page.image_base_url | relative_url }}/memory_reservation.png)
 
 ## After thoughts
 
 ### Pro and cons of the implementation
 
 This is an easy implementation and easy to maintain and it perfectly fit our needs. But for bigger games that need even more stuff to happen there is a major drawback with this implementation. If the logic thread has finished all its work, it will just wait. 
-![Thread doing nothing while waiting the next one](../assets/images/thread_doing_nothing.png)
+![Thread doing nothing while waiting the next one]({{ page.image_base_url | relative_url }}/thread_doing_nothing.png)
 
 There are a few other solutions that can fix this problem, but that way are more complex like a job system. In the current states of the engine, optimization on the multithreading are not required and as it doesn't need a lot of maintenance this implementation will certainly last until the end of the project.
 

@@ -6,7 +6,8 @@ excerpt: Overview of an implementation of a particle system.
 description: This post take a look at how a particles system has been implemented inside a custom c++ engine. It also take a deeper look into somes basics optimization to do with a particle system.
 tags: game-engine optimization	
 languages: cpp
-thumbnail: particle_simple.gif
+thumbnail: posts/2020_04_07_particle_system/particle_simple.gif
+image_base_url: /assets/images/posts/2020_04_07_particle_system/
 ---
 
 # Particles System
@@ -19,7 +20,7 @@ This post focus mainly on the implementation of a particle system and the optimi
 
 Particle are light weighted object that is drawn on the screen with a unique texture on it. In video games they can be found to symbolize the impact with an object or explosion. You're seeing blood splashing everywhere when shooting at someone? Those are most certainly particles. If a particle is a simple object with a lifetime and a speed behind it there is a particle system, in charge of spawning particle, retaining information about the amount of active particle, it can also hold information about how the particles will be instantiated in the world and starting speed. More often you see a particle system using a particle emitter than contain the shape that emits particles.
 
-![simple red particle](../assets/images/particle_simple.gif)
+![simple red particle]({{ page.image_base_url | relative_url }}/particle_simple.gif)
 
 
 ### Needs of the game
@@ -94,7 +95,7 @@ But for a code being human readable mean most of the time that it’s not friend
 
 To align data and to make it efficient every programmer should stop thinking with objects in his mind but with data. To take back our particle, aligning our data means that instead of treating a particle like a single object, every information about the particles needs to be treated as one for all particles. For example, all positions of every particle are aligned next to each other and updated one after each other, allowing the code to be optimized.
 
-![aligned particle in array](../assets/images/particles_alignement.png)
+![aligned particle in array]({{ page.image_base_url | relative_url }}/particles_alignement.png)
 
 This alignement allow to have loops for each type of _action_ that are applied to every particle.
 
@@ -122,14 +123,14 @@ Adding a condition in every loop to check if a particle is still alive would wor
 
 A simpler way is to swap a living entity with a dead one. It means that every _dead_ particles is at the end of the array, and every _alive_ particle is at the beginning of the array. By doing this little trick, there is no need of any condition in the used loop.
 
-![Swap of dead particle](../assets/images/particle_swap.png)
+![Swap of dead particle]({{ page.image_base_url | relative_url }}/particle_swap.png)
 
 ### Sorting
 
 One of the most common problems in programming is sorting arrays of elements. Particle needs to be sorted from the farthest to the closest of the camera. This is done to be sure to render particles and not having a particle behind other being drawn in front of them. And to sort them, we need to compute the distance from the camera to the particle, the distance between two points needs a square root to be done, one of the worst performance functions you can make a computer do.
 
 To solve the issue with the needs to sort every array of every data needed to draw a particle, first of all, to draw a particle, the gpu - Graphics Processing Unit, it’s in charge of rendering everything to the screen - doesn’t need to know about the lifetime of a particle.  So less data need to be sorted. Secondly, not every array of data needs to be sorted, one trick is to sort only the positions and keeping an array of sorts index, to then take the needed info in a sorted order.
-![Sorted particles array](../assets/images/particles_sorted.png)
+![Sorted particles array]({{ page.image_base_url | relative_url }}/particles_sorted.png)
 
 To avoid the square root, in place of using the correct function it’s possible to use the Manhattan distance. This function removes the need of the square root, and even though the values of the distance are incorrect, there are consistently incorrect, it means that object can be sorted using this function.
 
@@ -138,7 +139,7 @@ To avoid the square root, in place of using the correct function it’s possible
 The last part that needs to be optimized is on the GPU side. GPUs are good at drawing the same thing multiple time. What cost time is to change shutter - programs on the gpu to define how something is drawn on the screen - and if for every particle in the shoulder is reset, even to the same one, it will cost them to the gpu.  
 
 One solution is to use GPU Instancing, it's a way of forcing the GPU to draw the same object a certain amount of time. For particles this is easy to implement as every particle needs the same image drawn on a quad - 3d square-.
-![Particles fountain](../assets/images/particle_confetti.gif)
+![Particles fountain]({{ page.image_base_url | relative_url }}/particle_confetti.gif)
 
 ## After thoughts
 

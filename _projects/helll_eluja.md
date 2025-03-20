@@ -6,10 +6,11 @@ tags: ai unity
 languages: csharp
 type: pro
 company : OniroForge
-thumbnail: hell_eluja.jpg
+thumbnail: projects/hell_eluja/hell_eluja.jpg
 last_update: 2018-06-12
 excerpt: A 1 month internship at Oniroforge to help them finishing their game on time.
 description: For 1 month I help Oniroforge to finish their game Hell'Eluja. It's a two player game where one is playing with a <b>VR</b> helmet trap in a dungeon where the other player use a phone or tablet to spawn monster in the dungeon.
+image_base_url: /assets/images/projects/hell_eluja/
 ---
 
 # Overview

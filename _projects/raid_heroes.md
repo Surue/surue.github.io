@@ -9,6 +9,7 @@ type: pro
 last_update: 2020-11-01
 excerpt: Free to play mobile to raid together with friends and beat bosses.
 description: Raid Heroes is a fast-paced, free-to-play mobile game. As a Gameplay Programmer, I contributed to its evolution by implementing a new game mode in the latest update and integrating a comprehensive localization system.
+image_base_url: /assets/images/projects/raid_heroes/
 ---
 <h1>Raid Heroes</h1>
 <p>Raid Heroes is a fast-paced, free-to-play mobile game. As a Gameplay Programmer, I contributed to its evolution by implementing a new game mode in the latest update and integrating a comprehensive localization system.</p>
