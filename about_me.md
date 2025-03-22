@@ -5,20 +5,20 @@ title: About Me
 <div class="wrapper">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12 col-md-4 fixed-col">
+			<div class="col-sm-12 col-md-5 fixed-col">
 				<div class="fixed-col" style="padding-top: 15px; min-height: 90vh; display: flex;
     flex-direction: column;">
 					<div>
 						<!-- Profile -->
 						<div>
-							<h2 style="font-size: 42px; margin-bottom: 0px">Nicolas Schneider</h2>
-							<h3 style="padding-top: 0px;">Associate Lead Programmer</h3>
+							<h1 style="margin-bottom: 0px">Nicolas Schneider</h1>
+							<h3 style="padding-top: 0px;">Tools Programmer</h3>
 							<p>Empowering teams by understanding their challenges and delivering tailored solutions.</p>
 						</div>
 					</div>
 					<!-- Skills -->
 					<div>
-						<h3>Skills</h3>
+						<h4>Skills</h4>
 						<ul>
 							<li><u>Languages:</u> <a href="/language/csharp">C#</a>, <a href="/language/cpp">C++</a>, JS, Python</li>
 							<li><u>Game Engines:</u> <a href="/tag/unity">Unity</a></li>
@@ -28,9 +28,9 @@ title: About Me
 					</div>
 					<!-- Education & Certifications -->
 					<div>
-						<h3>Education</h3>
+						<h4>Education</h4>
 						<ul>
-							<li>Bachelor of science at SAE Institute Geneva</li>
+							<li>Bachelor of science at <a href="https://www.sae.edu/ch-ge/">SAE</a></li>
 						</ul>
 					</div>
 					<!-- Hierarchy -->
@@ -49,10 +49,10 @@ title: About Me
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-12 col-md-8">
+			<div class="col-sm-12 col-md-7">
 				<!-- About -->
 				<section class="section-experience" id="section1" style="padding-top: 30px;">
-					<p>I'm a passionate programmer who fell in love with coding early on, but I chose video games because you can see your work come to life on screen immediately. My specialization as a tool programmer allows me to constantly explore new technologies and collaborate with all departments, making every project a dynamic and innovative experience.</p>
+					<p>I'm a programmer who fell in love with coding early on, but I chose video games because you can see your work come to life on screen immediately. My specialization as a tool programmer allows me to constantly explore new technologies and collaborate with all departments, making every project a dynamic and innovative experience.</p>
 					<p>Currently, I work at <a href="https://oldskullgames.com/">Old Skull Games</a>, my first company with more than three employees and the one where I've stayed the longest. As an Associate Lead Programmer, I enjoy working closely with every team— from design to production—while also having a significant impact on the overall structure of our projects and the technical department.</p>
 					<p>Before joining Old Skull Games, I gained valuable experience in the video game industry by working in smaller indie studios, including collaborations with <a href="https://www.facebook.com/Oniroforge/">Onirofoge</a> and <a href="https://team-kwakwa.com/">Team Kwa Kwa</a>. Alongside my industry work, I've always maintained a connection to education: I spent two years teaching at <a href="https://www.sae.edu/ch-ge/">SAE Institute</a> and more recently have delivered modules at Game Sup, sharing my knowledge with the next generation of game developers.</p>
 					<p>In my free time, I continue to optimize my skills by diving into games like Factorio and Satisfactory, and I love challenging myself with titles such as Europa Universalis, Civilization, and Warhammer Total War III. When I'm not gaming, I enjoy unwinding in a jungle of green plants, surrounded by my trusty d20 dice for D&D and my collection of cookbooks—ever curious and always learning.</p>

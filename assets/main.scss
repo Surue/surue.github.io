@@ -32,23 +32,37 @@ $post-bar: #3498db;
 body {
   background: linear-gradient(180deg, $body-bg-start, $body-bg-end);
   color: $color-text-tertiary;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
   line-height: 1.6;
+  letter-spacing: 0.5px;
 }
 
 /* Headers */ 
 h1 {
   color: $color-text-primary;
-  font-size: 56px;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
 }
 
 h2 {
   color: $color-text-primary;
-  font-size: 44px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
 }
 
-h3, h4, h5, h6 {
+h3 {
   color: $color-text-primary;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+}
+
+h4, h5, h6 {
+  color: $color-text-primary;
+}
+
+p {
+  margin-bottom: 1rem;
 }
 
 /**
@@ -690,7 +704,7 @@ a.arrow-link:hover::after {
 
 /* Experiences */
 .section-experience {
-  min-height: 100vh;
+  padding: clamp(1rem, 5vw, 3rem) 0;
 }
 
 .experience {
@@ -706,8 +720,10 @@ a.arrow-link:hover::after {
 }
 
 .experience-date {
-  min-width: 150px;
+  min-width: 135px;
   color: $color-text-tertiary;
+  font-size: 12px;
+  padding-top: 3px;
 }
 
 .experience-title {
@@ -783,7 +799,7 @@ a.arrow-link:hover::after {
 
 .toc a {
     text-decoration: none;
-    color: $color-text-secondary;
+    color: $color-text-tertiary;
     display: flex;
     transition: color 0.3s ease;
 }
@@ -794,17 +810,24 @@ a.arrow-link:hover::after {
     margin-right: 5px;
     height: 1px;
     margin-top: 12px;
-    background-color: $color-text-secondary; 
+    background-color: $color-text-tertiary; 
     transition: color 0.3s ease, width 0.3s ease;
 }
 
-.toc a:hover,
-.toc a.active {
+.toc a:hover {
     color: $accent-green;
 }
 
-.toc a:hover::before,
-.toc a.active::before {
+.toc a.active {
+    color: $color-text-primary;
+}
+
+.toc a:hover::before{
     width: 60px; 
     background-color: $accent-green; 
+}
+
+.toc a.active::before {
+    width: 60px; 
+    background-color: $color-text-primary; 
 }
