@@ -6,7 +6,8 @@ title: About Me
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 col-md-4 fixed-col">
-				<div class="fixed-col" style="padding-top: 15px;">
+				<div class="fixed-col" style="padding-top: 15px; min-height: 90vh; display: flex;
+    flex-direction: column;">
 					<div>
 						<!-- Profile -->
 						<div>
@@ -32,22 +33,32 @@ title: About Me
 							<li>Bachelor of science at SAE Institute Geneva</li>
 						</ul>
 					</div>
+					<!-- Hierarchy -->
+					<div style="">
+						<nav class="toc">
+						    <ul>
+						        <li><a href="#section1" class="toc-link">About</a></li>
+						        <li><a href="#section2" class="toc-link">Experiences</a></li>
+						        <li><a href="#section3" class="toc-link">Projects</a></li>
+						    </ul>
+						</nav>
+					</div>
 					<!-- Socials -->
-					<div style="align-items: normal; display: flex;">
+					<div style="align-items: normal; margin-top: auto;">
 						{% include social-media.html %}
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-8">
 				<!-- About -->
-				<section style="padding-top: 30px;">
+				<section class="section-experience" id="section1" style="padding-top: 30px;">
 					<p>I'm a passionate programmer who fell in love with coding early on, but I chose video games because you can see your work come to life on screen immediately. My specialization as a tool programmer allows me to constantly explore new technologies and collaborate with all departments, making every project a dynamic and innovative experience.</p>
 					<p>Currently, I work at <a href="https://oldskullgames.com/">Old Skull Games</a>, my first company with more than three employees and the one where I've stayed the longest. As an Associate Lead Programmer, I enjoy working closely with every team— from design to production—while also having a significant impact on the overall structure of our projects and the technical department.</p>
 					<p>Before joining Old Skull Games, I gained valuable experience in the video game industry by working in smaller indie studios, including collaborations with <a href="https://www.facebook.com/Oniroforge/">Onirofoge</a> and <a href="https://team-kwakwa.com/">Team Kwa Kwa</a>. Alongside my industry work, I've always maintained a connection to education: I spent two years teaching at <a href="https://www.sae.edu/ch-ge/">SAE Institute</a> and more recently have delivered modules at Game Sup, sharing my knowledge with the next generation of game developers.</p>
 					<p>In my free time, I continue to optimize my skills by diving into games like Factorio and Satisfactory, and I love challenging myself with titles such as Europa Universalis, Civilization, and Warhammer Total War III. When I'm not gaming, I enjoy unwinding in a jungle of green plants, surrounded by my trusty d20 dice for D&D and my collection of cookbooks—ever curious and always learning.</p>
 				</section>
 				<!-- Experiences -->
-				<section>
+				<section class="section-experience" id="section2">
 					<!-- Associate Lead Programmer -->
 					<div class="experience">
 						<a href="https://oldskullgames.com/" target="_blank">
@@ -185,7 +196,7 @@ title: About Me
 					</div>
 				</section>
 				<!-- Projects -->
-				<section style="padding-top: 120px">
+				<section class="section-experience" id="section3">
 					{% assign selected_project = site.projects | where:"title", "Cryptical Path" | first %}
 					{% include project-card-horizontal.html project = selected_project %}
 					{% assign selected_project = site.projects | where:"title", "Valiant Hearts : Coming Home" | first %}
@@ -204,3 +215,66 @@ title: About Me
 		</div>
 	</div>
 </div>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+	    const links = document.querySelectorAll(".toc-link");
+	    const sections = document.querySelectorAll(".section-experience");
+
+	    console.log("Script chargé !"); // Vérifie si le script s'exécute
+	    console.log("Links : " + links.length); // Vérifie si le script s'exécute
+	    console.log("Sections : " + sections.length); // Vérifie si le script s'exécute
+
+	    for (let i = 0; i < links.length; i++) {
+		  console.log(links[i].textContent);
+		}
+
+	    const observer = new IntersectionObserver(
+	        (entries) => {
+	            entries.forEach((entry) => {
+	                if (entry.isIntersecting) {
+	                    links.forEach((link) => {
+	                        link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+	                    });
+	                }
+	            });
+	        },
+	        { rootMargin: "-50% 0px -50% 0px", threshold: 0.1 }
+	    );
+
+	    sections.forEach((section) => observer.observe(section));
+
+	    // Smooth scroll
+	    links.forEach((link) => {
+	        link.addEventListener("click", (e) => {
+	            e.preventDefault();
+	            document.querySelector(link.getAttribute("href")).scrollIntoView({
+	                behavior: "smooth",
+	                block: "start",
+	            });
+	        });
+	    });
+	});
+
+	document.addEventListener("scroll", () => {
+	    const sections = document.querySelectorAll(".section-experience"); // Remplace par ta classe
+	    const links = document.querySelectorAll(".toc-link");
+	    
+	    let currentSection = null;
+
+	    sections.forEach((section) => {
+	        const rect = section.getBoundingClientRect();
+	        if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+	            currentSection = section;
+	        }
+	    });
+
+	    if (currentSection) {
+	        links.forEach((link) => {
+	            link.classList.remove("active"); // Supprime l'ancienne classe active
+	            if (link.getAttribute("href") === `#${currentSection.id}`) {
+	                link.classList.add("active"); // Ajoute la classe active au bon lien
+	            }
+	        });
+	    }
+	});
+</script>

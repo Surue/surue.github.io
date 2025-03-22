@@ -689,6 +689,10 @@ a.arrow-link:hover::after {
 }
 
 /* Experiences */
+.section-experience {
+  min-height: 100vh;
+}
+
 .experience {
   display: flex; 
   flex-direction: row; 
@@ -758,4 +762,49 @@ a.arrow-link:hover::after {
 .experience:hover h4::after {
   right: -5px;
   opacity: 1;
+}
+
+/* Style du menu */
+.toc {
+    top: 20px;
+    left: 20px;
+    padding: 10px;
+}
+
+.toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc li {
+    margin-bottom: 8px;
+}
+
+.toc a {
+    text-decoration: none;
+    color: $color-text-secondary;
+    display: flex;
+    transition: color 0.3s ease;
+}
+
+.toc a::before {
+    content: "";
+    width: 30px; 
+    margin-right: 5px;
+    height: 1px;
+    margin-top: 12px;
+    background-color: $color-text-secondary; 
+    transition: color 0.3s ease, width 0.3s ease;
+}
+
+.toc a:hover,
+.toc a.active {
+    color: $accent-green;
+}
+
+.toc a:hover::before,
+.toc a.active::before {
+    width: 60px; 
+    background-color: $accent-green; 
 }
