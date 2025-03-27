@@ -304,14 +304,6 @@ title: About Me
 	    const links = document.querySelectorAll(".toc-link");
 	    const sections = document.querySelectorAll(".section-experience");
 
-	    console.log("Script chargé !"); // Vérifie si le script s'exécute
-	    console.log("Links : " + links.length); // Vérifie si le script s'exécute
-	    console.log("Sections : " + sections.length); // Vérifie si le script s'exécute
-
-	    for (let i = 0; i < links.length; i++) {
-		  console.log(links[i].textContent);
-		}
-
 	    const observer = new IntersectionObserver(
 	        (entries) => {
 	            entries.forEach((entry) => {

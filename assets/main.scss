@@ -851,9 +851,13 @@ a.arrow-link:hover::after {
 
 .social-media a{
   margin: 0 0.2rem;
-  color: $color-text-tertiary;
 }
 
 .social-media a i{
+  color: $color-text-tertiary;
   font-size: 2em;
+}
+
+.social-media a i:hover{
+  color: $accent-green;
 }
