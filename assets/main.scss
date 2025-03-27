@@ -80,14 +80,6 @@ a {
     color: $link-color-hover;
     text-decoration: none;
   }
-
-  .social-media-list &:hover {
-    text-decoration: none;
-
-    .username {
-      text-decoration: none;
-    }
-  }
 }
 
 /**
@@ -719,6 +711,22 @@ a.arrow-link:hover::after {
   border-width: 1px;
 }
 
+.experience-skill {
+  display: flex; 
+  flex-direction: column; 
+  align-items: stretch; 
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+
+  border-radius: 8px;
+  border-width: 1px;
+}
+
+.experience-skill:hover {
+  background-color: $button-bg;
+}
+
 .experience-date {
   min-width: 135px;
   color: $color-text-tertiary;
@@ -808,7 +816,7 @@ a.arrow-link:hover::after {
     content: "";
     width: 30px; 
     margin-right: 5px;
-    height: 1px;
+    height: 2px;
     margin-top: 12px;
     background-color: $color-text-tertiary; 
     transition: color 0.3s ease, width 0.3s ease;
@@ -830,4 +838,22 @@ a.arrow-link:hover::after {
 .toc a.active::before {
     width: 60px; 
     background-color: $color-text-primary; 
+}
+
+/**
+* Socials
+*/
+.social-media {
+  justify-content: center;
+  align-items: normal;
+  display: flex;
+}
+
+.social-media a{
+  margin: 0 0.2rem;
+  color: $color-text-tertiary;
+}
+
+.social-media a i{
+  font-size: 2em;
 }

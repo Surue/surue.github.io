@@ -16,23 +16,6 @@ title: About Me
 							<p>Empowering teams by understanding their challenges and delivering tailored solutions.</p>
 						</div>
 					</div>
-					<!-- Skills -->
-					<div>
-						<h4>Skills</h4>
-						<ul>
-							<li><u>Languages:</u> <a href="/language/csharp">C#</a>, <a href="/language/cpp">C++</a>, JS, Python</li>
-							<li><u>Game Engines:</u> <a href="/tag/unity">Unity</a></li>
-							<li><u>External Softwares:</u> FMOD Studio. Houdini</li>
-							<li><u>Team Management:</u> Agile</li>
-						</ul>
-					</div>
-					<!-- Education & Certifications -->
-					<div>
-						<h4>Education</h4>
-						<ul>
-							<li>Bachelor of science at <a href="https://www.sae.edu/ch-ge/">SAE</a></li>
-						</ul>
-					</div>
 					<!-- Hierarchy -->
 					<div style="">
 						<nav class="toc">
@@ -40,6 +23,8 @@ title: About Me
 						        <li><a href="#section1" class="toc-link">About</a></li>
 						        <li><a href="#section2" class="toc-link">Experiences</a></li>
 						        <li><a href="#section3" class="toc-link">Projects</a></li>
+						        <li><a href="#section4" class="toc-link">Education & Formations</a></li>
+						        <li><a href="#section5" class="toc-link">Skills</a></li>
 						    </ul>
 						</nav>
 					</div>
@@ -209,6 +194,105 @@ title: About Me
 					{% include project-card-horizontal.html project = selected_project %}
 					<div>
 						<a href="projects.html" class="arrow-link">View All My Projects</a>
+					</div>
+				</section>
+				<!-- Education & Formations -->
+				<section class="section-experience" id="section4">
+					<div class="experience">
+						<div class="experience-date">
+							<p>SEP 2017 - JUL 2020</p>
+						</div>
+						<div>
+							<h4 class="experience-title">Management formation</h4>
+							<p class="experience-description">In my role as Associate Lead Programmer, I received several management trainings. I learned how to work in a team, communicate effectively, manage people with visible or invisible disabilities, and give constructive feedback. I have used these skills in my work with the teams I manage.</p>
+						</div>
+					</div>
+					<div class="experience">
+						<a href="https://www.sae.edu/ch-ge/" target="_blank">
+							<div class="experience-date">
+								<p>SEP 2017 - JUL 2020</p>
+							</div>
+							<div>
+								<h4 class="experience-title">Bachelor of Science</h4>
+								<p class="experience-description">I earned my Bachelor of Science at SAE Institute in Geneva, with a focus on video game development. I worked mainly with C# in Unity and used C++ on custom game engines. I also took courses in game design and project management.</p>
+								<div class="tags">
+									<a href="/tag/unity" class="tag">unity</a>
+									<a href="/tag/game-engine" class="tag">game engine</a>
+								</div>
+							</div>
+						</a>
+					</div>
+				</section>
+				<!-- Skills -->
+				<section class="section-experience" id="section5">
+					<div style="display: grid; grid-template-columns: auto auto; gap: 10px;">
+						<div class="experience-skill">
+							<img src="/assets/images/about/icon_code.png" style="width: 50px;">
+							<ul>
+								<li>I have over 15 years of experience in programming, working on both professional and personal projects.</li>
+								<li>My journey started with personal web projects, continued with formal studies, and led to a career in the video game industry.</li>
+								<li>I have held various roles and contributed at every stage of development.</li>
+							</ul>
+						</div>
+						<div class="experience-skill">
+							<img src="/assets/images/about/soft_skills.png" style="width: 50px;">
+							<ul>
+								<li>My teaching experience and roles as a tools programmer and associate lead programmer have enabled me to engage in technical discussions with professionals from diverse backgrounds and solve problems outside my core expertise.</li>
+								<li>I worked in an environment that encourage 1o1.</li>
+							</ul>
+						</div>
+						<div class="experience-skill">
+							<img src="/assets/images/about/Logo_C_sharp.svg.png" style="width: 50px;">
+							<ul>
+								<li>I use C# daily since 2017.</li>
+								<li>I have worked on 6 professional projects using C#.</li>
+								<li>I have developed and maintained a shared framework across multiple projects.</li>
+							</ul>
+						</div>
+						<div class="experience-skill">
+							<img src="/assets/images/about/ui_ux_icon.png" style="width: 50px;">
+							<ul>
+								<li>I develop developer-focused user interfaces for different teams.</li>
+								<li>I enhance user experience by working in external tools such as Photoshop, Maya, FMDO, and ToonBoom.</li>
+							</ul>
+						</div>
+						<div class="experience-skill">
+							<img src="/assets/images/about/Logo_Unity.png" style="width: 50px;">
+							<ul>
+								<li>I have used Unity daily since 2017.</li>
+								<li>I have shipped 3 professional games in roles spanning gameplay, systems, and tools development.</li>
+								<li>I have participated in over 20 game jams using Unity.</li>
+							</ul>
+						</div>
+						<div class="experience-skill">
+							<img src="/assets/images/about/methode_agile.png" style="width: 50px;">
+							<ul>
+								<li>I am trained in agile concepts and practices.</li>
+								<li>I have successfully delivered multiple projects using agile ceremonies.</li>
+								<li>I have a deep understanding of the value each agile ceremony brings to the development process.</li>
+							</ul>
+						</div>
+						<div class="experience-skill">
+							<img src="/assets/images/about/ISO_C++_Logo.svg.png" style="width: 50px;">
+							<ul>
+								<li>I studied C++ for 3 years during my education.</li>
+								<li>I continue to use C++ for personal projects.</li>
+							</ul>
+						</div>
+						<div class="experience-skill">
+							<img src="/assets/images/about/jira.svg" style="width: 50px;">
+							<ul>
+								<li>I have used Jira extensively in professional settings.</li>
+								<li>I manage tasks at various levels, from OKRs and project stories to individual tasks.</li>
+							</ul>
+						</div>
+						<div class="experience-skill">
+							<img src="/assets/images/about/Git_icon.png" style="width: 50px;">
+							<ul>
+								<li>I have used Git since 2017 and am comfortable with pull request workflows and advanced features.</li>
+								<li>I have experience integrating SVN and Git on large projects.</li>
+							</ul>
+						</div>
 					</div>
 				</section>
 			</div>
