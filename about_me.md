@@ -36,14 +36,14 @@ title: About Me
 			</div>
 			<div class="col-sm-12 col-md-7">
 				<!-- About -->
-				<section class="section-experience" id="section1" style="padding-top: 30px;">
+				<section class="section-experience" id="section1" style="padding-top: 30px; border-bottom: 1px solid;">
 					<p>I'm a programmer who fell in love with coding early on, but I chose video games because you can see your work come to life on screen immediately. My specialization as a tool programmer allows me to constantly explore new technologies and collaborate with all departments, making every project a dynamic and innovative experience.</p>
 					<p>Currently, I work at <a href="https://oldskullgames.com/">Old Skull Games</a>, my first company with more than three employees and the one where I've stayed the longest. As an Associate Lead Programmer, I enjoy working closely with every team— from design to production—while also having a significant impact on the overall structure of our projects and the technical department.</p>
 					<p>Before joining Old Skull Games, I gained valuable experience in the video game industry by working in smaller indie studios, including collaborations with <a href="https://www.facebook.com/Oniroforge/">Onirofoge</a> and <a href="https://team-kwakwa.com/">Team Kwa Kwa</a>. Alongside my industry work, I've always maintained a connection to education: I spent two years teaching at <a href="https://www.sae.edu/ch-ge/">SAE Institute</a> and more recently have delivered modules at Game Sup, sharing my knowledge with the next generation of game developers.</p>
 					<p>In my free time, I continue to optimize my skills by diving into games like Factorio and Satisfactory, and I love challenging myself with titles such as Europa Universalis, Civilization, and Warhammer Total War III. When I'm not gaming, I enjoy unwinding in a jungle of green plants, surrounded by my trusty d20 dice for D&D and my collection of cookbooks—ever curious and always learning.</p>
 				</section>
 				<!-- Experiences -->
-				<section class="section-experience" id="section2">
+				<section class="section-experience" id="section2" style="border-bottom: 1px solid;">
 					<!-- Associate Lead Programmer -->
 					<div class="experience">
 						<a href="https://oldskullgames.com/" target="_blank">
@@ -181,7 +181,7 @@ title: About Me
 					</div>
 				</section>
 				<!-- Projects -->
-				<section class="section-experience" id="section3">
+				<section class="section-experience" id="section3" style="border-bottom: 1px solid;">
 					{% assign selected_project = site.projects | where:"title", "Cryptical Path" | first %}
 					{% include project-card-horizontal.html project = selected_project %}
 					{% assign selected_project = site.projects | where:"title", "Valiant Hearts : Coming Home" | first %}
@@ -197,7 +197,7 @@ title: About Me
 					</div>
 				</section>
 				<!-- Education & Formations -->
-				<section class="section-experience" id="section4">
+				<section class="section-experience" id="section4" style="border-bottom: 1px solid;">
 					<div class="experience">
 						<div class="experience-date">
 							<p>SEP 2017 - JUL 2020</p>
