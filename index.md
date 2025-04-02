@@ -28,31 +28,85 @@ tag_highlight: unity
 
 <!-- BLOG --> 
 <section style="padding-top: clamp(20px, 5vw, 60px); min-height: 100vh; background: linear-gradient(0deg, #0D0D0D 0%, #1A1A1A 100%);">
-	<div class="wrapper">
-		<div class="container">
-			{% if site.paginate %}
-				{% assign posts = paginator.posts %}
-			{% else %}
-				{% assign posts = site.posts %}
-			{% endif %}
-			{%- if posts.size > 0 -%}
+    <div class="wrapper">
+        <div class="container">
+            {% if site.paginate %}
+                {% assign posts = paginator.posts %}
+            {% else %}
+                {% assign posts = site.posts %}
+            {% endif %}
+            {%- if posts.size > 0 -%}
+                <div class="row">
+                    <div class="col-sm-12 col-md-12" style="display: flex; align-items: flex-end;">
+                        <h1 style="margin-bottom:0px;">My Articles</h1>
+						<div style="flex-grow: 1;"></div>
+						<button id="scroll-left" style="margin-right: 10px;"><i class="fas fa-chevron-left" style="margin-right: 3px; margin-top: 3px;"></i></button>
+						<button id="scroll-right"><i class="fas fa-chevron-right" style="margin-left: 3px; margin-top:3px;"></i></button>
+                    </div>
+                </div> 
 				<div class="row">
-					<div class="col-sm-12 col-md-12" style="margin-bottom: 15px;">
-						<h1 style="margin-bottom: 0px;">Blog</h1><a class="arrow-link" href="blog.html" >Read all articles</a>
+                    <div class="col-sm-12 col-md-12" style="display: flex; align-items: flex-end;">
+						<span><a class="arrow-link" href="blog.html">Read articles, post mortem, tutorial</a></span>
+                    </div>
+                </div>
+                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+				<div class="col-sm-12 col-md-12">
+					<div id="blog-posts-container">
+					{%- for post in posts limit:10 -%}
+						<div class="scroll-card">
+							{% include post.html post = post %}
+						</div>
+					{%- endfor -%}
 					</div>
-				</div> 
-				{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-				<div class="row">
-				{%- for post in posts limit:3-%}
-					<div class="col-sm-12 col-md-4">
-						{% include post.html post = post%}
-					</div>
-				{%- endfor -%}
 				</div>
-			{%- endif -%}
-		</div>
-	</div>
+            {%- endif -%}
+        </div>
+    </div>
 </section>
+<script>
+	// Function to set all cards to the same height
+	const setEqualCardHeights = () => {
+	const cards = document.querySelectorAll('.post-card');
+	let maxHeight = 0;
+	cards.forEach(card => {
+		card.style.height = 'auto';
+	});
+	// Reset heights to auto to recalculate
+	// Calculate the maximum height
+	cards.forEach(card => {
+		const cardHeight = card.scrollHeight; // Use scrollHeight to account for dynamic content
+		if (cardHeight > maxHeight) {
+			maxHeight = cardHeight;
+		}
+	});
+	// Apply the maximum height to all cards
+	cards.forEach(card => {
+		card.style.height = `${maxHeight}px`;
+	});
+	};
+	// Run the function on page load
+	window.addEventListener('load', setEqualCardHeights);
+	// Run the function on window resize to handle responsiveness
+	window.addEventListener('resize', setEqualCardHeights);
+</script>
+<script>
+  const container = document.getElementById('blog-posts-container');
+  const scrollLeftButton = document.getElementById('scroll-left');
+  const scrollRightButton = document.getElementById('scroll-right');
+  // Dynamically calculate the width of a single card
+  const getCardWidth = () => {
+    const card = container.querySelector('.scroll-card');
+    return card ? card.offsetWidth + 35 : 0; // Add 35px gap between cards
+  };
+  scrollLeftButton.addEventListener('click', function () {
+	const scrollAmount = getCardWidth();
+    container.scrollLeft -= scrollAmount; // Scroll left
+  });
+  scrollRightButton.addEventListener('click', function () {
+	const scrollAmount = getCardWidth();
+    container.scrollLeft += scrollAmount; // Scroll right
+  });
+</script>
 
 <!-- HIGHLIGHT SUBJECT -->
 <section style="background: #1c1c1c; padding-top: clamp(20px, 5vw, 60px); min-height: 100vh; background: #262626;">

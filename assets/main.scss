@@ -227,11 +227,12 @@ $grid__cols: 12;
 .post-card {
   background: $body-bg-end;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  margin-bottom: 60px;
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   padding: 0px 0px 0px 5px;
   position: relative;
+  display: flex; /* Use Flexbox for layout */
+  flex-direction: column; /* Stack content vertically */
 }
 
 .post-card-detailed {
@@ -261,6 +262,7 @@ $grid__cols: 12;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   background: var(--card-bar);
+  z-index: 1; /* Ensure it appears below the content */
 }
 
 // Minimalist card
@@ -328,11 +330,24 @@ $grid__cols: 12;
 .card-img {
   width: 100%;
   border-radius: 0 8px 0 0;
-  height: 150px;
+  height: auto; 
+  object-fit: cover; 
 }
 
 .post-card-content {
   margin : 5px 12px;
+  z-index: 2; 
+  flex-grow: 1;
+}
+
+.post-card-content p {
+  text-overflow: ellipsis;
+  line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; 
+  overflow: hidden; 
+  margin-bottom: 0px;
 }
 
 .post-card-content h3 {
@@ -860,4 +875,73 @@ a.arrow-link:hover::after {
 
 .social-media a i:hover{
   color: $accent-green;
+}
+
+/* BLOG Section Styling */
+#blog-posts-container {
+  display: flex; 
+  overflow: hidden; 
+  scroll-behavior: smooth; 
+  gap: 35px;
+  padding-bottom: 10px; 
+  position: relative;
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+/* Scroll Buttons Styling */
+button#scroll-left,
+button#scroll-right {
+  background: $button-bg; 
+  border: 1px solid #555;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 50%; 
+  width: 40px;
+  height: 40px;
+  justify-self: flex-end;
+}
+
+button#scroll-left:hover,
+button#scroll-right:hover {
+  background: $accent-green; 
+  color: $body-bg-end; 
+  border-color: $accent-green; 
+}
+
+.scroll-button i {
+  padding-top: 0.5rem;
+  font-size: 1.2rem; 
+  width: 24px;
+  height: 24px;
+}
+
+/* Card Styling */
+.scroll-card {
+  flex: 0 0 100%; /* Default to 1 card per row */
+  max-width: 100%; /* Ensure it takes the full width */
+  margin-top: 10px;
+  box-sizing: border-box; /* Include padding and border in width calculation */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+@media screen and (min-width: $grid__bp--md * 1px) {
+  .scroll-card {
+    flex: 0 0 calc((100% - 2 * 35px) / 3); /* Divide the container into 3 equal parts */
+    max-width: calc((100% - 2 * 35px) / 3); /* Ensure each card takes 1/3 of the width */
+  }
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: $grid__bp--md * 1px) {  
+  button#scroll-left,
+  button#scroll-right {
+    font-size: 1.2rem;
+    width: 35px;
+    height: 35px;
+  }
 }
