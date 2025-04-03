@@ -364,31 +364,30 @@ $grid__cols: 12;
   text-align: center;
 }
 
-/* Button */ 
-.read-more-button {
+/* Arrow Buttons */ 
+.arrow-button-medium {
   display: inline-block;
-  border-radius: 4px;
-  background: $button-bg;
-  padding: 5px 10px;
   cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.read-more-button a {
   color: $button-text;
-}
 
-.read-more-button a:visited {
-  color: $button-text; 
-}
+  a {
+    color: inherit;
+    transition: color 0.3s ease; 
+  }
 
-.read-more-button a:hover {
-  color: $body-bg-end;
-}
+  i {
+    margin-left: 5px; 
+    transition: transform 0.3s ease, color 0.3s ease; 
+  }
+  
+  &:hover i {
+    transform: translateX(5px); 
+    color: $accent-green;
+  }
 
-.read-more-button:hover {
-  background: $accent-green;
-  color: $body-bg-end;
+  &:hover a {
+    color: $accent-green;
+  }
 }
 
 .video-wrapper {
@@ -883,7 +882,7 @@ a.arrow-link:hover::after {
   overflow: hidden; 
   scroll-behavior: smooth; 
   gap: 35px;
-  padding-bottom: 10px; 
+  padding-bottom: 50px; 
   position: relative;
   box-sizing: border-box; /* Include padding and border in width calculation */
 }

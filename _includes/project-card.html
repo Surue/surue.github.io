@@ -17,8 +17,9 @@
 			{% endfor %}
 		</div>
 		<p>{{ include.project.description }}</p>
-		<div class="has-text-centered" style="padding-bottom: 10px; position: absolute; bottom: 0px;">
-			<a class="read-more-button" href="{{ include.project.url | relative_url }}">Read More</a>
+		<div class="arrow-button-medium">
+			<a href="{{ posts[0].url | relative_url }}">Read More</a>
+			<i class="fa fa-arrow-right" aria-hidden="true"></i>
 		</div>
 	</div>
 </div>
