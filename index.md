@@ -28,38 +28,62 @@ tag_highlight: unity
 
 <!-- BLOG --> 
 <section style="padding-top: clamp(20px, 5vw, 60px); min-height: 100vh; background: linear-gradient(0deg, #0D0D0D 0%, #1A1A1A 100%);">
+{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
     <div class="wrapper">
         <div class="container">
-            {% if site.paginate %}
-                {% assign posts = paginator.posts %}
+			{% if site.paginate %}
+                {% assign posts = paginator.posts | sort 'date' | reverse %}
             {% else %}
-                {% assign posts = site.posts %}
+                {% assign posts = site.posts | sort 'date' | reverse %}
             {% endif %}
-            {%- if posts.size > 0 -%}
-                <div class="row">
-                    <div class="col-sm-12 col-md-12" style="display: flex; align-items: flex-end;">
-                        <h1 style="margin-bottom:0px;">My Articles</h1>
-						<div style="flex-grow: 1;"></div>
-						<button id="scroll-left" style="margin-right: 10px;"><i class="fas fa-chevron-left" style="margin-right: 3px; margin-top: 3px;"></i></button>
-						<button id="scroll-right"><i class="fas fa-chevron-right" style="margin-left: 3px; margin-top:3px;"></i></button>
-                    </div>
-                </div> 
-				<div class="row">
-                    <div class="col-sm-12 col-md-12" style="display: flex; align-items: flex-end;">
-						<span><a class="arrow-link" href="blog.html">Read articles, post mortem, tutorial</a></span>
-                    </div>
-                </div>
-                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-				<div class="col-sm-12 col-md-12">
-					<div id="blog-posts-container">
-					{%- for post in posts limit:10 -%}
-						<div class="scroll-card">
-							{% include post.html post = post %}
-						</div>
-					{%- endfor -%}
-					</div>
+			<!-- Main Article -->
+			<div class="row" style="padding-bottom: 50px;">
+				<div class="col-sm-12 col-md-6">
+					{% if posts[0].thumbnail %}
+						<img src="/assets/images/{{ posts[0].thumbnail }}" style="border-radius: 16px;">
+					{% else %}
+						<img src="/assets/images/missing-image-placeholder.jpg" style="border-radius: 16px;">
+					{% endif %}
 				</div>
-            {%- endif -%}
+				<div class="col-sm-12 col-md-6">
+				<h1 style="margin-bottom: 0px;">{{ posts[0].title }}</h1>
+				<span class="date">{{ posts[0].date | date: date_format }} | </span>
+				<span class="tags">
+					{% for tag in posts[0].tags %}
+					{% capture tag_name %}{{ tag }}{% endcapture %}
+						<a href="/tag/{{ tag_name }}" class="tag">{{ tag_name }}</a>&nbsp;
+					{% endfor %}
+				</span>
+				<p style="margin-top: 20px;">{{ posts[0].description }}</p>
+				<div class="arrow-button-medium">
+					<a href="{{ posts[0].url | relative_url }}">Read More</a>
+					<i class="fa fa-arrow-right" aria-hidden="true"></i>
+				</div>
+				</div>
+			</div>
+			<!-- Other Articles -->
+			<div class="row">
+				<div class="col-sm-12 col-md-12" style="display: flex; align-items: flex-end;">
+					<h2 style="margin-bottom: 0px;">Recent Articles</h2>
+					<div style="flex-grow: 1;"></div>
+					<button id="scroll-left" style="margin-right: 10px;"><i class="fas fa-chevron-left" style="margin-right: 3px; margin-top: 3px;"></i></button>
+					<button id="scroll-right"><i class="fas fa-chevron-right" style="margin-left: 3px; margin-top:3px;"></i></button>
+				</div>
+			</div> 
+			<div class="row">
+				<div class="col-sm-12 col-md-12" style="display: flex; align-items: flex-end;">
+					<span><a class="arrow-link" href="blog.html">Read articles, post mortem, tutorial</a></span>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12">
+				<div id="blog-posts-container">
+				{%- for post in posts limit:10 offset:1 -%}
+					<div class="scroll-card">
+						{% include post.html post = post %}
+					</div>
+				{%- endfor -%}
+				</div>
+			</div>
         </div>
     </div>
 </section>
