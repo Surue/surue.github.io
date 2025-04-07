@@ -51,7 +51,7 @@ title: About Me
 								<p>OCT 2024 - PRESENT</p>
 							</div>
 							<div>
-								<h4 class="experience-title">Associate Lead Programmer - Old Skull Games</h4>
+								<h4 class="experience-title">Associate Lead Programmer - Old Skull Games<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description">I manage small teams of programmers through regular one-on-one meetings and oversee project management activities such as sprint planning, milestone prioritization, and client discussions to accurately understand their needs. Additionally, I contribute to organizing our programming team by establishing comprehensive guidelines and drafting a coding style guide. Alongside these leadership duties, I continue to practice tool programming and collaborate closely with various teams to ensure our solutions meet their evolving requirements.</p>
 								<div class="tags">
 									<a href="/tag/tools" class="tag">tools</a>
@@ -67,7 +67,7 @@ title: About Me
 								<p>2024 - PRESENT</p>
 							</div>
 							<div>
-								<h4 class="experience-title">Occasional Trainer - Game Sup</h4>
+								<h4 class="experience-title">Occasional Trainer - Game Sup<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description">I had the opportunity to deliver concise, focused modules on specialized topics. One module, in particular, centered on applying procedural generation techniques to Roguelike projects.</p>
 								<div class="tags">
 									<a href="/tag/unity" class="tag">unity</a>
@@ -83,7 +83,7 @@ title: About Me
 								<p>OCT 2021 - SEP 2024</p>
 							</div>
 							<div>
-								<h4 class="experience-title">Tools Programmer - Old Skull Games</h4>
+								<h4 class="experience-title">Tools Programmer - Old Skull Games<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description">I continued to work closely with multidisciplinary teams. I focused on understanding their workflows to design and implement solutions that boosted productivity and allowed them to concentrate on adding value. For exemple, I developed a 2D level editor, implemented systems for audio integration within levels, and created several quality-of-life enhancements in Unity. Additionally, I built shared tools used across multiple projects, ensuring they were robust, stable, and compatible with various development pipelines</p>
 								<div class="tags">
 									<a href="/tag/tools" class="tag">tools</a>
@@ -99,7 +99,7 @@ title: About Me
 								<p>OCT 2020 - SEP 2021</p>
 							</div>
 							<div>
-								<h4 class="experience-title">Gameplay Programmer - Old Skull Games</h4>
+								<h4 class="experience-title">Gameplay Programmer - Old Skull Games<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description">I collaborated closely with multidisciplinary teams to create engaging free-to-play mobile games using Unity. I contributed to the development of game modes, boss, and implemented enemy behaviors.</p>
 								<div class="tags">
 									<a href="/tag/ai" class="tag">ai</a>
@@ -116,7 +116,7 @@ title: About Me
 								<p>SEP 2019 - SEP 2020</p>
 							</div>
 							<div>
-								<h4 class="experience-title">Supervisore Game Programming Section - SAE Institute Geneva</h4>
+								<h4 class="experience-title">Supervisore Game Programming Section - SAE Institute Geneva<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description"> I continued delivering my advanced courses on procedural generation and artificial intelligence, while also introducing foundational training in Unity and C++. In this role, I closely mentored first-year students by preparing, administering, and grading their exams, ensuring they built a solid technical foundation alongside advanced concepts.</p>
 								<div class="tags">
 									<a href="/tag/ai" class="tag">ai</a>
@@ -133,7 +133,7 @@ title: About Me
 								<p>FEB 2019 - APR 2019</p>
 							</div>
 							<div>
-								<h4 class="experience-title">Teacher Game Programming - SAE Institute Geneva</h4>
+								<h4 class="experience-title">Teacher Game Programming - SAE Institute Geneva<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description">I taught two modules that allowed me to share my technical expertise with aspiring game developers. In one module, I focused on procedural generation and artificial intelligence in video games, guiding students to create a project that combined both techniques. In the other module, centered on mathematics and physics, the final assignment challenged them to build a 2D physics engine in C++.</p>
 								<div class="tags">
 									<a href="/tag/ai" class="tag">ai</a>
@@ -150,7 +150,7 @@ title: About Me
 								<p>SEP 2018 - FEB 2019</p>
 							</div>
 							<div>
-								<h4 class="experience-title">Gameplay Programmer - Team Kwa Kwa</h4>
+								<h4 class="experience-title">Gameplay Programmer - Team Kwa Kwa<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description">During this project, I build an open world by iterating on a mix of handcrafted design and procedural generation techniques. I also developed my first dialogue creation tool, which streamlined the narrative process. This work even allowed me to showcase the project at industry events such as Ludicious and Nordic Games.</p>
 								<div class="tags">
 									<a href="/tag/ai" class="tag">ai</a>
@@ -167,7 +167,7 @@ title: About Me
 								<p>MAI 2018</p>
 							</div>
 							<div>
-								<h4 class="experience-title">Gameplay Programmer - Oniro Forge</h4>
+								<h4 class="experience-title">Gameplay Programmer - Oniro Forge<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description"> I began my career as a Gameplay Programmer on an innovative VR project. In a tight-knit team of four, I had the chance to be involved in every aspect of game development—from designing new features and building immersive scenes to implementing enemy behaviors.</p>
 								<div class="tags">
 									<a href="/tag/ai" class="tag">ai</a>
@@ -177,7 +177,7 @@ title: About Me
 						</a>
 					</div>
 					<div>
-						<a href="../assets/pdfs/CV_2.pdf" target="_blank" class="arrow-link">View My Full Resume</a>
+						<a href="../assets/pdfs/CV_2.pdf" target="_blank" class="arrow-arrow-button-small">View My Full Resume<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 					</div>
 				</section>
 				<!-- Projects -->
@@ -193,7 +193,7 @@ title: About Me
 					{% assign selected_project = site.projects | where:"title", "Raid Heroes" | first %}
 					{% include project-card-horizontal.html project = selected_project %}
 					<div>
-						<a href="projects.html" class="arrow-link">View All My Projects</a>
+						<a href="projects.html" class="arrow-button-small-link">View All My Projects<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 					</div>
 				</section>
 				<!-- Education & Formations -->
@@ -203,7 +203,7 @@ title: About Me
 							<p>SEP 2017 - JUL 2020</p>
 						</div>
 						<div>
-							<h4 class="experience-title">Management formation</h4>
+							<h4 class="experience-title">Management formation<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 							<p class="experience-description">In my role as Associate Lead Programmer, I received several management trainings. I learned how to work in a team, communicate effectively, manage people with visible or invisible disabilities, and give constructive feedback. I have used these skills in my work with the teams I manage.</p>
 						</div>
 					</div>
@@ -213,7 +213,7 @@ title: About Me
 								<p>SEP 2017 - JUL 2020</p>
 							</div>
 							<div>
-								<h4 class="experience-title">Bachelor of Science</h4>
+								<h4 class="experience-title">Bachelor of Science<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description">I earned my Bachelor of Science at SAE Institute in Geneva, with a focus on video game development. I worked mainly with C# in Unity and used C++ on custom game engines. I also took courses in game design and project management.</p>
 								<div class="tags">
 									<a href="/tag/unity" class="tag">unity</a>

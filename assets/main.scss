@@ -390,6 +390,32 @@ $grid__cols: 12;
   }
 }
 
+.arrow-button-small {
+  position: relative;
+  color: $color-text-secondary;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: color 0.3s ease;
+  padding-right: 20px;
+
+
+  i {
+    position: absolute;
+    right: 0; 
+    top: 50%;
+    transform: translateY(-50%);
+    transition: right 0.3s ease;
+  }
+
+  &:hover {
+    color: $accent-green;
+  }
+
+  &:hover i {
+    right: -5px;
+  }
+} 
+
 .video-wrapper {
   position:relative; 
   padding-top:56.25%;
@@ -666,46 +692,17 @@ iframe {
 
 .tags .tag {
   display: inline-block;
-  background: #00331f;
   padding: 0.1rem 0.5rem;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   margin-right: 0px;
   border-radius: 100px;
   color: $color-text-primary;
+  border: $accent-green 1px solid;
 }
 
 .tag:hover {
   background: #00331f;
   color: $accent-green;
-}
-
-/* Arrow Link */
-a.arrow-link {
-  position: relative;
-  color: $color-text-secondary;
-  text-decoration: none;
-  font-size: 0.8rem;
-  transition: color 0.3s ease;
-  padding-right: 20px;
-} 
-
-a.arrow-link::after {
-  content: '>';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: right 0.3s ease, opacity 0.3s ease;
-  opacity: 0.7;
-}
-
-a.arrow-link:hover {
-  color: $accent-green;
-}
-
-a.arrow-link:hover::after {
-  right: -5px;
-  opacity: 1;
 }
 
 /* Experiences */
@@ -723,83 +720,80 @@ a.arrow-link:hover::after {
 
   border-radius: 8px;
   border-width: 1px;
-}
 
-.experience-skill {
-  display: flex; 
-  flex-direction: column; 
-  align-items: stretch; 
-  gap: 20px;
-  margin-bottom: 20px;
-  padding: 10px 20px;
+  h4 {
+    position: relative;
+    color: $color-text-primary;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding-right: 20px; 
+    max-width: fit-content;
+  }
+  
+  h4 i {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: right 0.3s ease, opacity 0.3s ease;
+  }
 
-  border-radius: 8px;
-  border-width: 1px;
-}
+  .experience-skill {
+    display: flex; 
+    flex-direction: column; 
+    align-items: stretch; 
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+  
+    border-radius: 8px;
+    border-width: 1px;
+  }
+  
+  .experience-skill:hover {
+    background-color: $button-bg;
+  }
+  
+  .experience-date {
+    min-width: 135px;
+    color: $color-text-tertiary;
+    font-size: 12px;
+    padding-top: 3px;
+  }
+  
+  .experience-title {
+    margin-bottom: 0px;
+  }
+  
+  .experience-description {
+    margin-bottom: 0px;
+    color: $color-text-tertiary;
+  }
+  
+  .experience-thumbnail {
+    width: 150px;
+    border-radius: 5px;
+    border-color: $button-bg;
+    border-width: 2px;
+    border-style: solid;
+    transition: border-color 0.3s ease;
+  }
 
-.experience-skill:hover {
-  background-color: $button-bg;
-}
+  &:hover {
+    background-color: $button-bg;
 
-.experience-date {
-  min-width: 135px;
-  color: $color-text-tertiary;
-  font-size: 12px;
-  padding-top: 3px;
-}
+    h4 {
+      color: $accent-green;
+    }
 
-.experience-title {
-  margin-bottom: 0px;
-}
-
-.experience-description {
-  margin-bottom: 0px;
-  color: $color-text-tertiary;
-}
-
-.experience-thumbnail {
-  width: 150px;
-  border-radius: 5px;
-  border-color: $button-bg;
-  border-width: 2px;
-  border-style: solid;
-  transition: border-color 0.3s ease;
-}
-
-.experience:hover {
-  background-color: $button-bg;
-}
-
-.experience:hover .experience-thumbnail{
-  border-color: $accent-green;
-}
-
-.experience h4 {
-  position: relative;
-  color: $color-text-primary;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  padding-right: 20px; 
-  max-width: fit-content;
-}
-
-.experience h4::after {
-  content: '>';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: right 0.3s ease, opacity 0.3s ease;
-  opacity: 0.7;
-}
-
-.experience:hover h4 {
-  color: $accent-green;
-}
-
-.experience:hover h4::after {
-  right: -5px;
-  opacity: 1;
+    h4 i {
+      right: -5px;
+    }
+  
+    .experience-thumbnail {
+      border-color: $accent-green;
+    }
+  }
 }
 
 /* Style du menu */

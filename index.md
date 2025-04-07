@@ -20,7 +20,7 @@ tag_highlight: unity
 				<p>Welcome to my digital portfolio. My journey has been driven by a desire to support every facet of game development, from gameplay mechanics to the cutting-edge tools that make it all possibl. I began my career as a gameplay programmer, diving into projects that ranged from VR experiences to crafting open worlds. These experiences, even leading me to showcase projects at industry events.</p>
 				<p>My commitment to sharing knowledge led me to teaching roles at SAE Institute and Game Sup, where I delivered focused modules on procedural generation, AI, and even the fundamentals of physics and C++. Alongside mentoring students and guiding first-year cohorts.</p>
 				<p>Today, as an Associate Lead Programmer at Old Skull Games, I manage small, multidisciplinary teams and continue to push the boundaries of both gameplay and tool development. I’m involved in every stage of the process—from sprint planning and setting coding guidelines to directly collaborating with various departments to refine our projects. Through this website, I share my projects, articles, and insights, with the hope of inspiring fellow developers and providing potential recruiters a clear view of my expertise and passion for the game industry.</p>
-				<a class="arrow-link" href="about_me.html">Learn more about me</a>
+				<a class="arrow-button-small" href="about_me.html">Learn more about me<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 			</div>
 		</div>
 	</div>
@@ -36,27 +36,30 @@ tag_highlight: unity
             {% else %}
                 {% assign posts = site.posts | sort 'date' | reverse %}
             {% endif %}
+			{% assign firstPost = posts[0] %}
 			<!-- Main Article -->
 			<div class="row" style="padding-bottom: 50px;">
 				<div class="col-sm-12 col-md-6">
-					{% if posts[0].thumbnail %}
-						<img src="/assets/images/{{ posts[0].thumbnail }}" style="border-radius: 16px;">
+					{% if firstPost.thumbnail %}
+						<img src="/assets/images/{{ firstPost.thumbnail }}" style="border-radius: 16px;">
 					{% else %}
 						<img src="/assets/images/missing-image-placeholder.jpg" style="border-radius: 16px;">
 					{% endif %}
 				</div>
 				<div class="col-sm-12 col-md-6">
-				<h1 style="margin-bottom: 0px;">{{ posts[0].title }}</h1>
-				<span class="date">{{ posts[0].date | date: date_format }} | </span>
-				<span class="tags">
-					{% for tag in posts[0].tags %}
-					{% capture tag_name %}{{ tag }}{% endcapture %}
-						<a href="/tag/{{ tag_name }}" class="tag">{{ tag_name }}</a>&nbsp;
-					{% endfor %}
-				</span>
-				<p style="margin-top: 20px;">{{ posts[0].description }}</p>
+				<h1 style="margin-bottom: 0px;">{{ firstPost.title }}</h1>
+				<div>
+					<span class="tags">
+						{% for tag in firstPost.tags %}
+						{% capture tag_name %}{{ tag }}{% endcapture %}
+							<a href="/tag/{{ tag_name }}" class="tag">{{ tag_name }}</a>&nbsp;
+						{% endfor %}
+					</span>
+					<span class="date" style="margin-left: auto; margin-right: 0px;">{{ firstPost.date | date: date_format }}</span>
+				</div>
+				<p style="margin-top: 20px;">{{ firstPost.description }}</p>
 				<div class="arrow-button-medium">
-					<a href="{{ posts[0].url | relative_url }}">Read More</a>
+					<a href="{{ firstPost.url | relative_url }}">Read More</a>
 					<i class="fa fa-arrow-right" aria-hidden="true"></i>
 				</div>
 				</div>
@@ -72,7 +75,7 @@ tag_highlight: unity
 			</div> 
 			<div class="row">
 				<div class="col-sm-12 col-md-12" style="display: flex; align-items: flex-end;">
-					<span><a class="arrow-link" href="blog.html">Read articles, post mortem, tutorial</a></span>
+					<span><a class="arrow-button-small" href="blog.html">Read articles, post mortem, tutorial<i class="fa fa-angle-right" aria-hidden="true"></i></a></span> 
 				</div>
 			</div>
 			<div class="col-sm-12 col-md-12">
@@ -219,7 +222,7 @@ tag_highlight: unity
 			<div class="row">
 				<div class="col-sm-12 col-md-6">
 					<h2>C#</h2>
-					<a href="/language/csharp" class="arrow-link" style="padding-left:20px;">More projects about C#</a>
+					<a href="/language/csharp" class="arrow-button-small" style="padding-left:20px;">More projects about C#<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 					{%- assign interestingProject = site.projects | sort: "last_update" | where: 'languages', csharp  | reverse -%}
 					{%- for project in interestingProject limit:3 -%}
 							{% include project-card-horizontal.html project = project%}
@@ -227,7 +230,7 @@ tag_highlight: unity
 				</div>
 				<div class="col-sm-12 col-md-6" style="border-left: 1px solid grey;">
 					<h2>C++</h2>
-					<a href="/language/cpp" class="arrow-link" style="padding-left:20px;">Read articles about C++</a>
+					<a href="/language/cpp" class="arrow-button-small" style="padding-left:20px;">Read articles about C++<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 					{%- assign interestingProject = site.posts | sort: "last_update" | where: 'languages', cpp  | reverse -%}
 					{%- for project in interestingProject limit:3 -%}
 							{% include project-card-horizontal.html project = project%}
@@ -244,7 +247,7 @@ tag_highlight: unity
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-12" style="margin-bottom: 15px;">
-					<h1 style="margin-bottom: 0px;">Projects</h1><a class="arrow-link" href="projects.html">Find more projects</a>
+					<h1 style="margin-bottom: 0px;">Projects</h1><a class="arrow-button-small" href="projects.html">Find more projects<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 				</div>
 			</div>
 			<div class="row">
