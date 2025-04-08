@@ -1,0 +1,3 @@
+{% assign background_color = site.data.tags[include.tag].background-color | default: "#3498db" %}
+{% assign color = site.data.tags[include.tag].color | default: "#3498db" %}
+<a href="/tag/{{ include.tag }}" class="tag" style="--background-color: {{ background_color }}; --color: {{ color }}">{{ include.tag }}</a>

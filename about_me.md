@@ -54,8 +54,8 @@ title: About Me
 								<h4 class="experience-title">Associate Lead Programmer - Old Skull Games<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description">I manage small teams of programmers through regular one-on-one meetings and oversee project management activities such as sprint planning, milestone prioritization, and client discussions to accurately understand their needs. Additionally, I contribute to organizing our programming team by establishing comprehensive guidelines and drafting a coding style guide. Alongside these leadership duties, I continue to practice tool programming and collaborate closely with various teams to ensure our solutions meet their evolving requirements.</p>
 								<div class="tags">
-									<a href="/tag/tools" class="tag">tools</a>
-									<a href="/tag/unity" class="tag">unity</a>
+									{% include tag.html tag="tools" %}
+									{% include tag.html tag="unity" %}
 								</div>
 							</div>
 						</a>
@@ -70,8 +70,8 @@ title: About Me
 								<h4 class="experience-title">Occasional Trainer - Game Sup<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description">I had the opportunity to deliver concise, focused modules on specialized topics. One module, in particular, centered on applying procedural generation techniques to Roguelike projects.</p>
 								<div class="tags">
-									<a href="/tag/unity" class="tag">unity</a>
-									<a href="/tag/pcg" class="tag">pcg</a>
+									{% include tag.html tag="unity" %}
+									{% include tag.html tag="pcg" %}
 								</div>
 							</div>
 						</a>
@@ -86,8 +86,8 @@ title: About Me
 								<h4 class="experience-title">Tools Programmer - Old Skull Games<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description">I continued to work closely with multidisciplinary teams. I focused on understanding their workflows to design and implement solutions that boosted productivity and allowed them to concentrate on adding value. For exemple, I developed a 2D level editor, implemented systems for audio integration within levels, and created several quality-of-life enhancements in Unity. Additionally, I built shared tools used across multiple projects, ensuring they were robust, stable, and compatible with various development pipelines</p>
 								<div class="tags">
-									<a href="/tag/tools" class="tag">tools</a>
-									<a href="/tag/unity" class="tag">unity</a>
+									{% include tag.html tag="tools" %}
+									{% include tag.html tag="unity" %}
 								</div>
 							</div>
 						</a>
@@ -102,9 +102,9 @@ title: About Me
 								<h4 class="experience-title">Gameplay Programmer - Old Skull Games<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description">I collaborated closely with multidisciplinary teams to create engaging free-to-play mobile games using Unity. I contributed to the development of game modes, boss, and implemented enemy behaviors.</p>
 								<div class="tags">
-									<a href="/tag/ai" class="tag">ai</a>
-									<a href="/tag/unity" class="tag">unity</a>
-									<a href="/tag/pcg" class="tag">pcg</a>
+									{% include tag.html tag="ai" %}
+									{% include tag.html tag="unity" %}
+									{% include tag.html tag="pcg" %}
 								</div>
 							</div>
 						</a>
@@ -119,9 +119,9 @@ title: About Me
 								<h4 class="experience-title">Supervisore Game Programming Section - SAE Institute Geneva<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description"> I continued delivering my advanced courses on procedural generation and artificial intelligence, while also introducing foundational training in Unity and C++. In this role, I closely mentored first-year students by preparing, administering, and grading their exams, ensuring they built a solid technical foundation alongside advanced concepts.</p>
 								<div class="tags">
-									<a href="/tag/ai" class="tag">ai</a>
-									<a href="/tag/unity" class="tag">unity</a>
-									<a href="/tag/pcg" class="tag">pcg</a>
+									{% include tag.html tag="ai" %}
+									{% include tag.html tag="unity" %}
+									{% include tag.html tag="pcg" %}
 								</div>
 							</div>
 						</a>
@@ -130,15 +130,15 @@ title: About Me
 					<div class="experience">
 						<a href="https://www.sae.edu/ch-ge/" target="_blank">
 							<div class="experience-date">
-								<p>FEB 2019 - APR 2019</p>
+								<p>FEB 2019 - APR 2019</p> 
 							</div>
 							<div>
 								<h4 class="experience-title">Teacher Game Programming - SAE Institute Geneva<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description">I taught two modules that allowed me to share my technical expertise with aspiring game developers. In one module, I focused on procedural generation and artificial intelligence in video games, guiding students to create a project that combined both techniques. In the other module, centered on mathematics and physics, the final assignment challenged them to build a 2D physics engine in C++.</p>
 								<div class="tags">
-									<a href="/tag/ai" class="tag">ai</a>
-									<a href="/tag/unity" class="tag">unity</a>
-									<a href="/tag/pcg" class="tag">pcg</a>
+									{% include tag.html tag="ai" %}
+									{% include tag.html tag="unity" %}
+									{% include tag.html tag="pcg" %}
 								</div>
 							</div>
 						</a>
@@ -153,9 +153,9 @@ title: About Me
 								<h4 class="experience-title">Gameplay Programmer - Team Kwa Kwa<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description">During this project, I build an open world by iterating on a mix of handcrafted design and procedural generation techniques. I also developed my first dialogue creation tool, which streamlined the narrative process. This work even allowed me to showcase the project at industry events such as Ludicious and Nordic Games.</p>
 								<div class="tags">
-									<a href="/tag/ai" class="tag">ai</a>
-									<a href="/tag/unity" class="tag">unity</a>
-									<a href="/tag/pcg" class="tag">pcg</a>
+									{% include tag.html tag="ai" %}
+									{% include tag.html tag="unity" %}
+									{% include tag.html tag="pcg" %}
 								</div>
 							</div>
 						</a>
@@ -170,8 +170,8 @@ title: About Me
 								<h4 class="experience-title">Gameplay Programmer - Oniro Forge<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description"> I began my career as a Gameplay Programmer on an innovative VR project. In a tight-knit team of four, I had the chance to be involved in every aspect of game development—from designing new features and building immersive scenes to implementing enemy behaviors.</p>
 								<div class="tags">
-									<a href="/tag/ai" class="tag">ai</a>
-									<a href="/tag/unity" class="tag">unity</a>
+									{% include tag.html tag="ai" %}
+									{% include tag.html tag="unity" %}
 								</div>
 							</div>
 						</a>
@@ -216,8 +216,8 @@ title: About Me
 								<h4 class="experience-title">Bachelor of Science<i class="fa fa-angle-right" aria-hidden="true"></i></h4>
 								<p class="experience-description">I earned my Bachelor of Science at SAE Institute in Geneva, with a focus on video game development. I worked mainly with C# in Unity and used C++ on custom game engines. I also took courses in game design and project management.</p>
 								<div class="tags">
-									<a href="/tag/unity" class="tag">unity</a>
-									<a href="/tag/game-engine" class="tag">game engine</a>
+									{% include tag.html tag="unity" %}
+									{% include tag.html tag="game engine" %}
 								</div>
 							</div>
 						</a>

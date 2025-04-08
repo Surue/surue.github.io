@@ -52,7 +52,8 @@ tag_highlight: unity
 					<span class="tags">
 						{% for tag in firstPost.tags %}
 						{% capture tag_name %}{{ tag }}{% endcapture %}
-							<a href="/tag/{{ tag_name }}" class="tag">{{ tag_name }}</a>&nbsp;
+							{% assign tag_color = site.data.tags[tag_name].color | default: "#3498db" %}
+							<a href="/tag/{{ tag_name }}" class="tag" style="--tag-color: {{ tag_color }};">{{ tag_name }}</a>&nbsp;
 						{% endfor %}
 					</span>
 					<span class="date" style="margin-left: auto; margin-right: 0px;">{{ firstPost.date | date: date_format }}</span>

@@ -1,24 +1,39 @@
 ai: 
   description: "TODO"
-  color: "#e74c3c"       # Red
+  background-color: "#e74c3c"   # Rouge vif
+  color: "#f9b3ab"              # Rouge rosé clair
+
 c++:
-  description: "Even though I'm not working with c++ every day, it stays as one of my favorites language. I've worked on different projects throughout schools and some personnal projects later on."
-  color: "#3498db"       # Blue
+  description: "Even though I'm not working with c++ every day, it stays as one of my favorites language. I've worked on different projects throughout schools and some personal projects later on."
+  background-color: "#3498db"   # Bleu clair
+  color: "#a3d5f7"              # Bleu pastel clair
+
 game-engine:
   description: "TODO"
-  color: "#e67e22"       # Orange
+  background-color: "#e67e22"   # Orange
+  color: "#f5cba7"              # Orange beige doux
+
 optimization:
   description: "TODO"
-  color: "#34495e"       # Bleu ardoise
+  background-color: "#34495e"   # Bleu ardoise foncé
+  color: "#95a5b3"              # Ardoise clair/gris bleuté
+
 post-mortem:
   description: "TODO"
-  color: "#7f8c8d"       # Gray
+  background-color: "#7f8c8d"   # Gris moyen
+  color: "#cfd6d6"              # Gris clair argenté
+
 pcg:
   description: "TODO"
-  color: "#9b59b6"       # Violet
+  background-color: "#9b59b6"   # Violet
+  color: "#d7bde2"              # Lavande pâle
+
 unity:
   description: "TODO"
-  color: "#2ecc71"       # Green
+  background-color: "#2ecc71"   # Vert
+  color: "#a6eec3"              # Vert menthe clair
+
 tools: 
   description : "TODO"
-  color: "#1abc9c"       # Turquoise
+  background-color: "#1abc9c"   # Turquoise
+  color: "#a2ede0"              # Bleu-vert pâle

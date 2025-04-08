@@ -8,8 +8,7 @@
 			<p class="experience-description">{{ include.project.description }}</p>
 			<div class="tags">
 				{% for tag in include.project.tags %}
-				{% capture tag_name %}{{ tag }}{% endcapture %}
-					<a href="/tag/{{ tag_name }}" class="tag">{{ tag_name }}</a>&nbsp;
+					{% include tag.html tag=tag %}
 				{% endfor %}
 			</div>
 		</div>

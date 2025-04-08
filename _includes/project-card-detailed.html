@@ -1,6 +1,4 @@
-{% assign main_tag = include.project.tags[0] %}
-{% assign bar_color = site.data.tags[main_tag].color | default: "#3498db" %}
-<div class="post-card-detailed" style="--card-bar: {{ bar_color }};">
+<div class="post-card-detailed">
 	{% if include.project.thumbnail %}
 		<img src="/assets/images/{{ include.project.thumbnail }}" class="card-img">
 	{% else %}
@@ -17,8 +15,7 @@
 		</div>
 		<div class="tags">
 			{% for tag in include.project.tags %}
-			{% capture tag_name %}{{ tag }}{% endcapture %}
-				<a href="/tag/{{ tag_name }}" class="tag">{{ tag_name }}</a>&nbsp;
+				{% include tag.html tag=tag %}
 			{% endfor %}
 		
 		</div>
