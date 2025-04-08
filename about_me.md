@@ -177,7 +177,7 @@ title: About Me
 						</a>
 					</div>
 					<div>
-						<a href="../assets/pdfs/CV_2.pdf" target="_blank" class="arrow-arrow-button-small">View My Full Resume<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+						<a href="../assets/pdfs/CV_2.pdf" target="_blank" class="arrow-button-small">View My Full Resume<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 					</div>
 				</section>
 				<!-- Projects -->
@@ -193,7 +193,7 @@ title: About Me
 					{% assign selected_project = site.projects | where:"title", "Raid Heroes" | first %}
 					{% include project-card-horizontal.html project = selected_project %}
 					<div>
-						<a href="projects.html" class="arrow-button-small-link">View All My Projects<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+						<a href="projects.html" class="arrow-button-small">View All My Projects<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 					</div>
 				</section>
 				<!-- Education & Formations -->
