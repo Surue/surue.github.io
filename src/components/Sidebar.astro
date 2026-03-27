@@ -1,0 +1,51 @@
+---
+import { navigation, site, socialLinks } from '@/data/site';
+
+type Props = {
+  currentPath: string;
+};
+
+const { currentPath } = Astro.props;
+
+const isActive = (href: string) => {
+  if (href === '/') {
+    return currentPath === '/';
+  }
+
+  return currentPath.startsWith(href);
+};
+---
+
+<aside class="shell-sidebar" aria-label="Primary navigation">
+  <div class="shell-sidebar__panel">
+    <a class="shell-sidebar__identity" href="/">
+      <span class="shell-sidebar__monogram">NS</span>
+      <span>
+        <strong>{site.title}</strong>
+        <small>{site.role}</small>
+      </span>
+    </a>
+
+    <nav class="shell-nav">
+      {
+        navigation.map((item) => (
+          <a class:list={[ 'shell-nav__link', { 'is-active': isActive(item.href) } ]} href={item.href}>
+            <span>{item.label}</span>
+            <small>{item.description}</small>
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="shell-sidebar__meta">
+      <p>{site.company}</p>
+      <div class="shell-sidebar__socials">
+        {
+          socialLinks.map((item) => (
+            <a href={item.href} target="_blank" rel="noreferrer">{item.label}</a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</aside>

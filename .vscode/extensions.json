@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "esbenp.prettier-vscode",
+    "redhat.vscode-yaml",
+    "davidanson.vscode-markdownlint",
+    "usernamehw.errorlens"
+  ]
+}

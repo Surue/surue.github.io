@@ -1,0 +1,30 @@
+---
+import { tagMap } from '@/data/tags';
+
+type Props = {
+  slug: string;
+  href?: string;
+};
+
+const { slug, href } = Astro.props;
+const tag = tagMap[slug] ?? {
+  label: slug,
+  description: '',
+  background: '#273444',
+  foreground: '#d6e2ee',
+};
+
+const style = `--tag-background:${tag.background}; --tag-foreground:${tag.foreground};`;
+---
+
+{
+  href ? (
+    <a class="tag-pill" href={href} style={style}>
+      {tag.label}
+    </a>
+  ) : (
+    <span class="tag-pill" style={style}>
+      {tag.label}
+    </span>
+  )
+}

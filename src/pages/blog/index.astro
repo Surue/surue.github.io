@@ -1,0 +1,29 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ContentCard from '@/components/ContentCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts'))
+  .filter((entry) => !entry.data.draft)
+  .sort((left, right) => right.data.date.getTime() - left.data.date.getTime());
+---
+
+<BaseLayout title="Blog" description="Articles, tutorials, and technical notes migrated from the current Jekyll site.">
+  <section class="card">
+    <p class="eyebrow">Collection status</p>
+    <h2 class="section-title">Posts collection is ready</h2>
+    <p class="section-copy">
+      The Astro collection schema exists. The next step is migrating markdown entries from the Jekyll posts folder and
+      converting Liquid-specific links and image references.
+    </p>
+    {
+      posts.length === 0 ? (
+        <div class="empty-state">No Astro posts have been migrated yet.</div>
+      ) : (
+        <div class="content-grid">
+          {posts.map((post) => <ContentCard eyebrow="Article" entry={post} href={`/blog/${post.slug}/`} />)}
+        </div>
+      )
+    }
+  </section>
+</BaseLayout>

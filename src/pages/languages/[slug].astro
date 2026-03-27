@@ -1,0 +1,59 @@
+---
+import ContentCard from '@/components/ContentCard.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const languages = (await getCollection('languages')).filter((entry) => !entry.data.draft);
+
+  return languages.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const slug = entry.slug;
+const posts = (await getCollection('posts'))
+  .filter((item) => !item.data.draft && item.data.languages.includes(slug))
+  .sort((left, right) => right.data.date.getTime() - left.data.date.getTime());
+const projects = (await getCollection('projects'))
+  .filter((item) => !item.data.draft && item.data.languages.includes(slug))
+  .sort((left, right) => (right.data.last_update?.getTime() ?? 0) - (left.data.last_update?.getTime() ?? 0));
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description ?? undefined}>
+  <section class="card">
+    <p class="eyebrow">Language focus</p>
+    <div class="content-body">
+      <Content />
+    </div>
+  </section>
+
+  <section class="group-stack">
+    <div class="group-header">
+      <p class="eyebrow">Projects</p>
+      <h2 class="section-title">Project work in {entry.data.title}</h2>
+    </div>
+    <div class="content-grid">
+      {projects.map((project) => <ContentCard eyebrow="Project" entry={project} href={`/projects/${project.slug}/`} />)}
+    </div>
+  </section>
+
+  <section class="group-stack">
+    <div class="group-header">
+      <p class="eyebrow">Articles</p>
+      <h2 class="section-title">Writing related to {entry.data.title}</h2>
+    </div>
+    {
+      posts.length > 0 ? (
+        <div class="content-grid">
+          {posts.map((post) => <ContentCard eyebrow="Article" entry={post} href={`/blog/${post.slug}/`} />)}
+        </div>
+      ) : (
+        <div class="empty-state">No published Astro article currently targets this language.</div>
+      )
+    }
+  </section>
+</BaseLayout>

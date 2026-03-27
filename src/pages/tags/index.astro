@@ -1,0 +1,20 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import TagPill from '@/components/TagPill.astro';
+import { orderedTagSlugs, tagMap } from '@/data/tags';
+---
+
+<BaseLayout title="Tags" description="Browse the site by topic across posts and projects.">
+  <section class="card definition-list">
+    <p class="eyebrow">Taxonomy</p>
+    <h2 class="section-title">Topics used across the portfolio and blog</h2>
+    {
+      orderedTagSlugs.map((slug) => (
+        <div>
+          <TagPill slug={slug} href={`/tags/${slug}/`} />
+          <span>{tagMap[slug].description}</span>
+        </div>
+      ))
+    }
+  </section>
+</BaseLayout>

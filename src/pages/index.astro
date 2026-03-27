@@ -1,0 +1,133 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ContentCard from '@/components/ContentCard.astro';
+import { featuredTopics, migrationSteps, site, socialLinks } from '@/data/site';
+import { getCollection } from 'astro:content';
+
+const featuredPosts = (await getCollection('posts'))
+  .filter((entry) => !entry.data.draft)
+  .sort((left, right) => right.data.date.getTime() - left.data.date.getTime())
+  .slice(0, 3);
+
+const featuredProjects = (await getCollection('projects'))
+  .filter((entry) => !entry.data.draft)
+  .sort((left, right) => (right.data.last_update?.getTime() ?? 0) - (left.data.last_update?.getTime() ?? 0))
+  .slice(0, 3);
+---
+
+<BaseLayout title={site.title} description={site.tagline}>
+  <section class="hero">
+    <div class="hero-panel hero-copy">
+      <p class="eyebrow">Portfolio and technical writing</p>
+      <h2>Modernizing the site architecture without losing the original intent.</h2>
+      <p class="lede">
+        The new Astro foundation focuses on readability, simpler navigation, and a cleaner publishing workflow.
+        This first implementation pass creates the root project, the shell layout, and the content model that
+        will replace the current Jekyll templates.
+      </p>
+      <div class="chip-row">
+        {featuredTopics.map((topic) => <span class="chip">{topic}</span>)}
+      </div>
+      <div class="cta-row">
+        <a class="button" href="/projects/">Browse projects</a>
+        <a class="button-secondary" href="/blog/">Read articles</a>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <div class="hero-stats">
+        <div class="metric">
+          <strong>5</strong>
+          <span>migration steps identified</span>
+        </div>
+        <div class="metric">
+          <strong>15+</strong>
+          <span>project pages to migrate</span>
+        </div>
+        <div class="metric">
+          <strong>5</strong>
+          <span>articles ready to move first</span>
+        </div>
+        <div class="metric">
+          <strong>1</strong>
+          <span>repo kept for the full transition</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="split-grid">
+    <article class="split-panel">
+      <p class="eyebrow">Current implementation</p>
+      <h2 class="section-title">What is already in place</h2>
+      <ol class="status-list">
+        {migrationSteps.map((step) => <li>{step}</li>)}
+      </ol>
+    </article>
+
+    <article class="split-panel">
+      <p class="eyebrow">Publishing stack</p>
+      <h2 class="section-title">What changes next</h2>
+      <ol class="status-list">
+        <li>Move content from Jekyll folders into Astro content collections.</li>
+        <li>Replace Liquid-driven pages with reusable Astro routes and components.</li>
+        <li>Deploy the static build through GitHub Actions instead of implicit Jekyll publishing.</li>
+      </ol>
+    </article>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <p class="eyebrow">Navigation</p>
+      <h3>Sharper information architecture</h3>
+      <p>
+        The new shell keeps a persistent sidebar but removes the coupling to Jekyll includes and inline styling.
+        The next step is to bring tags, content groupings, and related links into Astro routes.
+      </p>
+    </article>
+    <article class="card">
+      <p class="eyebrow">Styling</p>
+      <h3>Native CSS, lower maintenance cost</h3>
+      <p>
+        The styling system now starts from CSS variables and component-friendly classes instead of theme overrides,
+        Liquid templates, and a custom grid layer.
+      </p>
+    </article>
+    <article class="card">
+      <p class="eyebrow">Tooling</p>
+      <h3>Repo and editor ready for Astro</h3>
+      <p>
+        This root setup adds Astro scripts, a GitHub Pages workflow, and a VS Code configuration so the repo can
+        progressively stop behaving like a Jekyll-only project.
+      </p>
+    </article>
+  </section>
+
+  <section class="group-stack">
+    <div class="group-header">
+      <p class="eyebrow">Recent writing</p>
+      <h2 class="section-title">Latest published articles</h2>
+    </div>
+    <div class="content-grid">
+      {featuredPosts.map((post) => <ContentCard eyebrow="Article" entry={post} href={`/blog/${post.slug}/`} />)}
+    </div>
+  </section>
+
+  <section class="group-stack">
+    <div class="group-header">
+      <p class="eyebrow">Selected work</p>
+      <h2 class="section-title">Projects across school and production</h2>
+    </div>
+    <div class="content-grid">
+      {featuredProjects.map((project) => <ContentCard eyebrow="Project" entry={project} href={`/projects/${project.slug}/`} />)}
+    </div>
+  </section>
+
+  <section class="card">
+    <p class="eyebrow">Contact</p>
+    <h2 class="section-title">Primary links</h2>
+    <div class="chip-row">
+      {socialLinks.map((link) => <a class="chip" href={link.href} target="_blank" rel="noreferrer">{link.label}</a>)}
+    </div>
+  </section>
+</BaseLayout>

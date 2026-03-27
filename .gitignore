@@ -1,8 +1,7 @@
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
+node_modules
+dist
+.astro
+npm-debug.log*
 
 # Created by https://www.toptal.com/developers/gitignore/api/sublimetext
 # Edit at https://www.toptal.com/developers/gitignore?templates=sublimetext

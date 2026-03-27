@@ -1,0 +1,44 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ContentCard from '@/components/ContentCard.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .filter((entry) => !entry.data.draft)
+  .sort(
+    (left, right) =>
+      (right.data.last_update?.getTime() ?? 0) - (left.data.last_update?.getTime() ?? 0),
+  );
+
+const projectGroups = [
+  { key: 'pro', title: 'Professional projects' },
+  { key: 'school', title: 'School projects' },
+  { key: 'jam', title: 'Jam projects' },
+  { key: 'perso', title: 'Personal projects' },
+].map((group) => ({
+  ...group,
+  entries: projects.filter((project) => project.data.type === group.key),
+}));
+---
+
+<BaseLayout title="Projects" description="Selected games, tools, engine work, and technical experiments.">
+  {
+    projectGroups.map((group) => (
+      <section class="group-stack">
+        <div class="group-header">
+          <p class="eyebrow">{group.key}</p>
+          <h2 class="section-title">{group.title}</h2>
+        </div>
+        {
+          group.entries.length > 0 ? (
+            <div class="content-grid">
+              {group.entries.map((project) => <ContentCard eyebrow="Project" entry={project} href={`/projects/${project.slug}/`} />)}
+            </div>
+          ) : (
+            <div class="empty-state">No Astro entries in this project group yet.</div>
+          )
+        }
+      </section>
+    ))
+  }
+</BaseLayout>

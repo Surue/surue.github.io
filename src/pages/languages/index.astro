@@ -1,0 +1,23 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const languages = (await getCollection('languages')).filter((entry) => !entry.data.draft);
+---
+
+<BaseLayout title="Languages" description="Browse the portfolio by programming language.">
+  <section class="content-grid">
+    {
+      languages.map((language) => (
+        <article class="card">
+          <p class="eyebrow">Language</p>
+          <h3>
+            <a href={`/languages/${language.slug}/`}>{language.data.title}</a>
+          </h3>
+          <p>{language.data.description}</p>
+          <a class="button-secondary" href={`/languages/${language.slug}/`}>Open</a>
+        </article>
+      ))
+    }
+  </section>
+</BaseLayout>

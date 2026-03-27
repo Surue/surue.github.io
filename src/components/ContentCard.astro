@@ -1,0 +1,63 @@
+---
+import TagPill from '@/components/TagPill.astro';
+
+type EntryData = {
+  title: string;
+  description?: string;
+  excerpt?: string;
+  tags?: string[];
+  thumbnail?: string;
+  type?: string;
+  role?: string;
+  date?: Date;
+  last_update?: Date;
+};
+
+type Props = {
+  href: string;
+  eyebrow: string;
+  entry: {
+    data: EntryData;
+  };
+};
+
+const { href, eyebrow, entry } = Astro.props;
+const summary = entry.data.description ?? entry.data.excerpt ?? 'No summary available yet.';
+const meta = entry.data.date ?? entry.data.last_update;
+---
+
+<article class="content-card card">
+  {
+    entry.data.thumbnail ? (
+      <a class="content-card__media" href={href}>
+        <img src={entry.data.thumbnail} alt={entry.data.title} loading="lazy" />
+      </a>
+    ) : null
+  }
+  <div class="content-card__body">
+    <p class="eyebrow">{eyebrow}</p>
+    <h3>
+      <a href={href}>{entry.data.title}</a>
+    </h3>
+    {
+      entry.data.role || entry.data.type || meta ? (
+        <p class="content-card__meta">
+          {entry.data.role ?? entry.data.type ?? ''}
+          {entry.data.role && entry.data.type ? ' | ' : ''}
+          {entry.data.type && !entry.data.role ? entry.data.type : ''}
+          {(entry.data.role || entry.data.type) && meta ? ' | ' : ''}
+          {meta ? meta.toLocaleDateString('en-GB') : ''}
+        </p>
+      ) : null
+    }
+    <p>{summary}</p>
+    {
+      entry.data.tags && entry.data.tags.length > 0 ? (
+        <div class="tag-row">
+          {entry.data.tags.map((tag) => <TagPill slug={tag} href={`/tags/${tag}/`} />)}
+        </div>
+      ) : null
+    }
+    <a class="button-secondary" href={href}>Open</a>
+  </div>
+</article>
