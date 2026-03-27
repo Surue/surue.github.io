@@ -1,20 +1,20 @@
 ---
-import Sidebar from '@/components/Sidebar.astro';
-import '@/styles/global.css';
-import { site } from '@/data/site';
+import Sidebar from "@/components/Sidebar.astro";
+import "@/styles/global.css";
+import { site } from "@/data/site";
 
 type Props = {
-  title: string;
-  description?: string;
-  eyebrow?: string;
-  showHeader?: boolean;
+    title: string;
+    description?: string;
+    eyebrow?: string;
+    showHeader?: boolean;
 };
 
 const {
-  title,
-  description = site.description,
-  eyebrow = 'Portfolio',
-  showHeader = true,
+    title,
+    description = site.description,
+    eyebrow = "Portfolio",
+    showHeader = true,
 } = Astro.props;
 const pageTitle = title === site.title ? title : `${title} | ${site.title}`;
 const currentPath = Astro.url.pathname;
@@ -22,29 +22,29 @@ const currentPath = Astro.url.pathname;
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <div class="shell">
-      <Sidebar currentPath={currentPath} />
-      <div class="shell-main">
-        {
-          showHeader ? (
-            <header class="page-header">
-              <p class="page-header__eyebrow">{eyebrow}</p>
-              <h1>{title}</h1>
-              <p>{description}</p>
-            </header>
-          ) : null
-        }
-        <main>
-          <slot />
-        </main>
-      </div>
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content={description} />
+        <title>{pageTitle}</title>
+    </head>
+    <body>
+        <div class="shell">
+            <Sidebar currentPath={currentPath} />
+            <div class="shell-main">
+                {
+                    showHeader ? (
+                        <header class="page-header">
+                            <p class="page-header__eyebrow">{eyebrow}</p>
+                            <h1>{title}</h1>
+                            <p>{description}</p>
+                        </header>
+                    ) : null
+                }
+                <main>
+                    <slot />
+                </main>
+            </div>
+        </div>
+    </body>
 </html>

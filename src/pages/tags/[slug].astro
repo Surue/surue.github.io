@@ -1,75 +1,101 @@
 ---
-import ContentCard from '@/components/ContentCard.astro';
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import TagPill from '@/components/TagPill.astro';
-import { tagMap } from '@/data/tags';
-import { getCollection } from 'astro:content';
+import ContentCard from "@/components/ContentCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import TagPill from "@/components/TagPill.astro";
+import { tagMap } from "@/data/tags";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = (await getCollection('posts')).filter((entry) => !entry.data.draft);
-  const projects = (await getCollection('projects')).filter((entry) => !entry.data.draft);
-  const slugs = new Set<string>();
+    const posts = (await getCollection("posts")).filter(
+        (entry) => !entry.data.draft,
+    );
+    const projects = (await getCollection("projects")).filter(
+        (entry) => !entry.data.draft,
+    );
+    const slugs = new Set<string>();
 
-  for (const entry of [...posts, ...projects]) {
-    for (const tag of entry.data.tags) {
-      slugs.add(tag);
+    for (const entry of [...posts, ...projects]) {
+        for (const tag of entry.data.tags) {
+            slugs.add(tag);
+        }
     }
-  }
 
-  return [...slugs].map((slug) => ({ params: { slug } }));
+    return [...slugs].map((slug) => ({ params: { slug } }));
 }
 
 const { slug } = Astro.params;
-const posts = (await getCollection('posts'))
-  .filter((entry) => !entry.data.draft && entry.data.tags.includes(slug!))
-  .sort((left, right) => right.data.date.getTime() - left.data.date.getTime());
-const projects = (await getCollection('projects'))
-  .filter((entry) => !entry.data.draft && entry.data.tags.includes(slug!))
-  .sort((left, right) => (right.data.last_update?.getTime() ?? 0) - (left.data.last_update?.getTime() ?? 0));
+const posts = (await getCollection("posts"))
+    .filter((entry) => !entry.data.draft && entry.data.tags.includes(slug!))
+    .sort(
+        (left, right) => right.data.date.getTime() - left.data.date.getTime(),
+    );
+const projects = (await getCollection("projects"))
+    .filter((entry) => !entry.data.draft && entry.data.tags.includes(slug!))
+    .sort(
+        (left, right) =>
+            (right.data.last_update?.getTime() ?? 0) -
+            (left.data.last_update?.getTime() ?? 0),
+    );
 const tag = tagMap[slug!] ?? {
-  label: slug ?? 'Tag',
-  description: 'No description provided for this topic yet.',
+    label: slug ?? "Tag",
+    description: "No description provided for this topic yet.",
 };
 ---
 
 <BaseLayout title={tag.label} description={tag.description}>
-  <section class="card">
-    <p class="eyebrow">Tag page</p>
-    <div class="page-grid">
-      <TagPill slug={slug!} />
-      <p class="section-copy">{tag.description}</p>
-    </div>
-  </section>
-
-  <section class="group-stack">
-    <div class="group-header">
-      <p class="eyebrow">Projects</p>
-      <h2 class="section-title">Projects using this topic</h2>
-    </div>
-    {
-      projects.length > 0 ? (
-        <div class="content-grid">
-          {projects.map((project) => <ContentCard eyebrow="Project" entry={project} href={`/projects/${project.slug}/`} />)}
+    <section class="card">
+        <p class="eyebrow">Tag page</p>
+        <div class="page-grid">
+            <TagPill slug={slug!} />
+            <p class="section-copy">{tag.description}</p>
         </div>
-      ) : (
-        <div class="empty-state">No project currently uses this tag in the Astro content set.</div>
-      )
-    }
-  </section>
+    </section>
 
-  <section class="group-stack">
-    <div class="group-header">
-      <p class="eyebrow">Articles</p>
-      <h2 class="section-title">Posts using this topic</h2>
-    </div>
-    {
-      posts.length > 0 ? (
-        <div class="content-grid">
-          {posts.map((post) => <ContentCard eyebrow="Article" entry={post} href={`/blog/${post.slug}/`} />)}
+    <section class="group-stack">
+        <div class="group-header">
+            <p class="eyebrow">Projects</p>
+            <h2 class="section-title">Projects using this topic</h2>
         </div>
-      ) : (
-        <div class="empty-state">No article currently uses this tag in the Astro content set.</div>
-      )
-    }
-  </section>
+        {
+            projects.length > 0 ? (
+                <div class="content-grid">
+                    {projects.map((project) => (
+                        <ContentCard
+                            eyebrow="Project"
+                            entry={project}
+                            href={`/projects/${project.slug}/`}
+                        />
+                    ))}
+                </div>
+            ) : (
+                <div class="empty-state">
+                    No project currently uses this tag in the Astro content set.
+                </div>
+            )
+        }
+    </section>
+
+    <section class="group-stack">
+        <div class="group-header">
+            <p class="eyebrow">Articles</p>
+            <h2 class="section-title">Posts using this topic</h2>
+        </div>
+        {
+            posts.length > 0 ? (
+                <div class="content-grid">
+                    {posts.map((post) => (
+                        <ContentCard
+                            eyebrow="Article"
+                            entry={post}
+                            href={`/blog/${post.slug}/`}
+                        />
+                    ))}
+                </div>
+            ) : (
+                <div class="empty-state">
+                    No article currently uses this tag in the Astro content set.
+                </div>
+            )
+        }
+    </section>
 </BaseLayout>

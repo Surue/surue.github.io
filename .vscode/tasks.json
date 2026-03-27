@@ -1,26 +1,26 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Astro: dev",
-      "type": "shell",
-      "command": "npm.cmd",
-      "args": [
-        "run",
-        "dev"
-      ],
-      "isBackground": true,
-      "problemMatcher": []
-    },
-    {
-      "label": "Astro: build",
-      "type": "shell",
-      "command": "npm.cmd",
-      "args": [
-        "run",
-        "build"
-      ],
-      "problemMatcher": []
-    }
-  ]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Astro: dev",
+            "type": "shell",
+            "command": "npm.cmd",
+            "args": [
+                "run",
+                "dev"
+            ],
+            "isBackground": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "Astro: build",
+            "type": "shell",
+            "command": "npm.cmd",
+            "args": [
+                "run",
+                "build"
+            ],
+            "problemMatcher": []
+        }
+    ]
 }

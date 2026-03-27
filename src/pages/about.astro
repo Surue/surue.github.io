@@ -1,128 +1,190 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import ContentCard from '@/components/ContentCard.astro';
-import TagPill from '@/components/TagPill.astro';
-import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
-import { aboutIntro, aboutSections, education, experiences, highlightedProjectSlugs, skillCards } from '@/data/about';
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ContentCard from "@/components/ContentCard.astro";
+import TagPill from "@/components/TagPill.astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import {
+    aboutIntro,
+    aboutSections,
+    education,
+    experiences,
+    highlightedProjectSlugs,
+    skillCards,
+} from "@/data/about";
 
-const allProjects = await getCollection('projects');
+const allProjects = await getCollection("projects");
 const highlightedProjects = highlightedProjectSlugs
-  .map((slug) => allProjects.find((entry) => entry.slug === slug))
-  .filter((project): project is CollectionEntry<'projects'> => Boolean(project));
+    .map((slug) => allProjects.find((entry) => entry.slug === slug))
+    .filter((project): project is CollectionEntry<"projects"> =>
+        Boolean(project),
+    );
 ---
 
 <BaseLayout
-  title="About"
-  description="Career summary, teaching experience, and the editorial direction of the portfolio and game development blog."
+    title="About"
+    description="Career summary, teaching experience, and the editorial direction of the portfolio and game development blog."
 >
-  <section class="about-shell">
-    <aside class="about-sidebar card">
-      <div class="about-sidebar__intro">
-        <p class="eyebrow">Profile</p>
-        <h2 class="section-title">Nicolas Schneider</h2>
-        <p class="section-copy">Associate Lead Programmer focused on tools, workflows, and technical delivery.</p>
-      </div>
+    <section class="about-shell">
+        <aside class="about-sidebar card">
+            <div class="about-sidebar__intro">
+                <p class="eyebrow">Profile</p>
+                <h2 class="section-title">Nicolas Schneider</h2>
+                <p class="section-copy">
+                    Associate Lead Programmer focused on tools, workflows, and
+                    technical delivery.
+                </p>
+            </div>
 
-      <nav class="about-toc" aria-label="About page sections">
-        {
-          aboutSections.map((section) => (
-            <a href={`#${section.id}`}>{section.label}</a>
-          ))
-        }
-      </nav>
-
-      <div class="about-sidebar__actions">
-        <a class="button" href="/assets/pdfs/CV_2.pdf" target="_blank" rel="noreferrer">Open resume</a>
-        <a class="button-secondary" href="/projects/">Browse projects</a>
-      </div>
-    </aside>
-
-    <div class="about-content">
-      <section id="profile" class="card page-grid">
-        <p class="eyebrow">Profile</p>
-        <h2 class="section-title">Tools, gameplay, and team-facing development</h2>
-        {aboutIntro.map((paragraph) => <p class="section-copy">{paragraph}</p>)}
-      </section>
-
-      <section id="experience" class="group-stack">
-        <div class="group-header">
-          <p class="eyebrow">Experience</p>
-          <h2 class="section-title">Industry, teaching, and leadership</h2>
-        </div>
-        <div class="timeline-cards">
-          {
-            experiences.map((experience) => (
-              <article class="card timeline-card">
-                <p class="eyebrow">{experience.period}</p>
-                <h3>
-                  <a href={experience.href} target="_blank" rel="noreferrer">{experience.title} - {experience.company}</a>
-                </h3>
-                <p>{experience.description}</p>
-                <div class="tag-row">
-                  {experience.tags.map((tag) => <TagPill slug={tag} href={`/tags/${tag}/`} />)}
-                </div>
-              </article>
-            ))
-          }
-        </div>
-      </section>
-
-      <section id="projects" class="group-stack">
-        <div class="group-header">
-          <p class="eyebrow">Highlighted work</p>
-          <h2 class="section-title">Projects that reflect current production focus</h2>
-        </div>
-        <div class="content-grid">
-          {highlightedProjects.map((project) => <ContentCard eyebrow="Project" entry={project} href={`/projects/${project.slug}/`} />)}
-        </div>
-      </section>
-
-      <section id="education" class="group-stack">
-        <div class="group-header">
-          <p class="eyebrow">Education</p>
-          <h2 class="section-title">Training and formal education</h2>
-        </div>
-        <div class="timeline-cards">
-          {
-            education.map((item) => (
-              <article class="card timeline-card">
-                <p class="eyebrow">{item.period}</p>
+            <nav class="about-toc" aria-label="About page sections">
                 {
-                  item.href ? (
-                    <h3><a href={item.href} target="_blank" rel="noreferrer">{item.title}</a></h3>
-                  ) : (
-                    <h3>{item.title}</h3>
-                  )
+                    aboutSections.map((section) => (
+                        <a href={`#${section.id}`}>{section.label}</a>
+                    ))
                 }
-                <p>{item.description}</p>
-              </article>
-            ))
-          }
-        </div>
-      </section>
+            </nav>
 
-      <section id="skills" class="group-stack">
-        <div class="group-header">
-          <p class="eyebrow">Skills</p>
-          <h2 class="section-title">A practical mix of engineering and delivery</h2>
-        </div>
-        <div class="skill-grid">
-          {
-            skillCards.map((skill) => (
-              <article class="card skill-card">
-                <div class="skill-card__header">
-                  <img src={skill.icon} alt={skill.title} loading="lazy" />
-                  <h3>{skill.title}</h3>
+            <div class="about-sidebar__actions">
+                <a
+                    class="button"
+                    href="/assets/pdfs/CV_2.pdf"
+                    target="_blank"
+                    rel="noreferrer">Open resume</a
+                >
+                <a class="button-secondary" href="/projects/">Browse projects</a
+                >
+            </div>
+        </aside>
+
+        <div class="about-content">
+            <section id="profile" class="card page-grid">
+                <p class="eyebrow">Profile</p>
+                <h2 class="section-title">
+                    Tools, gameplay, and team-facing development
+                </h2>
+                {
+                    aboutIntro.map((paragraph) => (
+                        <p class="section-copy">{paragraph}</p>
+                    ))
+                }
+            </section>
+
+            <section id="experience" class="group-stack">
+                <div class="group-header">
+                    <p class="eyebrow">Experience</p>
+                    <h2 class="section-title">
+                        Industry, teaching, and leadership
+                    </h2>
                 </div>
-                <ul class="stack-list">
-                  {skill.items.map((item) => <li>{item}</li>)}
-                </ul>
-              </article>
-            ))
-          }
+                <div class="timeline-cards">
+                    {
+                        experiences.map((experience) => (
+                            <article class="card timeline-card">
+                                <p class="eyebrow">{experience.period}</p>
+                                <h3>
+                                    <a
+                                        href={experience.href}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        {experience.title} -{" "}
+                                        {experience.company}
+                                    </a>
+                                </h3>
+                                <p>{experience.description}</p>
+                                <div class="tag-row">
+                                    {experience.tags.map((tag) => (
+                                        <TagPill
+                                            slug={tag}
+                                            href={`/tags/${tag}/`}
+                                        />
+                                    ))}
+                                </div>
+                            </article>
+                        ))
+                    }
+                </div>
+            </section>
+
+            <section id="projects" class="group-stack">
+                <div class="group-header">
+                    <p class="eyebrow">Highlighted work</p>
+                    <h2 class="section-title">
+                        Projects that reflect current production focus
+                    </h2>
+                </div>
+                <div class="content-grid">
+                    {
+                        highlightedProjects.map((project) => (
+                            <ContentCard
+                                eyebrow="Project"
+                                entry={project}
+                                href={`/projects/${project.slug}/`}
+                            />
+                        ))
+                    }
+                </div>
+            </section>
+
+            <section id="education" class="group-stack">
+                <div class="group-header">
+                    <p class="eyebrow">Education</p>
+                    <h2 class="section-title">Training and formal education</h2>
+                </div>
+                <div class="timeline-cards">
+                    {
+                        education.map((item) => (
+                            <article class="card timeline-card">
+                                <p class="eyebrow">{item.period}</p>
+                                {item.href ? (
+                                    <h3>
+                                        <a
+                                            href={item.href}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            {item.title}
+                                        </a>
+                                    </h3>
+                                ) : (
+                                    <h3>{item.title}</h3>
+                                )}
+                                <p>{item.description}</p>
+                            </article>
+                        ))
+                    }
+                </div>
+            </section>
+
+            <section id="skills" class="group-stack">
+                <div class="group-header">
+                    <p class="eyebrow">Skills</p>
+                    <h2 class="section-title">
+                        A practical mix of engineering and delivery
+                    </h2>
+                </div>
+                <div class="skill-grid">
+                    {
+                        skillCards.map((skill) => (
+                            <article class="card skill-card">
+                                <div class="skill-card__header">
+                                    <img
+                                        src={skill.icon}
+                                        alt={skill.title}
+                                        loading="lazy"
+                                    />
+                                    <h3>{skill.title}</h3>
+                                </div>
+                                <ul class="stack-list">
+                                    {skill.items.map((item) => (
+                                        <li>{item}</li>
+                                    ))}
+                                </ul>
+                            </article>
+                        ))
+                    }
+                </div>
+            </section>
         </div>
-      </section>
-    </div>
-  </section>
+    </section>
 </BaseLayout>
