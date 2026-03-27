@@ -13,6 +13,7 @@ languages:
   - csharp
 thumbnail: /assets/images/projects/team_kwa_kwa/battle.png
 company: Team Kwa Kwa
+featured: false
 draft: false
 ---
 

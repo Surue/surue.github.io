@@ -1,0 +1,159 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import TagPill from "@/components/TagPill.astro";
+
+type Props = {
+  title: string;
+  description?: string;
+  role?: string;
+  type?: "pro" | "school" | "jam" | "perso";
+  lastUpdate?: Date;
+  thumbnail?: string;
+  tags?: string[];
+  languages?: string[];
+  github?: string;
+  gitlab?: string;
+  steam?: string;
+  company?: string;
+  jamName?: string;
+};
+
+const {
+  title,
+  description,
+  role,
+  type,
+  lastUpdate,
+  thumbnail,
+  tags = [],
+  languages = [],
+  github,
+  gitlab,
+  steam,
+  company,
+  jamName,
+} = Astro.props;
+
+const typeLabels: Record<string, string> = {
+  pro: "Professional",
+  school: "School project",
+  jam: "Game jam",
+  perso: "Personal project",
+};
+const typeLabel = type ? (typeLabels[type] ?? type) : null;
+const formattedDate = lastUpdate
+  ? lastUpdate.toLocaleDateString("en-GB", { year: "numeric", month: "long" })
+  : null;
+
+const companyUrl =
+  company && /^https?:\/\//.test(company) ? company : undefined;
+
+const links = [
+  github && { href: github, label: "GitHub" },
+  gitlab && { href: gitlab, label: "GitLab" },
+  steam && { href: steam, label: "Steam" },
+  companyUrl && { href: companyUrl, label: "Company page" },
+].filter(Boolean) as { href: string; label: string }[];
+
+const hasMeta = role || typeLabel || formattedDate || jamName;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="project-shell">
+    <header class="project-hero card">
+      <p class="eyebrow">Project</p>
+      <h1 class="article-title">{title}</h1>
+
+      {description ? <p class="lede lede--wide">{description}</p> : null}
+
+      {
+        hasMeta ? (
+          <div class="project-meta-grid">
+            {role ? (
+              <div class="project-meta-item">
+                <strong>Role</strong>
+                <span>{role}</span>
+              </div>
+            ) : null}
+            {typeLabel ? (
+              <div class="project-meta-item">
+                <strong>Type</strong>
+                <span>{typeLabel}</span>
+              </div>
+            ) : null}
+            {formattedDate ? (
+              <div class="project-meta-item">
+                <strong>Last updated</strong>
+                <span>{formattedDate}</span>
+              </div>
+            ) : null}
+            {jamName ? (
+              <div class="project-meta-item">
+                <strong>Game jam</strong>
+                <span>{jamName}</span>
+              </div>
+            ) : null}
+            {company && !companyUrl ? (
+              <div class="project-meta-item">
+                <strong>Studio</strong>
+                <span>{company}</span>
+              </div>
+            ) : null}
+          </div>
+        ) : null
+      }
+
+      {
+        links.length > 0 ? (
+          <div class="project-links">
+            {links.map((link, i) => (
+              <a
+                class={`project-link${i === 0 ? " project-link--primary" : ""}`}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {link.label} ↗
+              </a>
+            ))}
+          </div>
+        ) : null
+      }
+
+      {
+        tags.length > 0 || languages.length > 0 ? (
+          <div class="tag-row">
+            {tags.map((tag) => (
+              <TagPill slug={tag} href={`/tags/${tag}/`} />
+            ))}
+            {languages.map((lang) => (
+              <TagPill slug={lang} href={`/languages/${lang}/`} />
+            ))}
+          </div>
+        ) : null
+      }
+
+      {
+        thumbnail ? (
+          <img
+            class="article-thumbnail"
+            src={thumbnail}
+            alt={title}
+            loading="eager"
+          />
+        ) : null
+      }
+    </header>
+
+    <div class="article-body">
+      <div class="prose">
+        <slot />
+      </div>
+    </div>
+
+    <footer class="article-footer card">
+      <p class="eyebrow">Navigation</p>
+      <a class="button-secondary" href="/projects/">← All projects</a>
+    </footer>
+  </article>
+</BaseLayout>

@@ -2,217 +2,233 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ContentCard from "@/components/ContentCard.astro";
 import TagPill from "@/components/TagPill.astro";
-import { featuredTopics, migrationSteps, site, socialLinks } from "@/data/site";
+import { featuredTopics, site, socialLinks } from "@/data/site";
 import { getCollection } from "astro:content";
 
-const featuredPosts = (await getCollection("posts"))
-    .filter((entry) => !entry.data.draft)
-    .sort((left, right) => right.data.date.getTime() - left.data.date.getTime())
-    .slice(0, 3);
+const allPosts = (await getCollection("posts"))
+  .filter((entry) => !entry.data.draft)
+  .sort((left, right) => right.data.date.getTime() - left.data.date.getTime());
 
-const featuredProjects = (await getCollection("projects"))
-    .filter((entry) => !entry.data.draft)
-    .sort(
-        (left, right) =>
-            (right.data.last_update?.getTime() ?? 0) -
-            (left.data.last_update?.getTime() ?? 0),
-    )
-    .slice(0, 3);
+const featuredPosts = allPosts
+  .filter((entry) => entry.data.featured)
+  .slice(0, 3);
 
-const latestPost = featuredPosts[0];
-const totalPosts = (await getCollection("posts")).filter(
-    (entry) => !entry.data.draft,
-).length;
-const totalProjects = (await getCollection("projects")).filter(
-    (entry) => !entry.data.draft,
-).length;
+const latestPosts = (featuredPosts.length > 0 ? featuredPosts : allPosts).slice(
+  0,
+  3,
+);
+
+const allProjects = (await getCollection("projects"))
+  .filter((entry) => !entry.data.draft)
+  .sort(
+    (left, right) =>
+      (right.data.last_update?.getTime() ?? 0) -
+      (left.data.last_update?.getTime() ?? 0),
+  );
+
+const featuredProjects = allProjects
+  .filter((entry) => entry.data.featured)
+  .slice(0, 3);
+
+const latestProjects = (
+  featuredProjects.length > 0 ? featuredProjects : allProjects
+).slice(0, 3);
+
+const latestPost = allPosts[0];
+const coursePosts = allPosts.filter((entry) => entry.data.type === "course");
+const devlogPosts = allPosts.filter(
+  (entry) => entry.data.type === "devlog" || entry.data.type === "note",
+);
+const totalPosts = allPosts.length;
+const totalProjects = allProjects.length;
+const totalTags = new Set([
+  ...allPosts.flatMap((entry) => entry.data.tags),
+  ...allProjects.flatMap((entry) => entry.data.tags),
+]).size;
+
+const changelogEntries = [
+  {
+    title: "Transition from Jekyll to Astro",
+    version: "v2026.03",
+    date: "2026-03-27",
+  },
+  {
+    title: "Update Overall Layout",
+    version: "v2026.03",
+    date: "2026-03-27",
+  },
+];
 ---
 
-<BaseLayout title={site.title} description={site.tagline} showHeader={false}>
-    <section class="hero hero--editorial">
-        <div class="hero-panel hero-copy hero-copy--feature">
-            <p class="eyebrow">Portfolio and technical writing</p>
-            <h1 class="display-title">
-                Tools, gameplay systems, and game development notes that stay
-                readable.
-            </h1>
-            <p class="lede lede--wide">
-                This site now presents the portfolio and blog as one coherent
-                knowledge base: shipped work, technical articles, production
-                lessons, and the systems thinking behind them.
-            </p>
-            <div class="chip-row">
-                {
-                    featuredTopics.map((topic) => (
-                        <span class="chip">{topic}</span>
-                    ))
-                }
-            </div>
-            <div class="cta-row">
-                <a class="button" href="/projects/">Browse projects</a>
-                <a class="button-secondary" href="/blog/">Read articles</a>
-            </div>
-            <div class="hero-stats hero-stats--wide">
-                <div class="metric metric--accent">
-                    <strong>{totalProjects}</strong>
-                    <span>projects in the portfolio</span>
-                </div>
-                <div class="metric">
-                    <strong>{totalPosts}</strong>
-                    <span>published technical articles</span>
-                </div>
-                <div class="metric">
-                    <strong>{featuredTopics.length}</strong>
-                    <span>core themes across the site</span>
-                </div>
-            </div>
+<BaseLayout title={site.title} description={site.tagline}>
+  <section class="hero hero--editorial">
+    <div class="hero-panel hero-copy hero-copy--feature">
+      <p class="eyebrow">Game dev knowledge base</p>
+      <h1 class="display-title">
+        Patch notes for code, tools, and production reality.
+      </h1>
+      <p class="lede lede--wide">
+        Articles and courses now sit at the center of the site. The goal is
+        simple: make technical reading durable, searchable, and pleasant enough
+        to survive long sessions without eye fatigue.
+      </p>
+      <div class="chip-row">
+        {featuredTopics.map((topic) => <span class="chip">{topic}</span>)}
+      </div>
+      <div class="cta-row">
+        <a class="button" href="/projects/">Browse projects</a>
+        <a class="button-secondary" href="/blog/">Read articles</a>
+      </div>
+      <div class="hero-stats hero-stats--wide">
+        <div class="metric metric--accent">
+          <strong>{totalPosts}</strong>
+          <span>published editorial entries</span>
         </div>
+        <div class="metric">
+          <strong>{totalProjects}</strong>
+          <span>projects documented with context</span>
+        </div>
+        <div class="metric">
+          <strong>{totalTags}</strong>
+          <span>topics to branch your reading path</span>
+        </div>
+      </div>
+    </div>
 
+    {
+      latestPost ? (
+        <aside class="hero-panel feature-panel">
+          <p class="eyebrow">Now loading</p>
+          {latestPost.data.thumbnail ? (
+            <img
+              class="feature-panel__image"
+              src={latestPost.data.thumbnail}
+              alt={latestPost.data.title}
+            />
+          ) : null}
+          <h2>{latestPost.data.title}</h2>
+          <p>{latestPost.data.description ?? latestPost.data.excerpt}</p>
+          <div class="tag-row">
+            {latestPost.data.tags.map((tag) => (
+              <TagPill slug={tag} href={`/tags/${tag}/`} />
+            ))}
+          </div>
+          <a class="button-secondary" href={`/blog/${latestPost.slug}/`}>
+            Continue reading
+          </a>
+        </aside>
+      ) : null
+    }
+  </section>
+
+  <section class="terminal-banner card">
+    <p class="eyebrow">Build output</p>
+    <pre>{`$ npm run build
+✓ articles loaded     : ${totalPosts}
+✓ projects indexed    : ${totalProjects}
+✓ topic hubs compiled : ${totalTags}
+✓ status              : stable (no rage quit detected)`}</pre>
+  </section>
+
+  <section class="split-grid">
+    <article class="split-panel split-panel--soft">
+      <p class="eyebrow">Reader paths</p>
+      <h2 class="section-title">
+        Pick your run before diving into the archive
+      </h2>
+      <div class="path-grid">
+        <article class="path-card card">
+          <p class="eyebrow">Learning mode</p>
+          <h3>Courses and structured write-ups</h3>
+          <p class="path-card__meta">
+            {coursePosts.length} entries marked as course format.
+          </p>
+          <a class="button-secondary" href="/blog/">Open course path</a>
+        </article>
+        <article class="path-card card">
+          <p class="eyebrow">Quick updates</p>
+          <h3>Devlogs and concise notes</h3>
+          <p class="path-card__meta">
+            {devlogPosts.length} entries optimized for fast reads.
+          </p>
+          <a class="button-secondary" href="/blog/">Open devlogs</a>
+        </article>
+        <article class="path-card card">
+          <p class="eyebrow">Production context</p>
+          <h3>Projects linked to real constraints</h3>
+          <p class="path-card__meta">
+            Browse implementation choices from shipped and prototype work.
+          </p>
+          <a class="button-secondary" href="/projects/">Open project index</a>
+        </article>
+      </div>
+    </article>
+
+    <article class="split-panel split-panel--accent">
+      <p class="eyebrow">Patch notes</p>
+      <h2 class="section-title">Current build highlights</h2>
+      <ul class="changelog-list">
         {
-            latestPost ? (
-                <aside class="hero-panel feature-panel">
-                    <p class="eyebrow">Latest article</p>
-                    {latestPost.data.thumbnail ? (
-                        <img
-                            class="feature-panel__image"
-                            src={latestPost.data.thumbnail}
-                            alt={latestPost.data.title}
-                        />
-                    ) : null}
-                    <h2>{latestPost.data.title}</h2>
-                    <p>
-                        {latestPost.data.description ?? latestPost.data.excerpt}
-                    </p>
-                    <div class="tag-row">
-                        {latestPost.data.tags.map((tag) => (
-                            <TagPill slug={tag} href={`/tags/${tag}/`} />
-                        ))}
-                    </div>
-                    <a
-                        class="button-secondary"
-                        href={`/blog/${latestPost.slug}/`}
-                    >
-                        Read latest article
-                    </a>
-                </aside>
-            ) : null
+          changelogEntries.map((entry) => (
+            <li>
+              <strong>{entry.title}</strong>
+              <span class="changelog-meta">
+                Updated · {entry.version} · {entry.date}
+              </span>
+            </li>
+          ))
         }
-    </section>
+      </ul>
+    </article>
+  </section>
 
-    <section class="split-grid">
-        <article class="split-panel split-panel--soft">
-            <p class="eyebrow">How to use the site</p>
-            <h2 class="section-title">
-                Start with the angle that matches your intent
-            </h2>
-            <ol class="status-list">
-                <li>
-                    Use <strong>Projects</strong> to review shipped work, prototypes,
-                    and technical roles.
-                </li>
-                <li>
-                    Use <strong>Blog</strong> to read engine, AI, multithreading,
-                    and post-mortem content.
-                </li>
-                <li>
-                    Use <strong>Tags</strong> and <strong>Languages</strong> to jump
-                    directly to a specific topic.
-                </li>
-            </ol>
-        </article>
+  <section class="group-stack">
+    <div class="group-header">
+      <p class="eyebrow">Recent writing</p>
+      <h2 class="section-title">Latest published entries</h2>
+    </div>
+    <div class="content-grid">
+      {
+        latestPosts.map((post) => (
+          <ContentCard
+            eyebrow={post.data.type === "course" ? "Course" : "Article"}
+            entry={post}
+            href={`/blog/${post.slug}/`}
+          />
+        ))
+      }
+    </div>
+  </section>
 
-        <article class="split-panel split-panel--accent">
-            <p class="eyebrow">Current foundation</p>
-            <h2 class="section-title">What is already rebuilt in Astro</h2>
-            <ol class="status-list">
-                {migrationSteps.map((step) => <li>{step}</li>)}
-            </ol>
-        </article>
-    </section>
+  <section class="group-stack">
+    <div class="group-header">
+      <p class="eyebrow">Selected work</p>
+      <h2 class="section-title">Projects across school and production</h2>
+    </div>
+    <div class="content-grid">
+      {
+        latestProjects.map((project) => (
+          <ContentCard
+            eyebrow="Project"
+            entry={project}
+            href={`/projects/${project.slug}/`}
+          />
+        ))
+      }
+    </div>
+  </section>
 
-    <section class="grid grid--feature-cards">
-        <article class="card">
-            <p class="eyebrow">Navigation</p>
-            <h3>Less hunting, faster orientation</h3>
-            <p>
-                The sidebar is now the stable spine of the site. Portfolio,
-                articles, tags, and language views share the same information
-                architecture instead of behaving like separate islands.
-            </p>
-        </article>
-        <article class="card">
-            <p class="eyebrow">Styling</p>
-            <h3>Custom CSS without framework drag</h3>
-            <p>
-                The design system now relies on tokens, reusable panels, and
-                card components. It stays simple to maintain but leaves room for
-                stronger visual direction than the old Jekyll theme ever
-                allowed.
-            </p>
-        </article>
-        <article class="card">
-            <p class="eyebrow">Publishing</p>
-            <h3>Push-based workflow remains intact</h3>
-            <p>
-                The repository now builds and deploys through GitHub Actions
-                while preserving public URLs that mattered in the old site. The
-                publishing model stays simple even though the stack is cleaner.
-            </p>
-        </article>
-    </section>
-
-    <section class="group-stack">
-        <div class="group-header">
-            <p class="eyebrow">Recent writing</p>
-            <h2 class="section-title">Latest published articles</h2>
-        </div>
-        <div class="content-grid">
-            {
-                featuredPosts.map((post) => (
-                    <ContentCard
-                        eyebrow="Article"
-                        entry={post}
-                        href={`/blog/${post.slug}/`}
-                    />
-                ))
-            }
-        </div>
-    </section>
-
-    <section class="group-stack">
-        <div class="group-header">
-            <p class="eyebrow">Selected work</p>
-            <h2 class="section-title">Projects across school and production</h2>
-        </div>
-        <div class="content-grid">
-            {
-                featuredProjects.map((project) => (
-                    <ContentCard
-                        eyebrow="Project"
-                        entry={project}
-                        href={`/projects/${project.slug}/`}
-                    />
-                ))
-            }
-        </div>
-    </section>
-
-    <section class="card card--contact">
-        <p class="eyebrow">Contact</p>
-        <h2 class="section-title">Primary links</h2>
-        <div class="chip-row">
-            {
-                socialLinks.map((link) => (
-                    <a
-                        class="chip"
-                        href={link.href}
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        {link.label}
-                    </a>
-                ))
-            }
-        </div>
-    </section>
+  <section class="card card--contact">
+    <p class="eyebrow">Contact</p>
+    <h2 class="section-title">Primary links</h2>
+    <div class="chip-row">
+      {
+        socialLinks.map((link) => (
+          <a class="chip" href={link.href} target="_blank" rel="noreferrer">
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+  </section>
 </BaseLayout>

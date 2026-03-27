@@ -2,22 +2,75 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import TagPill from "@/components/TagPill.astro";
 import { orderedTagSlugs, tagMap } from "@/data/tags";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("posts")).filter(
+  (entry) => !entry.data.draft,
+);
+const projects = (await getCollection("projects")).filter(
+  (entry) => !entry.data.draft,
+);
+
+const countMap = new Map<string, { posts: number; projects: number }>();
+
+for (const post of posts) {
+  for (const tag of post.data.tags) {
+    const current = countMap.get(tag) ?? { posts: 0, projects: 0 };
+    current.posts += 1;
+    countMap.set(tag, current);
+  }
+}
+
+for (const project of projects) {
+  for (const tag of project.data.tags) {
+    const current = countMap.get(tag) ?? { posts: 0, projects: 0 };
+    current.projects += 1;
+    countMap.set(tag, current);
+  }
+}
+
+const allSlugs = [...new Set([...orderedTagSlugs, ...countMap.keys()])];
+
+const tags = allSlugs
+  .map((slug) => {
+    const count = countMap.get(slug) ?? { posts: 0, projects: 0 };
+    const meta = tagMap[slug] ?? {
+      label: slug,
+      description: "No editorial description written for this topic yet.",
+    };
+
+    return {
+      slug,
+      label: meta.label,
+      description: meta.description,
+      posts: count.posts,
+      projects: count.projects,
+      total: count.posts + count.projects,
+    };
+  })
+  .sort(
+    (left, right) =>
+      right.total - left.total || left.label.localeCompare(right.label),
+  );
 ---
 
 <BaseLayout
-    title="Tags"
-    description="Browse the site by topic across posts and projects."
+  title="Tags"
+  description="Browse the site by topic across posts and projects."
 >
-    <section class="card definition-list">
-        <p class="eyebrow">Taxonomy</p>
-        <h2 class="section-title">Topics used across the portfolio and blog</h2>
-        {
-            orderedTagSlugs.map((slug) => (
-                <div>
-                    <TagPill slug={slug} href={`/tags/${slug}/`} />
-                    <span>{tagMap[slug].description}</span>
-                </div>
-            ))
-        }
-    </section>
+  <section class="card definition-list">
+    <p class="eyebrow">Taxonomy</p>
+    <h2 class="section-title">Topics used across the portfolio and writing</h2>
+    {
+      tags.map((tag) => (
+        <div>
+          <TagPill slug={tag.slug} href={`/tags/${tag.slug}/`} />
+          <span>
+            {tag.description} ({tag.total} total: {tag.posts} articles,{" "}
+            {tag.projects} projects)
+          </span>
+        </div>
+      ))
+    }
+  </section>
 </BaseLayout>

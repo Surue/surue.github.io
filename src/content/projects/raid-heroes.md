@@ -10,6 +10,7 @@ tags:
 languages:
   - csharp
 thumbnail: /assets/images/projects/raid_heroes/raid_heroes_thumbnail.webp
+featured: false
 draft: false
 ---
 

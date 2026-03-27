@@ -12,6 +12,7 @@ languages:
 thumbnail: /assets/images/projects/answer_knot/answer_knot.jpg
 steam: https://store.steampowered.com/app/1049400/Answer_Knot/
 company: Naraven Games
+featured: false
 draft: false
 ---
 

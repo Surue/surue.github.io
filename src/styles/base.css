@@ -1,0 +1,50 @@
+/*
+ * ─── BASE ─────────────────────────────────────────────────────────
+ * Global HTML element defaults. Body background, typography, links.
+ * ─────────────────────────────────────────────────────────────────
+ */
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right,   var(--body-accent-a), transparent 30%),
+    radial-gradient(circle at 20% 20%,     var(--body-accent-b), transparent 24%),
+    radial-gradient(circle at bottom left, var(--body-accent-c), transparent 28%),
+    linear-gradient(180deg, var(--body-from) 0%, var(--body-to) 100%);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* ── Scrollbar (Webkit) ─────────────────────────────────────────── */
+::-webkit-scrollbar          { width: 6px; height: 6px; }
+::-webkit-scrollbar-track    { background: transparent; }
+::-webkit-scrollbar-thumb    { background: rgba(104, 165, 210, 0.22); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(104, 165, 210, 0.40); }
+
+/* ── Selection ──────────────────────────────────────────────────── */
+::selection {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  color: var(--text);
+}

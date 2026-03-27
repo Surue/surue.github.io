@@ -11,6 +11,7 @@ languages:
   - cpp
 thumbnail: /assets/images/projects/nastrond/nastrond.gif
 github_repo: https://github.com/Toadsword/Nastrond/tree/develop
+featured: true
 draft: false
 ---
 

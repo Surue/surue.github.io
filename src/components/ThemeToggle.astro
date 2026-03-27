@@ -1,0 +1,38 @@
+---
+// ThemeToggle — pill button in the sidebar for switching dark ↔ light.
+// The init script lives in BaseLayout <head> to prevent FOUC.
+// This component script handles the interactive toggle only.
+---
+
+<button
+  class="theme-toggle"
+  id="theme-toggle-btn"
+  aria-label="Toggle light/dark theme"
+>
+  <span aria-hidden="true">◐</span>
+  <span id="theme-toggle-label">Light mode</span>
+</button>
+
+<script>
+  const btn = document.getElementById("theme-toggle-btn");
+  const label = document.getElementById("theme-toggle-label");
+  const html = document.documentElement;
+
+  function syncLabel() {
+    if (!label) return;
+    label.textContent =
+      html.getAttribute("data-theme") === "light" ? "Dark mode" : "Light mode";
+  }
+
+  syncLabel();
+
+  btn?.addEventListener("click", () => {
+    const current = html.getAttribute("data-theme") ?? "dark";
+    const next = current === "dark" ? "light" : "dark";
+    try {
+      localStorage.setItem("theme", next);
+    } catch (_) {}
+    html.setAttribute("data-theme", next);
+    syncLabel();
+  });
+</script>

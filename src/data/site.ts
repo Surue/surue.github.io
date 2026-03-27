@@ -52,7 +52,7 @@ export const socialLinks: SocialLink[] = [
         label: 'LinkedIn',
     },
     {
-        href: 'mailto:nicolas06062000@gmail.com',
+        href: 'mailto:nschneider@oldskullgames.com',
         label: 'Email',
     },
 ];
@@ -64,12 +64,4 @@ export const featuredTopics = [
     'Engine programming',
     'Production workflows',
     'Technical teaching',
-];
-
-export const migrationSteps = [
-    'Root Astro project and tooling scaffold',
-    'Core layout, navigation, and style system',
-    'Content collections for posts, projects, and language pages',
-    'Jekyll content migration and link cleanup',
-    'GitHub Pages deployment through GitHub Actions',
 ];

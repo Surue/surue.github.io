@@ -1,0 +1,208 @@
+/*
+ * ─── PROSE ───────────────────────────────────────────────────────
+ * Long-form reading styles.
+ * .content-body — legacy usage (project pages, language pages, about)
+ * .prose        — new article layout; adds max-width, blockquotes,
+ *                 tables, and callout components for MDX usage.
+ * ─────────────────────────────────────────────────────────────────
+ */
+
+/* ── Shared base ────────────────────────────────────────────────── */
+.content-body,
+.prose {
+  display: grid;
+  gap: 1rem;
+}
+
+.content-body h1, .content-body h2,
+.content-body h3, .content-body h4,
+.prose h1, .prose h2,
+.prose h3, .prose h4 {
+  margin: 1.25rem 0 0;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.content-body p,
+.content-body li,
+.content-body blockquote,
+.prose p,
+.prose li {
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.content-body ul,
+.content-body ol,
+.prose ul,
+.prose ol {
+  display: grid;
+  gap: 0.55rem;
+  padding-left: 1.2rem;
+}
+
+.prose li {
+  padding-left: 0.25rem;
+}
+
+.content-body a,
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.content-body a:hover,
+.prose a:hover {
+  color: var(--accent-strong);
+}
+
+/* ── Inline code ────────────────────────────────────────────────── */
+.content-body code,
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+.content-body code:not(pre code),
+.prose code:not(pre code) {
+  padding: 0.15em 0.45em;
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--accent-cool) 10%, var(--bg));
+  color: var(--text);
+}
+
+/* ── Code blocks ────────────────────────────────────────────────── */
+.content-body pre,
+.prose pre {
+  overflow-x: auto;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-md);
+  background: var(--bg-code);
+  box-shadow: var(--shadow-sm);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.content-body pre code,
+.prose pre code {
+  background: none;
+  padding: 0;
+  color: #c9d8e8;
+}
+
+/* Astro / Shiki syntax-highlighted blocks */
+.astro-code {
+  overflow-x: auto;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* ── Images ─────────────────────────────────────────────────────── */
+.content-body img,
+.prose img {
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-md);
+  background: var(--bg-soft);
+}
+
+/* ── Prose-specific additions ───────────────────────────────────── */
+.prose {
+  max-width: var(--prose-width);
+  font-size: 1.02rem;
+}
+
+.prose h1 { font-size: clamp(1.75rem, 3vw, 2.4rem); }
+.prose h2 { font-size: clamp(1.4rem, 2.2vw, 1.85rem); }
+.prose h3 { font-size: 1.25rem; }
+.prose h4 { font-size: 1.05rem; color: var(--text-muted); }
+
+/* Blockquote */
+.prose blockquote {
+  margin: 0.5rem 0;
+  padding: 0.75rem 1.25rem;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* HR */
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--panel-border);
+  margin: 2rem 0;
+}
+
+/* Tables */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  overflow-x: auto;
+  display: block;
+}
+
+.prose th,
+.prose td {
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--panel-border);
+  text-align: left;
+}
+
+.prose th {
+  background: var(--bg-soft);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.prose td {
+  color: var(--text-muted);
+}
+
+.prose tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--bg) 60%, transparent);
+}
+
+/* ── MDX callout components ─────────────────────────────────────── */
+/* Usage in .mdx: <Callout type="info">content</Callout>             */
+.callout {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--panel-border);
+  background: var(--bg-soft);
+}
+
+.callout--info {
+  border-color: color-mix(in srgb, var(--accent-cool) 40%, transparent);
+  background: color-mix(in srgb, var(--accent-cool) 8%, transparent);
+}
+
+.callout--warning {
+  border-color: color-mix(in srgb, var(--accent-warm) 40%, transparent);
+  background: color-mix(in srgb, var(--accent-warm) 8%, transparent);
+}
+
+.callout--tip {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.callout__title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.callout--info    .callout__title { color: var(--accent-cool); }
+.callout--warning .callout__title { color: var(--accent-warm); }
+.callout--tip     .callout__title { color: var(--accent); }

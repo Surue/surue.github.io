@@ -1,0 +1,214 @@
+/*
+ * ─── LAYOUT ──────────────────────────────────────────────────────
+ * Shell grid, sidebar, main column, page-level header.
+ * ─────────────────────────────────────────────────────────────────
+ */
+
+/* ── Shell ──────────────────────────────────────────────────────── */
+.shell {
+  display: grid;
+  grid-template-columns: minmax(280px, var(--sidebar-width)) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+/* ── Sidebar panel ──────────────────────────────────────────────── */
+.shell-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 1.25rem;
+}
+
+.shell-sidebar__panel {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 2rem;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-elevated);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.shell-sidebar__identity {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.shell-sidebar__identity strong,
+.shell-sidebar__identity small {
+  display: block;
+}
+
+.shell-sidebar__identity small {
+  color: var(--text-muted);
+}
+
+.shell-sidebar__monogram {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, var(--accent) 0%, #4c8dff 100%);
+  color: #081018;
+  font-weight: 800;
+}
+
+/* ── Navigation ─────────────────────────────────────────────────── */
+.shell-nav {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.shell-nav__link {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  background: var(--bg-hover);
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.shell-nav__link:hover,
+.shell-nav__link.is-active {
+  transform: translateX(2px);
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--text);
+}
+
+.shell-nav__link small {
+  color: var(--text-soft);
+  font-size: 0.85rem;
+}
+
+/* ── Sidebar meta ───────────────────────────────────────────────── */
+.shell-sidebar__meta {
+  display: grid;
+  gap: 1rem;
+  margin-top: auto;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+.shell-sidebar__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.shell-sidebar__socials a {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-pill);
+  background: var(--bg-hover);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  transition: transform 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.shell-sidebar__socials a:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  color: var(--text);
+}
+
+/* ── Main column ────────────────────────────────────────────────── */
+.shell-main {
+  width: min(100%, calc(var(--content-width) + 4rem));
+  padding: 1.25rem 2rem 4rem 0;
+}
+
+.hero h2,
+.section-title,
+.card h3 {
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+/* ── Typography helpers (used across layouts) ───────────────────── */
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+.display-title {
+  margin: 0;
+  font-size: clamp(2.75rem, 5vw, 4.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  max-width: 14ch;
+}
+
+.lede,
+.card p,
+.stack-list li,
+.timeline li,
+.status-list li {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.lede--wide {
+  max-width: 62ch;
+  font-size: 1.05rem;
+}
+
+/* ── Responsive: tablet ─────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .shell-sidebar {
+    position: static;
+    height: auto;
+    padding: 1rem 1rem 0;
+  }
+
+  .shell-main {
+    width: 100%;
+    padding: 1rem 1rem 3rem;
+  }
+
+  .hero,
+  .editorial-split,
+  .split-grid,
+  .about-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .about-sidebar {
+    position: static;
+  }
+}
+
+/* ── Responsive: mobile ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .hero-panel,
+  .split-panel,
+  .card,
+  .shell-sidebar__panel {
+    padding: 1.15rem;
+  }
+
+  .display-title {
+    font-size: clamp(2.25rem, 9vw, 3.2rem);
+  }
+}

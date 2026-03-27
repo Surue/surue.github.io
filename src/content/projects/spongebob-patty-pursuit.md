@@ -11,6 +11,7 @@ tags:
 languages:
   - csharp
 thumbnail: /assets/images/projects/spongebob_patty_pursuit/spongebob_patty_pursuit_thumbnail.webp
+featured: false
 draft: false
 ---
 

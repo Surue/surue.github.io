@@ -3,9 +3,14 @@ title: "Procedural Generation : Designing levels using graphs"
 description: Draft article about using mathematical graphs to design procedural levels, with Dead Cells and Spelunky as reference points.
 excerpt: How mathematical graphs can be used to design levels when using procedural generation.
 date: 2026-03-27
+updated: 2026-03-27
 tags:
   - pcg
 languages: []
+thumbnail: /assets/images/projects/space_dwarf/space_dwarf.png
+type: article
+level: intermediate
+featured: false
 draft: true
 ---
 

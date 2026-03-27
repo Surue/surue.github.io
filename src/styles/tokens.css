@@ -1,0 +1,95 @@
+/*
+ * ─── TOKENS ──────────────────────────────────────────────────────
+ * Design system custom properties.
+ * Default colour scheme: dark (IDE / terminal aesthetic).
+ * Light theme overrides are applied via [data-theme="light"] on <html>.
+ * ─────────────────────────────────────────────────────────────────
+ */
+
+:root {
+  /* ── Surfaces ──────────────────────────────────────────────── */
+  --bg:             #0c1117;
+  --bg-elevated:    rgba(16, 23, 34, 0.94);
+  --bg-soft:        rgba(24, 33, 48, 0.72);
+  --bg-soft-strong: rgba(30, 42, 60, 0.90);
+  --bg-code:        rgba(5, 8, 14, 0.96);
+  --bg-hover:       rgba(255, 255, 255, 0.025);
+
+  /* ── Text ──────────────────────────────────────────────────── */
+  --text:       #dce8f2;
+  --text-muted: #8aa4bc;
+  --text-soft:  #5c7086;
+
+  /* ── Accents ───────────────────────────────────────────────── */
+  --accent:        #5de8a8;
+  --accent-strong: #1bbf7c;
+  --accent-warm:   #e8a24a;
+  --accent-cool:   #6aaff0;
+
+  /* ── Borders & shadows ─────────────────────────────────────── */
+  --panel-border: rgba(104, 165, 210, 0.15);
+  --shadow:       0 20px 70px rgba(0, 4, 14, 0.55);
+  --shadow-sm:    0 4px 20px rgba(0, 4, 14, 0.40);
+
+  /* ── Body gradient fragments (swapped per theme) ───────────── */
+  --body-accent-a: rgba(93, 232, 168, 0.12);
+  --body-accent-b: rgba(106, 175, 240, 0.14);
+  --body-accent-c: rgba(232, 162, 74, 0.10);
+  --body-from:     #0f1520;
+  --body-to:       #09101a;
+
+  /* ── Typography ────────────────────────────────────────────── */
+  --font-sans: "Segoe UI", "Inter", "Aptos", system-ui, sans-serif;
+  --font-mono: "Cascadia Code", "Consolas", "Fira Code", monospace;
+
+  /* ── Spacing scale ─────────────────────────────────────────── */
+  --sp-1:  0.25rem;
+  --sp-2:  0.5rem;
+  --sp-3:  0.75rem;
+  --sp-4:  1rem;
+  --sp-5:  1.25rem;
+  --sp-6:  1.5rem;
+  --sp-8:  2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+
+  /* ── Border radius ─────────────────────────────────────────── */
+  --radius-sm:   10px;
+  --radius-md:   18px;
+  --radius-lg:   28px;
+  --radius-pill: 999px;
+
+  /* ── Layout ────────────────────────────────────────────────── */
+  --content-width: 1120px;
+  --sidebar-width: 320px;
+  --prose-width:   72ch;
+}
+
+/* ── Light theme ────────────────────────────────────────────────── */
+[data-theme="light"] {
+  --bg:             #f0f3f8;
+  --bg-elevated:    #ffffff;
+  --bg-soft:        rgba(210, 220, 235, 0.8);
+  --bg-soft-strong: rgba(195, 208, 230, 0.9);
+  --bg-code:        #1a2234;
+  --bg-hover:       rgba(0, 0, 0, 0.025);
+
+  --text:       #1c2836;
+  --text-muted: #4e6478;
+  --text-soft:  #7b93a8;
+
+  --accent:        #0c8f64;
+  --accent-strong: #096b4a;
+  --accent-warm:   #9b5c14;
+  --accent-cool:   #1e68b5;
+
+  --panel-border: rgba(28, 45, 65, 0.16);
+  --shadow:       0 4px 28px rgba(28, 45, 65, 0.13);
+  --shadow-sm:    0 2px 12px rgba(28, 45, 65, 0.10);
+
+  --body-accent-a: rgba(0, 160, 100, 0.04);
+  --body-accent-b: rgba(30, 100, 190, 0.04);
+  --body-accent-c: transparent;
+  --body-from:     #f0f3f8;
+  --body-to:       #e8ecf3;
+}

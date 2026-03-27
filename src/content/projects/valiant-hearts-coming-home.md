@@ -12,6 +12,7 @@ tags:
 languages:
   - csharp
 thumbnail: /assets/images/projects/valiant_hearts/valiant_hearts_thumbnail.jpg
+featured: false
 draft: false
 ---
 

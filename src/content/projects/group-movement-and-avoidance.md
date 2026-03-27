@@ -12,6 +12,7 @@ languages:
   - csharp
 thumbnail: /assets/images/projects/ai_group_movement/first_ai_movement.gif
 github: https://github.com/Surue/WarEconomy
+featured: true
 draft: false
 ---
 

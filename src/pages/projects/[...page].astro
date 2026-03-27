@@ -1,0 +1,120 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ContentCard from "@/components/ContentCard.astro";
+import PaginationNav from "@/components/PaginationNav.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import type { GetStaticPaths, Page } from "astro";
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const projects = (await getCollection("projects"))
+    .filter((entry) => !entry.data.draft)
+    .sort(
+      (left, right) =>
+        (right.data.last_update?.getTime() ?? 0) -
+        (left.data.last_update?.getTime() ?? 0),
+    );
+
+  const groupedCount = {
+    pro: projects.filter((project) => project.data.type === "pro").length,
+    school: projects.filter((project) => project.data.type === "school").length,
+    jam: projects.filter((project) => project.data.type === "jam").length,
+    perso: projects.filter((project) => project.data.type === "perso").length,
+  };
+
+  const highlightedProjects = projects.slice(0, 3);
+
+  return paginate(projects, {
+    pageSize: 9,
+    props: { groupedCount, highlightedProjects },
+  });
+};
+
+const { page, groupedCount, highlightedProjects } = Astro.props as {
+  page: Page<CollectionEntry<"projects">>;
+  groupedCount: Record<"pro" | "school" | "jam" | "perso", number>;
+  highlightedProjects: CollectionEntry<"projects">[];
+};
+const projects = page.data;
+---
+
+<BaseLayout
+  title={page.currentPage === 1
+    ? "Projects"
+    : `Projects - page ${page.currentPage}`}
+  description="Selected games, tools, engine work, and technical experiments."
+>
+  <section class="editorial-split">
+    <article class="hero-panel hero-copy hero-copy--feature">
+      <p class="eyebrow">Project index</p>
+      <h2 class="section-title">
+        Portfolio projects sorted for scanning, not only chronology.
+      </h2>
+      <p class="lede">
+        When the catalogue grows, grouped metrics and pagination keep the
+        portfolio readable. Browse by role, context, and update date.
+      </p>
+      <div class="hero-stats hero-stats--wide">
+        <div class="metric metric--accent">
+          <strong>{groupedCount.pro}</strong>
+          <span>professional projects</span>
+        </div>
+        <div class="metric">
+          <strong>{groupedCount.school}</strong>
+          <span>school projects</span>
+        </div>
+        <div class="metric">
+          <strong>{groupedCount.jam}</strong>
+          <span>jam projects</span>
+        </div>
+      </div>
+    </article>
+
+    <aside class="split-panel split-panel--soft">
+      <p class="eyebrow">Recent highlights</p>
+      <div class="feature-list">
+        {
+          highlightedProjects.map((project) => (
+            <a class="feature-list__item" href={`/projects/${project.slug}/`}>
+              <strong>{project.data.title}</strong>
+              <span>{project.data.role ?? project.data.type ?? "Project"}</span>
+            </a>
+          ))
+        }
+      </div>
+      <p class="section-copy">Page {page.currentPage} of {page.lastPage}</p>
+    </aside>
+  </section>
+
+  <section class="group-stack">
+    <div class="group-header">
+      <p class="eyebrow">Archive</p>
+      <h2 class="section-title">All published projects</h2>
+    </div>
+
+    {
+      projects.length > 0 ? (
+        <>
+          <div class="content-grid">
+            {projects.map((project) => (
+              <ContentCard
+                eyebrow="Project"
+                entry={project}
+                href={`/projects/${project.slug}/`}
+              />
+            ))}
+          </div>
+
+          <PaginationNav
+            currentPage={page.currentPage}
+            totalPages={page.lastPage}
+            basePath="/projects"
+            url={page.url}
+          />
+        </>
+      ) : (
+        <div class="empty-state">No Astro project entries published yet.</div>
+      )
+    }
+  </section>
+</BaseLayout>

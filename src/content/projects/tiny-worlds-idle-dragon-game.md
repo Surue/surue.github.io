@@ -10,6 +10,7 @@ tags:
 languages:
   - csharp
 thumbnail: /assets/images/projects/tiny_worlds/tiny_worlds_thumbnail.webp
+featured: false
 draft: false
 ---
 

@@ -12,6 +12,7 @@ tags:
 languages:
   - csharp
 thumbnail: /assets/images/projects/cryptical_path/cryptical_path_thumbnail.jpg
+featured: false
 draft: false
 ---
 

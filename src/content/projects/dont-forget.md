@@ -12,6 +12,7 @@ languages:
 thumbnail: /assets/images/projects/dont_forget/dont_forget.png
 gitlab: https://gitlab.com/piller.yann/LD41/-/tree/develop
 jam_name: Ludum dare 41
+featured: false
 draft: false
 ---
 

@@ -3,10 +3,15 @@ title: AI in an ECS environment
 description: Early notes about optimizing AI decision-making and pathfinding in a city-builder style simulation.
 excerpt: Optimization of pathfinding and behavior trees.
 date: 2020-04-18
+updated: 2020-04-18
 tags:
   - ai
 languages:
   - cpp
+thumbnail: /assets/images/projects/nastrond/nastrond.gif
+type: article
+level: advanced
+featured: false
 draft: true
 ---
 

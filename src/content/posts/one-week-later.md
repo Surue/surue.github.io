@@ -3,9 +3,16 @@ title: One week later
 description: A follow-up retrospective on the post mortem, focusing on why the original project stalled and what the team learned one week later.
 excerpt: A post mortem of a post mortem.
 date: 2020-04-29
+updated: 2020-04-29
 tags:
   - post-mortem
 languages: []
+thumbnail: /assets/images/posts/2020-04-08-Post-mortem-how-to-survive-a-6-months-school-project/switch_game.png
+type: note
+series: POK Engine Journal
+series_order: 4
+level: beginner
+featured: false
 draft: false
 ---
 

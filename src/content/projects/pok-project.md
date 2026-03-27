@@ -10,6 +10,7 @@ tags:
 languages:
   - cpp
 thumbnail: /assets/images/projects/pok_project/stars_of_anarchy_key_image.JPG
+featured: true
 draft: false
 ---
 

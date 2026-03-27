@@ -1,0 +1,60 @@
+---
+type PageUrl = {
+  current?: string;
+  prev?: string;
+  next?: string;
+  first?: string;
+  last?: string;
+};
+
+type Props = {
+  currentPage: number;
+  totalPages: number;
+  basePath: string;
+  url: PageUrl;
+};
+
+const { currentPage, totalPages, basePath, url } = Astro.props;
+
+const buildPageHref = (pageNumber: number) =>
+  pageNumber === 1 ? `${basePath}/` : `${basePath}/${pageNumber}/`;
+
+const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+---
+
+{
+  totalPages > 1 ? (
+    <nav class="pagination" aria-label="Pagination">
+      <a
+        class:list={["pagination__link", { "is-disabled": !url.prev }]}
+        href={url.prev ?? "#"}
+        aria-disabled={!url.prev}
+      >
+        ← Prev
+      </a>
+
+      <div class="pagination__pages">
+        {pages.map((pageNumber) => (
+          <a
+            class:list={[
+              "pagination__page",
+              { "is-active": pageNumber === currentPage },
+            ]}
+            href={buildPageHref(pageNumber)}
+            aria-current={pageNumber === currentPage ? "page" : undefined}
+          >
+            {pageNumber}
+          </a>
+        ))}
+      </div>
+
+      <a
+        class:list={["pagination__link", { "is-disabled": !url.next }]}
+        href={url.next ?? "#"}
+        aria-disabled={!url.next}
+      >
+        Next →
+      </a>
+    </nav>
+  ) : null
+}

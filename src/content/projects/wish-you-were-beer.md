@@ -12,6 +12,7 @@ languages:
 thumbnail: /assets/images/projects/wish_you_were_beer/wish_you_were_beer.png
 github: https://github.com/Surue/Wish_You_Were_Beer
 jam_name: Improvised school jam
+featured: false
 draft: false
 ---
 

@@ -11,6 +11,7 @@ tags:
 languages:
   - csharp
 thumbnail: /assets/images/projects/space_infestation/space_infestation.png
+featured: false
 draft: false
 ---
 

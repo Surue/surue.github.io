@@ -3,12 +3,18 @@ title: Particles System
 description: This post looks at how a particle system was implemented inside a custom C++ engine, with a focus on practical optimization decisions.
 excerpt: Overview of an implementation of a particle system.
 date: 2020-04-07
+updated: 2020-04-07
 tags:
   - game-engine
   - optimization
 languages:
   - cpp
 thumbnail: /assets/images/posts/2020_04_07_particle_system/particle_simple.gif
+type: course
+series: POK Engine Journal
+series_order: 1
+level: intermediate
+featured: true
 draft: false
 ---
 

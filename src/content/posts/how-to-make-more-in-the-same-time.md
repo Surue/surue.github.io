@@ -3,11 +3,17 @@ title: How to make more in the same time?
 description: An introduction to multithreading in a custom game engine, including frame pacing, thread separation, and practical tradeoffs.
 excerpt: Introduction to multithreading in C++.
 date: 2020-04-13
+updated: 2020-04-13
 tags:
   - game-engine
 languages:
   - cpp
 thumbnail: /assets/images/posts/2020-04-13-How-to-make-more-in-the-same-time/3_frames_threads.png
+type: course
+series: POK Engine Journal
+series_order: 2
+level: intermediate
+featured: true
 draft: false
 ---
 

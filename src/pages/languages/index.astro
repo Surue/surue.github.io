@@ -3,33 +3,61 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
 const languages = (await getCollection("languages")).filter(
-    (entry) => !entry.data.draft,
+  (entry) => !entry.data.draft,
 );
+
+const posts = (await getCollection("posts")).filter(
+  (entry) => !entry.data.draft,
+);
+const projects = (await getCollection("projects")).filter(
+  (entry) => !entry.data.draft,
+);
+
+const languageItems = languages
+  .map((language) => {
+    const postCount = posts.filter((post) =>
+      post.data.languages.includes(language.slug),
+    ).length;
+    const projectCount = projects.filter((project) =>
+      project.data.languages.includes(language.slug),
+    ).length;
+
+    return {
+      language,
+      postCount,
+      projectCount,
+      total: postCount + projectCount,
+    };
+  })
+  .sort(
+    (left, right) =>
+      right.total - left.total ||
+      left.language.data.title.localeCompare(right.language.data.title),
+  );
 ---
 
 <BaseLayout
-    title="Languages"
-    description="Browse the portfolio by programming language."
+  title="Languages"
+  description="Browse the portfolio by programming language."
 >
-    <section class="content-grid">
-        {
-            languages.map((language) => (
-                <article class="card">
-                    <p class="eyebrow">Language</p>
-                    <h3>
-                        <a href={`/languages/${language.slug}/`}>
-                            {language.data.title}
-                        </a>
-                    </h3>
-                    <p>{language.data.description}</p>
-                    <a
-                        class="button-secondary"
-                        href={`/languages/${language.slug}/`}
-                    >
-                        Open
-                    </a>
-                </article>
-            ))
-        }
-    </section>
+  <section class="content-grid">
+    {
+      languageItems.map(({ language, postCount, projectCount, total }) => (
+        <article class="card">
+          <p class="eyebrow">Language</p>
+          <h3>
+            <a href={`/languages/${language.slug}/`}>{language.data.title}</a>
+          </h3>
+          <p>{language.data.description}</p>
+          <p class="content-card__meta">
+            {total} linked entries ({postCount} articles, {projectCount}{" "}
+            projects)
+          </p>
+          <a class="button-secondary" href={`/languages/${language.slug}/`}>
+            Open
+          </a>
+        </article>
+      ))
+    }
+  </section>
 </BaseLayout>

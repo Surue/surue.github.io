@@ -1,0 +1,115 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ContentCard from "@/components/ContentCard.astro";
+import PaginationNav from "@/components/PaginationNav.astro";
+import TagPill from "@/components/TagPill.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import type { GetStaticPaths, Page } from "astro";
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const posts = (await getCollection("posts"))
+    .filter((entry) => !entry.data.draft)
+    .sort(
+      (left, right) => right.data.date.getTime() - left.data.date.getTime(),
+    );
+
+  const topicSet = [...new Set(posts.flatMap((post) => post.data.tags))];
+
+  return paginate(posts, {
+    pageSize: 8,
+    props: { topicSet },
+  });
+};
+
+const { page, topicSet } = Astro.props as {
+  page: Page<CollectionEntry<"posts">>;
+  topicSet: string[];
+};
+const posts = page.data;
+const isFirstPage = page.currentPage === 1;
+const featuredPost = isFirstPage ? posts[0] : null;
+const archivePosts = isFirstPage ? posts.slice(1) : posts;
+---
+
+<BaseLayout
+  title={isFirstPage ? "Blog" : `Blog - page ${page.currentPage}`}
+  description="Articles, tutorials, and technical notes on engine work, AI, tools, and production lessons."
+>
+  {
+    featuredPost ? (
+      <section class="editorial-split">
+        <article class="hero-panel feature-panel feature-panel--wide">
+          <p class="eyebrow">Featured article</p>
+          {featuredPost.data.thumbnail ? (
+            <img
+              class="feature-panel__image"
+              src={featuredPost.data.thumbnail}
+              alt={featuredPost.data.title}
+            />
+          ) : null}
+          <h2>{featuredPost.data.title}</h2>
+          <p class="lede">
+            {featuredPost.data.description ?? featuredPost.data.excerpt}
+          </p>
+          <div class="tag-row">
+            {featuredPost.data.tags.map((tag) => (
+              <TagPill slug={tag} href={`/tags/${tag}/`} />
+            ))}
+          </div>
+          <a class="button" href={`/blog/${featuredPost.slug}/`}>
+            Read featured article
+          </a>
+        </article>
+
+        <aside class="split-panel split-panel--soft">
+          <p class="eyebrow">Topics</p>
+          <h2 class="section-title">
+            Browse by subject before you browse by date
+          </h2>
+          <div class="tag-row">
+            {topicSet.map((tag) => (
+              <TagPill slug={tag} href={`/tags/${tag}/`} />
+            ))}
+          </div>
+          <p class="section-copy">
+            New article drops are now paginated, so topic navigation remains the
+            fastest way to jump to the right context.
+          </p>
+        </aside>
+      </section>
+    ) : null
+  }
+
+  <section class="group-stack">
+    <div class="group-header">
+      <p class="eyebrow">Archive</p>
+      <h2 class="section-title">All published articles</h2>
+      <p class="section-copy">Page {page.currentPage} of {page.lastPage}</p>
+    </div>
+    {
+      posts.length === 0 ? (
+        <div class="empty-state">No Astro posts have been migrated yet.</div>
+      ) : (
+        <>
+          <div class="content-grid">
+            {(archivePosts.length > 0 ? archivePosts : posts).map((post) => (
+              <ContentCard
+                eyebrow={post.data.type === "course" ? "Course" : "Article"}
+                entry={post}
+                href={`/blog/${post.slug}/`}
+              />
+            ))}
+          </div>
+
+          <PaginationNav
+            currentPage={page.currentPage}
+            totalPages={page.lastPage}
+            basePath="/blog"
+            url={page.url}
+          />
+        </>
+      )
+    }
+  </section>
+</BaseLayout>

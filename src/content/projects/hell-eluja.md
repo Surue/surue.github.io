@@ -12,6 +12,7 @@ languages:
   - csharp
 thumbnail: /assets/images/projects/hell_eluja/hell_eluja.jpg
 company: OniroForge
+featured: false
 draft: false
 ---
 

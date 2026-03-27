@@ -13,6 +13,7 @@ languages:
   - csharp
 thumbnail: /assets/images/projects/space_dwarf/space_dwarf.png
 github_repo: https://github.com/Surue/SpaceDwarfs
+featured: false
 draft: false
 ---
 

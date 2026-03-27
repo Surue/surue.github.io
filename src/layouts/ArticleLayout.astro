@@ -1,0 +1,137 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import TagPill from "@/components/TagPill.astro";
+
+type Props = {
+  title: string;
+  description?: string;
+  date: Date;
+  updated?: Date;
+  tags?: string[];
+  thumbnail?: string;
+  type?: "article" | "course" | "note" | "devlog";
+  series?: string;
+  series_order?: number;
+  level?: "beginner" | "intermediate" | "advanced";
+  readingTime?: number;
+};
+
+const {
+  title,
+  description,
+  date,
+  updated,
+  tags = [],
+  thumbnail,
+  type = "article",
+  series,
+  series_order,
+  level,
+  readingTime,
+} = Astro.props;
+
+const typeLabels: Record<string, string> = {
+  article: "Article",
+  course: "Course",
+  note: "Dev note",
+  devlog: "Devlog",
+};
+const typeLabel = typeLabels[type] ?? "Article";
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-GB", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="article-shell">
+    <header class="article-hero card">
+      {
+        series ? (
+          <div>
+            <span class="article-series-badge">
+              ◈ Series{series_order != null ? ` · Part ${series_order}` : ""}
+              {series ? ` · ${series}` : ""}
+            </span>
+          </div>
+        ) : null
+      }
+
+      <p class="eyebrow">{typeLabel}</p>
+      <h1 class="article-title">{title}</h1>
+
+      {description ? <p class="lede lede--wide">{description}</p> : null}
+
+      <div class="article-byline">
+        <time datetime={date.toISOString()}>{fmt(date)}</time>
+        {
+          updated ? (
+            <>
+              <span class="byline-sep" aria-hidden="true">
+                ·
+              </span>
+              <span>Updated {fmt(updated)}</span>
+            </>
+          ) : null
+        }
+        {
+          readingTime ? (
+            <>
+              <span class="byline-sep" aria-hidden="true">
+                ·
+              </span>
+              <span>{readingTime} min read</span>
+            </>
+          ) : null
+        }
+        {
+          level ? (
+            <>
+              <span class="byline-sep" aria-hidden="true">
+                ·
+              </span>
+              <span class={`article-badge article-badge--level-${level}`}>
+                {level}
+              </span>
+            </>
+          ) : null
+        }
+      </div>
+
+      {
+        tags.length > 0 ? (
+          <div class="tag-row">
+            {tags.map((tag) => (
+              <TagPill slug={tag} href={`/tags/${tag}/`} />
+            ))}
+          </div>
+        ) : null
+      }
+
+      {
+        thumbnail ? (
+          <img
+            class="article-thumbnail"
+            src={thumbnail}
+            alt={title}
+            loading="eager"
+          />
+        ) : null
+      }
+    </header>
+
+    <div class="article-body">
+      <div class="prose">
+        <slot />
+      </div>
+    </div>
+
+    <footer class="article-footer card">
+      <p class="eyebrow">Navigation</p>
+      <a class="button-secondary" href="/blog/">← All articles</a>
+    </footer>
+  </article>
+</BaseLayout>

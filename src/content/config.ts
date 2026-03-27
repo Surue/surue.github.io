@@ -7,10 +7,17 @@ const posts = defineCollection({
         description: z.string().optional(),
         excerpt: z.string().optional(),
         date: z.coerce.date(),
+        updated: z.coerce.date().optional(),
         tags: z.array(z.string()).default([]),
         languages: z.array(z.string()).default([]),
         thumbnail: z.string().optional(),
         draft: z.boolean().default(false),
+        // Editorial metadata
+        type: z.enum(['article', 'course', 'note', 'devlog']).default('article'),
+        series: z.string().optional(),
+        series_order: z.number().int().optional(),
+        level: z.enum(['beginner', 'intermediate', 'advanced']).optional(),
+        featured: z.boolean().default(false),
     }),
 });
 
@@ -33,6 +40,7 @@ const projects = defineCollection({
         company: z.string().optional(),
         jam_name: z.string().optional(),
         draft: z.boolean().default(false),
+        featured: z.boolean().default(false),
     }),
 });
 

@@ -3,10 +3,16 @@ title: Post mortem
 description: A retrospective on a six-month school project, focusing on team structure, planning, engine work, and production lessons.
 excerpt: Post mortem on this six-month project.
 date: 2020-04-08
+updated: 2020-04-08
 tags:
   - post-mortem
 languages: []
 thumbnail: /assets/images/posts/2020-04-08-Post-mortem-how-to-survive-a-6-months-school-project/switch_game.png
+type: devlog
+series: POK Engine Journal
+series_order: 3
+level: beginner
+featured: true
 draft: false
 ---
 
