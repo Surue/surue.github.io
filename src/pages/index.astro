@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ContentCard from '@/components/ContentCard.astro';
+import TagPill from '@/components/TagPill.astro';
 import { featuredTopics, migrationSteps, site, socialLinks } from '@/data/site';
 import { getCollection } from 'astro:content';
 
@@ -13,17 +14,20 @@ const featuredProjects = (await getCollection('projects'))
   .filter((entry) => !entry.data.draft)
   .sort((left, right) => (right.data.last_update?.getTime() ?? 0) - (left.data.last_update?.getTime() ?? 0))
   .slice(0, 3);
+
+const latestPost = featuredPosts[0];
+const totalPosts = (await getCollection('posts')).filter((entry) => !entry.data.draft).length;
+const totalProjects = (await getCollection('projects')).filter((entry) => !entry.data.draft).length;
 ---
 
-<BaseLayout title={site.title} description={site.tagline}>
-  <section class="hero">
-    <div class="hero-panel hero-copy">
+<BaseLayout title={site.title} description={site.tagline} showHeader={false}>
+  <section class="hero hero--editorial">
+    <div class="hero-panel hero-copy hero-copy--feature">
       <p class="eyebrow">Portfolio and technical writing</p>
-      <h2>Modernizing the site architecture without losing the original intent.</h2>
-      <p class="lede">
-        The new Astro foundation focuses on readability, simpler navigation, and a cleaner publishing workflow.
-        This first implementation pass creates the root project, the shell layout, and the content model that
-        will replace the current Jekyll templates.
+      <h1 class="display-title">Tools, gameplay systems, and game development notes that stay readable.</h1>
+      <p class="lede lede--wide">
+        This site now presents the portfolio and blog as one coherent knowledge base: shipped work, technical articles,
+        production lessons, and the systems thinking behind them.
       </p>
       <div class="chip-row">
         {featuredTopics.map((topic) => <span class="chip">{topic}</span>)}
@@ -32,73 +36,81 @@ const featuredProjects = (await getCollection('projects'))
         <a class="button" href="/projects/">Browse projects</a>
         <a class="button-secondary" href="/blog/">Read articles</a>
       </div>
-    </div>
-
-    <div class="hero-panel">
-      <div class="hero-stats">
-        <div class="metric">
-          <strong>5</strong>
-          <span>migration steps identified</span>
+      <div class="hero-stats hero-stats--wide">
+        <div class="metric metric--accent">
+          <strong>{totalProjects}</strong>
+          <span>projects in the portfolio</span>
         </div>
         <div class="metric">
-          <strong>15+</strong>
-          <span>project pages to migrate</span>
+          <strong>{totalPosts}</strong>
+          <span>published technical articles</span>
         </div>
         <div class="metric">
-          <strong>5</strong>
-          <span>articles ready to move first</span>
-        </div>
-        <div class="metric">
-          <strong>1</strong>
-          <span>repo kept for the full transition</span>
+          <strong>{featuredTopics.length}</strong>
+          <span>core themes across the site</span>
         </div>
       </div>
     </div>
+
+    {
+      latestPost ? (
+        <aside class="hero-panel feature-panel">
+          <p class="eyebrow">Latest article</p>
+          {latestPost.data.thumbnail ? <img class="feature-panel__image" src={latestPost.data.thumbnail} alt={latestPost.data.title} /> : null}
+          <h2>{latestPost.data.title}</h2>
+          <p>{latestPost.data.description ?? latestPost.data.excerpt}</p>
+          <div class="tag-row">
+            {latestPost.data.tags.map((tag) => <TagPill slug={tag} href={`/tags/${tag}/`} />)}
+          </div>
+          <a class="button-secondary" href={`/blog/${latestPost.slug}/`}>Read latest article</a>
+        </aside>
+      ) : null
+    }
   </section>
 
   <section class="split-grid">
-    <article class="split-panel">
-      <p class="eyebrow">Current implementation</p>
-      <h2 class="section-title">What is already in place</h2>
+    <article class="split-panel split-panel--soft">
+      <p class="eyebrow">How to use the site</p>
+      <h2 class="section-title">Start with the angle that matches your intent</h2>
+      <ol class="status-list">
+        <li>Use <strong>Projects</strong> to review shipped work, prototypes, and technical roles.</li>
+        <li>Use <strong>Blog</strong> to read engine, AI, multithreading, and post-mortem content.</li>
+        <li>Use <strong>Tags</strong> and <strong>Languages</strong> to jump directly to a specific topic.</li>
+      </ol>
+    </article>
+
+    <article class="split-panel split-panel--accent">
+      <p class="eyebrow">Current foundation</p>
+      <h2 class="section-title">What is already rebuilt in Astro</h2>
       <ol class="status-list">
         {migrationSteps.map((step) => <li>{step}</li>)}
       </ol>
     </article>
-
-    <article class="split-panel">
-      <p class="eyebrow">Publishing stack</p>
-      <h2 class="section-title">What changes next</h2>
-      <ol class="status-list">
-        <li>Move content from Jekyll folders into Astro content collections.</li>
-        <li>Replace Liquid-driven pages with reusable Astro routes and components.</li>
-        <li>Deploy the static build through GitHub Actions instead of implicit Jekyll publishing.</li>
-      </ol>
-    </article>
   </section>
 
-  <section class="grid">
+  <section class="grid grid--feature-cards">
     <article class="card">
       <p class="eyebrow">Navigation</p>
-      <h3>Sharper information architecture</h3>
+      <h3>Less hunting, faster orientation</h3>
       <p>
-        The new shell keeps a persistent sidebar but removes the coupling to Jekyll includes and inline styling.
-        The next step is to bring tags, content groupings, and related links into Astro routes.
+        The sidebar is now the stable spine of the site. Portfolio, articles, tags, and language views share the same
+        information architecture instead of behaving like separate islands.
       </p>
     </article>
     <article class="card">
       <p class="eyebrow">Styling</p>
-      <h3>Native CSS, lower maintenance cost</h3>
+      <h3>Custom CSS without framework drag</h3>
       <p>
-        The styling system now starts from CSS variables and component-friendly classes instead of theme overrides,
-        Liquid templates, and a custom grid layer.
+        The design system now relies on tokens, reusable panels, and card components. It stays simple to maintain but
+        leaves room for stronger visual direction than the old Jekyll theme ever allowed.
       </p>
     </article>
     <article class="card">
-      <p class="eyebrow">Tooling</p>
-      <h3>Repo and editor ready for Astro</h3>
+      <p class="eyebrow">Publishing</p>
+      <h3>Push-based workflow remains intact</h3>
       <p>
-        This root setup adds Astro scripts, a GitHub Pages workflow, and a VS Code configuration so the repo can
-        progressively stop behaving like a Jekyll-only project.
+        The repository now builds and deploys through GitHub Actions while preserving public URLs that mattered in the
+        old site. The publishing model stays simple even though the stack is cleaner.
       </p>
     </article>
   </section>
@@ -123,7 +135,7 @@ const featuredProjects = (await getCollection('projects'))
     </div>
   </section>
 
-  <section class="card">
+  <section class="card card--contact">
     <p class="eyebrow">Contact</p>
     <h2 class="section-title">Primary links</h2>
     <div class="chip-row">

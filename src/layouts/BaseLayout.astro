@@ -6,9 +6,16 @@ import { site } from '@/data/site';
 type Props = {
   title: string;
   description?: string;
+  eyebrow?: string;
+  showHeader?: boolean;
 };
 
-const { title, description = site.description } = Astro.props;
+const {
+  title,
+  description = site.description,
+  eyebrow = 'Portfolio',
+  showHeader = true,
+} = Astro.props;
 const pageTitle = title === site.title ? title : `${title} | ${site.title}`;
 const currentPath = Astro.url.pathname;
 ---
@@ -25,11 +32,15 @@ const currentPath = Astro.url.pathname;
     <div class="shell">
       <Sidebar currentPath={currentPath} />
       <div class="shell-main">
-        <header class="page-header">
-          <p class="page-header__eyebrow">Astro migration</p>
-          <h1>{title}</h1>
-          <p>{description}</p>
-        </header>
+        {
+          showHeader ? (
+            <header class="page-header">
+              <p class="page-header__eyebrow">{eyebrow}</p>
+              <h1>{title}</h1>
+              <p>{description}</p>
+            </header>
+          ) : null
+        }
         <main>
           <slot />
         </main>

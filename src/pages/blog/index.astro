@@ -1,27 +1,56 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ContentCard from '@/components/ContentCard.astro';
+import TagPill from '@/components/TagPill.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('posts'))
   .filter((entry) => !entry.data.draft)
   .sort((left, right) => right.data.date.getTime() - left.data.date.getTime());
+
+const featuredPost = posts[0];
+const archivePosts = posts.slice(1);
+const topicSet = [...new Set(posts.flatMap((post) => post.data.tags))];
 ---
 
-<BaseLayout title="Blog" description="Articles, tutorials, and technical notes migrated from the current Jekyll site.">
-  <section class="card">
-    <p class="eyebrow">Collection status</p>
-    <h2 class="section-title">Posts collection is ready</h2>
-    <p class="section-copy">
-      The Astro collection schema exists. The next step is migrating markdown entries from the Jekyll posts folder and
-      converting Liquid-specific links and image references.
-    </p>
+<BaseLayout title="Blog" description="Articles, tutorials, and technical notes on engine work, AI, tools, and production lessons." eyebrow="Technical writing">
+  {
+    featuredPost ? (
+      <section class="editorial-split">
+        <article class="hero-panel feature-panel feature-panel--wide">
+          <p class="eyebrow">Featured article</p>
+          {featuredPost.data.thumbnail ? <img class="feature-panel__image" src={featuredPost.data.thumbnail} alt={featuredPost.data.title} /> : null}
+          <h2>{featuredPost.data.title}</h2>
+          <p class="lede">{featuredPost.data.description ?? featuredPost.data.excerpt}</p>
+          <div class="tag-row">
+            {featuredPost.data.tags.map((tag) => <TagPill slug={tag} href={`/tags/${tag}/`} />)}
+          </div>
+          <a class="button" href={`/blog/${featuredPost.slug}/`}>Read featured article</a>
+        </article>
+
+        <aside class="split-panel split-panel--soft">
+          <p class="eyebrow">Topics</p>
+          <h2 class="section-title">Browse by subject before you browse by date</h2>
+          <div class="tag-row">
+            {topicSet.map((tag) => <TagPill slug={tag} href={`/tags/${tag}/`} />)}
+          </div>
+          <p class="section-copy">The archive is compact enough that topical navigation is usually the fastest way to find something specific.</p>
+        </aside>
+      </section>
+    ) : null
+  }
+
+  <section class="group-stack">
+    <div class="group-header">
+      <p class="eyebrow">Archive</p>
+      <h2 class="section-title">All published articles</h2>
+    </div>
     {
       posts.length === 0 ? (
         <div class="empty-state">No Astro posts have been migrated yet.</div>
       ) : (
         <div class="content-grid">
-          {posts.map((post) => <ContentCard eyebrow="Article" entry={post} href={`/blog/${post.slug}/`} />)}
+          {(archivePosts.length > 0 ? archivePosts : posts).map((post) => <ContentCard eyebrow="Article" entry={post} href={`/blog/${post.slug}/`} />)}
         </div>
       )
     }

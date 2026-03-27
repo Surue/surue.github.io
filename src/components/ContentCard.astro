@@ -50,7 +50,7 @@ const meta = entry.data.date ?? entry.data.last_update;
         </p>
       ) : null
     }
-    <p>{summary}</p>
+    <p class="content-card__summary">{summary}</p>
     {
       entry.data.tags && entry.data.tags.length > 0 ? (
         <div class="tag-row">
@@ -58,6 +58,6 @@ const meta = entry.data.date ?? entry.data.last_update;
         </div>
       ) : null
     }
-    <a class="button-secondary" href={href}>Open</a>
+    <a class="button-secondary" href={href}>Read more</a>
   </div>
 </article>
