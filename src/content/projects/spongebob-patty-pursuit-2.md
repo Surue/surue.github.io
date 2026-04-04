@@ -15,9 +15,8 @@ draft: false
 ---
 
 # Overview
+Although not part of the core team, I followed and supported the team throughout the project. I was notably able to implement the push notification system in the Amazon environment.
 
-Bien que ne faisant pas partie de la core team, j'ai suivis et accompagné l'équipe tout au long du projet. J'ai notamment pu mettre en place le système de push Notification dans l'environnement de Amazon.
-
-Par mon rôle de Lead Developper de la Shared-tech (Stack technique partagée sur l'ensemble des projets) j'ai participé au maintenient des pipes de prodution et de CI/CD du projet.
+In my role as Lead Developer of the Shared-tech (technical stack shared across all projects), I participated in maintaining the production pipelines and CI/CD of the project.
 
 More about the project is available on the [Old Skull Games page](https://oldskullgames.com/our-games/spongebob-patty-pursuit-2/).

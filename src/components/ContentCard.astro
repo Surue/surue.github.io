@@ -25,6 +25,11 @@ const { href, eyebrow, entry } = Astro.props;
 const summary =
     entry.data.description ?? entry.data.excerpt ?? "No summary available yet.";
 const meta = entry.data.date ?? entry.data.last_update;
+const metaParts = [
+    entry.data.role,
+    entry.data.type,
+    meta ? meta.toLocaleDateString("en-GB") : undefined,
+].filter((value): value is string => Boolean(value));
 ---
 
 <article class="content-card card">
@@ -44,17 +49,9 @@ const meta = entry.data.date ?? entry.data.last_update;
         <h3>
             <a href={href}>{entry.data.title}</a>
         </h3>
-        {
-            entry.data.role || entry.data.type || meta ? (
-                <p class="content-card__meta">
-                    {entry.data.role ?? entry.data.type ?? ""}
-                    {entry.data.role && entry.data.type ? " | " : ""}
-                    {entry.data.type && !entry.data.role ? entry.data.type : ""}
-                    {(entry.data.role || entry.data.type) && meta ? " | " : ""}
-                    {meta ? meta.toLocaleDateString("en-GB") : ""}
-                </p>
-            ) : null
-        }
+        {metaParts.length > 0 ? (
+            <p class="content-card__meta">{metaParts.join(" | ")}</p>
+        ) : null}
         <p class="content-card__summary">{summary}</p>
         {
             entry.data.tags && entry.data.tags.length > 0 ? (
