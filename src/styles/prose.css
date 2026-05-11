@@ -58,6 +58,19 @@
   color: var(--accent-strong);
 }
 
+.prose a[target="_blank"]::after,
+.content-body a[target="_blank"]::after {
+  content: "↗";
+  font-size: 0.8em;
+  vertical-align: text-top;
+  color: var(--accent);
+}
+
+.prose a[target="_blank"]:hover::after,
+.content-body a[target="_blank"]:hover::after {
+  color: var(--accent-strong);
+}
+
 /* ── Inline code ────────────────────────────────────────────────── */
 .content-body code,
 .prose code {
@@ -206,3 +219,34 @@
 .callout--info    .callout__title { color: var(--accent-cool); }
 .callout--warning .callout__title { color: var(--accent-warm); }
 .callout--tip     .callout__title { color: var(--accent); }
+
+/* ── Responsive prose ──────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .prose {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .prose {
+    font-size: 0.98rem;
+  }
+
+  .content-body pre,
+  .prose pre,
+  .astro-code {
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.86rem;
+  }
+
+  .prose table {
+    font-size: 0.9rem;
+  }
+
+  .prose th,
+  .prose td {
+    padding: 0.55rem 0.65rem;
+  }
+}

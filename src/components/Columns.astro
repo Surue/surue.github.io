@@ -1,0 +1,19 @@
+---
+interface Props {
+  columns?: 2 | 3;
+  gap?: string;
+  class?: string;
+}
+
+const {
+  columns = 2,
+  gap = "1.5rem",
+  class: className = "",
+} = Astro.props as Props;
+
+const columnClass = `columns columns--${columns}`;
+---
+
+<div class={`${columnClass} ${className}`.trim()} style={`gap: ${gap};`}>
+  <slot />
+</div>

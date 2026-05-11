@@ -159,6 +159,29 @@
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+.columns {
+  display: grid;
+  width: 100%;
+}
+
+.columns--2 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.columns--3 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .columns--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .columns--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .grid--feature-cards .card {
   background:
     linear-gradient(
@@ -568,6 +591,7 @@
 .article-hero {
   display: grid;
   gap: 1.25rem;
+  max-width: var(--prose-width);
 }
 
 .article-title {
@@ -753,6 +777,85 @@
   border-color: color-mix(in srgb, var(--accent) 40%, transparent);
   color: var(--text);
   background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+/* ── Graph demo (article MDX) ─────────────────────────────────── */
+.graph-demo {
+  --graph-height: 360px;
+  margin: 1.25rem 0;
+  padding: 0.9rem;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at top left,
+      color-mix(in srgb, var(--accent-cool) 14%, transparent),
+      transparent 35%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--bg-elevated) 91%, transparent),
+      color-mix(in srgb, var(--bg) 95%, transparent));
+}
+
+.graph-demo__caption {
+  display: grid;
+  gap: 0.2rem;
+  margin-bottom: 0.7rem;
+}
+
+.graph-demo__caption strong {
+  color: var(--text);
+  font-size: 1.03rem;
+}
+
+.graph-demo__caption span {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.graph-demo__canvas {
+  height: var(--graph-height);
+  border: 1px solid color-mix(in srgb, var(--panel-border) 94%, transparent);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.graph-demo__canvas .react-flow__node.graph-node--circle .react-flow__handle {
+  display: none;
+}
+
+.graph-demo__controls {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.graph-demo__controls button {
+  border: 1px solid color-mix(in srgb, var(--accent-cool) 35%, transparent);
+  background: color-mix(in srgb, var(--accent-cool) 12%, transparent);
+  color: var(--text);
+  border-radius: var(--radius-pill);
+  padding: 0.42rem 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.graph-demo__controls button:hover {
+  background: color-mix(in srgb, var(--accent-cool) 20%, transparent);
+}
+
+.graph-demo__controls p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .graph-demo {
+    padding: 0.7rem;
+    --graph-height: 300px;
+  }
 }
 
 /* ── Light mode component overrides ────────────────────────────── */

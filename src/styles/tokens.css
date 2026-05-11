@@ -54,6 +54,7 @@
   --sp-12: 3rem;
 
   /* ── Border radius ─────────────────────────────────────────── */
+  --radius-xs:   5px;
   --radius-sm:   10px;
   --radius-md:   18px;
   --radius-lg:   28px;
@@ -62,7 +63,7 @@
   /* ── Layout ────────────────────────────────────────────────── */
   --content-width: 1120px;
   --sidebar-width: 320px;
-  --prose-width:   72ch;
+  --prose-width:   90ch;
 }
 
 /* ── Light theme ────────────────────────────────────────────────── */

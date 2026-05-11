@@ -1,0 +1,104 @@
+---
+interface Props {
+  type?: "note" | "warning" | "tip" | "info";
+}
+
+const { type = "note" } = Astro.props;
+
+const titles = {
+  note: "Note",
+  warning: "Avertissement",
+  tip: "Astuce",
+  info: "Info",
+};
+
+const icons = {
+  note: "ℹ️",
+  warning: "⚠️",
+  tip: "💡",
+  info: "ℹ️",
+};
+---
+
+<aside class={`admonition admonition--${type}`}>
+  <header class="admonition-header">
+    <span class="admonition-icon">{icons[type]}</span>
+    <span class="admonition-title">{titles[type]}</span>
+  </header>
+  <div class="admonition-content">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  .admonition {
+    background: var(--bg-elevated);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: var(--radius-xs);
+    font-style: italic;
+    color: var(--text);
+    border: 1px solid var(--accent);
+  }
+
+  .admonition-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--text-muted);
+    font-weight: bold;
+    font-style: normal;
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+    padding: 0.5rem 0.75rem;
+    margin: -1rem -1.5rem 0.75rem -1.5rem;
+    border-radius: var(--radius-xs) var(--radius-xs) 0 0;
+  }
+
+  .admonition-icon {
+    font-size: 1.2em;
+  }
+
+  .admonition-title {
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.05em;
+  }
+
+  .admonition--note .admonition-header {
+    border-left-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+  }
+
+  .admonition--note .admonition-icon {
+    color: var(--accent);
+  }
+
+  .admonition--warning .admonition-header {
+    border-left-color: #ff6b35;
+    background: color-mix(in srgb, #ff6b35 8%, transparent);
+  }
+
+  .admonition--warning .admonition-icon {
+    color: #ff6b35;
+  }
+
+  .admonition--tip .admonition-header {
+    border-left-color: #68d391;
+    background: color-mix(in srgb, #68d391 8%, transparent);
+  }
+
+  .admonition--tip .admonition-icon {
+    color: #68d391;
+  }
+
+  .admonition--info .admonition-header {
+    border-left-color: #4299e1;
+    background: color-mix(in srgb, #4299e1 8%, transparent);
+  }
+
+  .admonition--info .admonition-icon {
+    color: #4299e1;
+  }
+</style>
