@@ -1,0 +1,723 @@
+---
+title: "Graphs and Procedural Generation: The Mathematical Foundations"
+description: This article is the first in a series dedicated to the use of graphs in procedural generation. Its goal is to establish the mathematical basics.
+excerpt: The foundations of graphs in the context of procedural generation.
+date: 2026-04-04  
+updated: 2026-04-04
+tags:
+  - pcg
+languages: []
+thumbnail: /assets/images/projects/space_dwarf/space_dwarf.png
+type: course
+level: intermediate
+series: Procedural Generation and Graphs
+series_order: 1
+featured: true
+draft: false
+---
+
+import GraphDemo from "@/components/GraphDemo";
+import ImageWithCaption from "@/components/ImageWithCaption.astro";
+import { defineGraphPreset } from "@/data/graph-presets";
+import Admonition from "@/components/Admonition.astro";
+import Columns from "@/components/Columns.astro";
+
+export const simpleGraph = defineGraphPreset({
+  title: "Graph",
+  description:
+    "Example of a minimal graph with 3 nodes and 3 edges.",
+  height: 290,
+  showViewportControls: false,  
+  nodes: [
+    ["room-a", "Node A", 60, 160, "circle"],
+    ["room-b", "Node B", 320, 160, "circle"],
+    ["room-c", "Node C", 190, 20, "circle"],
+  ],
+  edges: [
+    [
+      "room-a",
+      "room-b",
+      { id: "edge-room-a-room-b", label: "Edge A-B", directed: false },
+    ],
+    [
+      "room-b",
+      "room-c",
+      { id: "edge-room-b-room-c", label: "Edge B-C", directed: false },
+    ],
+    [
+      "room-c",
+      "room-a",
+      { id: "edge-room-c-room-a", label: "Edge C-A", directed: false },
+    ],
+  ],
+});
+
+export const simpleGraphWithCycle = defineGraphPreset({
+  title: "Graph with cycle",
+  description:
+    "Example of a minimal graph with 3 nodes and 3 edges forming a cycle.",
+  height: 290,
+  showViewportControls: false,
+  alwaysHighlightEdges: ["edge-room-a-room-b", "edge-room-b-room-c", "edge-room-c-room-a"],
+  nodes: [
+    ["room-a", "", 60, 160, "circle"],
+    ["room-b", "", 320, 160, "circle"],
+    ["room-c", "", 190, 20, "circle"],
+  ],
+  edges: [
+    [
+      "room-a",
+      "room-b",
+      { id: "edge-room-a-room-b", directed: false },
+    ],
+    [
+      "room-b",
+      "room-c",
+      { id: "edge-room-b-room-c", directed: false },
+    ],
+    [
+      "room-c",
+      "room-a",
+      { id: "edge-room-c-room-a", directed: false },
+    ],
+  ],
+});
+
+export const simpleTree = defineGraphPreset({
+  title: "Tree",
+  description:
+    "In this example, we have a simple tree structure with one root node and 3 leaf nodes. There are no cycles in this graph.",
+  height: 290,
+  showViewportControls: false,
+  nodes: [
+    ["room-a", "", 100, 120, "circle"],
+    ["room-b", "Leaf", 300, 120, "circle"],
+    ["room-c", "Root", 200, 20, "circle"],
+    ["room-d", "Leaf", 0, 220, "circle"],
+    ["room-e", "Leaf", 200, 220, "circle"],
+  ],
+  edges: [
+    [
+      "room-c",
+      "room-a",
+      { id: "edge-room-c-room-a", directed: true },
+    ],
+    [
+      "room-c",
+      "room-b",
+      { id: "edge-room-c-room-b", directed: true },
+    ],
+    [
+      "room-a",
+      "room-d",
+      { id: "edge-room-a-room-d", directed: true },  
+    ],
+    [
+      "room-a",
+      "room-e",
+      { id: "edge-room-a-room-e", directed: true },
+    ],
+  ],
+});
+
+export const questGraph = defineGraphPreset({
+  title: "Directed Graph",
+  description: "Each edge is oriented and the timeline visualizes the order of appearance of the steps.",
+  height: 320,
+  showViewportControls: false,  
+  stepDurationMs: 1300,
+  nodes: [
+    ["start", "Start", 20, 120, "box"],
+    ["find-princess", "Find the princess", 220, 35, "box"],
+    ["defeat-boss", "Defeat the boss", 220, 210, "box"],
+    ["save", "Save the princess", 470, 120, "box"],
+  ],
+  edges: [
+    [
+      "start",
+      "find-princess",
+      { id: "start-find", label: "Step 1", directed: true },
+    ],
+    [
+      "find-princess",
+      "defeat-boss",
+      { id: "find-boss", label: "Step 2", directed: true },
+    ],
+    [
+      "defeat-boss",
+      "save",
+      { id: "boss-save", label: "Step 3", directed: true },
+    ],
+  ],
+  timeline: [
+    ["Point de départ", { revealNodes: ["start"], highlightNodes: ["start"] }],
+    [
+      "Objectif principal",
+      {
+        revealNodes: ["find-princess"],
+        revealEdges: ["start-find"],
+        highlightNodes: ["find-princess"],
+        highlightEdges: ["start-find"],
+      },
+    ],
+    [
+      "Conflit",
+      {
+        revealNodes: ["defeat-boss"],
+        revealEdges: ["find-boss"],
+        highlightNodes: ["defeat-boss"],
+        highlightEdges: ["find-boss"],
+      },
+    ],
+    [
+      "Résolution",
+      {
+        revealNodes: ["save"],
+        revealEdges: ["boss-save"],
+        highlightNodes: ["save"],
+        highlightEdges: ["boss-save"],
+      },
+    ],
+  ],
+});
+
+export const notOrientedGraph = defineGraphPreset({
+  title: "Undirected Graph",
+  description: "In this example, the player can freely navigate between each room.",
+  height: 350,
+  showViewportControls: false,  
+  stepDurationMs: 2300,
+  nodes: [
+    ["room-a", "Room A", 0, 40],
+    ["room-b", "Room B", 280, 40],
+    ["room-c", "Room C", 280, 160],
+    ["room-d", "Room D", 0, 160],
+  ],
+  edges: [
+    [
+      "room-a",
+      "room-b",
+      { id: "edge-room-a-room-b", label: "Corridor A-B", directed: false },
+    ],
+    [
+      "room-b",
+      "room-c",
+      { id: "edge-room-b-room-c", label: "Corridor B-C", directed: false },
+    ],
+    [
+      "room-c",
+      "room-d",
+      { id: "edge-room-c-room-d", label: "Corridor C-D", directed: false },
+    ],
+    [
+      "room-d",
+      "room-a",
+      { id: "edge-room-d-room-a", label: "Corridor D-A", directed: false },
+    ],
+  ],
+  timeline: [
+    [
+      "The player start in Room A",
+      {
+        revealNodes: ["room-a"],
+        highlightNodes: ["room-a"],
+      },
+    ],
+    [
+      "The player can move to Room B or Room D from Room A",
+      {
+        revealNodes: ["room-b", "room-d"],
+        highlightNodes: ["room-a"],
+        revealEdges: ["edge-room-a-room-b", "edge-room-d-room-a"],
+      },
+    ],
+    [
+      "The player move to Room B",
+      {
+        revealNodes: ["room-b"],
+        highlightNodes: ["room-b"],
+        highlightEdges: ["edge-room-a-room-b"],
+      },
+    ],
+    [
+      "The player can return to Room A or move to Room C",
+      {
+        revealNodes: ["room-a", "room-c"],
+        highlightNodes: ["room-b"],
+        revealEdges: ["edge-room-b-room-c", "edge-room-a-room-b"],
+      },
+    ],
+    [
+      "The player return to Room",
+      {
+        highlightNodes: ["room-a"],
+        highlightEdges: ["edge-room-a-room-b"],
+      },
+    ],
+  ],
+});
+
+export const mixedGraph = defineGraphPreset({
+  title: "Complex Graph",
+  description: "Corridors are non-oriented, while the key -> door -> boss logic is oriented.",
+  height: 350,
+  showViewportControls: false,  
+  stepDurationMs: 1300,
+  nodes: [
+    ["entry", "Entry", 0, 120],
+    ["hall", "Hall", 250, 120],
+    ["key-room", "Key Room", 500, 40],
+    ["locked-door", "Locked Door", 500, 210],
+    ["boss-room", "Boss Room", 700, 120],
+  ],
+  edges: [
+    ["entry", "hall", { id: "entry-hall", label: "Corridor", directed: false }],
+    [
+      "hall",
+      "key-room",
+      { id: "hall-key", label: "Round Trip", directed: false },
+    ],
+    [
+      "key-room",
+      "locked-door",
+      { id: "key-lock", label: "Use Key", directed: true },
+    ],
+    [
+      "locked-door",
+      "boss-room",
+      { id: "lock-boss", label: "Final Access", directed: true },
+    ],
+  ],
+  timeline: [
+    [
+      "Free navigation of the dungeon",
+      {
+        revealNodes: ["entry", "hall", "key-room"],
+        revealEdges: ["entry-hall", "hall-key"],
+        highlightEdges: ["entry-hall", "hall-key"],
+      },
+    ],
+    [
+      "Conditional route",
+      {
+        revealNodes: ["locked-door"],
+        revealEdges: ["key-lock"],
+        highlightNodes: ["locked-door"],
+        highlightEdges: ["key-lock"],
+      },
+    ],
+    [
+      "Opening towards the boss",
+      {
+        revealNodes: ["boss-room"],
+        revealEdges: ["lock-boss"],
+        highlightNodes: ["boss-room"],
+        highlightEdges: ["lock-boss"],
+      },
+    ],
+  ],
+});
+
+export const weightedGraph = defineGraphPreset({
+  title: "Weighted Graph example",
+  description: "In the examples above, all edges are equal. In this example, we add weights to the edges to represent the cost of moving from one room to another.",
+  height: 350,
+  showViewportControls: false,  
+  stepDurationMs: 1300,
+  nodes: [
+    ["entry", "Entry", 20, 40],
+    ["room1", "Hall", 280, 40],
+    ["room2", "Key Room", 20, 160],
+    ["boss-room", "Boss Room", 280, 160],
+  ],
+  edges: [
+    ["entry", "room1", { id: "entry-room1", label: "1", directed: false }],
+    ["entry", "room2", { id: "entry-room2", label: "2", directed: false }],
+    ["room1", "boss-room", { id: "room1-boss-room", label: "4", directed: false }],
+    ["room2", "boss-room", { id: "room2-boss-room", label: "2", directed: false }],
+  ],
+  timeline: [
+    [
+      "In this example, the shortest path from the entry to the boss room is through room 2, even if it's not the most direct path when starting from the entry.",
+      {
+        revealNodes: ["entry", "room1", "room2", "boss-room"],
+        revealEdges: ["entry-room1", "entry-room2", "room1-boss-room", "room2-boss-room"],
+        highlightEdges: ["entry-room2", "room2-boss-room"],
+      },
+    ],
+  ],
+});
+
+export const deadCellsLevelGraph = defineGraphPreset({
+  title: "LevelGraph of Dead Cells",
+  description: "This is a free intepretation of the level graph of the first level of Dead Cells.",
+  height: 650,
+  showViewportControls: false,  
+  stepDurationMs: 10000,
+  nodes: [
+    ["entry", "Entry", 0, 0],
+    ["teleporter1", "Teleporter", 0, 75],
+    ["combat1", "Combat", 0, 150],
+    ["teleporter2", "Teleporter", 0, 225],
+    ["shop", "Shop", 0, 300],
+    ["combat2", "Combat", 0, 375],
+    ["teleporter3", "Teleporter", 0, 450],
+    ["combat3", "Combat", 0, 525],
+    ["teleporter4", "Teleporter", 0, 600],
+    ["combat4", "Combat", 0, 675],
+    ["teleporter5", "Teleporter", 0, 750],
+    ["exit1", "Exit - Promenade of the Condemned", 0, 825],
+    ["secret1", "Secret", -200, 600],
+    ["crossing1", "Crossing", 200, 225],
+    ["teleporter6", "Teleporter", 400, 225],
+    ["treasure1", "Treasure", 600, 225],
+    ["lock1", "Lock progression", 200, 300],
+    ["teleporter7", "Teleporter", 200, 375],
+    ["combat5", "Combat", 200, 450],
+    ["teleporter8", "Teleporter", 200, 525],
+    ["exit2", "Exit - Toxic Sewers", 200, 600],
+    ["lock2", "Lock progression", 400, 375],
+    ["combat6", "Combat", 400, 450],
+    ["teleporter9", "Teleporter", 400, 525],
+    ["exit3", "Exit - The Dilapidated Arboretum", 400, 600],
+  ],
+  edges: [
+    ["entry", "teleporter1", { id: "entry-teleporter1", label: "", directed: false }],
+    ["teleporter1", "combat1", { id: "teleporter1-combat1", label: "", directed: false }],
+    ["combat1", "teleporter2", { id: "combat1-teleporter2", label: "", directed: false }],
+    ["teleporter2", "shop", { id: "teleporter2-shop", label: "", directed: false }],
+    ["shop", "combat2", { id: "shop-combat2", label: "", directed: false }],
+    ["combat2", "teleporter3", { id: "combat2-teleporter3", label: "", directed: false }],
+    ["teleporter3", "combat3", { id: "teleporter3-combat3", label: "", directed: false }],
+    ["combat3", "teleporter4", { id: "combat3-teleporter4", label: "", directed: false }],
+    ["teleporter4", "combat4", { id: "teleporter4-combat4", label: "", directed: false }],
+    ["combat4", "teleporter5", { id: "combat4-teleporter5", label: "", directed: false }],
+    ["teleporter5", "exit1", { id: "teleporter5-exit1", label: "", directed: false }],
+    ["teleporter4", "secret1", { id: "teleporter4-secret1", label: "", directed: false }],
+    ["teleporter2", "crossing1", { id: "teleporter2-crossing1", label: "", directed: false }],
+    ["crossing1", "teleporter6", { id: "crossing1-teleporter6", label: "", directed: false }],
+    ["teleporter6", "treasure1", { id: "teleporter6-treasure1", label: "", directed: false }],
+    ["crossing1", "lock1", { id: "crossing1-lock1", label: "", directed: false }],
+    ["lock1", "teleporter7", { id: "lock1-teleporter7", label: "", directed: false }],
+    ["teleporter7", "combat5", { id: "teleporter7-combat5", label: "", directed: false }],
+    ["combat5", "teleporter8", { id: "combat5-teleporter8", label: "", directed: false }],
+    ["teleporter8", "exit2", { id: "teleporter8-exit2", label: "", directed: false }],
+    ["teleporter7", "lock2", { id: "teleporter7-lock2", label: "", directed: false }],
+    ["lock2", "combat6", { id: "lock2-combat6", label: "", directed: false }],
+    ["combat6", "teleporter9", { id: "combat6-teleporter9", label: "", directed: false }],
+    ["teleporter9", "exit3", { id: "teleporter9-exit3", label: "", directed: false }],
+  ],
+  timeline: [
+    [
+      "In the first run of the level, the player can only access the path that leads to the Promenade of the Condemned. This is the critical path on witch the player will learn the mechanics of the game.",
+      {
+        revealNodes: ["entry", "teleporter1", "combat1", "teleporter2", "shop", "combat2", "teleporter3", "combat3", "teleporter4", "combat4", "teleporter5", "exit1"],
+        revealEdges: ["entry-teleporter1", "teleporter1-combat1", "combat1-teleporter2", "teleporter2-shop", "shop-combat2", "combat2-teleporter3", "teleporter3-combat3", "combat3-teleporter4", "teleporter4-combat4", "combat4-teleporter5", "teleporter5-exit1"],
+        highlightEdges: ["entry-teleporter1", "teleporter1-combat1", "combat1-teleporter2", "teleporter2-shop", "shop-combat2", "combat2-teleporter3", "teleporter3-combat3", "combat3-teleporter4", "teleporter4-combat4", "combat4-teleporter5", "teleporter5-exit1"],
+        highlightNodes: ["exit1"],
+      },
+    ],
+    [
+      "In the first run of the level, there is already some optional paths that allows the player to find a secret and a treasure.",
+      {
+        revealNodes: ["secret1", "crossing1", "teleporter6", "treasure1"],
+        revealEdges: ["teleporter4-secret1", "teleporter2-crossing1", "crossing1-teleporter6", "teleporter6-treasure1"],
+        highlightEdges: ["teleporter4-secret1", "teleporter2-crossing1", "crossing1-teleporter6", "teleporter6-treasure1"],
+        highlightNodes: ["secret1", "treasure1"],
+      },
+    ],
+    [
+      "In the first run of the level, the player can already see that some parts of the level is locked under a specific upgrade",
+      {
+        revealNodes: ["lock1"],
+        revealEdges: ["crossing1-lock1"],
+        highlightNodes: ["lock1"],
+      },
+    ],
+    [
+      "After unlocking the first upgrade, the player has now access to 2 differents exists",
+      {
+        revealNodes: ["teleporter7", "combat5", "teleporter8", "exit2"],
+        revealEdges: ["lock1-teleporter7", "teleporter7-combat5", "combat5-teleporter8", "teleporter8-exit2"],
+        highlightNodes: ["exit1", "exit2"],
+      },
+    ],
+    [
+      "The same trick is repeated with a third path that is locked",
+      {
+        revealNodes: ["lock2"],
+        revealEdges: ["teleporter7-lock2"],
+        highlightNodes: ["lock2"],
+      },
+    ],
+    [
+      "Once this upgrade is unlocked, the player has access to the last exit of the level",
+      {
+        revealNodes: ["combat6", "teleporter9", "exit3"],
+        revealEdges: ["lock2-combat6", "combat6-teleporter9", "teleporter9-exit3"],
+        highlightNodes: ["exit1", "exit2", "exit3"],
+      },
+    ],
+  ],
+});
+
+export const levelGraphLinear = defineGraphPreset({
+  title: "Level Graph : Linear Design",
+  description: "In this example, the player must go through each room in a specific order to reach the boss room",
+  height: 80,
+  showViewportControls: false,  
+  stepDurationMs: 1300,
+  nodes: [
+    ["room1", "START", 0, 40],
+    ["room2", "NORMAL", 200, 40],
+    ["room4", "KEY", 400, 40],
+    ["room5", "DOOR", 600, 40],
+    ["room6", "BOSS", 800, 40],
+  ],
+  edges: [
+    ["entry", "room1", { id: "entry-room1", directed: true }],
+    ["room1", "room2", { id: "room1-room2", directed: true }],
+    ["room2", "room4", { id: "room2-room4", directed: true }],
+    ["room4", "room5", { id: "room4-room5", directed: true }],
+    ["room5", "room6", { id: "room5-room6", directed: true }],
+  ],
+});
+
+export const levelGraphHistory = defineGraphPreset({
+  title: "History Graph",
+  description: "A graph can also be used to represent a short quest",
+  height: 80,
+  showViewportControls: false,  
+  stepDurationMs: 1300,
+  nodes: [
+    ["room1", "Meet NPC", 0, 40],
+    ["room2", "Get quest from NPC", 200, 27],
+    ["room4", "Find NPC's daughter", 400, 27],
+    ["room5", "Return to NPC", 600, 40],
+    ["room6", "Receive reward", 800, 40],
+  ],
+  edges: [
+    ["entry", "room1", { id: "entry-room1", directed: true }],
+    ["room1", "room2", { id: "room1-room2", directed: true }],
+    ["room2", "room4", { id: "room2-room4", directed: true }],
+    ["room4", "room5", { id: "room4-room5", directed: true }],
+    ["room5", "room6", { id: "room5-room6", directed: true }],
+  ],
+});
+
+export const levelGraphBranching = defineGraphPreset({
+  title: "Level Graph : Branching Design",
+  description: "Here the user can choose explore differents paths even if the player's path is still linear.",
+  height: 300,
+  showViewportControls: false,  
+  stepDurationMs: 1300,
+  nodes: [
+    ["room1", "START", 0, 40],
+    ["room2", "NORMAL", 200, 40],
+    ["room4", "BRANCHING", 400, 40],
+    ["room5", "NORMAL", 600, 40],
+    ["room6", "BOSS", 800, 40],
+    ["room7", "NORMAL", 400, 120],
+    ["room8", "TREASURE", 400, 200],
+  ],
+  edges: [
+    ["room1", "room2", { id: "room1-room2", directed: false }],
+    ["room2", "room4", { id: "room2-room4", directed: false }],
+    ["room4", "room5", { id: "room4-room5", directed: false }],
+    ["room5", "room6", { id: "room5-room6", directed: false }],
+    ["room4", "room7", { id: "room4-room7", directed: false }],
+    ["room7", "room8", { id: "room7-room8", directed: false }],
+  ],
+});
+
+# Graphs and Procedural Generation: The Essential Foundations for Creating Worlds
+
+The initial problem is simple: pure randomness produces noise, not design. Take the example of The Binding of Isaac, an action/adventure game released in 2011.
+
+<Columns colummns={2} gap="1.5rem">
+<div>
+In this game, you move from room to room. While the rooms themselves are pre-built, their sequence is procedurally generated. Now imagine if the decision to have a second room after the first was purely random: you could end up stuck in the first room because there’s no exit. Taken to the extreme, randomness without design leads to rooms with no purpose, incoherent quests, or nonsensical dialogue. On the other hand, a game with strict design and rules will offer a very linear experience to the player.
+</div>
+<div>
+<ImageWithCaption 
+  src="/assets/images/posts/ProceduralGraphGeneration/binding_of_isaac.jpg" 
+  alt="Screenshot of The Binding of Isaac showing a single room" 
+  source="https://store.steampowered.com/app/113200/The_Binding_of_Isaac/?l=french"
+  float="none" 
+/></div>
+</Columns>
+
+The goal in a video game using procedural generation is to avoid pure randomness and take control over it, while still adding a layer of noise to ensure the player never has the same experience twice. To achieve this, you need an approach that allows a team to collaboratively design the set of algorithms. One effective solution is to use graphs.
+
+In this article series, we'll break down how graphs can help structure procedural generation algorithms, for example to:
+- Shape 2D or 3D worlds.
+- Build dynamic mission and quest systems.
+- Create branching dialogues that react to the game state.
+
+The aim of this first article is to lay out the mathematical foundations for understanding graphs. In the next articles, we'll focus on how to translate these concepts into game design decisions, look at graph-based procedural generation algorithms, and see how to implement them in a game engine. In our case, we'll use Unity.
+
+## Why Graphs Are Everywhere in PCG (Procedural Content Generation)
+
+A graph is a way to represent relationships between elements:
+
+- **A node** represents a discrete element (a room, an objective, a line of dialogue, etc.). It's also called a vertex or simply a point.
+- **An edge** represents a logical connection between two nodes (a door between rooms, a condition for completing an objective, a transition between dialogue lines, etc.).
+
+<GraphDemo client:visible {...simpleGraph} />
+
+In procedural generation, this lets you separate:
+
+- **The logical structure.** This is the description of what's possible.
+- **The rendering.** This is what the player actually experiences visually, audibly, or through gameplay.
+
+<ImageWithCaption 
+  src="/assets/images/posts/ProceduralGraphGeneration/dead_cells_graph.png" 
+  alt="Screenshot of Dead Cells showing a procedurally generated map." 
+  caption="Here I've drawn a simple graph over the layout of the first level in Dead Cells. Each node represents a room, and each edge represents a corridor between rooms. On the right, you see only the graph, without the level's visual representation." 
+  float="none" 
+/>
+
+At Old Skull Games, for example, we adopted this approach to create procedural levels in [SpongeBob: Patty Pursuit](/projects/spongebob-patty-pursuit/). We first defined the logical structure of the level as a graph, then used that graph to generate the level's visual layout.
+
+1. **Design:** Designers, level artists, and programmers aligned on the intended experience.
+2. **Prototyping:** We sketched a graph on paper showing the sequence of sections/rooms.
+3. **Implementation:** A small team of three people built the validated prototype.
+
+## Minimal Math Recap
+
+Good news: we've already seen the two most important concepts : **nodes** and **edges**.
+
+### Cycle
+
+Let's start with the idea of a cycle. A cycle is a loop in a graph, meaning a sequence of edges that starts and ends at the same node. For example, in a dungeon, a cycle might represent a path that lets the player backtrack.
+
+<GraphDemo client:visible {...simpleGraphWithCycle} />
+
+### Tree
+
+If a graph contains no cycles, it's called a **tree**. For example, a branching story might lock certain branches and gradually force the player toward an ending. This structure also lets you organize nodes in a hierarchy, with a **root node** (e.g., the story's beginning) and **leaf nodes** (the possible endings).
+
+<GraphDemo client:visible {...simpleTree} />
+
+### Graph Orientation
+
+In the previous example, I drew arrows instead of plain lines to indicate edge direction. This is called a **directed graph**. In a directed graph, edges have a direction, meaning the relationship they represent isn't symmetric (A can lead to B, but B doesn't necessarily lead to A). For example, in a quest, you might want certain steps to be one-way (once the player saves the princess, they can't go back and let her be captured again).
+
+<GraphDemo client:visible {...questGraph} />
+
+Conversely, there are undirected graphs, where edges have no direction. In this case, the relationship is symmetric (if A is connected to B, then B is also connected to A). For example, in a dungeon, you might want some routes to be bidirectional (a door that can be opened from either side).
+
+<GraphDemo client:visible {...notOrientedGraph} />
+
+Of course, you can mix both types of edges. In a level with doors and keys, some routes are bidirectional, others strictly one-way. Technically, even if a graph contains both directed and undirected edges, you can treat it as a directed graph, since undirected edges can be represented as two directed edges in opposite directions.
+
+<GraphDemo client:visible {...mixedGraph} />
+
+### Weights
+
+While not always necessary, you can add weights to edges. For example, in a dungeon, you might want some routes to be longer than others, or some objectives to be harder to reach.
+
+<GraphDemo client:visible {...weightedGraph} />
+
+# Level Design and Graphs
+
+Okay, we've covered the math basics, but how does this translate to level design? The exact way you represent a level as a graph depends on the game type and your team's workflow. The most common use I see is:
+- Nodes represent rooms or sections of the level.
+- Edges represent the connections between those rooms (doors, corridors, etc.).
+
+Now you need to think about your level's structure: Are the rooms organized linearly, or are there branches? Can the player backtrack? Are some routes harder than others? By answering these questions, you can choose the graph structure that best fits your vision. To do this, we'll create a graph where each node is named for its function. This is often called a **Level Graph**.
+
+For example, if you want a linear level, you can use a directed acyclic graph, where each room leads to the next.
+
+<GraphDemo client:visible {...levelGraphLinear} />
+
+This same structure can represent a linear story, where each step leads to the next.
+
+<GraphDemo client:visible {...levelGraphHistory} />
+
+You might also want a more open level, with branches and alternate routes. In this case, you can use a directed graph with cycles, letting the player backtrack or choose different paths.
+
+<GraphDemo client:visible {...levelGraphBranching} />
+
+This example highlights a key element of procedural generation: if you create exploration in your level, you need to ensure several things:
+- The player can backtrack and not get stuck. The easier it is to backtrack, the more motivated the player will be to explore.
+- Dead ends should reward exploration, for example by offering treasures or secrets. This encourages players to take risks and discover new things.
+
+Dead Cells is an excellent example of these design rules applied to procedural generation. In the last part of this article, we'll analyze how graphs are used in this game to create interesting and varied levels. 
+
+# Study Case: Applying Graphs to Procedural Generation in Dead Cells
+
+<Columns colummns={2} gap="1.5rem">
+<div>
+If you don't know the game, it's a roguelike with Metroidvania ambitions, where you explore a world with zones that unlock progressively. Each run feels unique thanks to procedural generation, but the levels are designed to ensure a coherent and engaging experience. Check it out on <a href="https://store.steampowered.com/app/588650/Dead_Cells/" target="_blank" rel="noopener noreferrer">Steam</a> if you haven't already.
+</div>
+<div>
+<ImageWithCaption 
+  src="\assets\images\posts\ProceduralGraphGeneration\dead_cells_steam_page.jpg" 
+  alt="Screenshot of Dead Cells showing a procedurally generated map." 
+  source="https://store.steampowered.com/app/588650/Dead_Cells/"
+  float="none"
+/></div>
+</Columns>
+
+First, I want to point out that I don't know the exact details of Dead Cells' procedural generation algorithms, my goal here is to reverse-engineer how graphs might be used to structure procedural level generation in a game like Dead Cells. If you're interested in a deeper analysis, check out these resources:
+- <a href="https://www.indiedb.com/games/dead-cells/news/the-level-design-of-a-procedurally-generated-metroidvania" target="_blank" rel="noopener noreferrer">This article by Sebastien Benard, Lead Designer of Dead Cells</a>, which explains the inspiration behind Dead Cells' level design and how the team tackled the challenge of creating procedurally generated levels that still feel handcrafted.
+- <a href="https://www.youtube.com/watch?v=9sKjv8n2XqA" target="_blank" rel="noopener noreferrer">This video, which attempts to reproduce the process</a>, goes into more detail about the algorithms and includes an attempt to recreate the room generation process.
+
+Now, let's put ourselves in the shoes of Motion Twin, the studio behind Dead Cells. We want to create a roguelike with Metroidvania ambitions. We want players to explore a world with zones that unlock progressively, but also want each run to feel unique thanks to procedural generation. To do this, let's list the types of rooms in the game (not exhaustive, just for illustration):
+- Combat
+- Corridor
+- Entry
+- Exit
+- FlaskRoom
+- Teleporter
+- Treasure
+- Shop
+- Crossing
+- etc.
+
+Now let's break down the structure of a Dead Cells level and create a Level Graph using the room types above.
+
+<ImageWithCaption 
+  src="/assets/images/posts/ProceduralGraphGeneration/dead_cells_prisoner_quarters.png" 
+  alt="A possible level graph for a level in Dead Cells for the biome Prisoner's Quarters." 
+  caption="A possible level graph for a level in Dead Cells for the biome Prisoner's Quarters." 
+  float="none"
+/>
+
+Here's that same level transformed into a Level Graph. Each node represents a room, and each edge represents a corridor.
+
+<GraphDemo client:visible {...deadCellsLevelGraph} />
+
+With this graph breakdown, we can deduce several **design constraints** for procedural generation:
+- **Critical Path:** There's a notion of a critical path that, as developers, we can ensure every player will traverse at least once. This guarantees the player learns the game’s mechanics and allows for narrative delivery, even in a procedurally generated game.
+- **Optional Paths:** In addition to the critical path, you can create optional routes for players to discover secrets or earn extra rewards. This encourages exploration and adds variety to each run. It's important to always include a reward in these optional paths to motivate players to explore.
+- **Backtracking:** It's important to let players backtrack so they don't get stuck. The easier it is to backtrack, the more motivated players will be to explore. For example, Motion Twin added teleporters between rooms, letting players easily return to previous locations.
+
+Returning to SpongeBob: Patty Pursuit mentioned earlier, this kind of procedural generation structuring tool is essential for communication between different teams (designers, level artists, programmers). It ensures everyone is aligned on the level/game vision and the constraints to be implemented. It also enables rapid prototyping to test different scenarios.
+
+# Conclusion
+
+These basic concepts are enough to structure most procedural generation systems. I encourage you to experiment with them and try to retro-engineer the graph structure of your favorite games.
+
+## Key Takeaways
+
+<Admonition type="note">
+The key concepts from this article:
+- **A node** represents a discrete element.
+- **An edge** represents a logical connection between two nodes.
+- A **graph** represents relationships between **nodes** connected by **edges**.
+- A **cycle** is a loop in the graph.
+- A **tree** is an acyclic graph (no cycles).
+- A graph can be **directed** (edges have direction) or **undirected** (edges are bidirectional).
+- Graphs can be **weighted**: edges have weights representing costs or difficulty.
+
+There are also some design rules to follow:
+- **Critical Path:** Make sure every player traverses the critical path at least once to learn the game's mechanics and deliver narrative.
+- **Optional Paths:** You can create optional routes for exploration, but always include a reward to motivate players.
+- **Backtracking:** Allow players to backtrack so they don't get stuck. The easier it is, the more motivated they'll be to explore. Again, this isn't mandatory.
+</Admonition>
+
+## Next Step
+
+In the next article, we'll see how to translate these mathematical concepts into C# code in Unity. We'll set up a simple data structure and basic algorithms for traversing graphs. 
